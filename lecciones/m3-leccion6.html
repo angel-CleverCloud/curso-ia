@@ -297,8 +297,11 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
   </div>
 </div>
 
+<script src="../js/prompt-manager.js"></script>
+<script src="../js/script.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     inicializarPromptManager('m3-l6');
+    if (typeof initPromptBlocks === 'function') initPromptBlocks();
   });
 </script>

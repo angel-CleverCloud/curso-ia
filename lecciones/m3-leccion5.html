@@ -276,8 +276,11 @@
   </div>
 </div>
 
+<script src="../js/prompt-manager.js"></script>
+<script src="../js/script.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     inicializarPromptManager('m3-l5');
+    if (typeof initPromptBlocks === 'function') initPromptBlocks();
   });
 </script>

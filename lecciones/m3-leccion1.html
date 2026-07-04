@@ -239,9 +239,12 @@
   </div>
 </div>
 
+<script src="../js/prompt-manager.js"></script>
+<script src="../js/script.js"></script>
 <script>
   // Inicializar cuando la lección cargue
   document.addEventListener('DOMContentLoaded', function() {
     inicializarPromptManager('m3-l1');
+    if (typeof initPromptBlocks === 'function') initPromptBlocks();
   });
 </script>
