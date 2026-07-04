@@ -127,24 +127,36 @@
 <h2>Ejemplo real: API de reservas</h2>
 
 <h3>Paso 1: Analizar requerimiento</h3>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Prompt: "Analiza este requerimiento y lista las ambigüedades que encuentres:
+<div class="prompt-block">
+<pre><code>Prompt: "Analiza este requerimiento y lista las ambigüedades que encuentres:
 'API para reservar mesas en restaurantes. Los clientes reservan, el restaurante confirma.'"</code></pre>
+</div>
 <p><strong>Respuesta esperada:</strong> ¿Cuántas mesas? ¿Horarios? ¿Capacidad? ¿Cómo se confirma? ¿Notificaciones?</p>
 
 <h3>Paso 2: Especificación clara</h3>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Prompt: "Con base en las ambigüedades detectadas, escribe una especificación clara del sistema de reservas."</code></pre>
+<div class="prompt-block">
+<pre><code>Prompt: "Con base en las ambigüedades detectadas, escribe una especificación clara del sistema de reservas."</code></pre>
+</div>
 
 <h3>Paso 3: Plan de implementación</h3>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Prompt: "Propón un plan de implementación por pasos, empezando por el modelo de datos."</code></pre>
+<div class="prompt-block">
+<pre><code>Prompt: "Propón un plan de implementación por pasos, empezando por el modelo de datos."</code></pre>
+</div>
 
 <h3>Paso 4: Implementar paso 1</h3>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Prompt: "Implementa solo el modelo de datos (Prisma schema) según la especificación."</code></pre>
+<div class="prompt-block">
+<pre><code>Prompt: "Implementa solo el modelo de datos (Prisma schema) según la especificación."</code></pre>
+</div>
 
 <h3>Paso 5: Pruebas</h3>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Prompt: "Genera pruebas unitarias para el modelo de datos usando Jest."</code></pre>
+<div class="prompt-block">
+<pre><code>Prompt: "Genera pruebas unitarias para el modelo de datos usando Jest."</code></pre>
+</div>
 
 <h3>Paso 6: Revisión crítica</h3>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Prompt: "Revisa críticamente el modelo de datos. Identifica problemas de normalización, rendimiento y escalabilidad."</code></pre>
+<div class="prompt-block">
+<pre><code>Prompt: "Revisa críticamente el modelo de datos. Identifica problemas de normalización, rendimiento y escalabilidad."</code></pre>
+</div>
 
 <div class="highlight"><strong>Consejo del instructor:</strong> No intentes saltarte pasos. Cada paso de la cadena tiene un propósito: detectar errores temprano, refinar la dirección y asegurar calidad. Saltar un paso es como construir una casa sin cimientos.</div>
 
@@ -165,16 +177,34 @@
 </ul>
 
 <h2>Actividad práctica</h2>
-<p>Toma el siguiente requerimiento incompleto y aplica la cadena mínima de 6 prompts:</p>
-<div class="highlight">"Sistema de gestión de inventario para un almacén. Debe controlar entradas y salidas de productos, generar alertas de stock bajo y reportes semanales."</div>
+<p><strong>Objetivo:</strong> Practicar la creación de una cadena de 6 prompts para un problema real.</p>
+<p><strong>Instrucciones:</strong></p>
+<p>Toma el siguiente requerimiento incompleto y diseña una cadena completa de 6 prompts:</p>
+<div class="highlight">
+  <strong>Requerimiento:</strong> "Sistema de gestión de inventario para un almacén. Debe controlar entradas y salidas de productos, generar alertas de stock bajo y reportes semanales."
+</div>
+
+<p><strong>Escriba los 6 prompts de la cadena:</strong></p>
 <ol>
-  <li>Escribe el prompt para detectar ambigüedades.</li>
-  <li>Escribe la especificación clara resultante.</li>
-  <li>Escribe el plan de implementación.</li>
-  <li>Escribe el prompt para implementar solo el modelo de datos.</li>
-  <li>Escribe el prompt para generar pruebas.</li>
-  <li>Escribe el prompt para revisión crítica.</li>
+  <li><strong>Prompt 1 (Análisis):</strong> Detecta ambigüedades en el requerimiento. Ejemplo: "Analiza este requerimiento y lista al menos 5 preguntas que necesitas responder antes de empezar."</li>
+  <li><strong>Prompt 2 (Especificación):</strong> Define una especificación clara basada en supuestos razonables.</li>
+  <li><strong>Prompt 3 (Arquitectura):</strong> Propone un plan de implementación por pasos (mínimo 5 pasos).</li>
+  <li><strong>Prompt 4 (Implementación):</strong> Implementa solo el primer paso del plan (ej: modelo de datos).</li>
+  <li><strong>Prompt 5 (Testing):</strong> Genera pruebas unitarias para el paso implementado.</li>
+  <li><strong>Prompt 6 (Revisión):</strong> Revisa críticamente el código del paso 1.</li>
 </ol>
+
+<div class="highlight">
+  <strong>Ejemplo de la estructura esperada:</strong><br><br>
+  <strong>PROMPT 1 (ANÁLISIS):</strong><br>
+  "Analiza este requerimiento y detecta ambigüedades..."<br><br>
+  <strong>RESPUESTA ESPERADA:</strong><br>
+  Lista de preguntas sin responder<br><br>
+  <strong>PROMPT 2 (ESPECIFICACIÓN):</strong><br>
+  "Basándote en las ambigüedades detectadas, escribe una especificación clara..."<br><br>
+  [Continúa con prompts 3-6...]<br><br>
+  <em>Nota: No necesitas ejecutar realmente estos prompts con una IA, solo diseñarlos correctamente</em>
+</div>
 
 <h2>Mini reto</h2>
 <p>Selecciona un proyecto open-source que conozcas. Imagina que necesitas agregar una funcionalidad nueva (ej: "modo oscuro" en una app existente). Diseña una cadena de 6 prompts específicos para esa funcionalidad, considerando que ya existe el código base.</p>
@@ -188,26 +218,66 @@
   <li>Revisar cada paso antes de continuar es fundamental para el éxito de la cadena.</li>
 </ul>
 
-<div class="evidence-section">
-  <h2>📤 Entrega de Evidencia</h2>
-  <p>Sube tu evidencia de la actividad práctica:</p>
-  <div class="evidence-form" id="evidenceForm-m3-l2">
-    <div class="evidence-field">
-      <label for="fileInput-m3-l2">Selecciona tu archivo (.pdf, .docx, .zip, .png, .jpg, .jpeg):</label>
-      <input type="file" id="fileInput-m3-l2" accept=".pdf,.docx,.zip,.png,.jpg,.jpeg">
+<div class="prompt-evidence-section">
+  <h2>💬 Compartir Prompt Utilizado</h2>
+  <p>Registra la cadena de 6 prompts que diseñaste y los resultados que obtuviste de la IA.</p>
+  
+  <div class="prompt-form" id="prompt-form-m3-l5">
+    <div class="prompt-field">
+      <label for="prompt-input-m3-l5">📝 Cadena de 6 prompts que diseñaste</label>
+      <textarea 
+        id="prompt-input-m3-l5" 
+        rows="8" 
+        maxlength="2000"
+        placeholder="PROMPT 1 (Análisis):&#10;[texto del prompt]&#10;&#10;PROMPT 2 (Especificación):&#10;[texto del prompt]&#10;&#10;...continúa con prompts 3-6..."
+        oninput="actualizarContadorPrompt('m3-l5')"></textarea>
+      <div class="prompt-counter">
+        <span id="prompt-counter-m3-l5">0</span> / 2000 caracteres
+      </div>
     </div>
-    <div class="evidence-field">
-      <label for="reflection-m3-l2">¿Qué aprendiste al realizar esta actividad?</label>
-      <textarea id="reflection-m3-l2" rows="4" maxlength="500" oninput="actualizarContador('m3-l2')" placeholder="Escribe tu reflexión aquí..."></textarea>
-      <div class="char-counter"><span id="counter-m3-l2">0</span> / 500 caracteres</div>
+
+    <div class="prompt-field">
+      <label for="prompt-query-m3-l5">💭 Resultado: ¿Cuál de los 6 prompts fue el más importante?</label>
+      <textarea 
+        id="prompt-query-m3-l5"
+        rows="4"
+        maxlength="1000"
+        placeholder="Reflexiona: ¿Cuál de los 6 prompts (análisis, especificación, arquitectura, implementación, testing, revisión) fue el más crucial para obtener un buen resultado final?"
+      ></textarea>
     </div>
-    <button class="btn-evidencia" onclick="enviarEvidencia('m3-l2')">Enviar Evidencia</button>
-    <div id="msg-m3-l2" class="evidence-msg"></div>
+
+    <button class="btn-guardar-prompt" onclick="guardarPromptEvidencia('m3-l5')">
+      ✓ Guardar evidencia
+    </button>
+    <div id="prompt-msg-m3-l5" class="prompt-msg"></div>
   </div>
-  <div id="evidenceSubmitted-m3-l2" class="evidence-submitted" style="display:none;">
-    <p><strong>✅ Evidencia enviada correctamente</strong></p>
-    <p><strong>Archivo:</strong> <span id="fileName-m3-l2"></span></p>
-    <p><strong>Tu reflexión:</strong></p>
-    <blockquote id="savedReflection-m3-l2"></blockquote>
+
+  <div id="prompt-submitted-m3-l5" class="prompt-submitted" style="display:none;">
+    <h3>✅ Evidencia guardada correctamente</h3>
+    
+    <div class="prompt-submitted-item">
+      <strong>Cadena de 6 prompts:</strong>
+      <div class="prompt-submitted-content" id="saved-prompt-m3-l5"></div>
+    </div>
+
+    <div class="prompt-submitted-item">
+      <strong>Análisis del prompt más importante:</strong>
+      <div class="prompt-submitted-content" id="saved-query-m3-l5"></div>
+    </div>
+
+    <div class="prompt-submitted-saved-at">
+      <span id="saved-at-m3-l5"></span>
+    </div>
+
+    <div class="prompt-button-group">
+      <button class="btn-editar-prompt" onclick="editarPrompt('m3-l5')">✏️ Editar</button>
+      <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l5')">🗑️ Eliminar</button>
+    </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    inicializarPromptManager('m3-l5');
+  });
+</script>

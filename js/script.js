@@ -101,6 +101,7 @@ function saveGrades(g) {
 
 document.addEventListener('DOMContentLoaded', function() {
   initPrefs()
+  initPromptBlocks()
   if (document.getElementById('panelContent')) {
     initPanel()
   }
@@ -356,6 +357,8 @@ async function loadLesson(modId, lesId) {
     wrapper.innerHTML = article.innerHTML
     content.appendChild(wrapper)
 
+    initPromptBlocks()
+
     // If it's a quiz lesson, init interactive quiz
     const subtitleEl = wrapper.querySelector('.subtitle')
     if (subtitleEl && /quiz/i.test(subtitleEl.textContent)) {
@@ -367,7 +370,11 @@ async function loadLesson(modId, lesId) {
 
     // Evidence section (skip for quiz lessons)
     if (!subtitleEl || !/quiz/i.test(subtitleEl.textContent)) {
-      initEvidenceSection(wrapper, key)
+      if (modId === 3) {
+        initPromptEvidenceSection(wrapper, key)
+      } else {
+        initEvidenceSection(wrapper, key)
+      }
     }
 
     const nav = document.createElement('div')
@@ -1687,6 +1694,88 @@ function initConfig() {
     user.photo = (photo && photo.indexOf('default-avatar') === -1) ? photo : ''
     saveUser(user)
     document.getElementById('configMsg').textContent = '✅ Cambios guardados'
+  })
+}
+
+// ============================================================
+// PROMPT BLOCKS — reusable component
+// ============================================================
+
+function initPromptBlocks() {
+  document.querySelectorAll('.prompt-block').forEach(function(block) {
+    if (block.dataset.promptReady) return
+    block.dataset.promptReady = '1'
+
+    var pre = block.querySelector('pre')
+    var code = block.querySelector('code')
+    if (!pre && !code) return
+
+    var content = document.createElement('div')
+    content.className = 'prompt-content'
+    if (pre) {
+      content.appendChild(pre.cloneNode(true))
+      pre.replaceWith(content)
+    } else if (code) {
+      content.appendChild(code.cloneNode(true))
+      code.replaceWith(content)
+    }
+
+    // measure full content height vs constrained visible height
+    // temporarily apply collapsed constraint to get the visible threshold
+    block.classList.add('collapsed')
+    var visibleH = content.clientHeight
+    block.classList.remove('collapsed')
+    var isLong = content.scrollHeight > visibleH
+
+    if (isLong) {
+      block.classList.add('has-expand-btn')
+
+      var fade = document.createElement('div')
+      fade.className = 'prompt-fade'
+      block.appendChild(fade)
+
+      var expandBtn = document.createElement('button')
+      expandBtn.className = 'prompt-expand-btn'
+      expandBtn.textContent = '\u25bc Ver completo'
+      block.appendChild(expandBtn)
+
+      block.classList.add('collapsed')
+
+      expandBtn.addEventListener('click', function() {
+        var isCollapsed = block.classList.toggle('collapsed')
+        expandBtn.textContent = isCollapsed ? '\u25bc Ver completo' : '\u25b2 Ocultar'
+      })
+    }
+
+    var copyBtn = document.createElement('button')
+    copyBtn.className = 'prompt-copy-btn'
+    copyBtn.setAttribute('aria-label', 'Copiar prompt')
+    copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'
+    block.appendChild(copyBtn)
+
+    var tooltip = document.createElement('span')
+    tooltip.className = 'prompt-copy-tooltip'
+    tooltip.textContent = 'Copiar prompt'
+    block.appendChild(tooltip)
+
+    copyBtn.addEventListener('click', function() {
+      var codeEl = content.querySelector('code')
+      var text = codeEl ? codeEl.textContent : content.textContent
+      navigator.clipboard.writeText(text).then(function() {
+        copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+        tooltip.textContent = '\u00a1Prompt copiado!'
+        tooltip.classList.add('show')
+        setTimeout(function() {
+          copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'
+          tooltip.textContent = 'Copiar prompt'
+          tooltip.classList.remove('show')
+        }, 2000)
+      }).catch(function() {
+        tooltip.textContent = 'Error al copiar'
+        tooltip.classList.add('show')
+        setTimeout(function() { tooltip.classList.remove('show') }, 1500)
+      })
+    })
   })
 }
 

@@ -29,12 +29,14 @@
 </ol>
 
 <h2>Ejemplo de contexto bien armado</h2>
+<div class="prompt-block">
 <pre><code>Objetivo: Implementar autenticación con JWT
 Rol: Desarrollador backend especializado en Node.js
 Estado actual: Express configurado, BD PostgreSQL con tabla 'usuarios'
 Stack: Node 20, Express 4, jsonwebtoken, bcrypt
 Restricciones: No modificar package.json, no agregar dependencias
 Formato: Código completo con comentarios mínimos</code></pre>
+</div>
 
 <h2>Desglose detallado de cada elemento</h2>
 
@@ -135,16 +137,36 @@ Formato: Código completo con comentarios mínimos</code></pre>
 </ul>
 
 <h2>Actividad práctica</h2>
-<p>Selecciona un proyecto real o ficticio y completa los siete elementos esenciales:</p>
+<p><strong>Objetivo:</strong> Aplicar los siete elementos esenciales de información creando un contexto completo.</p>
+<p><strong>Instrucciones:</strong></p>
 <ol>
-  <li>Objetivo del proyecto</li>
-  <li>Rol esperado</li>
-  <li>Estado actual</li>
-  <li>Restricciones técnicas</li>
-  <li>Lo que NO debe hacer</li>
-  <li>Formato de salida</li>
-  <li>Criterios de aceptación</li>
+  <li>Selecciona un proyecto real o ficticio (puede ser uno que conozcas bien, un proyecto personal, o uno que imagines).</li>
+  <li>Completa los <strong>siete elementos esenciales</strong>:
+    <ul>
+      <li>Objetivo del proyecto</li>
+      <li>Rol esperado</li>
+      <li>Estado actual</li>
+      <li>Restricciones técnicas</li>
+      <li>Lo que NO debe hacer</li>
+      <li>Formato de salida</li>
+      <li>Criterios de aceptación</li>
+    </ul>
+  </li>
+  <li>Documenta tu contexto de forma clara y concisa (5-10 líneas es suficiente).</li>
+  <li>Verifica que cada elemento sea específico y medible.</li>
 </ol>
+
+<div class="highlight">
+  <strong>Ejemplo completo de un buen contexto con los 7 elementos:</strong><br><br>
+  <strong>Objetivo:</strong> API REST para un ecommerce de ropa<br>
+  <strong>Rol:</strong> Desarrollador backend senior en Node.js<br>
+  <strong>Estado actual:</strong> Proyecto Vite + Express, tabla de productos lista, PostgreSQL conectada<br>
+  <strong>Restricciones:</strong> Node 20 LTS, sin dependencias externas (solo Express y Prisma)<br>
+  <strong>Lo que NO debe hacer:</strong> No modificar el schema de la BD, no cambiar estructura de carpetas<br>
+  <strong>Formato:</strong> Código completo con comentarios JSDoc<br>
+  <strong>Criterios:</strong> Debe pasar npm run lint, incluir manejo de errores, retornar JSON válido<br><br>
+  <em>Nota: Los 7 elementos se pueden expresar en 7-10 líneas, no necesitas un documento extenso</em>
+</div>
 
 <h2>Mini reto</h2>
 <p>Escribe el contexto para construir una API de clima. Debes incluir los siete elementos. Luego pídele a una IA que genere el código usando solo tu contexto. ¿Fue suficiente? Si la IA pidió más información, identifica qué elemento faltó o estuvo incompleto.</p>
@@ -157,26 +179,66 @@ Formato: Código completo con comentarios mínimos</code></pre>
   <li>Siete elementos pueden expresarse en 5-10 líneas; no necesitas documentos extensos.</li>
 </ul>
 
-<div class="evidence-section">
-  <h2>📤 Entrega de Evidencia</h2>
-  <p>Sube tu evidencia de la actividad práctica:</p>
-  <div class="evidence-form" id="evidenceForm-m3-l2">
-    <div class="evidence-field">
-      <label for="fileInput-m3-l2">Selecciona tu archivo (.pdf, .docx, .zip, .png, .jpg, .jpeg):</label>
-      <input type="file" id="fileInput-m3-l2" accept=".pdf,.docx,.zip,.png,.jpg,.jpeg">
+<div class="prompt-evidence-section">
+  <h2>💬 Compartir Prompt Utilizado</h2>
+  <p>Registra el contexto que creaste en esta lección y el prompt que usaste para validarlo con una IA.</p>
+  
+  <div class="prompt-form" id="prompt-form-m3-l2">
+    <div class="prompt-field">
+      <label for="prompt-input-m3-l2">📝 Contexto que creaste (los 7 elementos)</label>
+      <textarea 
+        id="prompt-input-m3-l2" 
+        rows="6" 
+        maxlength="2000"
+        placeholder="Pega los 7 elementos esenciales que completaste:&#10;&#10;Objetivo: ...&#10;Rol: ...&#10;Estado actual: ...&#10;Restricciones: ...&#10;Lo que NO debe hacer: ...&#10;Formato: ...&#10;Criterios: ..."
+        oninput="actualizarContadorPrompt('m3-l2')"></textarea>
+      <div class="prompt-counter">
+        <span id="prompt-counter-m3-l2">0</span> / 2000 caracteres
+      </div>
     </div>
-    <div class="evidence-field">
-      <label for="reflection-m3-l2">¿Qué aprendiste al realizar esta actividad?</label>
-      <textarea id="reflection-m3-l2" rows="4" maxlength="500" oninput="actualizarContador('m3-l2')" placeholder="Escribe tu reflexión aquí..."></textarea>
-      <div class="char-counter"><span id="counter-m3-l2">0</span> / 500 caracteres</div>
+
+    <div class="prompt-field">
+      <label for="prompt-query-m3-l2">💭 Última pregunta o ajuste realizado</label>
+      <textarea 
+        id="prompt-query-m3-l2"
+        rows="4"
+        maxlength="1000"
+        placeholder="¿Qué pregunta hiciste a la IA para validar tu contexto? Ejemplo: 'Usando este contexto, generá el código del endpoint GET /productos' o 'Es suficiente este contexto para implementar la autenticación?'"
+      ></textarea>
     </div>
-    <button class="btn-evidencia" onclick="enviarEvidencia('m3-l2')">Enviar Evidencia</button>
-    <div id="msg-m3-l2" class="evidence-msg"></div>
+
+    <button class="btn-guardar-prompt" onclick="guardarPromptEvidencia('m3-l2')">
+      ✓ Guardar evidencia
+    </button>
+    <div id="prompt-msg-m3-l2" class="prompt-msg"></div>
   </div>
-  <div id="evidenceSubmitted-m3-l2" class="evidence-submitted" style="display:none;">
-    <p><strong>✅ Evidencia enviada correctamente</strong></p>
-    <p><strong>Archivo:</strong> <span id="fileName-m3-l2"></span></p>
-    <p><strong>Tu reflexión:</strong></p>
-    <blockquote id="savedReflection-m3-l2"></blockquote>
+
+  <div id="prompt-submitted-m3-l2" class="prompt-submitted" style="display:none;">
+    <h3>✅ Evidencia guardada correctamente</h3>
+    
+    <div class="prompt-submitted-item">
+      <strong>Contexto creado (7 elementos):</strong>
+      <div class="prompt-submitted-content" id="saved-prompt-m3-l2"></div>
+    </div>
+
+    <div class="prompt-submitted-item">
+      <strong>Última pregunta realizada:</strong>
+      <div class="prompt-submitted-content" id="saved-query-m3-l2"></div>
+    </div>
+
+    <div class="prompt-submitted-saved-at">
+      <span id="saved-at-m3-l2"></span>
+    </div>
+
+    <div class="prompt-button-group">
+      <button class="btn-editar-prompt" onclick="editarPrompt('m3-l2')">✏️ Editar</button>
+      <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l2')">🗑️ Eliminar</button>
+    </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    inicializarPromptManager('m3-l2');
+  });
+</script>

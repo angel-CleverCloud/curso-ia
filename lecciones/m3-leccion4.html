@@ -20,6 +20,7 @@
 <h2>Context Packet</h2>
 <p>El Context Packet es un documento estructurado que contiene toda la información que la IA necesita para entender tu proyecto. Piénsalo como el README de tu proyecto, pero orientado a la IA.</p>
 
+<div class="prompt-block">
 <pre><code>## Objetivo:
 [¿Qué vamos a construir/lograr?]
 
@@ -51,6 +52,7 @@
 
 ## Punto de revisión humana:
 [¿Qué debe revisar el humano?]</code></pre>
+</div>
 
 <h2>Cómo usar el Context Packet</h2>
 
@@ -66,6 +68,7 @@
 <h2>Plantillas por tipo de proyecto</h2>
 
 <h3>Plantilla para proyecto web</h3>
+<div class="prompt-block">
 <pre><code>## Objetivo:
 App web para [descripción del negocio]
 
@@ -101,8 +104,10 @@ Código completo + tests
 ## Revisión humana:
 - Validar seguridad
 - Validar rendimiento</code></pre>
+</div>
 
 <h3>Plantilla para automatización/scripts</h3>
+<div class="prompt-block">
 <pre><code>## Objetivo:
 Script para [tarea específica]
 
@@ -136,8 +141,10 @@ Script Python autocontenido
 ## Revisión:
 - Probar con datos reales
 - Validar edge cases</code></pre>
+</div>
 
 <h2>Ejemplo completo: Dashboard financiero</h2>
+<div class="prompt-block">
 <pre><code>## Objetivo:
 Dashboard financiero personal que muestra gastos, ingresos y proyecciones mensuales
 
@@ -179,6 +186,7 @@ Código completo de cada componente nuevo o modificado
 - Validar que los tipos sean correctos
 - Verificar que los gráficos se rendericen correctamente
 - Revisar accesibilidad básica</code></pre>
+</div>
 
 <h2>Tabla comparativa: Context Packet vs Documentación tradicional</h2>
 <div style="overflow-x:auto;">
@@ -254,13 +262,45 @@ Código completo de cada componente nuevo o modificado
 </ul>
 
 <h2>Actividad práctica</h2>
-<p>Crea un Context Packet completo para uno de los siguientes proyectos:</p>
+<p><strong>Objetivo:</strong> Crear un Context Packet profesional y completo para un proyecto real.</p>
+<p><strong>Instrucciones:</strong></p>
 <ol>
-  <li>Una API REST para gestión de inventario de una tienda.</li>
-  <li>Un script de automatización que descargue, procese y envíe por correo reportes diarios.</li>
-  <li>Un componente React de calendario con eventos arrastrables.</li>
+  <li>Elige uno de estos proyectos (real o ficticio):
+    <ul>
+      <li>Una API REST para gestión de inventario de una tienda</li>
+      <li>Un script de automatización que descargue, procese y envíe reportes diarios</li>
+      <li>Un componente React de calendario con eventos arrastrables</li>
+    </ul>
+  </li>
+  <li>Crea un Context Packet completo que incluya <strong>todas las 8 secciones</strong>:
+    <ol type="a">
+      <li>Objetivo del proyecto</li>
+      <li>Rol esperado de la IA</li>
+      <li>Estado actual del proyecto</li>
+      <li>Restricciones técnicas</li>
+      <li>Criterios de aceptación</li>
+      <li>Formato de salida esperado</li>
+      <li>Lo que NO debe hacer</li>
+      <li>Punto de revisión humana</li>
+    </ol>
+  </li>
+  <li>Asegúrate de que cada sección contenga información <strong>específica y medible</strong>.</li>
+  <li>Tu Context Packet debe tener entre 8-15 líneas (no más).</li>
+  <li>Verifica que sea reutilizable para múltiples prompts.</li>
 </ol>
-<p>Incluye todas las secciones del Context Packet y asegúrate de que cada campo contenga información específica y útil.</p>
+
+<div class="highlight">
+  <strong>Estructura recomendada para tu Context Packet:</strong><br><br>
+  <strong>## Objetivo:</strong> [1 línea clara]<br>
+  <strong>## Rol:</strong> [1 línea específica]<br>
+  <strong>## Contexto del proyecto:</strong> [2 líneas]<br>
+  <strong>## Restricciones técnicas:</strong> [3-4 líneas]<br>
+  <strong>## Criterios de aceptación:</strong> [3-4 líneas]<br>
+  <strong>## Formato:</strong> [1 línea]<br>
+  <strong>## Lo que NO debe hacer:</strong> [2 líneas]<br>
+  <strong>## Revisión humana:</strong> [1-2 líneas]<br><br>
+  <em>Total: 10-15 líneas, ni más ni menos</em>
+</div>
 
 <h2>Mini reto</h2>
 <p>Toma un proyecto tuyo existente y crea su Context Packet. Luego, pídele a la IA que realice una tarea de ese proyecto usando solo el Context Packet como información de fondo. Compara la respuesta con una sesión anterior donde no usaste el packet. ¿Cuál fue mejor?</p>
@@ -274,26 +314,66 @@ Código completo de cada componente nuevo o modificado
   <li>Usar el mismo packet en todas las sesiones garantiza consistencia.</li>
 </ul>
 
-<div class="evidence-section">
-  <h2>📤 Entrega de Evidencia</h2>
-  <p>Sube tu evidencia de la actividad práctica:</p>
-  <div class="evidence-form" id="evidenceForm-m3-l2">
-    <div class="evidence-field">
-      <label for="fileInput-m3-l2">Selecciona tu archivo (.pdf, .docx, .zip, .png, .jpg, .jpeg):</label>
-      <input type="file" id="fileInput-m3-l2" accept=".pdf,.docx,.zip,.png,.jpg,.jpeg">
+<div class="prompt-evidence-section">
+  <h2>💬 Compartir Prompt Utilizado</h2>
+  <p>Registra el Context Packet que creaste y documenta cómo lo usaste con una IA.</p>
+  
+  <div class="prompt-form" id="prompt-form-m3-l4">
+    <div class="prompt-field">
+      <label for="prompt-input-m3-l4">📝 Context Packet completo que creaste</label>
+      <textarea 
+        id="prompt-input-m3-l4" 
+        rows="8" 
+        maxlength="2000"
+        placeholder="Pega tu Context Packet completo con todas las 8 secciones:&#10;&#10;## Objetivo:&#10;...&#10;## Rol:&#10;...&#10;## Contexto del proyecto:&#10;...&#10;## Restricciones técnicas:&#10;...&#10;[continúa con las demás secciones]"
+        oninput="actualizarContadorPrompt('m3-l4')"></textarea>
+      <div class="prompt-counter">
+        <span id="prompt-counter-m3-l4">0</span> / 2000 caracteres
+      </div>
     </div>
-    <div class="evidence-field">
-      <label for="reflection-m3-l2">¿Qué aprendiste al realizar esta actividad?</label>
-      <textarea id="reflection-m3-l2" rows="4" maxlength="500" oninput="actualizarContador('m3-l2')" placeholder="Escribe tu reflexión aquí..."></textarea>
-      <div class="char-counter"><span id="counter-m3-l2">0</span> / 500 caracteres</div>
+
+    <div class="prompt-field">
+      <label for="prompt-query-m3-l4">💭 Primer prompt que usaste junto al Context Packet</label>
+      <textarea 
+        id="prompt-query-m3-l4"
+        rows="4"
+        maxlength="1000"
+        placeholder="¿Cuál fue el primer prompt específico que le enviaste a la IA después del Context Packet? Ejemplo: 'Usando el contexto anterior, crea el endpoint GET /inventario con paginación'"
+      ></textarea>
     </div>
-    <button class="btn-evidencia" onclick="enviarEvidencia('m3-l2')">Enviar Evidencia</button>
-    <div id="msg-m3-l2" class="evidence-msg"></div>
+
+    <button class="btn-guardar-prompt" onclick="guardarPromptEvidencia('m3-l4')">
+      ✓ Guardar evidencia
+    </button>
+    <div id="prompt-msg-m3-l4" class="prompt-msg"></div>
   </div>
-  <div id="evidenceSubmitted-m3-l2" class="evidence-submitted" style="display:none;">
-    <p><strong>✅ Evidencia enviada correctamente</strong></p>
-    <p><strong>Archivo:</strong> <span id="fileName-m3-l2"></span></p>
-    <p><strong>Tu reflexión:</strong></p>
-    <blockquote id="savedReflection-m3-l2"></blockquote>
+
+  <div id="prompt-submitted-m3-l4" class="prompt-submitted" style="display:none;">
+    <h3>✅ Evidencia guardada correctamente</h3>
+    
+    <div class="prompt-submitted-item">
+      <strong>Context Packet creado:</strong>
+      <div class="prompt-submitted-content" id="saved-prompt-m3-l4"></div>
+    </div>
+
+    <div class="prompt-submitted-item">
+      <strong>Primer prompt utilizado:</strong>
+      <div class="prompt-submitted-content" id="saved-query-m3-l4"></div>
+    </div>
+
+    <div class="prompt-submitted-saved-at">
+      <span id="saved-at-m3-l4"></span>
+    </div>
+
+    <div class="prompt-button-group">
+      <button class="btn-editar-prompt" onclick="editarPrompt('m3-l4')">✏️ Editar</button>
+      <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l4')">🗑️ Eliminar</button>
+    </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    inicializarPromptManager('m3-l4');
+  });
+</script>

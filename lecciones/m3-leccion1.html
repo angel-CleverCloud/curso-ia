@@ -110,17 +110,23 @@
 
 <h3>Ejemplo 1: Desarrollo web</h3>
 <p><strong>Mala práctica (mega-prompt):</strong></p>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>"Eres un desarrollador React. Trabajas en un ecommerce con Next.js 14, Tailwind, PostgreSQL, Prisma, Vercel. El proyecto vende libros online. Hay un carrito de compras, autenticación con NextAuth, pagos con Stripe. Crea un componente que muestre el historial de pedidos del usuario, con los últimos 10 pedidos, ordenados por fecha descendente, mostrando el total, estado, y enlace a detalle. Usa TypeScript. Sigue la convención de nombres del proyecto."</code></pre>
+<div class="prompt-block">
+<pre><code>"Eres un desarrollador React. Trabajas en un ecommerce con Next.js 14, Tailwind, PostgreSQL, Prisma, Vercel. El proyecto vende libros online. Hay un carrito de compras, autenticación con NextAuth, pagos con Stripe. Crea un componente que muestre el historial de pedidos del usuario, con los últimos 10 pedidos, ordenados por fecha descendente, mostrando el total, estado, y enlace a detalle. Usa TypeScript. Sigue la convención de nombres del proyecto."</code></pre>
+</div>
 <p><strong>Bien separado (contexto + prompt):</strong></p>
 <p><em>Contexto (se reutiliza):</em></p>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Contexto del proyecto:
+<div class="prompt-block">
+<pre><code>Contexto del proyecto:
 - Aplicación: Ecommerce de libros
 - Stack: Next.js 14, Tailwind, TypeScript, Prisma, PostgreSQL
 - Autenticación: NextAuth
 - Pagos: Stripe
 - Despliegue: Vercel</code></pre>
+</div>
 <p><em>Prompt (cambia por tarea):</em></p>
-<pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;"><code>Crea el componente OrderHistory que muestre los últimos 10 pedidos del usuario autenticado, ordenados por fecha descendente. Cada pedido debe mostrar: ID, fecha, total, estado y un botón "Ver detalle". Usa TypeScript y Server Components de Next.js 14.</code></pre>
+<div class="prompt-block">
+<pre><code>Crea el componente OrderHistory que muestre los últimos 10 pedidos del usuario autenticado, ordenados por fecha descendente. Cada pedido debe mostrar: ID, fecha, total, estado y un botón "Ver detalle". Usa TypeScript y Server Components de Next.js 14.</code></pre>
+</div>
 
 <h3>Ejemplo 2: Automatización</h3>
 <p><strong>Contexto:</strong> "Scripts de automatización para procesos ETL. Lenguaje: Python 3.11. Base de datos destino: Snowflake. Las fuentes son archivos CSV diarios."</p>
@@ -145,12 +151,24 @@
 </ul>
 
 <h2>Actividad práctica</h2>
-<p>Toma un proyecto real o ficticio en el que estés trabajando y escribe:</p>
+<p><strong>Objetivo:</strong> Practicar la separación entre prompt y contexto creando prompts reales para una IA.</p>
+<p><strong>Instrucciones:</strong></p>
 <ol>
-  <li>Un bloque de contexto con la información estable del proyecto (stack, rol, reglas, estado actual).</li>
-  <li>Tres prompts diferentes que usarías con ese mismo contexto.</li>
-  <li>Explica por qué cada información está en su lugar correcto.</li>
+  <li>Elige un proyecto real o ficticio en el que estés trabajando (puede ser web, automatización, análisis de datos, etc.).</li>
+  <li>Crea un bloque de contexto con la información estable del proyecto (stack, rol, reglas, estado actual).</li>
+  <li>Escribe <strong>3 prompts diferentes</strong> que usarías con ese mismo contexto, sin repetir la información del contexto en cada prompt.</li>
+  <li>Cada prompt debe ser específico para una tarea distinta dentro del mismo proyecto.</li>
+  <li>Verifica que tu separación siga la regla: "Si uso esta información en múltiples prompts, esa información es contexto".</li>
 </ol>
+
+<div class="highlight">
+  <strong>Ejemplo de lo que buscamos:</strong><br><br>
+  <strong>Contexto del proyecto:</strong> "App Node.js 20 + Express 4 + PostgreSQL con Prisma. Autenticación JWT. Base de datos con tablas: usuarios, productos, pedidos"<br><br>
+  <strong>Prompt 1:</strong> "Crea el endpoint GET /productos que retorne todos los productos con paginación de 10 items"<br><br>
+  <strong>Prompt 2:</strong> "Implementa el middleware de autenticación que valide el JWT"<br><br>
+  <strong>Prompt 3:</strong> "Genera las migraciones Prisma para las tablas usuarios y productos"<br><br>
+  <em>Nota: El contexto se usa una sola vez, luego cada prompt es específico</em>
+</div>
 <h2>Mini reto</h2>
 <p>Sin mirar tus notas, escribe en una sola frase la diferencia entre prompt y contexto. Luego compara con la definición de la lección. Si tu frase captura la esencia, has comprendido el concepto. Si no, repasa los ejemplos.</p>
 
@@ -163,26 +181,67 @@
   <li>Separar contexto de prompt mejora la claridad, la consistencia y ahorra tokens.</li>
 </ul>
 
-<div class="evidence-section">
-  <h2>📤 Entrega de Evidencia</h2>
-  <p>Sube tu evidencia de la actividad práctica:</p>
-  <div class="evidence-form" id="evidenceForm-m3-l1">
-    <div class="evidence-field">
-      <label for="fileInput-m3-l1">Selecciona tu archivo (.pdf, .docx, .zip, .png, .jpg, .jpeg):</label>
-      <input type="file" id="fileInput-m3-l1" accept=".pdf,.docx,.zip,.png,.jpg,.jpeg">
+<div class="prompt-evidence-section">
+  <h2>💬 Compartir Prompt Utilizado</h2>
+  <p>Registra el contexto y los prompts que realmente utilizaste con una IA para completar la actividad. Esto te ayudará a documentar tu aprendizaje y crear una biblioteca personal de prompts efectivos.</p>
+  
+  <div class="prompt-form" id="prompt-form-m3-l1">
+    <div class="prompt-field">
+      <label for="prompt-input-m3-l1">📝 Contexto y prompts que utilizaste</label>
+      <textarea 
+        id="prompt-input-m3-l1" 
+        rows="6" 
+        maxlength="2000"
+        placeholder="Pega el contexto del proyecto y los prompts que creaste. Ejemplo:&#10;&#10;CONTEXTO:&#10;Stack: React 18, Node.js 20, PostgreSQL&#10;&#10;PROMPT 1:&#10;Crea un componente que muestre...&#10;&#10;PROMPT 2:&#10;Implementa la validación de...&#10;&#10;PROMPT 3:&#10;Genera los tests para..."
+        oninput="actualizarContadorPrompt('m3-l1')"></textarea>
+      <div class="prompt-counter">
+        <span id="prompt-counter-m3-l1">0</span> / 2000 caracteres
+      </div>
     </div>
-    <div class="evidence-field">
-      <label for="reflection-m3-l1">¿Qué aprendiste al realizar esta actividad?</label>
-      <textarea id="reflection-m3-l1" rows="4" maxlength="500" oninput="actualizarContador('m3-l1')" placeholder="Escribe tu reflexión aquí..."></textarea>
-      <div class="char-counter"><span id="counter-m3-l1">0</span> / 500 caracteres</div>
+
+    <div class="prompt-field">
+      <label for="prompt-query-m3-l1">💭 Última conversación o consulta realizada</label>
+      <textarea 
+        id="prompt-query-m3-l1"
+        rows="4"
+        maxlength="1000"
+        placeholder="¿Cuál fue la última pregunta o corrección que hiciste a la IA? Ejemplo: 'Ajusta el código para que valide emails correctamente' o 'Añade manejo de errores a la función de login'"
+      ></textarea>
     </div>
-    <button class="btn-evidencia" onclick="enviarEvidencia('m3-l1')">Enviar Evidencia</button>
-    <div id="msg-m3-l1" class="evidence-msg"></div>
+
+    <button class="btn-guardar-prompt" onclick="guardarPromptEvidencia('m3-l1')">
+      ✓ Guardar evidencia
+    </button>
+    <div id="prompt-msg-m3-l1" class="prompt-msg"></div>
   </div>
-  <div id="evidenceSubmitted-m3-l1" class="evidence-submitted" style="display:none;">
-    <p><strong>✅ Evidencia enviada correctamente</strong></p>
-    <p><strong>Archivo:</strong> <span id="fileName-m3-l1"></span></p>
-    <p><strong>Tu reflexión:</strong></p>
-    <blockquote id="savedReflection-m3-l1"></blockquote>
+
+  <div id="prompt-submitted-m3-l1" class="prompt-submitted" style="display:none;">
+    <h3>✅ Evidencia guardada correctamente</h3>
+    
+    <div class="prompt-submitted-item">
+      <strong>Prompts utilizados:</strong>
+      <div class="prompt-submitted-content" id="saved-prompt-m3-l1"></div>
+    </div>
+
+    <div class="prompt-submitted-item">
+      <strong>Última consulta realizada:</strong>
+      <div class="prompt-submitted-content" id="saved-query-m3-l1"></div>
+    </div>
+
+    <div class="prompt-submitted-saved-at">
+      <span id="saved-at-m3-l1"></span>
+    </div>
+
+    <div class="prompt-button-group">
+      <button class="btn-editar-prompt" onclick="editarPrompt('m3-l1')">✏️ Editar</button>
+      <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l1')">🗑️ Eliminar</button>
+    </div>
   </div>
 </div>
+
+<script>
+  // Inicializar cuando la lección cargue
+  document.addEventListener('DOMContentLoaded', function() {
+    inicializarPromptManager('m3-l1');
+  });
+</script>

@@ -966,6 +966,156 @@ body:has(.panel-header) {
   padding-bottom:0;
 }
 
+/* === PROMPT BLOCKS === */
+.prompt-block {
+  position:relative;
+  background:#f1f5f9;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  margin:16px 0;
+  font-family:Consolas,'Courier New',monospace;
+  font-size:0.9rem;
+  line-height:1.65;
+  color:#1e293b;
+}
+.prompt-block.collapsed {
+  overflow:hidden;
+}
+.dark-mode .prompt-block {
+  background:#1e293b;
+  border-color:#334155;
+  color:#e2e8f0;
+}
+.prompt-block pre,
+.prompt-block code {
+  font-family:inherit;
+  white-space:pre-wrap;
+  word-break:break-word;
+  background:transparent;
+  padding:0;
+  margin:0;
+  color:inherit;
+  display:block;
+}
+.prompt-block .prompt-content {
+  padding:18px 44px 18px 20px;
+  overflow:hidden;
+  transition:max-height .35s ease;
+  max-height:none;
+}
+.prompt-block.collapsed .prompt-content {
+  max-height:140px;
+  padding-bottom:44px;
+}
+.prompt-block:not(.collapsed).has-expand-btn .prompt-content {
+  padding-bottom:44px;
+}
+.prompt-block .prompt-fade {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:48px;
+  background:linear-gradient(rgba(241,245,249,0) 0%, rgba(241,245,249,0.85) 50%, #f1f5f9 100%);
+  pointer-events:none;
+  transition:opacity .25s;
+  z-index:1;
+}
+.dark-mode .prompt-block .prompt-fade {
+  background:linear-gradient(rgba(30,41,59,0) 0%, rgba(30,41,59,0.85) 50%, #1e293b 100%);
+}
+.prompt-block:not(.collapsed) .prompt-fade {
+  opacity:0;
+}
+/* expand/collapse button */
+.prompt-expand-btn {
+  position:absolute;
+  bottom:10px;
+  right:12px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  font-size:0.82rem;
+  color:#2563eb;
+  font-weight:600;
+  padding:2px 8px;
+  border-radius:5px;
+  transition:background .15s;
+  z-index:2;
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+}
+.prompt-expand-btn:hover {
+  background:#e2e8f0;
+}
+.dark-mode .prompt-expand-btn {
+  color:#60a5fa;
+}
+.dark-mode .prompt-expand-btn:hover {
+  background:#334155;
+}
+/* copy button */
+.prompt-copy-btn {
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:32px;
+  height:32px;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  color:#64748b;
+  transition:background .15s,color .15s;
+  z-index:3;
+}
+.prompt-copy-btn:hover {
+  background:#e2e8f0;
+  color:#0f172a;
+}
+.dark-mode .prompt-copy-btn {
+  color:#94a3b8;
+}
+.dark-mode .prompt-copy-btn:hover {
+  background:#334155;
+  color:#f1f5f9;
+}
+.prompt-copy-btn svg {
+  width:62.5%;
+  height:62.5%;
+  display:block;
+  pointer-events:none;
+}
+/* copy tooltip */
+.prompt-copy-tooltip {
+  position:absolute;
+  top:4px;
+  right:1px;
+  background:#0f172a;
+  color:#fff;
+  font-size:0.72rem;
+  padding:4px 10px;
+  border-radius:5px;
+  white-space:nowrap;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .15s;
+  z-index:4;
+  line-height:1.4;
+}
+.prompt-copy-tooltip.show {
+  opacity:1;
+}
+.dark-mode .prompt-copy-tooltip {
+  background:#f1f5f9;
+  color:#0f172a;
+}
+
 /* === RESPONSIVE === */
 @media(max-width:768px){
   .hero h1{
