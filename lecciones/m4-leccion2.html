@@ -1,18 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 4 · Lección 2 de 7</p>
 <h1>4.2 Qué no debe hacerse: pedir "todo el sistema"</h1>
 <p class="subtitle">Módulo 4 · Documento</p>
-<div class="highlight"><strong>Objetivo:</strong> Entender por qué pedir el sistema completo a la IA es un error.</div>
-<h2>Por qué es mala idea</h2>
-<ul><li>La IA pierde el contexto global y genera inconsistencias</li><li>Las partes del sistema se acoplan mal entre sí</li><li>Es imposible revisar todo el código generado de una vez</li><li>Los errores son difíciles de localizar</li><li>El resultado suele ser código genérico que no se adapta a tus necesidades</li></ul>
-<h2>Mal ejemplo</h2>
-<div class="highlight">"Genera un sistema completo de e-commerce con autenticación, carrito, pagos, y panel de administración"</div>
-<h2>Bien ejemplo (encadenado)</h2>
-<div class="highlight">Paso 1: "Genera solo el modelo de datos para usuarios y productos"<br>Paso 2: "Genera el endpoint de registro de usuarios"<br>Paso 3: "Genera el endpoint de listar productos"</div>
-<div class="highlight"><strong>Regla:</strong> Si el prompt tiene más de 3 requerimientos distintos, divídelo.</div>
-
-<h2>Introducción</h2>
-<p>Una de las tentaciones más comunes al comenzar con desarrollo asistido por IA es pedir todo de una vez: "Genera un sistema completo". En esta lección entenderás por qué este enfoque está condenado al fracaso y aprenderás a dividir tus solicitudes en fragmentos manejables que la IA pueda procesar correctamente.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Entender por qué pedir el sistema completo a la IA es un error.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -22,12 +15,27 @@
   <li>Diseñar una secuencia de prompts que construyan un sistema paso a paso.</li>
   <li>Reconocer cuándo un prompt es demasiado grande y requiere división.</li>
 </ul>
+</section>
+<section class="l11-card l11-group">
 
+<h2>Por qué es mala idea</h2>
+<ul><li>La IA pierde el contexto global y genera inconsistencias</li><li>Las partes del sistema se acoplan mal entre sí</li><li>Es imposible revisar todo el código generado de una vez</li><li>Los errores son difíciles de localizar</li><li>El resultado suele ser código genérico que no se adapta a tus necesidades</li></ul>
+
+<h2>Mal ejemplo</h2>
+<div class="highlight">"Genera un sistema completo de e-commerce con autenticación, carrito, pagos, y panel de administración"</div>
+
+<h2>Bien ejemplo (encadenado)</h2>
+<div class="highlight">Paso 1: "Genera solo el modelo de datos para usuarios y productos"<br>Paso 2: "Genera el endpoint de registro de usuarios"<br>Paso 3: "Genera el endpoint de listar productos"</div>
+<div class="highlight"><strong>Regla:</strong> Si el prompt tiene más de 3 requerimientos distintos, divídelo.</div>
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Una de las tentaciones más comunes al comenzar con desarrollo asistido por IA es pedir todo de una vez: "Genera un sistema completo". En esta lección entenderás por qué este enfoque está condenado al fracaso y aprenderás a dividir tus solicitudes en fragmentos manejables que la IA pueda procesar correctamente.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>El problema del contexto limitado</h3>
 <p>Los modelos de lenguaje tienen una ventana de contexto finita (medida en tokens). Cuando pides un sistema completo, la IA debe distribuir su atención entre múltiples componentes, lo que resulta en código genérico, inconsistente y con acoplamientos frágiles. Además, al generar todo de una vez, no puedes verificar cada parte antes de continuar.</p>
-
 <h3>Las consecuencias de los prompts monolíticos</h3>
 <ul>
   <li><strong>Inconsistencias internas:</strong> La IA puede nombrar una variable "usuario" en un módulo y "user" en otro.</li>
@@ -36,12 +44,11 @@
   <li><strong>Código genérico:</strong> La IA recurre a soluciones estándar que no se adaptan a tu arquitectura específica.</li>
   <li><strong>Revisión humana inviable:</strong> Revisar 500 líneas de código generadas en un solo prompt es propenso a errores.</li>
 </ul>
-
 <h3>La técnica de encadenamiento de prompts</h3>
 <p>El encadenamiento consiste en dividir un sistema grande en una secuencia de prompts pequeños, donde el resultado de cada paso sirve como contexto para el siguiente. Esto permite mantener coherencia, revisar cada fragmento y corregir sobre la marcha.</p>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
-
 <h3>Ejemplo 1: Sistema de gestión de tareas (To-Do List)</h3>
 <p><strong>Prompt monolítico (malo):</strong></p>
 <div class="highlight">"Crea un sistema completo de gestión de tareas con usuarios, autenticación, CRUD de tareas, categorías, y panel de administración."</div>
@@ -51,10 +58,10 @@ Paso 1: "Crea el modelo de datos SQL para un sistema de tareas. Tablas: usuarios
 Paso 2: "Basado en este modelo, genera el endpoint POST /api/register para registro de usuarios con validación de email y contraseña."<br>
 Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del usuario autenticado, ordenadas por fecha."
 </div>
-
 <h3>Ejemplo 2: API REST para e-commerce</h3>
 <p><strong>Enfoque por capas:</strong></p>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Paso</th><th>Prompt</th><th>Resultado esperado</th></tr>
   </thead>
@@ -65,9 +72,12 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
     <tr><td>4</td><td>"Crea pruebas unitarias para el endpoint de productos"</td><td>Tests automatizados</td></tr>
   </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Comparación: Prompt monolítico vs. Encadenado</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Aspecto</th><th>Prompt monolítico</th><th>Prompt encadenado</th></tr>
   </thead>
@@ -79,7 +89,9 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
     <tr><td>Uso de contexto</td><td>Desperdicia tokens</td><td>Optimiza el contexto</td></tr>
   </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Diagrama: Encadenamiento de prompts</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:25px;margin:20px 0;text-align:center;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;">
@@ -95,11 +107,9 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
   </div>
   <div style="margin-top:12px;font-size:0.85rem;color:#64748b;">Cada paso toma el resultado del anterior como contexto</div>
 </div>
-
 <div class="highlight">
   <strong>💡 Consejo del instructor:</strong> Crea un archivo "contexto.md" en tu proyecto donde vayas acumulando las decisiones y especificaciones. Al iniciar un nuevo prompt, copia las partes relevantes del contexto. Esto ayuda a la IA a mantener coherencia entre pasos.
 </div>
-
 <div class="highlight" style="border-left-color:#f59e0b;">
   <strong>⚠ Errores comunes:</strong>
   <ul>
@@ -108,9 +118,10 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
     <li><strong>No proporcionar contexto suficiente:</strong> Asumir que la IA recuerda lo que generó hace varios pasos sin reafirmarlo.</li>
   </ul>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>✔ Define el alcance de cada prompt antes de escribirlo.</li>
   <li>✔ Incluye el resultado del paso anterior como contexto del siguiente.</li>
   <li>✔ Usa nomenclatura coherente en todos los pasos.</li>
@@ -118,13 +129,20 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
   <li>✔ Si un paso genera más de 100 líneas, considera dividirlo.</li>
   <li>✔ Documenta la secuencia de prompts para poder reproducirla.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Toma un sistema simple (ej: un blog con posts, comentarios y usuarios) y diseña una secuencia de mínimo 5 prompts encadenados que construyan el sistema paso a paso. Para cada prompt, especifica: objetivo, qué contexto necesita del paso anterior, y qué resultado esperas.</p>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Refactoriza un prompt monolítico que encuentres en internet o que hayas usado antes. Divídelo siguiendo la técnica de encadenamiento y documenta cómo mejora la calidad del resultado. Compara el antes y después.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>Pedir el sistema completo a la IA genera código inconsistente y difícil de depurar.</li>
@@ -133,8 +151,8 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
   <li>La regla de oro: máximo 3 requerimientos por prompt.</li>
   <li>Cada paso del encadenamiento es revisable, testeable y corregible de forma independiente.</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -157,5 +175,4 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

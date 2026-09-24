@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 6 · Lección 2 de 8</p>
 <h1>6.2 Convertir la idea en un requerimiento</h1>
 <p class="subtitle">Módulo 6 · Ejercicio</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Aplicar las técnicas del Módulo 2 para refinar la idea en un requerimiento completo.</div>
-
-<h2>Introducción</h2>
-<p>Una idea inicial es como un boceto en servilleta: captura la esencia pero carece del detalle necesario para construir. En esta lección tomarás la idea del proyecto final y la transformarás en un requerimiento formal utilizando las técnicas de descubrimiento, refinamiento y especificación que aprendiste en el Módulo 2.</p>
-<p>En proyectos reales, esta traducción de "idea" a "requerimiento" es donde fracasan la mayoría de los proyectos. Un requerimiento ambiguo o incompleto genera código incorrecto, retrabajo y frustración. Con IA, el problema se magnifica: la IA no puede preguntar "¿qué quisiste decir aquí?" — simplemente generará algo que parece correcto pero no lo es.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Aplicar las técnicas del Módulo 2 para refinar la idea en un requerimiento completo.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -17,14 +15,18 @@
 <li>Identificar casos borde relevantes para el proyecto</li>
 <li>Definir explícitamente qué queda fuera del alcance del proyecto</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Una idea inicial es como un boceto en servilleta: captura la esencia pero carece del detalle necesario para construir. En esta lección tomarás la idea del proyecto final y la transformarás en un requerimiento formal utilizando las técnicas de descubrimiento, refinamiento y especificación que aprendiste en el Módulo 2.</p>
+<p>En proyectos reales, esta traducción de "idea" a "requerimiento" es donde fracasan la mayoría de los proyectos. Un requerimiento ambiguo o incompleto genera código incorrecto, retrabajo y frustración. Con IA, el problema se magnifica: la IA no puede preguntar "¿qué quisiste decir aquí?" — simplemente generará algo que parece correcto pero no lo es.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>De la idea al requerimiento: el puente necesario</h3>
 <p>La idea inicial del proyecto final es:</p>
 <div class="highlight">"Necesitamos una aplicación web para gestionar tareas personales (to-do list) pero que permita a los usuarios organizar tareas en proyectos, asignar etiquetas, establecer prioridades y fechas de vencimiento. También debe tener recordatorios y un dashboard con estadísticas básicas."</div>
 <p>Para convertirla en un requerimiento, necesitas aplicar un proceso estructurado de refinamiento. Cada técnica del Módulo 2 aborda una dimensión diferente:</p>
-
 <h3>Paso 1: Preguntas de descubrimiento (Lección 2.2)</h3>
 <p>Las preguntas de descubrimiento revelan información que la idea inicial no incluye. Para nuestro proyecto, algunas preguntas clave son:</p>
 <ul>
@@ -34,13 +36,11 @@
 <li>¿El dashboard debe mostrar datos en tiempo real o con datos históricos?</li>
 <li>¿Los usuarios necesitan registrarse o puede usar el sistema sin cuenta?</li>
 </ul>
-
 <h3>Paso 2: Requerimientos funcionales (Lección 2.3)</h3>
 <p>Un requerimiento funcional describe qué debe hacer el sistema. Debe ser específico, medible y verificable. Ejemplo:</p>
 <div class="highlight">RF-01: El sistema permitirá a los usuarios registrados crear proyectos con nombre, descripción y color identificativo.<br>
 RF-02: El sistema permitirá crear tareas dentro de un proyecto con título, descripción, prioridad (alta/media/baja), fecha de vencimiento y etiquetas.<br>
 RF-03: El sistema enviará un recordatorio por notificación del navegador 24 horas antes de la fecha de vencimiento de una tarea.</div>
-
 <h3>Paso 3: Criterios de aceptación Given-When-Then (Lección 2.4)</h3>
 <p>Los criterios de aceptación definen cuándo un requerimiento se considera cumplido. Usando el formato Given-When-Then:</p>
 <div class="highlight"><strong>RF-02:</strong> Crear tarea con prioridad<br>
@@ -48,7 +48,6 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 <strong>When</strong> el usuario crea una tarea con prioridad "alta", título "Revisar diseño" y fecha de vencimiento "2026-08-15"<br>
 <strong>Then</strong> la tarea se guarda con esos datos<br>
 <strong>And</strong> aparece en el listado de tareas del proyecto con la etiqueta "Prioridad: Alta" resaltada en rojo</div>
-
 <h3>Paso 4: Casos borde (Lección 2.5)</h3>
 <p>Los casos borde son situaciones que la idea inicial no contempla. Para nuestro proyecto:</p>
 <ul>
@@ -57,7 +56,6 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 <li>¿Cómo se comporta el dashboard si no hay tareas registradas?</li>
 <li>¿Qué sucede si el usuario programa un recordatorio para una fecha ya pasada?</li>
 </ul>
-
 <h3>Paso 5: Fuera de alcance</h3>
 <p>Definir qué NO hará el proyecto es tan importante como definir qué hará. Para nuestro proyecto:</p>
 <div class="highlight">🔴 Fuera de alcance:<br>
@@ -66,9 +64,11 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 - Integración con calendarios externos (Google Calendar, Outlook)<br>
 - Notificaciones por correo electrónico (solo notificaciones en navegador)<br>
 - Exportación a PDF o CSV</div>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Idea vs. Requerimiento</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead>
 <tr><th>Aspecto</th><th>Idea inicial</th><th>Requerimiento refinado</th></tr>
 </thead>
@@ -81,7 +81,9 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 <tr><td>Uso con IA</td><td>La IA alucinará</td><td>La IA genera código preciso</td></tr>
 </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-plain">
 <h2>Diagrama: Proceso de refinamiento</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:15px 0;text-align:center;font-size:0.9rem;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;max-width:750px;margin:0 auto;">
@@ -100,36 +102,41 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
     <div style="background:#2563eb;color:#fff;padding:8px 14px;border-radius:8px;font-weight:bold;">📋 Requerimiento completo</div>
   </div>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos de refinamiento en otros contextos</h2>
 <ul>
 <li><strong>Automatización:</strong> "Descargar facturas del correo" → "RF-01: El script se conectará a IMAP cada hora, buscará emails con asunto 'Factura' en las últimas 24h, descargará los adjuntos PDF y los guardará en /facturas/{año}/{mes}/"</li>
 <li><strong>IA generativa:</strong> "Generar descripciones de productos" → "RF-02: Dado un nombre de producto, categoría y 3 palabras clave, el sistema generará una descripción de 50-100 palabras usando IA, en tono profesional y sin markdown"</li>
 <li><strong>Prompt engineering:</strong> "Optimizar prompts largos" → "RF-03: El sistema recibirá un prompt de entrada y devolverá una versión optimizada que conserve el significado pero reduzca el número de tokens en al menos un 30%"</li>
 </ul>
-
 <div class="highlight">
 <strong>💡 Consejo del instructor:</strong> Cuando trabajes con IA, un requerimiento ambiguo es más peligroso que un requerimiento incompleto. La IA no te preguntará "¿esto qué significa?" — generará código con su propia interpretación, que casi siempre será incorrecta. Si no puedes escribir un criterio Given-When-Then para una funcionalidad, es porque no la entiendes lo suficiente como para delegarla a una IA.
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Confundir "requerimiento" con "historia de usuario":</strong> Una historia de usuario es una promesa de conversación; un requerimiento es una especificación verificable</li>
 <li><strong>Escribir requerimientos ambiguos:</strong> Usar palabras como "rápido", "moderno", "intuitivo" sin definirlas</li>
 <li><strong>Olvidar los casos borde:</strong> Solo especificar el camino feliz y asumir que todo lo demás no pasará</li>
 <li><strong>No definir el fuera de alcance:</strong> El cliente asumirá que todo está incluido si no se dice explícitamente lo contrario</li>
 <li><strong>Requerimientos no verificables:</strong> "El sistema debe ser fácil de usar" no se puede probar; "el 90% de los usuarios debe completar el registro en menos de 2 minutos" sí</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Usar numeración única:</strong> RF-01, RF-02... para trazabilidad</li>
 <li><strong>Escribir un criterio de aceptación por requerimiento:</strong> Si tiene múltiples, divídelo</li>
 <li><strong>Revisar requerimientos con otra persona:</strong> El sesgo del autor oculta ambigüedades</li>
 <li><strong>Mantener un glosario de términos:</strong> "Usuario", "Administrador", "Tarea" deben tener definiciones únicas</li>
 <li><strong>Versionar los requerimientos:</strong> Los requerimientos cambian; el historial de cambios es documentación valiosa</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Aplica las técnicas del Módulo 2 para refinar la idea del proyecto final en un requerimiento completo:</p>
 <ol>
@@ -139,10 +146,14 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 <li>Identifica casos borde (Lección 2.5)</li>
 <li>Define qué queda fuera de alcance</li>
 </ol>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Toma la idea que registraste en la lección 6.1 (o pide una nueva a la IA) y aplica el proceso completo de refinamiento: preguntas de descubrimiento, requerimientos funcionales, criterios Given-When-Then, casos borde y fuera de alcance. Compara tu resultado con el de un compañero o con una segunda iteración de la IA para identificar diferencias.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>La idea inicial debe pasar por un proceso de refinamiento estructurado antes de usarse con IA</li>
@@ -152,12 +163,9 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 <li>Los casos borde y el fuera de alcance evitan sorpresas durante el desarrollo</li>
 <li>Un requerimiento bien escrito es la base para un contexto IA efectivo</li>
 </ul>
-
-
-
 <p><strong>Entrega:</strong> Requerimiento refinado usando la plantilla completa.</p>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -180,5 +188,4 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

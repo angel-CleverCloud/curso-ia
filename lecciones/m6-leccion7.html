@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 6 · Lección 7 de 8</p>
 <h1>6.7 Documentar el proceso completo</h1>
 <p class="subtitle">Módulo 6 · Documento</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Documentar todo el flujo de trabajo para trazabilidad.</div>
-
-<h2>Introducción</h2>
-<p>La documentación es la última etapa del flujo de desarrollo asistido por IA, pero una de las más importantes. Sin documentación, el conocimiento adquirido durante el proyecto se pierde: no sabes qué prompts funcionaron, qué decisiones tomaste, qué errores encontraste ni por qué rechazaste ciertas soluciones.</p>
-<p>En proyectos reales, la documentación del uso de IA es lo que diferencia un proyecto profesional de un experimento. Cuando otro desarrollador (o tú mismo en 6 meses) necesite entender por qué el código funciona de cierta manera, la documentación será su guía.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Documentar todo el flujo de trabajo para trazabilidad.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -16,9 +14,14 @@
 <li>Justificar cambios aceptados y rechazados con criterios objetivos</li>
 <li>Crear un informe final que integre requerimiento, contexto, generación, validación y resultados</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>La documentación es la última etapa del flujo de desarrollo asistido por IA, pero una de las más importantes. Sin documentación, el conocimiento adquirido durante el proyecto se pierde: no sabes qué prompts funcionaron, qué decisiones tomaste, qué errores encontraste ni por qué rechazaste ciertas soluciones.</p>
+<p>En proyectos reales, la documentación del uso de IA es lo que diferencia un proyecto profesional de un experimento. Cuando otro desarrollador (o tú mismo en 6 meses) necesite entender por qué el código funciona de cierta manera, la documentación será su guía.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>¿Por qué documentar el uso de IA?</h3>
 <p>La documentación del uso de IA cumple múltiples funciones:</p>
 <ul>
@@ -28,10 +31,8 @@
 <li><strong>Aprendizaje:</strong> Identificar patrones de errores para mejorar prompts futuros</li>
 <li><strong>Transparencia:</strong> En equipos, todos saben qué partes son generadas por IA</li>
 </ul>
-
 <h3>Estructura de documentación recomendada</h3>
 <p>Usando la plantilla del Módulo 5, cada sección debe incluir:</p>
-
 <div class="highlight">
 <strong>1. Objetivo de la tarea:</strong> ¿Qué se esperaba lograr con este prompt?<br>
 <strong>2. Requerimiento usado:</strong> El RF específico que se estaba implementando<br>
@@ -44,7 +45,6 @@
 <strong>9. Errores encontrados:</strong> Bugs, alertas o comportamientos inesperados<br>
 <strong>10. Conclusión:</strong> ¿Funciona? ¿Listo para producción? ¿Qué mejoraría?
 </div>
-
 <h3>Ejemplo de entrada de documentación</h3>
 <div class="highlight">
 <strong>Paso:</strong> Implementar modelo de datos (Prompt 4 de 8)<br>
@@ -54,9 +54,11 @@
 <strong>🧪 Pruebas:</strong> Crear proyecto ✓ | Crear tarea ✓ | Tarea sin proyecto ❌ (no validaba) — se agregó validación manual<br>
 <strong>Conclusión:</strong> Aceptado con cambios menores (validación de proyecto padre)
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Proyecto documentado vs. No documentado</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead>
 <tr><th>Aspecto</th><th>Sin documentación</th><th>Con documentación completa</th></tr>
 </thead>
@@ -69,7 +71,9 @@
 <tr><td>Valor a largo plazo</td><td>El código se vuelve legacy sin contexto</td><td>El código se entiende y evoluciona</td></tr>
 </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-plain">
 <h2>Diagrama: Ciclo de documentación en el flujo IA</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:15px 0;text-align:center;font-size:0.9rem;">
   <div style="display:flex;flex-direction:column;align-items:center;gap:4px;max-width:500px;margin:0 auto;">
@@ -87,36 +91,41 @@
   </div>
   <p style="margin-top:10px;color:#64748b;font-size:0.85rem;">La documentación no es un paso final — se construye en paralelo a cada paso de la cadena.</p>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplo de documentación en distintos contextos</h2>
 <ul>
 <li><strong>Desarrollo web:</strong> "Prompt 5: Implementar dashboard de estadísticas. Respuesta IA: Generó gráfico con Chart.js... Decisión: Rechazado — no usamos librerías externas. Se implementó con CSS y HTML nativo."</li>
 <li><strong>Automatización:</strong> "Prompt 3: Conexión IMAP. Respuesta IA: Usó imaplib correctamente... Decisión: Aceptado. Pruebas: Conexión exitosa con Gmail, timeout correcto con servidor caído."</li>
 <li><strong>IA generativa:</strong> "Prompt 2: Prompt optimizado. Respuesta IA: Redujo tokens en un 40%... Decisión: Aceptado con cambios. Se mejoró la claridad del prompt resultante."</li>
 </ul>
-
 <div class="highlight">
 <strong>💡 Consejo del instructor:</strong> No documentes al final — documenta mientras ejecutas. Cuando terminas un paso, es el momento perfecto para registrar lo que pasó. Si esperas al final, olvidarás detalles importantes como por qué rechazaste cierta solución o qué prueba encontraste un bug específico. La documentación en caliente es más precisa y requiere menos esfuerzo.
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Documentar solo los aciertos:</strong> Omitir errores y rechazos pierde lecciones valiosas</li>
 <li><strong>No documentar el "por qué":</strong> "Se rechazó" sin explicación no sirve para aprendizaje futuro</li>
 <li><strong>Documentación genérica:</strong> "Se usó IA para generar código" no aporta información útil</li>
 <li><strong>No incluir las pruebas:</strong> Sin evidencia de pruebas, la documentación es solo una historia</li>
 <li><strong>Documentar en el lugar equivocado:</strong> La documentación debe estar cerca del código, no en un documento separado que nadie leerá</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Documentar cada prompt y respuesta:</strong> Incluye el texto exacto, no un resumen</li>
 <li><strong>Registrar decisiones con criterios objetivos:</strong> "Rechazado porque no maneja el caso borde X" no "Rechazado porque no me gustó"</li>
 <li><strong>Incluir evidencias de pruebas:</strong> Capturas, logs o resultados de ejecución</li>
 <li><strong>Usar un formato consistente:</strong> Misma estructura para todos los pasos</li>
 <li><strong>Revisar la documentación al final:</strong> Asegúrate de que alguien más pueda entender el flujo completo</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Usando la plantilla de documentación del Módulo 5, documenta:</p>
 <ol>
@@ -131,10 +140,14 @@
 <li>Errores encontrados</li>
 <li>Conclusión</li>
 </ol>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Pide a otro compañero (o a la IA simulando ser un desarrollador nuevo) que lea tu documentación y trate de entender el flujo completo del proyecto. Pídele que identifique al menos 3 cosas que no quedan claras. Con esa retroalimentación, mejora tu documentación. Este ejercicio demuestra que la documentación no está completa hasta que alguien más puede seguirla sin tu ayuda.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>La documentación del uso de IA es esencial para trazabilidad, auditoría y aprendizaje</li>
@@ -144,12 +157,9 @@
 <li>La documentación debe ser comprensible para otros desarrolladores, no solo para ti</li>
 <li>Un proyecto bien documentado es mantenible, reproducible y profesional</li>
 </ul>
-
-
-
 <p><strong>Entrega:</strong> Documentación final completa.</p>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -172,5 +182,4 @@
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

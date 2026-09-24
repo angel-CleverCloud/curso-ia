@@ -1,12 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 5 · Lección 7 de 7</p>
 <h1>5.7 Quiz de validación</h1>
 <p class="subtitle">Módulo 5 · Quiz</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Evaluar conocimientos sobre validación, pruebas y documentación.</div>
-
-<h2>Introducción</h2>
-<p>Este quiz pondrá a prueba los conceptos fundamentales que has aprendido en el Módulo 5: los riesgos de confiar ciegamente en la IA, las pruebas mínimas necesarias, la identificación de casos borde, las técnicas de code review para código generado, y la documentación de prompts y decisiones. Cada pregunta está diseñada para evaluar comprensión, no memorización — piensa cuidadosamente antes de responder.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Evaluar conocimientos sobre validación, pruebas y documentación.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar este quiz el estudiante será capaz de:</p>
 <ul>
@@ -14,26 +13,34 @@
 <li>Aplicar criterios de validación y prueba a situaciones reales de desarrollo</li>
 <li>Evaluar decisiones sobre cuándo y cómo usar IA en proyectos de software</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Este quiz pondrá a prueba los conceptos fundamentales que has aprendido en el Módulo 5: los riesgos de confiar ciegamente en la IA, las pruebas mínimas necesarias, la identificación de casos borde, las técnicas de code review para código generado, y la documentación de prompts y decisiones. Cada pregunta está diseñada para evaluar comprensión, no memorización — piensa cuidadosamente antes de responder.</p>
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Confundir "prueba de humo" con "prueba de seguridad":</strong> La prueba de humo verifica ejecución básica; la seguridad se revisa por separado</li>
 <li><strong>Pensar que la IA requiere menos revisión:</strong> Es lo opuesto — la IA comete errores poco convencionales que requieren más atención</li>
 <li><strong>Aceptar código que no se entiende:</strong> Aunque pase pruebas, si no entiendes el código, no puedes mantenerlo ni auditarlo</li>
 <li><strong>Subestimar los casos borde:</strong> Un código que falla con entrada vacía no está listo para producción, incluso si funciona con datos válidos</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Siempre escribir pruebas mínimas:</strong> Caso feliz + caso borde por cada función generada por IA</li>
 <li><strong>Revisar código de IA con más atención que código humano:</strong> La IA comete errores inesperados</li>
 <li><strong>Documentar prompts, decisiones y pruebas:</strong> Para trazabilidad y mejora continua</li>
 <li><strong>Nunca integrar código sin entenderlo:</strong> Si no lo entiendes, pide explicación o no lo uses</li>
 <li><strong>Aplicar el criterio de auditoría:</strong> Problemas críticos = requiere cambios, no aprobar</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Enfoque tradicional vs. Enfoque con IA en validación</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead>
 <tr><th>Aspecto</th><th>Validación tradicional</th><th>Validación con IA</th></tr>
 </thead>
@@ -47,7 +54,9 @@
 <tr><td>Aprendizaje del equipo</td><td>Cada error es una lección</td><td>Sin documentación, los errores se repiten</td></tr>
 </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Diagrama: Ciclo de validación de código generado por IA</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:15px 0;text-align:center;font-size:0.9rem;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;max-width:650px;margin:0 auto;">
@@ -66,11 +75,11 @@
   </div>
   <p style="margin-top:12px;color:#64748b;font-size:0.85rem;">Este ciclo debe aplicarse a cada función generada por IA antes de integrarla a producción.</p>
 </div>
-
 <div class="highlight">
   <strong>Consejo del instructor:</strong> Si obtuviste menos del 80%, revisa las lecciones donde tengas dudas. El objetivo no es solo aprobar, sino comprender cada concepto para aplicarlo en proyectos reales. La validación de código generado por IA es una habilidad que se perfecciona con la práctica.
 </div>
-
+</section>
+<section class="l11-quizbox">
 <div class="quiz-wrap" id="quiz-container">
   <div id="quiz-questions">
     <div class="quiz-question">
@@ -149,7 +158,7 @@
 
   <div id="quiz-explanations" style="margin-top:20px;"></div>
 </div>
-
+</section>
 <script>
 const quizData = [
   { correct: 1, explanation: 'La prueba de humo (caso feliz) es la mínima indispensable. Verifica que la función se ejecuta sin errores con datos válidos. Sin ella, no sabes si el código siquiera funciona.' },
@@ -261,6 +270,7 @@ function reiniciarQuiz() {
   document.getElementById('quiz-explanations').innerHTML = '';
 }
 </script>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>La prueba mínima indispensable es la de humo (caso feliz)</li>
@@ -270,6 +280,6 @@ function reiniciarQuiz() {
 <li>Un caso borde no manejado es razón suficiente para no aprobar código en producción</li>
 <li>La responsabilidad final del código siempre es del desarrollador, no de la IA</li>
 </ul>
-
+</section>
 
 </div>

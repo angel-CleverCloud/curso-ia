@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 3 · Lección 1 de 7</p>
 <h1>3.1 Prompt vs contexto</h1>
 <p class="subtitle">Módulo 3 · Video</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Diferenciar entre lo que le pides a la IA (prompt) y la información que le das para que entienda el panorama (contexto).</div>
-
-<h2>Introducción</h2>
-<p>Cuando interactúas con una IA generativa, cada mensaje que escribes tiene dos dimensiones: lo que pides y lo que la IA sabe del entorno. La mayoría de los estudiantes mezclan ambos conceptos, lo que produce prompts innecesariamente largos o contextos insuficientes.</p>
-<p>En esta lección aprenderás a separar conscientemente el prompt del contexto, una habilidad fundamental para trabajar con IA de forma profesional y eficiente.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Diferenciar entre lo que le pides a la IA (prompt) y la información que le das para que entienda el panorama (contexto).</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -16,6 +14,13 @@
   <li>Identificar el error del mega-prompt y su impacto en la calidad de las respuestas.</li>
   <li>Aplicar la regla práctica de separación en ejemplos reales de desarrollo de software.</li>
 </ul>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>Cuando interactúas con una IA generativa, cada mensaje que escribes tiene dos dimensiones: lo que pides y lo que la IA sabe del entorno. La mayoría de los estudiantes mezclan ambos conceptos, lo que produce prompts innecesariamente largos o contextos insuficientes.</p>
+<p>En esta lección aprenderás a separar conscientemente el prompt del contexto, una habilidad fundamental para trabajar con IA de forma profesional y eficiente.</p>
+</section>
+<section class="l11-card l11-group">
 
 <h2>Prompt</h2>
 <p>La instrucción específica que le das a la IA para que realice una tarea. Es el "qué quiero que hagas ahora".</p>
@@ -25,12 +30,11 @@
 
 <h2>Analogía</h2>
 <p>El contexto es como darle a un desarrollador nuevo el repositorio completo y las guías del proyecto. El prompt es la tarea específica que le asignas hoy.</p>
-
 <h2>Error común</h2>
 <p>Meter TODO en el prompt (mega-prompt). Es mejor separar contexto (que se reutiliza) de prompts específicos (que cambian por tarea).</p>
-
 <div class="highlight"><strong>Regla práctica:</strong> Si usas la misma información en múltiples prompts, esa información es contexto, no parte del prompt.</div>
-
+</section>
+<section class="l11-card">
 <h2>Tabla comparativa: Prompt vs Contexto</h2>
 <div style="overflow-x:auto;">
   <table style="width:100%;border-collapse:collapse;margin:15px 0;">
@@ -65,7 +69,8 @@
     </tbody>
   </table>
 </div>
-
+</section>
+<section class="l11-plain">
 <h2>Diagrama: Separación conceptual</h2>
 <div style="background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:30px;margin:20px 0;text-align:center;">
   <div style="display:flex;justify-content:center;align-items:stretch;gap:20px;flex-wrap:wrap;">
@@ -105,9 +110,9 @@
     </div>
   </div>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos reales</h2>
-
 <h3>Ejemplo 1: Desarrollo web</h3>
 <p><strong>Mala práctica (mega-prompt):</strong></p>
 <div class="prompt-block">
@@ -127,29 +132,32 @@
 <div class="prompt-block">
 <pre><code>Crea el componente OrderHistory que muestre los últimos 10 pedidos del usuario autenticado, ordenados por fecha descendente. Cada pedido debe mostrar: ID, fecha, total, estado y un botón "Ver detalle". Usa TypeScript y Server Components de Next.js 14.</code></pre>
 </div>
-
 <h3>Ejemplo 2: Automatización</h3>
 <p><strong>Contexto:</strong> "Scripts de automatización para procesos ETL. Lenguaje: Python 3.11. Base de datos destino: Snowflake. Las fuentes son archivos CSV diarios."</p>
 <p><strong>Prompt:</strong> "Escribe una función que valide que cada CSV tenga las columnas esperadas antes de cargarlo. Si falta alguna columna, registra el error y omite ese archivo."</p>
-
 <div class="highlight"><strong>Consejo del instructor:</strong> Una buena forma de verificar si separaste bien es preguntarte: "¿Usaría esta misma información en mi próximo mensaje?" Si la respuesta es sí, esa información pertenece al contexto, no al prompt.</div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
   <li><strong>Repetir el contexto en cada mensaje:</strong> Desperdicias tokens y distraes a la IA. En plataformas con memoria de sesión, el contexto se define una vez al inicio.</li>
   <li><strong>Contexto demasiado corto:</strong> Decir solo "trabajo con React" sin especificar versión, librerías adicionales o restricciones. La IA asumirá valores por defecto que pueden no coincidir con tu proyecto.</li>
   <li><strong>Mezclar contexto de múltiples proyectos:</strong> Poner información de dos proyectos distintos en un mismo contexto confunde a la IA y produce respuestas híbridas inservibles.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>Mantén un archivo de contexto por proyecto (context packet) que reutilices en cada sesión.</li>
   <li>Revisa el contexto periódicamente para asegurarte de que sigue siendo relevante.</li>
   <li>Si un prompt supera las 5 líneas, pregúntate si parte de esa información debería ser contexto.</li>
   <li>Empieza siempre definiendo el contexto antes de dar el prompt específico.</li>
   <li>Documenta qué contexto usaste y qué respuesta obtuviste para aprender iterativamente.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p><strong>Objetivo:</strong> Practicar la separación entre prompt y contexto creando prompts reales para una IA.</p>
 <p><strong>Instrucciones:</strong></p>
@@ -160,7 +168,6 @@
   <li>Cada prompt debe ser específico para una tarea distinta dentro del mismo proyecto.</li>
   <li>Verifica que tu separación siga la regla: "Si uso esta información en múltiples prompts, esa información es contexto".</li>
 </ol>
-
 <div class="highlight">
   <strong>Ejemplo de lo que buscamos:</strong><br><br>
   <strong>Contexto del proyecto:</strong> "App Node.js 20 + Express 4 + PostgreSQL con Prisma. Autenticación JWT. Base de datos con tablas: usuarios, productos, pedidos"<br><br>
@@ -169,9 +176,14 @@
   <strong>Prompt 3:</strong> "Genera las migraciones Prisma para las tablas usuarios y productos"<br><br>
   <em>Nota: El contexto se usa una sola vez, luego cada prompt es específico</em>
 </div>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Sin mirar tus notas, escribe en una sola frase la diferencia entre prompt y contexto. Luego compara con la definición de la lección. Si tu frase captura la esencia, has comprendido el concepto. Si no, repasa los ejemplos.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>El <strong>prompt</strong> es la instrucción específica de la tarea actual.</li>
@@ -180,12 +192,12 @@
   <li>La regla de oro: si usas la misma información en varios prompts, esa información es contexto.</li>
   <li>Separar contexto de prompt mejora la claridad, la consistencia y ahorra tokens.</li>
 </ul>
-
-<div class="prompt-evidence-section">
-  <h2>💬 Compartir Prompt Utilizado</h2>
-  <p>Registra el contexto y los prompts que realmente utilizaste con una IA para completar la actividad. Esto te ayudará a documentar tu aprendizaje y crear una biblioteca personal de prompts efectivos.</p>
-  
-  <div class="prompt-form" id="prompt-form-m3-l1">
+</section>
+<div class="prompt-evidence-section l11-evidence">
+<section class="l11-card">
+<h2>💬 Compartir Prompt Utilizado</h2>
+<p>Registra el contexto y los prompts que realmente utilizaste con una IA para completar la actividad. Esto te ayudará a documentar tu aprendizaje y crear una biblioteca personal de prompts efectivos.</p>
+<div class="prompt-form" id="prompt-form-m3-l1">
     <div class="prompt-field">
       <label for="prompt-input-m3-l1">📝 Contexto y prompts que utilizaste</label>
       <textarea 
@@ -214,8 +226,7 @@
     </button>
     <div id="prompt-msg-m3-l1" class="prompt-msg"></div>
   </div>
-
-  <div id="prompt-submitted-m3-l1" class="prompt-submitted" style="display:none;">
+<div id="prompt-submitted-m3-l1" class="prompt-submitted" style="display:none;">
     <h3>✅ Evidencia guardada correctamente</h3>
     
     <div class="prompt-submitted-item">
@@ -237,6 +248,8 @@
       <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l1')">🗑️ Eliminar</button>
     </div>
   </div>
+</section>
+
 </div>
 
 <script src="../js/prompt-manager.js"></script>

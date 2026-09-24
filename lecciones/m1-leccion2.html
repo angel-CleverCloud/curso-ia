@@ -1,9 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 1 · Lección 2 de 5</p>
 <h1>1.2 El ingeniero como arquitecto-supervisor</h1>
 <p class="subtitle">Módulo 1 · Video</p>
-<div class="highlight"><strong>Objetivo:</strong> Entender el nuevo rol del ingeniero como arquitecto que diseña y supervisor que valida.</div>
-<h2>Introducción</h2>
-<p>En el desarrollo tradicional, el ingeniero se dedicaba principalmente a escribir código. Con la llegada de la IA generativa, el rol ha evolucionado hacia una combinación de arquitecto de software y supervisor de calidad. El valor del ingeniero ya no está en la cantidad de líneas que escribe, sino en su capacidad para diseñar soluciones, tomar decisiones estratégicas y garantizar que el código generado cumpla con los estándares del proyecto. Esta lección explora este nuevo perfil profesional y las habilidades que necesitas desarrollar para destacar.</p>
+<p class="l11-objective"><strong>Objetivo:</strong> Entender el nuevo rol del ingeniero como arquitecto que diseña y supervisor que valida.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -13,37 +15,66 @@
 <li>Aplicar un proceso de revisión estructurado antes de integrar código generado</li>
 <li>Identificar las habilidades clave que diferencian a un ingeniero efectivo con IA</li>
 </ul>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>En el desarrollo tradicional, el ingeniero se dedicaba principalmente a escribir código. Con la llegada de la IA generativa, el rol ha evolucionado hacia una combinación de arquitecto de software y supervisor de calidad. El valor del ingeniero ya no está en la cantidad de líneas que escribe, sino en su capacidad para diseñar soluciones, tomar decisiones estratégicas y garantizar que el código generado cumpla con los estándares del proyecto. Esta lección explora este nuevo perfil profesional y las habilidades que necesitas desarrollar para destacar.</p>
+</section>
+<section class="l11-card l11-group">
+
 <h2>Arquitecto</h2>
 <p>El ingeniero define la estructura general, las decisiones de diseño importantes, la elección de tecnologías y los patrones a seguir. La IA no debe tomar decisiones arquitectónicas sin supervisión.</p>
+
 <h2>Supervisor</h2>
 <p>El ingeniero revisa cada fragmento de código generado antes de integrarlo. No se trata de "copiar y pegar" sino de "revisar y aprobar".</p>
+
 <h2>Delegación responsable</h2>
 <p>Se delega la implementación detallada, no el diseño ni la validación.</p>
+
 <h2>Habilidades clave</h2>
 <ul><li>Saber leer código (más importante que saber escribirlo)</li><li>Pensamiento crítico</li><li>Capacidad de cuestionar resultados</li></ul>
+</section>
+<section class="l11-example">
 <h2>Ejemplo práctico</h2>
 <p>Imagina que tu equipo debe implementar un microservicio de autenticación. Como arquitecto, defines que usará JWT con refresh tokens, que la base de datos será PostgreSQL y que la API seguirá el patrón REST. Delegas a la IA la implementación de los endpoints CRUD y la lógica de generación de tokens. Como supervisor, revisas que el código generado maneje correctamente la expiración de tokens, el almacenamiento seguro de secretos y la validación de entradas. En este escenario, tú tomaste todas las decisiones importantes; la IA solo ejecutó la implementación detallada bajo tu supervisión.</p>
+</section>
+<section class="l11-tip">
+<p class="l11-tag l11-tag--important">Importante</p>
 <h2>Consejo del instructor</h2>
 <div class="highlight"><strong>💡 Consejo profesional:</strong> Una buena prueba para saber si estás actuando como arquitecto-supervisor es preguntarte: "Si esta IA desapareciera mañana, ¿podría mi equipo continuar el proyecto sin interrupción?" Si la respuesta es no, significa que estás delegando decisiones de diseño, no solo implementación. El arquitecto siempre debe tener el control del plano, aunque la IA ayude a construir los muros.</div>
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Delegar decisiones de diseño:</strong> Permitir que la IA elija la arquitectura, el patrón o la tecnología sin supervisión.</li>
 <li><strong>Copiar y pegar sin revisar:</strong> Integrar código sin leerlo ni entenderlo, violando el rol de supervisor.</li>
 <li><strong>Microgestionar a la IA:</strong> Perder tiempo dando instrucciones tan detalladas que podrías haber escrito el código más rápido.</li>
 <li><strong>No documentar decisiones:</strong> No registrar por qué se tomaron ciertas decisiones arquitectónicas, dejando al equipo sin contexto.</li>
 </ul>
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Define la arquitectura antes de generar código:</strong> Ten un diseño claro antes de involucrar a la IA.</li>
 <li><strong>Establece estándares de revisión:</strong> Define un checklist de criterios que todo código generado debe cumplir.</li>
 <li><strong>Fomenta la transparencia:</strong> Marca claramente qué código fue generado por IA y quién lo revisó.</li>
 <li><strong>Invierte en leer código:</strong> La habilidad más valiosa es leer y entender código rápidamente, no escribirlo.</li>
 <li><strong>Cuestiona siempre:</strong> Asume que el código generado tiene errores hasta que demuestres lo contrario.</li>
 </ul>
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Selecciona un componente o servicio pequeño de un proyecto personal o laboral. Como arquitecto, escribe un documento breve (5-10 líneas) describiendo la arquitectura, las tecnologías y los patrones a usar. Luego, pídele a una IA que implemente ese componente. Finalmente, como supervisor, revisa el código generado contra tu diseño arquitectónico: ¿la IA respetó tus decisiones? ¿Qué cambios harías? Documenta el proceso.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Pídele a una IA que diseñe la arquitectura completa de una aplicación de tu elección (por ejemplo, un sistema de reservas). Luego, analiza críticamente su propuesta: ¿las decisiones son correctas? ¿Identificas sesgos o patrones subóptimos? Este ejercicio te ayuda a practicar tu rol de arquitecto evaluando propuestas de IA, en lugar de aceptarlas pasivamente.</p>
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>El ingeniero moderno actúa como arquitecto (diseña la estructura) y supervisor (valida el código generado).</li>
@@ -52,8 +83,9 @@
 <li>El pensamiento crítico y la capacidad de cuestionar resultados son habilidades fundamentales.</li>
 <li>La transparencia y documentación del uso de IA son esenciales para el trabajo en equipo.</li>
 </ul>
+</section>
 <div class="conclusion"><p><strong>Conclusión:</strong> El valor del ingeniero ya no está en escribir líneas, sino en tomar decisiones de diseño y garantizar la calidad del resultado final.</p></div>
-<div class="evidence-section">
+<div class="evidence-section l11-evidence">
   <h2>Entrega de Evidencia</h2>
   <p>Sube el archivo con el resultado de tu Actividad Práctica o Mini Reto y escribe una breve reflexión sobre lo que aprendiste.</p>
   <div class="evidence-form" id="evidenceForm-m1-l2">

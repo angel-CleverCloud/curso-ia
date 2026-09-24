@@ -409,6 +409,8 @@ function initPanel() {
 
   document.querySelectorAll('.sidebar-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
+      document.querySelectorAll('.sidebar-btn').forEach(function(b) { b.classList.remove('active') })
+      this.classList.add('active')
       renderView(this.dataset.section)
     })
   })
@@ -463,31 +465,43 @@ function cerrarSesion() {
 function renderInitialView() {
   const content = document.getElementById('panelContent')
   const completed = getCompleted()
-  if (completed.length > 0) {
+  const total = TOTAL_LESSONS
+  const done = completed.length
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0
+  let html = '<div class="dash-hero"><h1>¡Bienvenido a CleverLabs Academy!</h1><p>Explora los módulos y avanza a tu propio ritmo.</p></div>'
+  html += '<div class="dash-stats"><div class="dash-stat"><span class="dash-stat-value">' + pct + '%</span><span class="dash-stat-label">Progreso</span></div><div class="dash-stat"><span class="dash-stat-value">' + done + '/' + total + '</span><span class="dash-stat-label">Lecciones completadas</span></div><div class="dash-stat"><span class="dash-stat-value">' + MODULES.length + '</span><span class="dash-stat-label">Módulos</span></div></div>'
+  html += '<div class="dash-progress"><div class="dash-progress-fill" style="width:' + pct + '%"></div></div>'
+  if (done > 0) {
     const lastKey = completed[completed.length - 1]
     const m = lastKey.match(/m(\d+)-l(\d+)/)
     if (m) {
       const mod = MODULES.find(function(x) { return x.id === parseInt(m[1]) })
       const les = mod && mod.lessons.find(function(x) { return x.id === parseInt(m[2]) })
       if (mod && les) {
-        content.innerHTML = '<div class="progress-banner"><p><strong>Continuar desde:</strong> Módulo ' + mod.id + ', Lección ' + les.id + ' — ' + les.title + '</p><button class="boton" onclick="loadLesson(' + mod.id + ',' + les.id + ')">Continuar</button></div>'
+        html += '<div class="dash-continue"><div><p class="dash-continue-kicker">Continuar aprendiendo</p><p class="dash-continue-title">Módulo ' + mod.id + ' · Lección ' + les.id + ' — ' + les.title + '</p></div><button class="tool-btn" onclick="loadLesson(' + mod.id + ',' + les.id + ')">Continuar →</button></div>'
+        content.innerHTML = html
         return
       }
     }
   }
-  content.innerHTML = '<div class="progress-banner watermark"><p>Sin progreso</p></div>'
+  html += '<div class="dash-continue"><div><p class="dash-continue-kicker">Comenzar</p><p class="dash-continue-title">Aún no tienes progreso. Explora los módulos para empezar.</p></div><button class="tool-btn" onclick="renderView(\'modulos\')">Explorar módulos</button></div>'
+  content.innerHTML = html
 }
 
 function renderView(section) {
   const content = document.getElementById('panelContent')
   if (section === 'modulos') {
-    content.innerHTML = '<h2 class="section-title">Módulos del Curso</h2><div class="modulos-grid" id="modulosGrid"></div>'
+    const doneKeys = getCompleted()
+    content.innerHTML = '<div class="modulos-hero"><h1>Módulos del Curso</h1><p class="modulos-desc">Explora los módulos y avanza a tu propio ritmo.</p></div><div class="modulos-grid" id="modulosGrid"></div>'
     const grid = document.getElementById('modulosGrid')
     MODULES.forEach(function(m) {
+      const total = m.lessons.length
+      const done = doneKeys.filter(function(k) { return k.indexOf('m' + m.id + '-') === 0 }).length
+      const pct = total > 0 ? Math.round((done / total) * 100) : 0
       const card = document.createElement('div')
       card.className = 'modulo-card'
       card.style.cursor = 'pointer'
-      card.innerHTML = '<h3>Módulo ' + m.id + '</h3><p>' + m.title + '</p><span class="boton" style="margin-top:0">Ver módulo</span>'
+      card.innerHTML = '<h3>Módulo ' + m.id + ': ' + m.title + '</h3><p class="modulo-count">' + done + ' de ' + total + ' lecciones · ' + pct + '%</p><div class="modulo-progress"><div class="modulo-progress-fill" style="width:' + pct + '%"></div></div><span class="modulo-cta">Ver módulo →</span>'
       card.addEventListener('click', function() { renderModuleLessons(m.id) })
       grid.appendChild(card)
     })
@@ -512,11 +526,11 @@ function renderHerramientas(container) {
   // Intro for CLI agents
   const CLI_INTRO = '<div class="herramientas-intro"><strong>¿Qué es un agente CLI?</strong> Un agente CLI (Command Line Interface) es una herramienta de IA que opera directamente desde la terminal. A diferencia de las interfaces gráficas, los agentes CLI permiten automatizar tareas, integrarse en pipelines y trabajar en entornos headless como servidores o contenedores. <strong>Ventajas:</strong> mayor control, automatizable, menor consumo de recursos, ideal para CI/CD. <strong>Flujo típico:</strong> instalación → configuración → prompt → revisión → iteración.</div>'
 
-  let html = '<h2 class="section-title">🔧 Herramientas</h2>'
+  let html = '<div class="tools-hero"><p class="tools-breadcrumb">Catálogo</p><h1>Herramientas</h1><p class="tools-desc">Explora las herramientas y conceptos de IA del curso. Usa el buscador o los filtros para encontrar lo que necesitas y abre la ficha de cada elemento para ver el detalle.</p></div>'
 
   // Search + filters
   html += '<div class="herramientas-controls">'
-  html += '<input type="text" id="herramientasSearch" class="herramientas-search" placeholder="Buscar herramientas y conceptos..." oninput="filterHerramientas()">'
+  html += '<div class="tools-search-wrap"><span class="tools-search-icon" aria-hidden="true">⌕</span><input type="text" id="herramientasSearch" class="herramientas-search" placeholder="Buscar herramientas y conceptos..." oninput="filterHerramientas()"></div>'
   html += '<div class="herramientas-filters" id="herramientasFilters">'
   html += '<button class="filter-btn active" data-filter="all" onclick="setFilter(\'all\')">Todas</button>'
   html += '<button class="filter-btn" data-filter="ia-agents" onclick="setFilter(\'ia-agents\')">🤖 Agentes IA</button>'
@@ -538,17 +552,17 @@ function renderHerramientas(container) {
     const items = TOOLS.filter(function(t) { return t.category === cat.key })
     if (items.length === 0) return
     html += '<div class="herramientas-category" data-category="' + cat.key + '">'
-    html += '<h3 class="category-title">' + cat.icon + ' ' + cat.label + '</h3>'
+    html += '<h3 class="category-title"><span class="category-icon" aria-hidden="true">' + cat.icon + '</span> ' + cat.label + ' <span class="category-count">' + items.length + '</span></h3>'
     if (cat.key === 'cli-agents') html += CLI_INTRO
     html += '<div class="tools-grid">'
     items.forEach(function(t) {
       const tagHtml = (t.licencia && t.licencia !== '—') ? '<span class="tool-licencia">' + t.licencia + '</span>' : ''
       html += '<div class="tool-card" data-category="' + t.category + '" data-tags="' + (t.tags || []).join(',') + '">'
+      html += '<div class="tool-top"><span class="tool-avatar" aria-hidden="true">' + cat.icon + '</span><span class="tool-cat">' + cat.label + '</span>' + tagHtml + '</div>'
       html += '<h3>' + t.name + '</h3>'
       html += '<p>' + t.description + '</p>'
-      html += tagHtml
-      html += '<div class="tool-actions"><button class="boton" onclick="showToolDetail(\'' + t.id + '\')" style="margin-top:10px">Ver más</button>'
-      if (t.url) html += '<a href="' + t.url + '" target="_blank" class="boton boton-outline" style="margin-top:10px">Sitio oficial</a>'
+      html += '<div class="tool-actions"><button class="tool-btn" onclick="showToolDetail(\'' + t.id + '\')">Ver ficha</button>'
+      if (t.url) html += '<a href="' + t.url + '" target="_blank" class="tool-btn tool-btn-outline">Sitio oficial</a>'
       html += '</div></div>'
     })
     html += '</div></div>'
@@ -558,10 +572,108 @@ function renderHerramientas(container) {
   container.innerHTML = html
 }
 
-// ponytail: minimal code formatter for detail text
+// ponytail: text formatter for detail sheets (paragraphs, lists, code, links)
 function formatDetailText(text) {
-  text = text.replace(/```(\w*)\n?([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
-  return text.replace(/\n/g, '<br>')
+  var codes = []
+  var t = text.replace(/```(\w*)\n?([\s\S]*?)```/g, function(m, lang, code) {
+    codes.push(code.replace(/^\n+|\n+$/g, ''))
+    return '\n\x00CODE' + (codes.length - 1) + '\x00\n'
+  })
+  t = t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  t = t.replace(/(https?:\/\/[^\s<)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+  var lines = t.split('\n')
+  var html = ''
+  var i = 0
+  function trim(s) { return s.replace(/^\s+|\s+$/g, '') }
+  function isItem(l) { return /^•\s+/.test(l) || /^vs\s/i.test(l) }
+  while (i < lines.length) {
+    var line = trim(lines[i])
+    if (!line) { i++; continue }
+    var mCode = line.match(/^\x00CODE(\d+)\x00$/)
+    if (mCode) {
+      var code = codes[+mCode[1]].replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      html += '<pre><code>' + code + '</code></pre>'
+      i++
+      continue
+    }
+    if (line === '---') { html += '<hr>'; i++; continue }
+    if (isItem(line)) {
+      html += '<ul>'
+      while (i < lines.length) {
+        var li = trim(lines[i])
+        if (!li || !isItem(li)) break
+        html += '<li>' + li.replace(/^•\s+/, '') + '</li>'
+        i++
+      }
+      html += '</ul>'
+      continue
+    }
+    if (/^\d+\.\s+/.test(line)) {
+      html += '<ol>'
+      while (i < lines.length && /^\d+\.\s+/.test(trim(lines[i]))) {
+        html += '<li>' + trim(lines[i]).replace(/^\d+\.\s+/, '') + '</li>'
+        i++
+      }
+      html += '</ol>'
+      continue
+    }
+    html += '<p>' + line + '</p>'
+    i++
+  }
+  return html
+}
+
+// ponytail: standard section titles + order for tool detail sheets (render only, data untouched)
+const TOOL_SECTION_TITLES = {
+  '¿Qué es?': '¿Qué es?',
+  '¿Qué es un Harness?': '¿Qué es?',
+  '¿Qué es Harness Engineering?': '¿Qué es?',
+  'Descripción': '¿Qué es?',
+  '¿Para qué sirve?': '¿Para qué sirve?',
+  'Funcionalidades': '¿Para qué sirve?',
+  'Características técnicas': 'Características',
+  'Componentes': 'Componentes',
+  'Arquitectura': 'Arquitectura',
+  'Patrones comunes': 'Patrones comunes',
+  'Tipos de agentes': 'Tipos de agentes',
+  'Técnicas principales': '¿Cómo se utiliza?',
+  'Flujo de trabajo': '¿Cómo se utiliza?',
+  'Cómo crear uno': '¿Cómo se utiliza?',
+  'Instalación': 'Instalación',
+  'Requisitos': 'Requisitos',
+  'Casos de uso': '¿Cuándo usarla?',
+  'Ventajas': 'Ventajas',
+  'Desventajas': 'Limitaciones',
+  'Ejemplo de uso': 'Ejemplo de uso',
+  'Ejemplo práctico': 'Ejemplo de uso',
+  'Comparativa': 'Comparativa',
+  'Importancia': 'Importancia',
+  'Buenas prácticas': 'Buenas prácticas',
+  'Herramientas relacionadas': 'Herramientas relacionadas',
+  'Recursos': 'Recursos y enlaces',
+  'Documentación oficial': 'Recursos y enlaces'
+}
+
+const TOOL_SECTION_ORDER = {
+  '¿Qué es?': 10,
+  '¿Para qué sirve?': 20,
+  'Características': 30,
+  'Componentes': 40,
+  'Arquitectura': 40,
+  'Patrones comunes': 40,
+  'Tipos de agentes': 40,
+  '¿Cómo se utiliza?': 50,
+  'Instalación': 55,
+  'Requisitos': 56,
+  '¿Cuándo usarla?': 60,
+  'Ventajas': 70,
+  'Limitaciones': 80,
+  'Ejemplo de uso': 90,
+  'Comparativa': 100,
+  'Importancia': 110,
+  'Buenas prácticas': 115,
+  'Herramientas relacionadas': 120,
+  'Recursos y enlaces': 130
 }
 
 function showToolDetail(id) {
@@ -570,13 +682,33 @@ function showToolDetail(id) {
 
   let body = '<div class="tool-detail">'
 
-  // Header
-  body += '<div class="detail-header">'
-  if (t.url) body += '<a href="' + t.url + '" target="_blank" class="boton" style="margin-top:0">Visitar sitio oficial →</a>'
-  body += '</div>'
-
-  // Description
+  // Header: description + official site
+  body += '<div class="tool-detail-head">'
   body += '<p class="detail-desc">' + t.description + '</p>'
+  if (t.url) body += '<a href="' + t.url + '" target="_blank" class="tool-btn">Visitar sitio oficial →</a>'
+  body += '</div>'
+  // Normalize + order sections (data untouched)
+  var groups = {}
+  var order = []
+  t.details.forEach(function(d) {
+    var title = TOOL_SECTION_TITLES[d.label] || d.label
+    if (!groups[title]) { groups[title] = []; order.push(title) }
+    groups[title].push(d)
+  })
+  order.sort(function(a, b) {
+    var oa = TOOL_SECTION_ORDER[a] !== undefined ? TOOL_SECTION_ORDER[a] : 999
+    var ob = TOOL_SECTION_ORDER[b] !== undefined ? TOOL_SECTION_ORDER[b] : 999
+    return oa - ob
+  })
+
+  // Purpose callout ("para qué sirve")
+  if (groups['¿Para qué sirve?']) {
+    body += '<div class="detail-purpose"><h4>¿Para qué sirve?</h4>'
+    groups['¿Para qué sirve?'].forEach(function(d) {
+      body += '<div class="detail-text">' + formatDetailText(d.text) + '</div>'
+    })
+    body += '</div>'
+  }
 
   // Meta info
   body += '<div class="detail-meta">'
@@ -585,11 +717,17 @@ function showToolDetail(id) {
   if (t.licencia && t.licencia !== '—') body += '<span><strong>Licencia:</strong> ' + t.licencia + '</span>'
   body += '</div>'
 
-  // Detail sections
-  t.details.forEach(function(d) {
+  // Remaining sections in standard order
+  order.forEach(function(title) {
+    if (title === '¿Para qué sirve?') return
     body += '<div class="detail-section">'
-    body += '<h4>' + d.label + '</h4>'
-    body += '<div class="detail-text">' + formatDetailText(d.text) + '</div>'
+    body += '<h4>' + title + '</h4>'
+    groups[title].forEach(function(d) {
+      if (groups[title].length > 1 && d.label !== title) {
+        body += '<p class="detail-sublabel">' + d.label + '</p>'
+      }
+      body += '<div class="detail-text">' + formatDetailText(d.text) + '</div>'
+    })
     body += '</div>'
   })
 
@@ -760,6 +898,21 @@ async function loadLesson(modId, lesId) {
     }
     nav.innerHTML += '<button class="back" onclick="renderModuleLessons(' + modId + ')">Volver al módulo</button>'
     content.appendChild(nav)
+
+    // Lección 2.7: su quiz interactivo vive en un <script> propio de la
+    // lección, que no se ejecuta al inyectar por innerHTML (y está fuera
+    // de .lesson-content). Se evalúa aquí bajo demanda para que el botón
+    // "Verificar respuestas" encuentre sus funciones.
+    if (modId === 2 && lesId === 7) {
+      doc.querySelectorAll('script:not([src])').forEach(function(s) {
+        if (!s.textContent.trim()) return
+        const sc = document.createElement('script')
+        sc.textContent = s.textContent
+        document.body.appendChild(sc)
+        sc.remove()
+      })
+    }
+
     window.scrollTo(0, 0)
   } catch(e) {
     content.innerHTML = '<p>Error al cargar la lección: ' + e.message + '</p>'

@@ -1,31 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 4 · Lección 6 de 7</p>
 <h1>4.6 Corregir una mala salida de IA</h1>
 <p class="subtitle">Módulo 4 · Ejercicio</p>
-<div class="highlight"><strong>Objetivo:</strong> Practicar la identificación y corrección de errores en código generado por IA.</div>
-<h2>Enunciado</h2>
-<p><strong>Requerimiento:</strong> Función que recibe una lista de números y devuelve la suma de los pares.</p>
-<p><strong>Prompt usado:</strong> "Haz una función que sume números pares de una lista"</p>
-<p><strong>Respuesta de IA:</strong></p>
-<pre><code>def suma_pares(lista):
-    suma = 0
-    for num in lista:
-        if num % 2 == 0:
-            suma += num
-    return suma</code></pre>
-<h2>Tareas</h2>
-<ol><li>¿El código cumple el requerimiento? Identifica problemas</li><li>¿Qué casos borde no maneja?</li><li>¿Qué corregirías o mejorarías?</li><li>¿Qué pruebas escribirías?</li></ol>
-<h2>Problemas a identificar</h2>
-<ul><li>No maneja lista vacía</li><li>No maneja tipos no numéricos</li><li>No maneja números negativos</li></ul>
-<h2>Solución mejorada</h2>
-<pre><code>def suma_pares(numeros):
-    if not isinstance(numeros, list):
-        raise TypeError("Se esperaba una lista")
-    return sum(num for num in numeros
-               if isinstance(num, (int, float)) and num % 2 == 0)</code></pre>
-
-<h2>Introducción</h2>
-<p>En esta lección pondrás en práctica todo lo aprendido sobre revisión de código generado por IA. Te enfrentarás a un escenario real donde la IA produce una respuesta incorrecta o incompleta, y deberás identificar los problemas, proponer correcciones y justificar tus decisiones. Esta habilidad es fundamental para trabajar con IA de manera profesional.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Practicar la identificación y corrección de errores en código generado por IA.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -35,12 +15,51 @@
   <li>Escribir pruebas que validen el comportamiento del código en casos borde.</li>
   <li>Documentar el proceso de corrección para futuras referencias.</li>
 </ul>
-
+</section>
+<section>
+<div class="l11-brief">
+<p class="l11-tag">Actividad</p>
+<h2>Enunciado</h2>
+<p><strong>Requerimiento:</strong> Función que recibe una lista de números y devuelve la suma de los pares.</p>
+<p><strong>Prompt usado:</strong> "Haz una función que sume números pares de una lista"</p>
+<p><strong>Respuesta de IA:</strong></p>
+<div class="prompt-block">
+<pre><code>def suma_pares(lista):
+    suma = 0
+    for num in lista:
+        if num % 2 == 0:
+            suma += num
+    return suma</code></pre>
+</div>
+</div>
+<div class="l11-brief">
+<p class="l11-tag">Actividad</p>
+<h2>Tareas</h2>
+<ol><li>¿El código cumple el requerimiento? Identifica problemas</li><li>¿Qué casos borde no maneja?</li><li>¿Qué corregirías o mejorarías?</li><li>¿Qué pruebas escribirías?</li></ol>
+</div>
+</section>
+<section class="l11-card">
+<h2>Problemas a identificar</h2>
+<ul><li>No maneja lista vacía</li><li>No maneja tipos no numéricos</li><li>No maneja números negativos</li></ul>
+</section>
+<section class="l11-card">
+<h2>Solución mejorada</h2>
+<div class="prompt-block">
+<pre><code>def suma_pares(numeros):
+    if not isinstance(numeros, list):
+        raise TypeError("Se esperaba una lista")
+    return sum(num for num in numeros
+               if isinstance(num, (int, float)) and num % 2 == 0)</code></pre>
+</div>
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>En esta lección pondrás en práctica todo lo aprendido sobre revisión de código generado por IA. Te enfrentarás a un escenario real donde la IA produce una respuesta incorrecta o incompleta, y deberás identificar los problemas, proponer correcciones y justificar tus decisiones. Esta habilidad es fundamental para trabajar con IA de manera profesional.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>Análisis del código generado</h3>
 <p>El código que la IA generó funciona para el caso básico: una lista de números positivos. Sin embargo, un ingeniero profesional debe considerar todos los casos posibles. El error no está en lo que el código hace, sino en lo que no hace.</p>
-
 <h3>Casos borde a considerar</h3>
 <ul>
   <li><strong>Lista vacía:</strong> Debe devolver 0, no lanzar un error.</li>
@@ -49,7 +68,6 @@
   <li><strong>Lista con un solo elemento:</strong> Debe funcionar correctamente.</li>
   <li><strong>Entrada que no es lista:</strong> Debe lanzar un error claro.</li>
 </ul>
-
 <h3>El proceso de corrección</h3>
 <ol>
   <li><strong>Identificar:</strong> Revisa el código contra la checklist de 8 puntos.</li>
@@ -58,19 +76,22 @@
   <li><strong>Verificar:</strong> Prueba con casos borde para confirmar que la corrección funciona.</li>
   <li><strong>Documentar:</strong> Registra qué encontraste y cómo lo solucionaste.</li>
 </ol>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos adicionales de correcciones</h2>
-
 <h3>Ejemplo: Función de búsqueda</h3>
 <p><strong>Prompt:</strong> "Función que busque un usuario por email en una lista"</p>
 <p><strong>Código generado (con errores):</strong></p>
+<div class="prompt-block">
 <pre><code>def buscar_usuario(email, usuarios):
     for usuario in usuarios:
         if usuario['email'] == email:
             return usuario
     return None</code></pre>
+</div>
 <p><strong>Problemas:</strong> No valida tipos, asume que todos los usuarios tienen campo 'email', no maneja email en mayúsculas.</p>
 <p><strong>Versión mejorada:</strong></p>
+<div class="prompt-block">
 <pre><code>def buscar_usuario(email, usuarios):
     if not isinstance(email, str):
         raise TypeError("El email debe ser un string")
@@ -81,18 +102,22 @@
         if isinstance(usuario, dict) and usuario.get('email', '').lower().strip() == email:
             return usuario
     return None</code></pre>
-
+</div>
 <h3>Ejemplo: Procesamiento de archivos</h3>
 <p><strong>Prompt:</strong> "Función que lea un archivo CSV y devuelva los datos como lista de diccionarios"</p>
 <p><strong>Código generado (con errores):</strong></p>
+<div class="prompt-block">
 <pre><code>import csv
 def leer_csv(archivo):
     with open(archivo) as f:
         return list(csv.DictReader(f))</code></pre>
+</div>
 <p><strong>Problemas:</strong> No maneja archivos inexistentes, no especifica encoding, no maneja archivos vacíos.</p>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Código original vs. Mejorado</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Aspecto</th><th>Código original</th><th>Código mejorado</th></tr>
   </thead>
@@ -104,11 +129,10 @@ def leer_csv(archivo):
     <tr><td>Claridad del código</td><td>Mediana</td><td>Alta (explícito, legible)</td></tr>
   </tbody>
 </table>
-
+</div>
 <div class="highlight">
   <strong>💡 Consejo del instructor:</strong> Cuando corrijas código de IA, no te limites a hacerlo funcionar. Aprovecha para mejorar la calidad general: nombres de variables, estructura, documentación. La IA te da un borrador; tú eres responsable del producto final.
 </div>
-
 <div class="highlight" style="border-left-color:#f59e0b;">
   <strong>⚠ Errores comunes:</strong>
   <ul>
@@ -117,22 +141,30 @@ def leer_csv(archivo):
     <li><strong>Sobre-corregir:</strong> Añadir complejidad innecesaria "por si acaso" sin entender realmente el problema.</li>
   </ul>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>✔ Siempre prueba la corrección con casos borde antes de integrarla.</li>
   <li>✔ Documenta cada corrección y su justificación.</li>
   <li>✔ Si el código original tiene múltiples problemas, abórdalos de uno en uno.</li>
   <li>✔ Usa la checklist de revisión para asegurarte de no pasar nada por alto.</li>
   <li>✔ Mantén un registro de los errores recurrentes para ajustar tus prompts futuros.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Completa el ejercicio propuesto en la sección de Tareas. Luego, aplica el mismo proceso de corrección a los 2 ejemplos adicionales (buscar_usuario y leer_csv). Para cada uno, documenta: errores identificados, correcciones aplicadas, y pruebas escritas.</p>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Crea un script que automatice la prueba de la función suma_pares con los siguientes casos de prueba: lista vacía, lista con números negativos, lista con tipos mixtos, lista grande (10,000 elementos). El script debe mostrar qué casos pasan y cuáles fallan. Si todos pasan, mostrar "Pruebas superadas: código listo para producción".</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>El código generado por IA puede funcionar para el caso básico pero fallar en casos borde.</li>
@@ -141,8 +173,8 @@ def leer_csv(archivo):
   <li>Siempre prueba las correcciones antes de integrarlas.</li>
   <li>Documentar el proceso de corrección ayuda a mejorar prompts futuros.</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -165,5 +197,4 @@ def leer_csv(archivo):
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

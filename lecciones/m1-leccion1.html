@@ -1,10 +1,13 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 1 · Lección 1 de 5</p>
 <h1>1.1 Programación tradicional vs desarrollo con IA</h1>
 <p class="subtitle">Módulo 1 · Video</p>
-<div class="highlight"><strong>Objetivo:</strong> Comprender las diferencias fundamentales entre el desarrollo de software tradicional y el desarrollo asistido por IA.</div>
-<h2>Introducción</h2>
-<p>El desarrollo de software está experimentando una transformación radical. Durante décadas, la única forma de crear software era escribir cada línea de código manualmente, dominar lenguajes y frameworks, y tomar cada decisión de implementación. Hoy, la Inteligencia Artificial generativa permite describir lo que necesitas y obtener código funcional en segundos. Esta lección te ayudará a comprender ambos enfoques, sus fortalezas y limitaciones, y cómo combinarlos estratégicamente en proyectos reales.</p>
-<h2>Objetivos de aprendizaje</h2>
+<p class="l11-objective"><strong>Objetivo:</strong> Comprender las diferencias fundamentales entre el desarrollo de software tradicional y el desarrollo asistido por IA.</p>
+</header>
+<section class="l11-learn" aria-label="Qué aprenderás">
+<p class="l11-tag">Objetivos</p>
+<h2>Qué aprenderás</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
 <li>Comprender las diferencias fundamentales entre la programación tradicional y el desarrollo asistido por IA</li>
@@ -13,16 +16,49 @@
 <li>Aplicar criterios de decisión para elegir entre programación manual y asistida</li>
 <li>Evaluar críticamente el código generado por herramientas de IA</li>
 </ul>
+</section>
+<section class="l11-card">
+<h2>Introducción</h2>
+<p>El desarrollo de software está experimentando una transformación radical. Durante décadas, la única forma de crear software era escribir cada línea de código manualmente, dominar lenguajes y frameworks, y tomar cada decisión de implementación. Hoy, la Inteligencia Artificial generativa permite describir lo que necesitas y obtener código funcional en segundos. Esta lección te ayudará a comprender ambos enfoques, sus fortalezas y limitaciones, y cómo combinarlos estratégicamente en proyectos reales.</p>
+</section>
+<section aria-label="Conceptos">
+<div class="l11-compare">
+<div class="l11-grid-2 l11-compare-grid">
+<div class="l11-concept l11-concept-trad">
+<p class="l11-tag">Concepto</p>
 <h2>Programación tradicional</h2>
 <p>El ingeniero escribe cada línea de código manualmente. Domina el lenguaje, el framework y las herramientas. Cada decisión de implementación es tomada y ejecutada por la persona.</p>
+</div>
+<div class="l11-concept l11-concept-ia">
+<p class="l11-tag">Concepto</p>
 <h2>Desarrollo con IA</h2>
 <p>El ingeniero describe lo que necesita, la IA genera el código, y el ingeniero revisa, prueba y decide si aceptarlo o rechazarlo. El rol cambia de "escritor" a "director/orquestador".</p>
+</div>
+<div class="l11-vs" aria-hidden="true">VS</div>
+</div>
+<div class="l11-flow" aria-label="Flujo del desarrollo con IA">
+<div class="l11-flow-step">Describes lo que necesitas</div>
+<div class="l11-flow-arrow" aria-hidden="true">→</div>
+<div class="l11-flow-step">La IA genera el código</div>
+<div class="l11-flow-arrow" aria-hidden="true">→</div>
+<div class="l11-flow-step">Revisas y pruebas</div>
+<div class="l11-flow-arrow" aria-hidden="true">→</div>
+<div class="l11-flow-step">Aceptas o rechazas</div>
+</div>
+</div>
+</section>
+<section class="l11-card">
 <h2>Cuándo usar cada enfoque</h2>
-<ul><li><strong>IA:</strong> Tareas repetitivas y bien conocidas</li><li><strong>Tradicional o asistido con supervisión:</strong> Problemas noveles o críticos donde se requiere comprensión profunda</li></ul>
+<ul class="l11-checklist"><li><strong>IA:</strong> Tareas repetitivas y bien conocidas</li><li><strong>Tradicional o asistido con supervisión:</strong> Problemas noveles o críticos donde se requiere comprensión profunda</li></ul>
+</section>
+<section class="l11-card">
 <h2>Riesgos de usar mal la IA</h2>
-<ul><li>Código incorrecto que parece correcto</li><li>Dependencias fantasmas</li><li>Vulnerabilidades de seguridad</li><li>Deuda técnica acelerada</li></ul>
+<ul class="l11-risks"><li>Código incorrecto que parece correcto</li><li>Dependencias fantasmas</li><li>Vulnerabilidades de seguridad</li><li>Deuda técnica acelerada</li></ul>
+</section>
+<section class="l11-card">
 <h2>Comparación: Programación tradicional vs Desarrollo con IA</h2>
-<table><thead><tr><th>Aspecto</th><th>Tradicional</th><th>Con IA</th></tr></thead><tbody>
+<div class="l11-table-scroll">
+<table class="l11-table"><thead><tr><th>Aspecto</th><th>Tradicional</th><th>Con IA</th></tr></thead><tbody>
 <tr><td>Rol del desarrollador</td><td>Escritor de código</td><td>Director/orquestador</td></tr>
 <tr><td>Velocidad de producción</td><td>Lenta y constante</td><td>Rápida, requiere revisión</td></tr>
 <tr><td>Control sobre el resultado</td><td>Total</td><td>Requiere supervisión</td></tr>
@@ -31,29 +67,51 @@
 <tr><td>Mantenibilidad</td><td>Código alineado con estándares del equipo</td><td>Puede generar código inconsistente</td></tr>
 <tr><td>Caso de uso ideal</td><td>Sistemas críticos, algoritmos noveles</td><td>Boilerplate, prototipos, tareas repetitivas</td></tr>
 </tbody></table>
+</div>
+</section>
+<section class="l11-example">
 <h2>Ejemplo práctico</h2>
 <p>Supón que necesitas implementar un validador de formularios con expresiones regulares. En el enfoque tradicional, escribirías cada validación manualmente investigando la sintaxis de cada regex. Con IA, puedes describir las reglas en lenguaje natural y obtener las expresiones en segundos. Sin embargo, deberás probar cada una con casos borde: caracteres especiales, límites de longitud, inyección XSS, etc. La IA acelera la escritura, pero tu criterio técnico es irremplazable en la validación.</p>
+</section>
+<section class="l11-tip">
+<p class="l11-tag l11-tag--important">Importante</p>
 <h2>Consejo del instructor</h2>
 <div class="highlight"><strong>💡 Consejo profesional:</strong> No veas la IA como un reemplazo de tu habilidad técnica, sino como un multiplicador de productividad. Un desarrollador senior con IA es significativamente más efectivo que uno junior con IA, precisamente porque el senior sabe qué revisar, qué cuestionar y qué mejorar del código generado. Invierte en tu criterio técnico: eso es lo que la IA no puede darte.</div>
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes">
 <li><strong>Confianza ciega:</strong> Asumir que el código generado es correcto solo porque la IA lo produjo.</li>
 <li><strong>Sobre-dependencia:</strong> Usar IA incluso para tareas que harías más rápido manualmente.</li>
 <li><strong>Aceptar sin probar:</strong> Integrar código generado sin ejecutarlo en diferentes escenarios.</li>
 <li><strong>Ignorar la deuda técnica:</strong> Acumular código generado que nadie entiende ni mantiene.</li>
 </ul>
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good">
 <li><strong>Define primero, genera después:</strong> Ten claro qué necesitas antes de consultar a la IA.</li>
 <li><strong>Revisa cada línea:</strong> Lee, ejecuta y prueba todo el código generado antes de integrarlo.</li>
 <li><strong>Mantén tu dominio técnico:</strong> Sigue aprendiendo lenguajes y frameworks para evaluar el código de la IA.</li>
 <li><strong>Documenta el proceso:</strong> Guarda los prompts y decisiones para futura referencia.</li>
 <li><strong>Usa control de versiones:</strong> Asegúrate de poder revertir cambios generados por IA.</li>
 </ul>
+</section>
+<section aria-label="Actividad y reto">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
+<p class="l11-activity-meta"><strong>Acción esperada:</strong> breve informe comparativo.</p>
 <p>Elige una función que hayas escrito recientemente (menos de 50 líneas). Describe su funcionalidad a una IA y pídele que la reescriba. Compara ambas versiones: ¿qué diferencias encuentras en legibilidad, eficiencia y robustez? ¿La versión de la IA maneja casos borde que tú no consideraste? Documenta tus hallazgos en un breve informe.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
+<p class="l11-activity-meta"><strong>Acción esperada:</strong> comparación de enfoques.</p>
 <p>Sin usar IA, escribe una función que ordene una lista de números enteros usando el algoritmo que prefieras. Luego, pídele a una IA que genere la misma función. Compara ambos enfoques: ¿la IA usó un algoritmo diferente? ¿Más eficiente? ¿Más legible? Este ejercicio revela cómo la IA puede ofrecer soluciones que no habías considerado, ampliando tu repertorio técnico.</p>
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>La programación tradicional requiere escribir cada línea manualmente; la IA permite generar código a partir de descripciones.</li>
@@ -62,28 +120,29 @@
 <li>Los principales riesgos son código incorrecto, dependencias fantasmas, vulnerabilidades y deuda técnica acelerada.</li>
 <li>El dominio técnico sigue siendo esencial para evaluar la calidad del código generado.</li>
 </ul>
+</section>
 <div class="conclusion"><p><strong>Conclusión:</strong> La IA cambia el rol del desarrollador: menos escritura, más dirección y supervisión. El dominio técnico sigue siendo esencial para evaluar la calidad del código generado.</p></div>
-<div class="evidence-section">
-  <h2>Entrega de Evidencia</h2>
-  <p>Sube el archivo con el resultado de tu Actividad Práctica o Mini Reto y escribe una breve reflexión sobre lo que aprendiste.</p>
-  <div class="evidence-form" id="evidenceForm-m1-l1">
-    <div class="evidence-field">
-      <label for="fileInput-m1-l1">Selecciona tu archivo (.pdf, .docx, .zip, .png, .jpg, .jpeg):</label>
-      <input type="file" id="fileInput-m1-l1" accept=".pdf,.docx,.zip,.png,.jpg,.jpeg">
-    </div>
-    <div class="evidence-field">
-      <label for="reflection-m1-l1">¿Qué aprendiste al realizar esta actividad?</label>
-      <textarea id="reflection-m1-l1" rows="4" maxlength="500" oninput="actualizarContador('m1-l1')" placeholder="Escribe tu reflexión aquí..."></textarea>
-      <div class="char-counter"><span id="counter-m1-l1">0</span> / 500 caracteres</div>
-    </div>
-    <button class="btn-evidencia" onclick="enviarEvidencia('m1-l1')">Enviar Evidencia</button>
-    <div id="msg-m1-l1" class="evidence-msg"></div>
-  </div>
-  <div id="evidenceSubmitted-m1-l1" class="evidence-submitted" style="display:none;">
-    <p><strong>✅ Evidencia enviada correctamente</strong></p>
-    <p><strong>Archivo:</strong> <span id="fileName-m1-l1"></span></p>
-    <p><strong>Tu reflexión:</strong></p>
-    <blockquote id="savedReflection-m1-l1"></blockquote>
-  </div>
+<div class="evidence-section l11-evidence">
+<h2>Entrega de Evidencia</h2>
+<p>Sube el archivo con el resultado de tu Actividad Práctica o Mini Reto y escribe una breve reflexión sobre lo que aprendiste.</p>
+<div class="evidence-form" id="evidenceForm-m1-l1">
+<div class="evidence-field">
+<label for="fileInput-m1-l1">Selecciona tu archivo (.pdf, .docx, .zip, .png, .jpg, .jpeg):</label>
+<input type="file" id="fileInput-m1-l1" accept=".pdf,.docx,.zip,.png,.jpg,.jpeg">
+</div>
+<div class="evidence-field">
+<label for="reflection-m1-l1">¿Qué aprendiste al realizar esta actividad?</label>
+<textarea id="reflection-m1-l1" rows="4" maxlength="500" oninput="actualizarContador('m1-l1')" placeholder="Escribe tu reflexión aquí..."></textarea>
+<div class="char-counter"><span id="counter-m1-l1">0</span> / 500 caracteres</div>
+</div>
+<button class="btn-evidencia" onclick="enviarEvidencia('m1-l1')">Enviar Evidencia</button>
+<div id="msg-m1-l1" class="evidence-msg"></div>
+</div>
+<div id="evidenceSubmitted-m1-l1" class="evidence-submitted" style="display:none;">
+<p><strong>✅ Evidencia enviada correctamente</strong></p>
+<p><strong>Archivo:</strong> <span id="fileName-m1-l1"></span></p>
+<p><strong>Tu reflexión:</strong></p>
+<blockquote id="savedReflection-m1-l1"></blockquote>
+</div>
 </div>
 </div>

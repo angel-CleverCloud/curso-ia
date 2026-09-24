@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 3 · Lección 4 de 7</p>
 <h1>3.4 Plantilla de contexto</h1>
 <p class="subtitle">Módulo 3 · Documento</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Proporcionar una plantilla reutilizable para estructurar el contexto.</div>
-
-<h2>Introducción</h2>
-<p>Hasta ahora has aprendido qué información incluir y qué eliminar. El siguiente paso es estandarizar ese conocimiento en una plantilla reutilizable: el <strong>Context Packet</strong>. Esta plantilla te permitirá iniciar cualquier sesión con IA de manera estructurada y profesional, asegurando que nunca olvides ningún elemento esencial.</p>
-<p>En esta lección aprenderás a usar y personalizar el Context Packet para cualquier proyecto de desarrollo.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Proporcionar una plantilla reutilizable para estructurar el contexto.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -16,10 +14,15 @@
   <li>Mantener y versionar el Context Packet como parte de la documentación del proyecto.</li>
   <li>Compartir el Context Packet con el equipo para estandarizar la interacción con IA.</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Hasta ahora has aprendido qué información incluir y qué eliminar. El siguiente paso es estandarizar ese conocimiento en una plantilla reutilizable: el <strong>Context Packet</strong>. Esta plantilla te permitirá iniciar cualquier sesión con IA de manera estructurada y profesional, asegurando que nunca olvides ningún elemento esencial.</p>
+<p>En esta lección aprenderás a usar y personalizar el Context Packet para cualquier proyecto de desarrollo.</p>
+</section>
+<section class="l11-card">
 <h2>Context Packet</h2>
 <p>El Context Packet es un documento estructurado que contiene toda la información que la IA necesita para entender tu proyecto. Piénsalo como el README de tu proyecto, pero orientado a la IA.</p>
-
 <div class="prompt-block">
 <pre><code>## Objetivo:
 [¿Qué vamos a construir/lograr?]
@@ -53,20 +56,18 @@
 ## Punto de revisión humana:
 [¿Qué debe revisar el humano?]</code></pre>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Cómo usar el Context Packet</h2>
-
 <h3>Paso 1: Crear el archivo</h3>
 <p>Crea un archivo llamado <code>context-packet.md</code> en la raíz de tu proyecto y complétalo con la información de tu proyecto.</p>
-
 <h3>Paso 2: Iniciar la sesión</h3>
 <p>Al iniciar una sesión con la IA, pega el contenido completo del Context Packet como primer mensaje.</p>
-
 <h3>Paso 3: Refrescar cuando sea necesario</h3>
 <p>Cuando cambien las condiciones del proyecto (nuevas dependencias, cambios de versión, etc.), actualiza el Context Packet.</p>
-
+</section>
+<section class="l11-card">
 <h2>Plantillas por tipo de proyecto</h2>
-
 <h3>Plantilla para proyecto web</h3>
 <div class="prompt-block">
 <pre><code>## Objetivo:
@@ -105,7 +106,6 @@ Código completo + tests
 - Validar seguridad
 - Validar rendimiento</code></pre>
 </div>
-
 <h3>Plantilla para automatización/scripts</h3>
 <div class="prompt-block">
 <pre><code>## Objetivo:
@@ -142,7 +142,8 @@ Script Python autocontenido
 - Probar con datos reales
 - Validar edge cases</code></pre>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplo completo: Dashboard financiero</h2>
 <div class="prompt-block">
 <pre><code>## Objetivo:
@@ -187,7 +188,8 @@ Código completo de cada componente nuevo o modificado
 - Verificar que los gráficos se rendericen correctamente
 - Revisar accesibilidad básica</code></pre>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Tabla comparativa: Context Packet vs Documentación tradicional</h2>
 <div style="overflow-x:auto;">
   <table style="width:100%;border-collapse:collapse;margin:15px 0;">
@@ -227,7 +229,8 @@ Código completo de cada componente nuevo o modificado
     </tbody>
   </table>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Diagrama: Anatomía del Context Packet</h2>
 <div style="background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:30px;margin:20px 0;">
   <div style="display:flex;flex-direction:column;gap:12px;max-width:600px;margin:auto;">
@@ -242,25 +245,29 @@ Código completo de cada componente nuevo o modificado
   </div>
   <div style="text-align:center;margin-top:15px;font-size:0.85rem;color:#64748b;">El Context Packet contiene 8 secciones que preparan a la IA para generar respuestas precisas</div>
 </div>
-
 <div class="highlight"><strong>Consejo del instructor:</strong> Guarda tu Context Packet en un servicio de notas sincronizado (Notion, Obsidian, etc.) para tenerlo siempre disponible. Si trabajas en equipo, súbelo al repositorio del proyecto para que todos usen la misma versión.</div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
   <li><strong>Context Packet demasiado genérico:</strong> Si tu plantilla sirve para cualquier proyecto, no está haciendo su trabajo. Personaliza cada sección con información específica.</li>
   <li><strong>No actualizar el Context Packet:</strong> Un packet desactualizado es peor que no tenerlo, porque la IA confiará en información incorrecta.</li>
   <li><strong>Olvidar la sección de revisión humana:</strong> La IA no debe tomar decisiones críticas sin supervisión. Especifica claramente qué debe validar un humano.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>Versiona el Context Packet junto con el código (commitea los cambios).</li>
   <li>Incluye enlaces a documentación relevante dentro del packet.</li>
   <li>Usa el mismo packet para todas las sesiones de IA del mismo proyecto.</li>
   <li>Revisa y actualiza el packet al menos una vez por sprint.</li>
   <li>Comparte la plantilla con tu equipo para estandarizar la interacción con IA.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p><strong>Objetivo:</strong> Crear un Context Packet profesional y completo para un proyecto real.</p>
 <p><strong>Instrucciones:</strong></p>
@@ -288,7 +295,6 @@ Código completo de cada componente nuevo o modificado
   <li>Tu Context Packet debe tener entre 8-15 líneas (no más).</li>
   <li>Verifica que sea reutilizable para múltiples prompts.</li>
 </ol>
-
 <div class="highlight">
   <strong>Estructura recomendada para tu Context Packet:</strong><br><br>
   <strong>## Objetivo:</strong> [1 línea clara]<br>
@@ -301,10 +307,14 @@ Código completo de cada componente nuevo o modificado
   <strong>## Revisión humana:</strong> [1-2 líneas]<br><br>
   <em>Total: 10-15 líneas, ni más ni menos</em>
 </div>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Toma un proyecto tuyo existente y crea su Context Packet. Luego, pídele a la IA que realice una tarea de ese proyecto usando solo el Context Packet como información de fondo. Compara la respuesta con una sesión anterior donde no usaste el packet. ¿Cuál fue mejor?</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>El Context Packet estandariza la información que le das a la IA.</li>
@@ -313,12 +323,12 @@ Código completo de cada componente nuevo o modificado
   <li>Incluye siempre la sección de revisión humana para tareas críticas.</li>
   <li>Usar el mismo packet en todas las sesiones garantiza consistencia.</li>
 </ul>
-
-<div class="prompt-evidence-section">
-  <h2>💬 Compartir Prompt Utilizado</h2>
-  <p>Registra el Context Packet que creaste y documenta cómo lo usaste con una IA.</p>
-  
-  <div class="prompt-form" id="prompt-form-m3-l4">
+</section>
+<div class="prompt-evidence-section l11-evidence">
+<section class="l11-card">
+<h2>💬 Compartir Prompt Utilizado</h2>
+<p>Registra el Context Packet que creaste y documenta cómo lo usaste con una IA.</p>
+<div class="prompt-form" id="prompt-form-m3-l4">
     <div class="prompt-field">
       <label for="prompt-input-m3-l4">📝 Context Packet completo que creaste</label>
       <textarea 
@@ -347,8 +357,7 @@ Código completo de cada componente nuevo o modificado
     </button>
     <div id="prompt-msg-m3-l4" class="prompt-msg"></div>
   </div>
-
-  <div id="prompt-submitted-m3-l4" class="prompt-submitted" style="display:none;">
+<div id="prompt-submitted-m3-l4" class="prompt-submitted" style="display:none;">
     <h3>✅ Evidencia guardada correctamente</h3>
     
     <div class="prompt-submitted-item">
@@ -370,6 +379,8 @@ Código completo de cada componente nuevo o modificado
       <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l4')">🗑️ Eliminar</button>
     </div>
   </div>
+</section>
+
 </div>
 
 <script src="../js/prompt-manager.js"></script>

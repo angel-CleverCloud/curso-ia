@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 5 · Lección 1 de 7</p>
 <h1>5.1 Por qué no se debe confiar ciegamente en la IA</h1>
 <p class="subtitle">Módulo 5 · Video</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Comprender los riesgos de confiar en la IA sin verificación.</div>
-
-<h2>Introducción</h2>
-<p>Los modelos de lenguaje como GPT, Claude o Gemini son herramientas poderosas que pueden generar código, explicar conceptos y resolver problemas en segundos. Sin embargo, esta aparente omnisciencia crea una falsa sensación de seguridad. En esta lección aprenderás a identificar los riesgos de aceptar las salidas de la IA sin crítica, una habilidad fundamental para cualquier desarrollador que use IA como asistente.</p>
-<p>En proyectos reales, una respuesta de IA no verificada puede traducirse en bugs en producción, vulnerabilidades de seguridad o pérdida de tiempo depurando código que nunca debió implementarse. Saber <em>cuándo</em> desconfiar es tan importante como saber <em>cómo</em> pedir.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Comprender los riesgos de confiar en la IA sin verificación.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -17,34 +15,35 @@
 <li>Reconocer vulnerabilidades de seguridad comunes en código generado por IA</li>
 <li>Aplicar una regla fundamental de verificación antes de integrar cualquier salida de IA</li>
 </ul>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>Los modelos de lenguaje como GPT, Claude o Gemini son herramientas poderosas que pueden generar código, explicar conceptos y resolver problemas en segundos. Sin embargo, esta aparente omnisciencia crea una falsa sensación de seguridad. En esta lección aprenderás a identificar los riesgos de aceptar las salidas de la IA sin crítica, una habilidad fundamental para cualquier desarrollador que use IA como asistente.</p>
+<p>En proyectos reales, una respuesta de IA no verificada puede traducirse en bugs en producción, vulnerabilidades de seguridad o pérdida de tiempo depurando código que nunca debió implementarse. Saber <em>cuándo</em> desconfiar es tan importante como saber <em>cómo</em> pedir.</p>
+</section>
+<section class="l11-card l11-group">
 
 <h2>Alucinaciones</h2>
 <p>La IA genera información falsa pero con apariencia de verdad: funciones de librerías que no existen, APIs inventadas.</p>
-
 <h3>¿Por qué ocurren?</h3>
 <p>Los modelos de lenguaje no tienen una base de datos de hechos; predicen la siguiente palabra más probable según su entrenamiento. Cuando no tienen información suficiente, "inventan" respuestas plausibles. Esto es especialmente peligroso con bibliotecas recientes o frameworks menos conocidos.</p>
-
 <h3>Ejemplo real</h3>
 <p>Un desarrollador pide a ChatGPT una función usando <code>pandas.DataFrame.merge_advanced()</code> — un método que no existe. La IA genera código que "se ve bien" pero falla al ejecutarse porque la función es inventada. El desarrollador pierde 30 minutos depurando antes de darse cuenta de que el método nunca existió.</p>
 
 <h2>Sesgo de confirmación</h2>
 <p>Tendemos a aceptar lo que confirma nuestras expectativas. Si la IA da una respuesta que "se ve bien", tendemos a no revisarla a fondo.</p>
-
 <h3>Cómo se manifiesta</h3>
 <p>Cuando un desarrollador tiene una hipótesis sobre cómo resolver un problema y la IA genera código que coincide con esa hipótesis, es menos probable que revise el código críticamente. El sesgo de confirmación hace que pasemos por alto errores evidentes simplemente porque el resultado "se ve familiar".</p>
 
 <h2>Código que compila pero es incorrecto</h2>
 <p>La IA puede generar código sintácticamente válido pero semánticamente erróneo.</p>
-
 <h3>El peligro silencioso</h3>
 <p>Este es el riesgo más traicionero: el código no lanza errores, pero hace algo diferente a lo esperado. Un algoritmo de ordenamiento que no ordena correctamente, una consulta SQL que devuelve datos incompletos, o una función de validación que nunca rechaza entrada inválida. Todo compila, todo "funciona", pero los resultados son incorrectos.</p>
 
 <h2>Vulnerabilidades</h2>
 <p>La IA no es consciente de seguridad. Puede generar código con SQL injection, XSS, etc.</p>
-
 <h3>¿Por qué la IA no es consciente de seguridad?</h3>
 <p>La IA se entrena con código público, donde abundan malas prácticas de seguridad. No "sabe" qué es seguro o inseguro; simplemente replica patrones estadísticos. Si en sus datos de entrenamiento hay ejemplos de código vulnerable, los reproducirá.</p>
-
 <h3>Vulnerabilidades comunes generadas por IA</h3>
 <ul>
 <li><strong>SQL Injection:</strong> Concatenación directa de valores en consultas</li>
@@ -53,7 +52,8 @@
 <li><strong>Validación insuficiente:</strong> Falta de checks en entradas de usuario</li>
 <li><strong>Manejo inseguro de archivos:</strong> Path traversal al leer archivos</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Diagrama: Flujo de verificación de código generado por IA</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:15px 0;text-align:center;font-size:0.9rem;">
   <div style="display:inline-block;background:#2563eb;color:#fff;padding:10px 20px;border-radius:8px;margin:5px;font-weight:bold;">🤖 IA genera código</div>
@@ -71,11 +71,12 @@
     </div>
   </div>
 </div>
-
 <div class="highlight"><strong>Regla fundamental:</strong> La IA es una herramienta de asistencia, no de autoridad. Toda salida debe ser tratada como un borrador, nunca como producto final.</div>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Confianza ciega vs. Verificación sistemática</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead>
 <tr><th>Aspecto</th><th>Confianza ciega</th><th>Verificación sistemática</th></tr>
 </thead>
@@ -88,49 +89,59 @@
 <tr><td>Confianza en producción</td><td>Baja</td><td>Alta</td></tr>
 </tbody>
 </table>
-
+</div>
 <div class="highlight">
 <strong>Consejo del instructor:</strong> Trata cada respuesta de IA como si fuera código escrito por un desarrollador junior muy entusiasta pero sin experiencia. Revísalo, pruébalo, y nunca lo despliegues sin antes entender cada línea.
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Asumir que la IA "sabe" más que tú:</strong> La IA tiene conocimiento amplio pero superficial. Tu criterio como desarrollador es insustituible.</li>
 <li><strong>Copiar y pegar sin leer:</strong> El error más común. Siempre lee y comprende el código antes de integrarlo.</li>
 <li><strong>No probar el código generado:</strong> Si no lo pruebas, asume que está mal.</li>
 <li><strong>Ignorar warnings del IDE o linter:</strong> Las herramientas de análisis estático detectan problemas que la IA pasa por alto.</li>
 <li><strong>Usar IA para tareas que no entiendes:</strong> Si no puedes evaluar la respuesta, no deberías usarla.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Verificar siempre:</strong> Toda salida de IA debe ser tratada como borrador, nunca como producto final</li>
 <li><strong>Probar el código:</strong> Cada función generada debe tener al menos una prueba básica</li>
 <li><strong>Revisar seguridad:</strong> Busca vulnerabilidades específicas en código generado</li>
 <li><strong>Documentar el origen:</strong> Marca qué partes del código fueron generadas por IA</li>
 <li><strong>Mantener el criterio humano:</strong> La IA es herramienta, no reemplazo del juicio técnico</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Se te presenta el siguiente código generado por IA para una función que debe validar direcciones de email. Identifica al menos 3 problemas:</p>
+<div class="prompt-block">
 <pre><code>def validate_email(email):
     if "@" in email:
         return True
     return False</code></pre>
+</div>
 <ol>
 <li>¿Qué problemas de seguridad o funcionalidad encuentras?</li>
 <li>¿Qué casos borde no maneja?</li>
 <li>Escribe una versión corregida.</li>
 <li>¿Confiarías ciegamente en esta función? ¿Por qué?</li>
 </ol>
-
 <div class="highlight">
 <strong>Solución:</strong> La función solo verifica si existe "@", lo que permite emails como "@" o "a@". No valida formato, dominio, ni TLD. Versión mejorada: usar <code>from email_validator import validate_email, EmailNotValidError</code> o una expresión regular básica como <code>r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'</code>.
 </div>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Genera un prompt para una IA que pida una función que calcule el factorial de un número. Sin probar el código generado, responde: ¿qué riesgos tiene implementarlo directamente? ¿Qué casos borde deberías probar? Escribe las pruebas mínimas antes de ejecutar el código.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>La IA alucina información falsa con apariencia convincente</li>
@@ -139,8 +150,8 @@
 <li>La IA no es consciente de seguridad y replica patrones vulnerables</li>
 <li>Toda salida de IA debe tratarse como borrador y verificarse antes de usar</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -163,5 +174,4 @@
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

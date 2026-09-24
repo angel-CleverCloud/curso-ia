@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 6 · Lección 6 de 8</p>
 <h1>6.6 Validar la solución</h1>
 <p class="subtitle">Módulo 6 · Ejercicio</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Aplicar validación y pruebas a la solución generada.</div>
-
-<h2>Introducción</h2>
-<p>El código generado por IA no es el producto final — es un borrador que debe pasar por un proceso de validación riguroso. En esta lección aplicarás las técnicas de validación del Módulo 4 (checklist de revisión, pruebas mínimas, seguridad) al código generado en la lección anterior.</p>
-<p>En proyectos reales, saltarse la validación de código generado por IA es la principal causa de bugs en producción. Un código que "se ve bien" puede contener vulnerabilidades graves, errores lógicos sutiles o simplemente no cumplir con los requerimientos.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Aplicar validación y pruebas a la solución generada.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -17,12 +15,16 @@
 <li>Clasificar la solución como aprobada, requiere cambios o rechazada</li>
 <li>Documentar los cambios realizados sobre el código generado</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>El código generado por IA no es el producto final — es un borrador que debe pasar por un proceso de validación riguroso. En esta lección aplicarás las técnicas de validación del Módulo 4 (checklist de revisión, pruebas mínimas, seguridad) al código generado en la lección anterior.</p>
+<p>En proyectos reales, saltarse la validación de código generado por IA es la principal causa de bugs en producción. Un código que "se ve bien" puede contener vulnerabilidades graves, errores lógicos sutiles o simplemente no cumplir con los requerimientos.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>Checklist de revisión del Módulo 4</h3>
 <p>La checklist de validación cubre las siguientes dimensiones. Aplica cada una al código generado:</p>
-
 <h4>1. Correctitud funcional</h4>
 <ul>
 <li>¿El código implementa exactamente lo que pide el requerimiento?</li>
@@ -30,7 +32,6 @@
 <li>¿Las funciones producen el resultado esperado para entradas válidas?</li>
 <li>¿El flujo de navegación entre pantallas es correcto?</li>
 </ul>
-
 <h4>2. Calidad del código</h4>
 <ul>
 <li>¿Los nombres de variables y funciones son descriptivos?</li>
@@ -38,7 +39,6 @@
 <li>¿Hay código muerto, duplicado o redundante?</li>
 <li>¿La estructura es modular y mantenible?</li>
 </ul>
-
 <h4>3. Seguridad</h4>
 <ul>
 <li>¿Se validan las entradas del usuario?</li>
@@ -46,7 +46,6 @@
 <li>¿Se usan datos directamente del localStorage sin validación?</li>
 <li>¿Hay exposición de información sensible?</li>
 </ul>
-
 <h4>4. Rendimiento y usabilidad</h4>
 <ul>
 <li>¿Las operaciones son eficientes para el volumen de datos esperado?</li>
@@ -54,7 +53,6 @@
 <li>¿Los mensajes de error son claros para el usuario?</li>
 <li>¿La experiencia de carga es aceptable?</li>
 </ul>
-
 <h3>Tipos de pruebas mínimas</h3>
 <p>Para cada función generada por IA, debes ejecutar al menos:</p>
 <ul>
@@ -63,7 +61,6 @@
 <li><strong>Prueba de caso borde:</strong> Con datos límite (vacío, nulo, extremo) se comporta adecuadamente</li>
 <li><strong>Prueba de error:</strong> Con datos inválidos, lanza un error claro o maneja la situación</li>
 </ul>
-
 <h3>Decisión final</h3>
 <p>Al finalizar la validación, clasifica la solución en una de tres categorías:</p>
 <div class="highlight">
@@ -71,9 +68,11 @@
 <strong>🔧 Requiere cambios:</strong> Tiene problemas menores o falta de casos borde. Se documentan los cambios necesarios y se corrige.<br>
 <strong>❌ Rechazada:</strong> No cumple requerimientos fundamentales, tiene vulnerabilidades graves o errores estructurales. No se integra.
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Validación manual vs. Validación asistida por checklist</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead>
 <tr><th>Aspecto</th><th>Validación manual</th><th>Validación con checklist</th></tr>
 </thead>
@@ -86,7 +85,9 @@
 <tr><td>Tiempo</td><td>Rápido pero incompleto</td><td>Moderado pero completo</td></tr>
 </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-plain">
 <h2>Diagrama: Flujo de decisión de validación</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:15px 0;text-align:center;font-size:0.9rem;">
   <div style="display:flex;flex-direction:column;align-items:center;gap:8px;max-width:450px;margin:0 auto;">
@@ -103,7 +104,8 @@
     </div>
   </div>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos de problemas detectados en validación</h2>
 <ul>
 <li><strong>Desarrollo web:</strong> Una función de búsqueda que filtra en cliente pero debería filtrar también en datos añadidos dinámicamente — caso borde no contemplado</li>
@@ -111,29 +113,33 @@
 <li><strong>Automatización:</strong> Un script que elimina archivos sin confirmación previa — riesgo de pérdida de datos</li>
 <li><strong>IA generativa:</strong> Una función que usa un API key hardcodeado en el código — vulnerabilidad crítica</li>
 </ul>
-
 <div class="highlight">
 <strong>💡 Consejo del instructor:</strong> La validación de código generado por IA requiere un cambio de mentalidad. Normalmente revisamos código asumiendo que está bien hasta que encontramos algo mal. Con código de IA, asume que está mal hasta que demuestres que está bien. Este enfoque (default skeptic) te ahorrará horas de depuración.
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Probar solo el caso feliz:</strong> El camino más común funciona, pero todo lo demás falla</li>
 <li><strong>Confiar en que la IA "sabe" de seguridad:</strong> La IA replica vulnerabilidades de sus datos de entrenamiento</li>
 <li><strong>No probar en el entorno real:</strong> El código funciona en el chat de la IA pero no en el navegador real</li>
 <li><strong>Aceptar código sin ejecutarlo:</strong> "Se ve bien" no es una validación válida</li>
 <li><strong>Documentar solo los errores:</strong> También debes documentar qué funciona y por qué lo aceptaste</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Siempre probar en el entorno real:</strong> El chat de la IA no es un runtime</li>
 <li><strong>Mantener una checklist impresa o digital:</strong> No confíes en la memoria para cubrir todas las dimensiones</li>
 <li><strong>Probar con datos reales:</strong> Los datos de prueba deben reflejar el uso en producción</li>
 <li><strong>Revisar seguridad antes que funcionalidad:</strong> Un código seguro que falla es mejor que uno vulnerable que funciona</li>
 <li><strong>Documentar cada hallazgo:</strong> Para trazabilidad y mejora de prompts futuros</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <ol>
 <li>Revisa el código usando la checklist del Módulo 4</li>
@@ -142,10 +148,14 @@
 <li>Decide: aprobada, requiere cambios, o rechazada</li>
 <li>Documenta los cambios sobre el código generado</li>
 </ol>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Pide a la IA que genere intencionalmente código con errores (por ejemplo, "genera una función de validación de email con al menos 3 vulnerabilidades"). Luego aplica la checklist de validación para identificar cada problema. Este ejercicio inverso entrena tu ojo para detectar errores comunes de IA. Documenta los 3 errores que encontraste y cómo los corregirías.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>Todo código generado por IA debe pasar por una validación sistemática antes de integrarse</li>
@@ -155,12 +165,9 @@
 <li>Asume que el código está mal hasta que demuestres lo contrario (default skeptic)</li>
 <li>Documentar cada hallazgo mejora los prompts futuros y la trazabilidad del proyecto</li>
 </ul>
-
-
-
 <p><strong>Entrega:</strong> Reporte de validación + cambios realizados + pruebas ejecutadas.</p>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -183,5 +190,4 @@
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

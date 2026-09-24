@@ -1,11 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 4 · Lección 7 de 7</p>
 <h1>4.7 Decidir si aceptar o rechazar código</h1>
 <p class="subtitle">Módulo 4 · Quiz</p>
-<div class="highlight"><strong>Objetivo:</strong> Evaluar la capacidad de decidir si un fragmento de código generado por IA es aceptable.</div>
-
-<h2>Introducción</h2>
-<p>Esta evaluación final del módulo 4 pondrá a prueba tu capacidad para tomar decisiones críticas sobre código generado por IA. No se trata solo de saber si el código funciona, sino de evaluar aspectos como seguridad, mantenibilidad, rendimiento y responsabilidad. Las preguntas están diseñadas para evaluar tu criterio como ingeniero, no tu memoria.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Evaluar la capacidad de decidir si un fragmento de código generado por IA es aceptable.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -14,9 +14,13 @@
   <li>Justificar las decisiones de aceptación o rechazo basándose en criterios objetivos (seguridad, rendimiento, mantenibilidad).</li>
   <li>Identificar la responsabilidad del ingeniero en el ciclo de desarrollo asistido por IA.</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Esta evaluación final del módulo 4 pondrá a prueba tu capacidad para tomar decisiones críticas sobre código generado por IA. No se trata solo de saber si el código funciona, sino de evaluar aspectos como seguridad, mantenibilidad, rendimiento y responsabilidad. Las preguntas están diseñadas para evaluar tu criterio como ingeniero, no tu memoria.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>Criterios para decidir aceptar o rechazar</h3>
 <p>Antes de responder el quiz, repasemos los criterios fundamentales que determinan si un fragmento de código generado por IA es aceptable:</p>
 <ul>
@@ -27,29 +31,34 @@
   <li><strong>Dependencias:</strong> Solo debe utilizar las dependencias necesarias y aprobadas por el equipo.</li>
   <li><strong>Pruebas:</strong> Debe incluir o al menos permitir la verificación mediante pruebas.</li>
 </ul>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
-
 <h3>Ejemplo 1: Código aceptable</h3>
 <p><strong>Contexto:</strong> Necesitas validar un email en un formulario de registro.</p>
 <p><strong>Código generado:</strong></p>
+<div class="prompt-block">
 <pre><code>function validarEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }</code></pre>
+</div>
 <p><strong>Decisión:</strong> Aceptar. Es simple, no tiene dependencias, y maneja el caso básico correctamente. Se podría mejorar la expresión regular, pero es suficiente para el propósito.</p>
-
 <h3>Ejemplo 2: Código que requiere corrección</h3>
 <p><strong>Contexto:</strong> Necesitas obtener datos de una API externa.</p>
 <p><strong>Código generado:</strong></p>
+<div class="prompt-block">
 <pre><code>async function getData() {
   const res = await fetch('https://api.example.com/data');
   return res.json();
 }</code></pre>
+</div>
 <p><strong>Decisión:</strong> Rechazar y pedir corrección. No maneja errores de red, no tiene timeout, no verifica el código de estado HTTP. Un error de red o un 500 dejaría la aplicación colgada.</p>
-
+</section>
+<section class="l11-card">
 <h2>Comparaciones</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Criterio</th><th>Decisión: Aceptar</th><th>Decisión: Corregir</th><th>Decisión: Rechazar</th></tr>
   </thead>
@@ -60,11 +69,10 @@
     <tr><td>Dependencias</td><td>Solo las necesarias</td><td>Una dependencia cuestionable</td><td>Dependencias innecesarias o riesgosas</td></tr>
   </tbody>
 </table>
-
+</div>
 <div class="highlight">
   <strong>💡 Consejo del instructor:</strong> Cuando tengas dudas entre aceptar o rechazar, pregúntate: "¿Estaría cómodo desplegando este código a producción sin supervisión adicional?" Si la respuesta es no, entonces necesita al menos una corrección.
 </div>
-
 <div class="highlight" style="border-left-color:#f59e0b;">
   <strong>⚠ Errores comunes:</strong>
   <ul>
@@ -73,104 +81,130 @@
     <li><strong>No documentar la decisión:</strong> Si rechazas código, explica por qué. Esto ayuda a la IA a mejorar y al equipo a entender el criterio.</li>
   </ul>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>✔ Siempre revisa el código generado como si lo hubiera escrito un humano.</li>
   <li>✔ Si hay dudas sobre seguridad, busca una segunda opinión.</li>
   <li>✔ Documenta el motivo de cada rechazo o corrección.</li>
   <li>✔ Establece un estándar mínimo de calidad para tu equipo.</li>
   <li>✔ No aceptes código que no entiendas completamente.</li>
 </ul>
-
+</section>
+<section class="l11-quest">
 <h2>Pregunta 1</h2>
 <p>La IA genera código que cumple el requerimiento pero introduce una dependencia npm nueva no solicitada. ¿Qué haces?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) Lo acepto, la dependencia puede ser útil</li>
   <li>b) Lo rechazo y pido versión sin dependencias nuevas</li>
   <li>c) Lo acepto y documento la dependencia para revisión futura</li>
   <li>d) Elimino la dependencia manualmente sin preguntar</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> Las dependencias no solicitadas aumentan la superficie de ataque, el tamaño del proyecto y la deuda técnica. Debes pedir una versión que resuelva el problema sin dependencias externas.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> Las dependencias no solicitadas aumentan la superficie de ataque, el tamaño del proyecto y la deuda técnica. Debes pedir una versión que resuelva el problema sin dependencias externas.</p>
+</section>
+<section class="l11-quest">
 <h2>Pregunta 2</h2>
 <p>El código funciona pero no tiene manejo de errores. El requerimiento no lo mencionaba. ¿Qué haces?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) Lo acepto tal cual, el requerimiento no pedía manejo de errores</li>
   <li>b) Lo rechazo y pido que añada manejo de errores</li>
   <li>c) Añado el manejo de errores yo mismo después de aceptarlo</li>
   <li>d) Lo acepto porque el código funciona en condiciones normales</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> El manejo de errores es una responsabilidad implícita de todo código en producción. Aunque el requerimiento no lo mencione, el código debe ser robusto. Pedir a la IA que lo añada es más eficiente que hacerlo tú.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> El manejo de errores es una responsabilidad implícita de todo código en producción. Aunque el requerimiento no lo mencione, el código debe ser robusto. Pedir a la IA que lo añada es más eficiente que hacerlo tú.</p>
+</section>
+<section class="l11-quest">
 <h2>Pregunta 3</h2>
 <p>La IA genera código correcto pero ineficiente (O(n²) cuando podría ser O(n)). ¿Qué haces?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) Lo acepto, mientras funcione es suficiente</li>
   <li>b) Pido una optimización a la IA</li>
   <li>c) Lo rechazo completamente y busco otra solución</li>
   <li>d) Lo optimizo yo mismo sin avisar</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> El código ineficiente puede funcionar en desarrollo pero fallar en producción con datos reales. Pedir una optimización a la IA es rápido y educativo. Solo se rechaza completamente si la ineficiencia es crítica e insalvable.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> El código ineficiente puede funcionar en desarrollo pero fallar en producción con datos reales. Pedir una optimización a la IA es rápido y educativo. Solo se rechaza completamente si la ineficiencia es crítica e insalvable.</p>
+</section>
+<section class="l11-quest">
 <h2>Pregunta 4</h2>
 <p>El código tiene un bug que no se detectó en revisión. ¿De quién es la responsabilidad?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) De la IA que generó el código con error</li>
   <li>b) Del ingeniero que lo integró sin detectar el bug</li>
   <li>c) De ambos por igual</li>
   <li>d) Del revisor de código del equipo</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> La IA es una herramienta, no un responsable. El ingeniero que integra el código es el último filtro y, por tanto, el responsable de lo que llega a producción. La IA puede equivocarse, pero tú eres quien decide aceptar o rechazar.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> La IA es una herramienta, no un responsable. El ingeniero que integra el código es el último filtro y, por tanto, el responsable de lo que llega a producción. La IA puede equivocarse, pero tú eres quien decide aceptar o rechazar.</p>
+</section>
+<section class="l11-quest">
 <h2>Pregunta 5</h2>
 <p>La IA genera código que usa una librería con una vulnerabilidad conocida. ¿Cuál es la mejor acción?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) Aceptar el código, la vulnerabilidad es conocida y tiene parche</li>
   <li>b) Rechazar el código y pedir una implementación sin esa librería</li>
   <li>c) Aceptar el código y actualizar la librería después</li>
   <li>d) Ignorar la vulnerabilidad porque el código es funcional</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> Introducir intencionalmente una dependencia vulnerable es una mala práctica de seguridad. Debes rechazar el código y pedir una alternativa segura, incluso si la vulnerabilidad tiene parche.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> Introducir intencionalmente una dependencia vulnerable es una mala práctica de seguridad. Debes rechazar el código y pedir una alternativa segura, incluso si la vulnerabilidad tiene parche.</p>
+</section>
+<section class="l11-quest">
 <h2>Pregunta 6</h2>
 <p>¿Cuál es la principal ventaja de pedir cambios a la IA en lugar de modificarlos tú mismo?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) La IA siempre genera código mejor que el humano</li>
   <li>b) Ahorras tiempo y la IA aprende del error para futuras respuestas</li>
   <li>c) La IA recuerda el contexto del proyecto mejor que tú</li>
   <li>d) Es más divertido pedir cambios que hacerlos</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> Pedir cambios a la IA tiene doble beneficio: ahorras tiempo al no tener que escribir las correcciones manualmente, y la IA incorpora la retroalimentación en su contexto, mejorando respuestas futuras dentro de la misma sesión.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> Pedir cambios a la IA tiene doble beneficio: ahorras tiempo al no tener que escribir las correcciones manualmente, y la IA incorpora la retroalimentación en su contexto, mejorando respuestas futuras dentro de la misma sesión.</p>
+</section>
+<section class="l11-quest">
 <h2>Pregunta 7</h2>
 <p>Recibes código que es sintácticamente perfecto pero semánticamente incorrecto (hace algo diferente a lo pedido). ¿Qué haces?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) Lo acepto porque la sintaxis es correcta</li>
   <li>b) Lo rechazo y explico claramente qué debía hacer</li>
   <li>c) Lo modifico para que haga lo correcto y lo acepto</li>
   <li>d) Pregunto al equipo si el comportamiento alternativo sirve</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> El código sintácticamente perfecto pero semánticamente incorrecto es código incorrecto. Debes rechazarlo y explicar el error para que la IA entienda la diferencia. Aceptarlo introduce bugs silenciosos.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> El código sintácticamente perfecto pero semánticamente incorrecto es código incorrecto. Debes rechazarlo y explicar el error para que la IA entienda la diferencia. Aceptarlo introduce bugs silenciosos.</p>
+</section>
+<section class="l11-quest">
 <h2>Pregunta 8</h2>
 <p>¿Cuándo es aceptable usar código generado por IA sin modificaciones?</p>
-<ul>
+
+<ul class="l11-options">
   <li>a) Nunca, siempre hay que modificar algo</li>
   <li>b) Cuando el código pasa todos los puntos de la checklist de revisión</li>
   <li>c) Solo si el código tiene menos de 10 líneas</li>
   <li>d) Cuando la IA dice que el código es correcto</li>
 </ul>
-<p><strong>Respuesta: b</strong></p>
-<p><strong>Explicación:</strong> El código generado por IA puede ser aceptado sin modificaciones si pasa la revisión sistemática: cumple el requerimiento, es seguro, maneja errores, es legible, no tiene dependencias innecesarias, y es eficiente.</p>
 
+<p class="l11-answer"><strong>Respuesta: b</strong></p>
+<p class="l11-explain"><strong>Explicación:</strong> El código generado por IA puede ser aceptado sin modificaciones si pasa la revisión sistemática: cumple el requerimiento, es seguro, maneja errores, es legible, no tiene dependencias innecesarias, y es eficiente.</p>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>Decidir si aceptar o rechazar código generado por IA requiere criterio técnico, no solo verificar que funciona.</li>
@@ -179,8 +213,6 @@
   <li>Documentar las decisiones de aceptación o rechazo mejora el proceso a largo plazo.</li>
   <li>La responsabilidad final del código integrado es del ingeniero, no de la IA.</li>
 </ul>
-
-
-
+</section>
 <div class="conclusion"><p><strong>Entregable:</strong> Bitácora de desarrollo asistido documentando el ejercicio 4.6.</p></div>
 </div>
