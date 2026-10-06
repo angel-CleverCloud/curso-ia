@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 3 · Lección 3 de 7</p>
 <h1>3.3 Qué información sobra o confunde</h1>
 <p class="subtitle">Módulo 3 · Video</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Identificar información irrelevante o contraproducente que empeora las respuestas de la IA.</div>
-
-<h2>Introducción</h2>
-<p>Si dar poca información es malo, dar demasiada o información incorrecta puede ser peor. La IA procesa todo lo que recibe y, si incluyes ruido, ese ruido contaminará la respuesta. Saber qué eliminar es tan importante como saber qué incluir.</p>
-<p>En esta lección aprenderás a identificar los tipos de información que debes excluir de tus prompts y contextos para obtener respuestas más precisas y útiles.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Identificar información irrelevante o contraproducente que empeora las respuestas de la IA.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -16,6 +14,13 @@
   <li>Evaluar críticamente cada línea de contexto con la pregunta "¿esto ayuda a la IA a hacer su tarea?"</li>
   <li>Depurar prompts existentes eliminando elementos que confunden a la IA.</li>
 </ul>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>Si dar poca información es malo, dar demasiada o información incorrecta puede ser peor. La IA procesa todo lo que recibe y, si incluyes ruido, ese ruido contaminará la respuesta. Saber qué eliminar es tan importante como saber qué incluir.</p>
+<p>En esta lección aprenderás a identificar los tipos de información que debes excluir de tus prompts y contextos para obtener respuestas más precisas y útiles.</p>
+</section>
+<section class="l11-card l11-group">
 
 <h2>Información que sobra</h2>
 <ul>
@@ -32,26 +37,24 @@
   <li>Roles ambiguos ("actúa como experto pero no tomes decisiones")</li>
   <li>Demasiados ejemplos irrelevantes</li>
 </ul>
-
 <div class="highlight"><strong>Regla:</strong> Cada línea de contexto debe responder a "¿esto ayuda a la IA a hacer su tarea?" Si no, elimínala.</div>
-
+<div class="highlight"><strong>Conexión con el curso:</strong> esta lección es la contracara de la Lección 3.2 (qué sí incluir). Aplica la misma higiene al Context Packet de la To-Do: sin datos sensibles (ver M1, Regla 2), sin historia irrelevante, sin instrucciones contradictorias.</div>
+</section>
+<section class="l11-card">
 <h2>Desglose detallado</h2>
-
 <h3>Información redundante</h3>
 <p>Repetir la misma información de diferentes formas no ayuda a la IA; al contrario, puede confundirla si las repeticiones no son exactamente iguales. La IA puede ponderar incorrectamente la información repetida.</p>
 <p><strong>Ejemplo de redundancia:</strong> "El proyecto usa React 18. Trabajamos con React 18. La versión de React es 18." Basta con decirlo una vez.</p>
-
 <h3>Información desactualizada</h3>
 <p>Si migraste de MySQL a PostgreSQL pero en el contexto aún aparece MySQL, la IA generará código incompatible. Mantén el contexto sincronizado con la realidad del proyecto.</p>
-
 <h3>Instrucciones contradictorias</h3>
 <p>Son especialmente dañinas porque la IA no sabe qué priorizar. Puede ignorar ambas, combinarlas incorrectamente o decidir arbitrariamente.</p>
 <p><strong>Ejemplo:</strong> "Hazlo rápido y sin deuda técnica" Rápido y sin deuda técnica son objetivos opuestos.</p>
-
 <h3>Roles ambiguos</h3>
 <p>Un rol contradictorio paraliza a la IA. Si le pides que sea "experto pero que no decida", estás anulando su capacidad de acción.</p>
 <p><strong>Ejemplo claro:</strong> "Eres un asesor senior de seguridad. Tu trabajo es recomendar, no implementar. Señala los riesgos y sugiere soluciones."</p>
-
+</section>
+<section class="l11-card">
 <h2>Tabla comparativa: Prompt limpio vs Prompt ruidoso</h2>
 <div style="overflow-x:auto;">
   <table style="width:100%;border-collapse:collapse;margin:15px 0;">
@@ -86,14 +89,13 @@
     </tbody>
   </table>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos reales</h2>
-
 <h3>Ejemplo 1: Prompt ruidoso</h3>
 <div class="prompt-block">
 <pre><code>Hola, soy Juan, tengo 3 perros y trabajo desde casa. Estoy haciendo un proyecto para mi tía que tiene una pastelería. La pastelería se llama "Dulce Tentación" y está en la calle 52. La página necesita un catálogo de productos, carrito de compras y pasarela de pago. Usa React que es lo que estoy aprendiendo. También me gusta el helado de chocolate. Hazlo sencillo pero que tenga todo lo necesario. No uses librerías externas porque no sé instalarlas. Pero que se vea profesional. Ah, y que sea responsive. El dominio va a ser dulcetentacion.com pero aún no lo compro. Los colores de la pastelería son rosa y blanco. Mi tía quiere vender pasteles, galletas y brownies. Los precios van de $5 a $50. Quiero que puedas registrarte con email y Google. También notificaciones cuando haya un pedido nuevo.</code></pre>
 </div>
-
 <h3>Ejemplo 2: Mismo proyecto, prompt limpio</h3>
 <div class="prompt-block">
 <pre><code>Objetivo: Tienda online para pastelería "Dulce Tentación"
@@ -110,25 +112,29 @@ Requerimientos:
 Restricción: Sin librerías externas de UI, sin backend real
 Formato: Código completo del frontend con datos mock</code></pre>
 </div>
-
 <div class="highlight"><strong>Consejo del instructor:</strong> Antes de enviar un prompt, léelo en voz alta. Si hay frases que no aportan directamente a la tarea, elimínalas. Cada palabra que conserves debe tener un propósito.</div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
   <li><strong>Incluir contexto de sesiones anteriores:</strong> Si cambias de tema, no arrastres el historial previo. La IA puede mezclar conceptos de ambas conversaciones.</li>
   <li><strong>Usar calificativos subjetivos:</strong> "bonito", "profesional", "moderno" significan cosas diferentes para cada persona. Prefiere descripciones concretas: "con bordes redondeados de 8px, sombra suave, colores azul y blanco".</li>
   <li><strong>Poner reglas y excepciones en el mismo párrafo:</strong> Separa "qué debe hacer" de "qué no debe hacer" en secciones distintas para evitar contradicciones.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>Aplica la regla de "una línea, un propósito": cada línea debe aportar información única.</li>
   <li>Usa secciones separadas para reglas, restricciones y excepciones.</li>
   <li>Reemplaza adjetivos subjetivos por especificaciones medibles.</li>
   <li>Mantén un archivo de contexto limpio y actualizado, revisándolo semanalmente.</li>
   <li>Si un prompt tiene más de 15 líneas, probablemente contiene ruido. Depúralo.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p><strong>Objetivo:</strong> Identificar y eliminar información ruidosa de un prompt real.</p>
 <p><strong>Instrucciones:</strong></p>
@@ -139,7 +145,6 @@ Formato: Código completo del frontend con datos mock</code></pre>
   <li>Compara tu versión limpia con la original. ¿Cuál es más clara?</li>
   <li>Practica esta técnica con tus propios prompts.</li>
 </ol>
-
 <div class="highlight">
   <strong>Prompt ruidoso (ejemplo para depurar):</strong><br><br>
   "Necesito una app de tareas. Soy diseñador gráfico pero estoy aprendiendo a programar. La app debe ser como Trello pero más simple. Mi amigo Pedro también va a ayudar pero él sabe Vue. Quiero que uses React porque es más popular. Los colores me gustan azules. Que tenga drag and drop. También oscuro porfa. Hazlo bien porque lo voy a presentar en mi trabajo. No quiero que tenga errores. Las tareas deben tener título, descripción y fecha. Categorías: pendiente, en progreso, terminado. Guarda en localStorage."<br><br>
@@ -152,10 +157,14 @@ Formato: Código completo del frontend con datos mock</code></pre>
   <strong>Versión limpia:</strong><br>
   "App de gestión de tareas en React con TypeScript. Tareas con: título, descripción, fecha. Estados: pendiente, en progreso, terminado. Funcionalidad: reordenar tareas (drag & drop), persistencia con localStorage. Diseño: tema oscuro, colores azules. Sin dependencias externas de UI."
 </div>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Revisa el último prompt que le enviaste a una IA. Identifica al menos tres elementos que sobran o confunden. Reescríbelo aplicando lo aprendido y compara las respuestas. ¿Mejoró la calidad?</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>La información redundante, desactualizada o contradictoria empeora las respuestas de la IA.</li>
@@ -164,12 +173,12 @@ Formato: Código completo del frontend con datos mock</code></pre>
   <li>Reemplaza adjetivos subjetivos por especificaciones concretas.</li>
   <li>Un prompt limpio es más corto, más claro y produce mejores resultados.</li>
 </ul>
-
-<div class="prompt-evidence-section">
-  <h2>💬 Compartir Prompt Utilizado</h2>
-  <p>Registra el prompt ruidoso que analizaste y tu versión limpia. Documenta el proceso de eliminación de ruido.</p>
-  
-  <div class="prompt-form" id="prompt-form-m3-l3">
+</section>
+<div class="prompt-evidence-section l11-evidence">
+<section class="l11-card">
+<h2>💬 Compartir Prompt Utilizado</h2>
+<p>Registra el prompt ruidoso que analizaste y tu versión limpia. Documenta el proceso de eliminación de ruido.</p>
+<div class="prompt-form" id="prompt-form-m3-l3">
     <div class="prompt-field">
       <label for="prompt-input-m3-l3">📝 Prompt ruidoso original y tu versión limpia</label>
       <textarea 
@@ -198,8 +207,7 @@ Formato: Código completo del frontend con datos mock</code></pre>
     </button>
     <div id="prompt-msg-m3-l3" class="prompt-msg"></div>
   </div>
-
-  <div id="prompt-submitted-m3-l3" class="prompt-submitted" style="display:none;">
+<div id="prompt-submitted-m3-l3" class="prompt-submitted" style="display:none;">
     <h3>✅ Evidencia guardada correctamente</h3>
     
     <div class="prompt-submitted-item">
@@ -221,6 +229,8 @@ Formato: Código completo del frontend con datos mock</code></pre>
       <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l3')">🗑️ Eliminar</button>
     </div>
   </div>
+</section>
+
 </div>
 
 <script src="../js/prompt-manager.js"></script>

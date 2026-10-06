@@ -1,13 +1,37 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 2 · Lección 6 de 7</p>
 <h1>2.6 Convertir una idea en requerimiento</h1>
 <p class="subtitle">Módulo 2 · Ejercicio</p>
-<div class="highlight"><strong>Objetivo:</strong> Practicar la transformación de una idea vaga en un requerimiento completo.</div>
+<p class="l11-objective"><strong>Objetivo:</strong> Practicar la transformación de una idea vaga en un requerimiento completo.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
+<h2>Objetivos de aprendizaje</h2>
+<p>Al finalizar esta lección el estudiante será capaz de:</p>
+<ul>
+<li>Identificar los elementos faltantes en una idea vaga para convertirla en un requerimiento completo</li>
+<li>Aplicar una plantilla de requerimientos que cubra aspectos funcionales, técnicos y de negocio</li>
+<li>Redactar criterios de aceptación usando el formato Given-When-Then</li>
+<li>Detectar casos borde que una especificación ingenua dejaría fuera</li>
+<li>Formular preguntas precisas para resolver ambigüedades con el cliente</li>
+</ul>
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-brief">
+<p class="l11-tag">Actividad</p>
 <h2>Enunciado</h2>
-<p>Dada la siguiente idea vaga:</p>
-<div class="highlight">"Necesitamos un dashboard para usuarios."</div>
-<p>Conviértela en:</p>
+<p>Dada la siguiente idea vaga (proyecto conductor del curso, la misma del Módulo 6, Lección 6.1):</p>
+<div class="highlight">"Necesitamos una aplicación web para gestionar tareas personales (to-do list) con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y un dashboard con estadísticas básicas."</div>
+<p>Conviértela en el <strong>requerimiento oficial del curso</strong> (se reutiliza en M3 y M6):</p>
 <ol><li>Un requerimiento claro usando la plantilla</li><li>Al menos 3 criterios de aceptación (Given-When-Then)</li><li>Al menos 3 casos borde</li><li>Preguntas faltantes para el cliente</li><li>Sección "Fuera de alcance"</li></ol>
+<div class="highlight"><strong>Rúbrica mínima:</strong> plantilla completa, 3 criterios verificables, 3 bordes con comportamiento esperado, fuera de alcance explícito. Este documento alimenta el Context Packet (M3) y el proyecto final (M6).</div>
+</div>
+</div>
+</section>
+<section class="l11-card">
 <h2>Plantilla</h2>
+<div class="prompt-block">
 <pre><code>Nombre del requerimiento:
 Problema que resuelve:
 Usuario objetivo:
@@ -20,33 +44,34 @@ Casos borde:
 Restricciones:
 Fuera de alcance:
 Preguntas abiertas:</code></pre>
+</div>
+</section>
+<section class="l11-prose">
 <h2>Introducción</h2>
 <p>Una de las habilidades más valiosas en el desarrollo de software es la capacidad de transformar una idea ambigua en un conjunto de instrucciones precisas que cualquier desarrollador pueda implementar sin necesidad de adivinar. Cuando trabajas con inteligencia artificial, esta habilidad se vuelve aún más crítica: un prompt vago produce código incorrecto o incompleto. En esta lección aprenderás a estructurar ideas usando una plantilla profesional que elimina la ambigüedad y sienta las bases para un desarrollo exitoso, ya sea que implementes el código manualmente o lo generes con IA.</p>
-<h2>Objetivos de aprendizaje</h2>
-<p>Al finalizar esta lección el estudiante será capaz de:</p>
-<ul>
-<li>Identificar los elementos faltantes en una idea vaga para convertirla en un requerimiento completo</li>
-<li>Aplicar una plantilla de requerimientos que cubra aspectos funcionales, técnicos y de negocio</li>
-<li>Redactar criterios de aceptación usando el formato Given-When-Then</li>
-<li>Detectar casos borde que una especificación ingenua dejaría fuera</li>
-<li>Formular preguntas precisas para resolver ambigüedades con el cliente</li>
-</ul>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
 <h3>¿Qué es un requerimiento de software?</h3>
 <p>Un requerimiento de software es una descripción clara, verificable y sin ambigüedades de una funcionalidad o característica que un sistema debe proporcionar. A diferencia de una idea vaga —como "necesito un dashboard"—, un requerimiento completo especifica quién lo usa, para qué, bajo qué condiciones y con qué restricciones. Sin esta estructura, el equipo de desarrollo toma decisiones basadas en suposiciones, y el resultado rara vez coincide con lo que el cliente imaginó.</p>
 <h3>Las dimensiones de un buen requerimiento</h3>
 <p>Un requerimiento sólido cubre cinco dimensiones fundamentales. La primera es <strong>qué</strong> debe hacer el sistema: la funcionalidad concreta. La segunda es <strong>quién</strong> lo usa: el perfil del usuario. La tercera es <strong>bajo qué condiciones</strong>: las reglas de negocio y restricciones técnicas. La cuarta es <strong>cómo se verifica</strong>: los criterios de aceptación que permiten probar que funciona. La quinta es <strong>qué queda fuera</strong>: el límite explícito del alcance para evitar malentendidos.</p>
 <h3>De la idea vaga al requerimiento estructurado</h3>
-<p>Tomemos la idea "Necesitamos un dashboard para usuarios". Para estructurarla, debemos responder preguntas como: ¿qué tipo de usuario? ¿Administrador, cliente, ambos? ¿Qué métricas debe mostrar el dashboard? ¿Cada cuánto se actualizan los datos? ¿El usuario puede personalizar las visualizaciones? ¿Debe ser responsivo para dispositivos móviles? La plantilla de esta lección está diseñada para guiarte a través de estas preguntas de manera sistemática, asegurando que ningún aspecto crítico quede sin responder.</p>
+<p>Tomemos la idea To-Do ("app de tareas con proyectos, etiquetas, prioridades, vencimientos, recordatorios y dashboard"). Para estructurarla, debemos responder: ¿qué es una tarea (título, proyecto, etiquetas)? ¿qué prioridades existen? ¿qué muestra el dashboard? ¿cada cuánto se actualizan los datos? ¿qué queda fuera de la primera versión? La plantilla de esta lección está diseñada para guiarte de manera sistemática, asegurando que ningún aspecto crítico quede sin responder.</p>
 <h3>Criterios de aceptación con Given-When-Then</h3>
 <p>El formato Given-When-Then, proveniente de BDD (Behavior-Driven Development), convierte cada criterio de aceptación en un escenario comprobable. <strong>Given</strong> establece el contexto inicial. <strong>When</strong> describe la acción que desencadena el comportamiento. <strong>Then</strong> especifica el resultado esperado. Este formato tiene la ventaja de que puede traducirse directamente a pruebas automatizadas, cerrando el ciclo entre especificación y validación.</p>
 <h3>La sección "Fuera de alcance"</h3>
 <p>Una de las secciones más infravaloradas es la de "Fuera de alcance". Definir explícitamente lo que NO incluye el requerimiento evita que el cliente asuma funcionalidades que no están contempladas. Por ejemplo, en un dashboard de usuarios podrías aclarar: "queda fuera la personalización de widgets por parte del usuario" o "queda fuera la exportación a PDF". Esta claridad previene conflictos y re-trabajo.</p>
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
 <p>A continuación se muestra un ejemplo resuelto de la misma idea vaga usando la plantilla. Este es un modelo de referencia para tu ejercicio.</p>
-<div class="highlight"><strong>Nombre del requerimiento:</strong> Dashboard de métricas de usuario<br><strong>Problema que resuelve:</strong> Los administradores no tienen visibilidad centralizada del comportamiento de los usuarios en la plataforma<br><strong>Usuario objetivo:</strong> Administradores del sistema con rol "supervisor"<br><strong>Objetivo:</strong> Proporcionar una vista consolidada con métricas clave de actividad de usuarios<br><strong>Flujo principal:</strong> El administrador inicia sesión → navega a "Dashboard" → visualiza tarjetas con métricas → puede filtrar por rango de fechas<br><strong>Criterio de aceptación:</strong> Given un administrador con 3 usuarios registrados, When accede al dashboard, Then ve 3 tarjetas con nombre, fecha de registro y última actividad<br><strong>Casos borde:</strong> 0 usuarios registrados, 10,000+ usuarios (rendimiento), usuario sin sesión iniciada intentando acceder directamente por URL<br><strong>Fuera de alcance:</strong> Personalización de widgets, exportación a PDF, dashboard para usuarios regulares</div>
+<div class="highlight"><strong>Nombre del requerimiento:</strong> Gestión de tareas personales (To-Do, requerimiento oficial del curso)<br><strong>Problema que resuelve:</strong> Los usuarios no tienen una vista centralizada de sus tareas por proyecto, prioridad y vencimiento<br><strong>Usuario objetivo:</strong> Usuarios individuales que gestionan múltiples proyectos<br><strong>Objetivo:</strong> Permitir crear, organizar y priorizar tareas con recordatorios y dashboard básico<br><strong>Flujo principal:</strong> El usuario crea una tarea → asigna proyecto, etiquetas, prioridad y vencimiento → la consulta en su lista → la completa → revisa estadísticas en el dashboard<br><strong>Criterio de aceptación:</strong> Given un proyecto "Personal" seleccionado, When crea la tarea "Comprar leche" con prioridad Alta, Then la tarea aparece con prioridad Alta visible<br><strong>Casos borde:</strong> título vacío, vencimiento pasado, 0 tareas (lista vacía), prioridad inválida<br><strong>Fuera de alcance (v1):</strong> Colaboración multiusuario, exportación a PDF, personalización avanzada del dashboard</div>
+</section>
+<section class="l11-card">
 <h2>Comparaciones</h2>
-<table><thead><tr><th>Aspecto</th><th>Idea vaga</th><th>Requerimiento completo</th></tr></thead><tbody>
+<div class="l11-table-scroll">
+<table class="l11-table"><thead><tr><th>Aspecto</th><th>Idea vaga</th><th>Requerimiento completo</th></tr></thead><tbody>
 <tr><td>Claridad</td><td>Ambigua, sujeta a interpretación</td><td>Específica, unívoca</td></tr>
 <tr><td>Verificabilidad</td><td>No se puede probar si está cumplido</td><td>Tiene criterios de aceptación medibles</td></tr>
 <tr><td>Implementación</td><td>El desarrollador debe adivinar</td><td>El desarrollador tiene instrucciones precisas</td></tr>
@@ -54,18 +79,26 @@ Preguntas abiertas:</code></pre>
 <tr><td>IA readiness</td><td>Genera código incorrecto o incompleto</td><td>Genera código alineado con la especificación</td></tr>
 <tr><td>Mantenibilidad</td><td>No hay registro de lo que se acordó</td><td>Queda documentado para futuras referencias</td></tr>
 </tbody></table>
+</div>
+</section>
+<section class="l11-tip">
+<p class="l11-tag l11-tag--important">Importante</p>
 <h2>💡 Consejo del instructor</h2>
 <div class="highlight"><strong>💡 Consejo profesional:</strong> Cuando trabajes con IA para generar código a partir de requerimientos, verás una diferencia abismal en la calidad del resultado si inviertes 10 minutos en estructurar bien el requerimiento antes de escribirlo. La IA no "adivina" lo que no está escrito: si no especificas los casos borde, no los manejará. Si no defines el "fuera de alcance", la IA podría inventar funcionalidades que no pediste. Piensa en el requerimiento como el prompt definitivo: cuanto más preciso, mejor el resultado.</div>
+</section>
+<section class="l11-card">
 <h2>⚠ Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes">
 <li><strong>Escribir en modo "lista de deseos":</strong> Mezclar funcionalidades no relacionadas en un mismo requerimiento en lugar de separarlas individualmente.</li>
 <li><strong>Omitir el "Fuera de alcance":</strong> Asumir que el cliente y el desarrollador comparten la misma interpretación de los límites del proyecto.</li>
 <li><strong>Usar lenguaje subjetivo:</strong> Palabras como "rápido", "intuitivo" o "moderno" sin una definición medible asociada.</li>
 <li><strong>Confundir requerimiento con solución técnica:</strong> Decir "usar React con Chart.js" en lugar de describir qué debe mostrar el dashboard y cómo debe comportarse.</li>
 <li><strong>No validar los criterios de aceptación con el cliente:</strong> Redactarlos unilateralmente sin confirmar que reflejan lo que el cliente realmente necesita.</li>
 </ul>
+</section>
+<section class="l11-card">
 <h2>✔ Buenas prácticas</h2>
-<ul>
+<ul class="l11-good">
 <li><strong>Escribe un requerimiento por funcionalidad:</strong> Si describes dos cosas distintas, sepáralas en dos documentos independientes.</li>
 <li><strong>Siempre incluye al menos un caso borde:</strong> El caso "feliz" (happy path) es solo la mitad de la historia.</li>
 <li><strong>Usa voz activa y presente:</strong> "El sistema muestra" en lugar de "El sistema debería poder mostrar".</li>
@@ -73,10 +106,20 @@ Preguntas abiertas:</code></pre>
 <li><strong>Numera versiones:</strong> Los requerimientos cambian; mantener un historial evita confusiones.</li>
 <li><strong>Haz que cada criterio de aceptación sea directamente comprobable:</strong> Si no puedes escribir un test para él, no es un buen criterio.</li>
 </ul>
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Completa el ejercicio del enunciado usando la plantilla proporcionada. Toma la idea "Necesitamos un dashboard para usuarios" y desarrolla cada sección de la plantilla con el mayor detalle posible. Asegúrate de incluir al menos 3 criterios de aceptación en formato Given-When-Then y al menos 3 casos borde realistas. Al terminar, escribe 3 preguntas que le harías al cliente para resolver ambigüedades restantes.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Toma una funcionalidad real de tu proyecto personal o laboral —por ejemplo, "el usuario puede resetear su contraseña"— y conviértela en un requerimiento completo usando la plantilla. Luego, pídele a una IA que genere el código para implementarlo. Compara el resultado con tu especificación: ¿la IA respetó todos los criterios de aceptación? ¿Manejó los casos borde que definiste? Este ejercicio revela la correlación directa entre la calidad del requerimiento y la calidad del código generado.</p>
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>Una idea vaga produce resultados impredecibles; un requerimiento estructurado elimina la ambigüedad.</li>
@@ -85,8 +128,9 @@ Preguntas abiertas:</code></pre>
 <li>La sección "Fuera de alcance" es tan importante como lo que sí incluye el requerimiento.</li>
 <li>La calidad del código generado por IA depende directamente de la precisión del requerimiento que le entregues.</li>
 </ul>
+</section>
 <div class="conclusion"><p><strong>Conclusión:</strong> Convertir una idea vaga en un requerimiento completo no es un trámite burocrático: es el paso que separa un proyecto exitoso de uno lleno de suposiciones y retrabajos. Cuanto más inviertas en esta habilidad, más predecibles serán tus resultados, tanto con equipos humanos como con inteligencia artificial.</p></div>
-<div class="evidence-section">
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube el archivo con el resultado de tu Actividad Práctica o Mini Reto y escribe una breve reflexión sobre lo que aprendiste.</p>
   <div class="evidence-form" id="evidenceForm-m2-l6">

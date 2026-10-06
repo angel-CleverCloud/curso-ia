@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 3 · Lección 5 de 7</p>
 <h1>3.5 Encadenación de prompts</h1>
 <p class="subtitle">Módulo 3 · Video</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Aprender a dividir un problema grande en una secuencia de prompts pequeños y manejables.</div>
-
-<h2>Introducción</h2>
-<p>Cuando enfrentas un problema complejo, pedirle a la IA que lo resuelva todo en un solo prompt produce resultados genéricos, inconsistentes o directamente incorrectos. La técnica de encadenación de prompts divide el problema en pasos secuenciales, donde cada prompt se beneficia del resultado del anterior.</p>
-<p>En esta lección aprenderás a diseñar cadenas de prompts que produzcan resultados de alta calidad, paso a paso.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Aprender a dividir un problema grande en una secuencia de prompts pequeños y manejables.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -16,6 +14,13 @@
   <li>Explicar los beneficios de la encadenación frente al mega-prompt.</li>
   <li>Aplicar la cadena mínima de 6 pasos a problemas reales de desarrollo.</li>
 </ul>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>Cuando enfrentas un problema complejo, pedirle a la IA que lo resuelva todo en un solo prompt produce resultados genéricos, inconsistentes o directamente incorrectos. La técnica de encadenación de prompts divide el problema en pasos secuenciales, donde cada prompt se beneficia del resultado del anterior.</p>
+<p>En esta lección aprenderás a diseñar cadenas de prompts que produzcan resultados de alta calidad, paso a paso.</p>
+</section>
+<section class="l11-card l11-group">
 
 <h2>Problema del mega-prompt</h2>
 <p>Un prompt enorme que pide todo a la vez produce respuestas genéricas, inconsistentes o con errores.</p>
@@ -58,7 +63,8 @@
   <li>Genera pruebas para validar</li>
   <li>Revisa críticamente el resultado</li>
 </ol>
-
+</section>
+<section class="l11-card">
 <h2>Tabla comparativa: Mega-prompt vs Cadena de prompts</h2>
 <div style="overflow-x:auto;">
   <table style="width:100%;border-collapse:collapse;margin:15px 0;">
@@ -103,7 +109,8 @@
     </tbody>
   </table>
 </div>
-
+</section>
+<section class="l11-plain">
 <h2>Diagrama: Flujo de encadenación</h2>
 <div style="background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:30px;margin:20px 0;">
   <div style="display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;">
@@ -123,67 +130,67 @@
   </div>
   <div style="text-align:center;margin-top:15px;font-size:0.85rem;color:#64748b;">Cada paso recibe el resultado del anterior y lo refina</div>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplo real: API de reservas</h2>
-
+<div class="highlight"><strong>Nota:</strong> este ejemplo ilustra la mecánica de la cadena. La cadena oficial del curso es la de la To-Do ("crear y listar tareas") que diseñas en la actividad de abajo y reutilizas en la Lección 3.6 y en el Módulo 6.</div>
 <h3>Paso 1: Analizar requerimiento</h3>
 <div class="prompt-block">
 <pre><code>Prompt: "Analiza este requerimiento y lista las ambigüedades que encuentres:
 'API para reservar mesas en restaurantes. Los clientes reservan, el restaurante confirma.'"</code></pre>
 </div>
 <p><strong>Respuesta esperada:</strong> ¿Cuántas mesas? ¿Horarios? ¿Capacidad? ¿Cómo se confirma? ¿Notificaciones?</p>
-
 <h3>Paso 2: Especificación clara</h3>
 <div class="prompt-block">
 <pre><code>Prompt: "Con base en las ambigüedades detectadas, escribe una especificación clara del sistema de reservas."</code></pre>
 </div>
-
 <h3>Paso 3: Plan de implementación</h3>
 <div class="prompt-block">
 <pre><code>Prompt: "Propón un plan de implementación por pasos, empezando por el modelo de datos."</code></pre>
 </div>
-
 <h3>Paso 4: Implementar paso 1</h3>
 <div class="prompt-block">
 <pre><code>Prompt: "Implementa solo el modelo de datos (Prisma schema) según la especificación."</code></pre>
 </div>
-
 <h3>Paso 5: Pruebas</h3>
 <div class="prompt-block">
 <pre><code>Prompt: "Genera pruebas unitarias para el modelo de datos usando Jest."</code></pre>
 </div>
-
 <h3>Paso 6: Revisión crítica</h3>
 <div class="prompt-block">
 <pre><code>Prompt: "Revisa críticamente el modelo de datos. Identifica problemas de normalización, rendimiento y escalabilidad."</code></pre>
 </div>
-
 <div class="highlight"><strong>Consejo del instructor:</strong> No intentes saltarte pasos. Cada paso de la cadena tiene un propósito: detectar errores temprano, refinar la dirección y asegurar calidad. Saltar un paso es como construir una casa sin cimientos.</div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
   <li><strong>Hacer pasos demasiado grandes:</strong> Si un paso aún requiere múltiples decisiones, divídelo en pasos más pequeños.</li>
   <li><strong>No verificar el resultado intermedio:</strong> Cada paso produce un resultado que debes revisar antes de continuar. Si el paso 1 tiene errores, toda la cadena se contamina.</li>
   <li><strong>Perder el contexto entre pasos:</strong> Asegúrate de que la IA recuerde el contexto del proyecto en cada paso de la cadena.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>Define la cadena completa antes de empezar, no la improvises paso a paso.</li>
   <li>Revisa y aprueba cada paso antes de enviar el siguiente prompt.</li>
   <li>Documenta cada paso y su resultado para futuras referencias.</li>
   <li>Usa la cadena mínima de 6 pasos como punto de partida y adáptala según el problema.</li>
   <li>Si un paso produce un resultado insatisfactorio, repítelo con instrucciones más precisas antes de avanzar.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p><strong>Objetivo:</strong> Practicar la creación de una cadena de 6 prompts para un problema real.</p>
 <p><strong>Instrucciones:</strong></p>
-<p>Toma el siguiente requerimiento incompleto y diseña una cadena completa de 6 prompts:</p>
+<p>Toma el siguiente requerimiento (proyecto conductor To-Do, el mismo de la Lección 2.6) y diseña una cadena completa de 6 prompts:</p>
 <div class="highlight">
-  <strong>Requerimiento:</strong> "Sistema de gestión de inventario para un almacén. Debe controlar entradas y salidas de productos, generar alertas de stock bajo y reportes semanales."
+  <strong>Requerimiento:</strong> "App web de tareas con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y dashboard. En esta cadena nos centramos en 'crear y listar tareas' con sus criterios de aceptación y casos borde."
 </div>
-
+<p><strong>Esta cadena es la misma que se ejecuta en el Módulo 6, Lección 6.4:</strong> diseña los prompts aquí para reutilizarlos allá, sin reescribirlos.</p>
 <p><strong>Escriba los 6 prompts de la cadena:</strong></p>
 <ol>
   <li><strong>Prompt 1 (Análisis):</strong> Detecta ambigüedades en el requerimiento. Ejemplo: "Analiza este requerimiento y lista al menos 5 preguntas que necesitas responder antes de empezar."</li>
@@ -193,7 +200,6 @@
   <li><strong>Prompt 5 (Testing):</strong> Genera pruebas unitarias para el paso implementado.</li>
   <li><strong>Prompt 6 (Revisión):</strong> Revisa críticamente el código del paso 1.</li>
 </ol>
-
 <div class="highlight">
   <strong>Ejemplo de la estructura esperada:</strong><br><br>
   <strong>PROMPT 1 (ANÁLISIS):</strong><br>
@@ -205,10 +211,14 @@
   [Continúa con prompts 3-6...]<br><br>
   <em>Nota: No necesitas ejecutar realmente estos prompts con una IA, solo diseñarlos correctamente</em>
 </div>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Selecciona un proyecto open-source que conozcas. Imagina que necesitas agregar una funcionalidad nueva (ej: "modo oscuro" en una app existente). Diseña una cadena de 6 prompts específicos para esa funcionalidad, considerando que ya existe el código base.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>Los mega-prompts fallan porque la IA pierde el foco con instrucciones simultáneas.</li>
@@ -217,12 +227,12 @@
   <li>La cadena mínima son 6 pasos: analizar → especificar → planificar → implementar → probar → revisar.</li>
   <li>Revisar cada paso antes de continuar es fundamental para el éxito de la cadena.</li>
 </ul>
-
-<div class="prompt-evidence-section">
-  <h2>💬 Compartir Prompt Utilizado</h2>
-  <p>Registra la cadena de 6 prompts que diseñaste y los resultados que obtuviste de la IA.</p>
-  
-  <div class="prompt-form" id="prompt-form-m3-l5">
+</section>
+<div class="prompt-evidence-section l11-evidence">
+<section class="l11-card">
+<h2>💬 Compartir Prompt Utilizado</h2>
+<p>Registra la cadena de 6 prompts que diseñaste y los resultados que obtuviste de la IA.</p>
+<div class="prompt-form" id="prompt-form-m3-l5">
     <div class="prompt-field">
       <label for="prompt-input-m3-l5">📝 Cadena de 6 prompts que diseñaste</label>
       <textarea 
@@ -251,8 +261,7 @@
     </button>
     <div id="prompt-msg-m3-l5" class="prompt-msg"></div>
   </div>
-
-  <div id="prompt-submitted-m3-l5" class="prompt-submitted" style="display:none;">
+<div id="prompt-submitted-m3-l5" class="prompt-submitted" style="display:none;">
     <h3>✅ Evidencia guardada correctamente</h3>
     
     <div class="prompt-submitted-item">
@@ -274,6 +283,8 @@
       <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l5')">🗑️ Eliminar</button>
     </div>
   </div>
+</section>
+
 </div>
 
 <script src="../js/prompt-manager.js"></script>

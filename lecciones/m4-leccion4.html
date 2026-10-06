@@ -1,15 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 4 · Lección 4 de 7</p>
 <h1>4.4 Cómo pedir correcciones a la IA</h1>
 <p class="subtitle">Módulo 4 · Video</p>
-<div class="highlight"><strong>Objetivo:</strong> Aprender a pedir correcciones efectivas cuando la IA da una respuesta incorrecta.</div>
-<h2>Estrategias</h2>
-<ol><li><strong>Sé específico sobre qué está mal:</strong> "La línea 15 maneja el caso de éxito pero no el caso de error"</li><li><strong>Proporciona el error exacto:</strong> "Lanza TypeError: Cannot read property 'id' of undefined"</li><li><strong>Pide alternativas, no solo fixes:</strong> "Dame 3 opciones para manejar este caso borde"</li><li><strong>Rechaza respuestas enteras si es necesario</strong></li><li><strong>Añade al contexto lo que aprendiste</strong> para que no vuelva a pasar</li></ol>
-<h2>Errores comunes</h2>
-<ul><li>Ser vago ("arréglalo")</li><li>No decir qué esperas en su lugar</li><li>Aceptar la primera corrección sin revisarla</li></ul>
-
-<h2>Introducción</h2>
-<p>La IA no siempre acierta a la primera. Saber cómo pedir correcciones efectivas es una habilidad crítica en el desarrollo asistido. En esta lección aprenderás estrategias concretas para comunicar errores a la IA y obtener soluciones precisas, ahorrando tiempo y evitando frustraciones.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Aprender a pedir correcciones efectivas cuando la IA da una respuesta incorrecta.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -19,12 +15,23 @@
   <li>Rechazar respuestas incorrectas de manera constructiva.</li>
   <li>Alimentar el contexto de la IA para evitar errores recurrentes.</li>
 </ul>
-
+</section>
+<section class="l11-card">
+<h2>Estrategias</h2>
+<ol><li><strong>Sé específico sobre qué está mal:</strong> "La línea 15 maneja el caso de éxito pero no el caso de error"</li><li><strong>Proporciona el error exacto:</strong> "Lanza TypeError: Cannot read property 'id' of undefined"</li><li><strong>Pide alternativas, no solo fixes:</strong> "Dame 3 opciones para manejar este caso borde"</li><li><strong>Rechaza respuestas enteras si es necesario</strong></li><li><strong>Añade al contexto lo que aprendiste</strong> para que no vuelva a pasar</li></ol>
+</section>
+<section class="l11-card">
+<h2>Errores comunes</h2>
+<ul class="l11-mistakes l11-mistakes"><li>Ser vago ("arréglalo")</li><li>No decir qué esperas en su lugar</li><li>Aceptar la primera corrección sin revisarla</li></ul>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>La IA no siempre acierta a la primera. Saber cómo pedir correcciones efectivas es una habilidad crítica en el desarrollo asistido. En esta lección aprenderás estrategias concretas para comunicar errores a la IA y obtener soluciones precisas, ahorrando tiempo y evitando frustraciones.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>La comunicación efectiva con la IA</h3>
 <p>Cuando la IA comete un error, la tentación es decir "arréglalo" y esperar un milagro. Sin embargo, la IA no "entiende" el error como un humano; necesita información estructurada para corregirse. El principio fundamental es: entre más específico seas sobre qué está mal, mejor será la corrección.</p>
-
 <h3>Tipos de errores y cómo reportarlos</h3>
 <ul>
   <li><strong>Error de lógica:</strong> "La función devuelve el valor incorrecto cuando la entrada es negativa. El caso de prueba entrada=-1 debería devolver 0 pero devuelve -1."</li>
@@ -32,7 +39,6 @@
   <li><strong>Error de seguridad:</strong> "Este código es vulnerable a SQL injection en la línea 23. Necesito una versión con consultas parametrizadas."</li>
   <li><strong>Error de rendimiento:</strong> "La función hace una consulta a la BD por cada elemento del array. Necesito una solución que haga una sola consulta."</li>
 </ul>
-
 <h3>El ciclo de corrección efectiva</h3>
 <ol>
   <li><strong>Especifica el problema:</strong> Describe qué está mal, dónde ocurre y cuál es el comportamiento esperado.</li>
@@ -41,29 +47,29 @@
   <li><strong>Evalúa la respuesta:</strong> Revisa si la corrección resuelve el problema sin introducir nuevos errores.</li>
   <li><strong>Itera si es necesario:</strong> Si la corrección no es suficiente, proporciona retroalimentación adicional.</li>
 </ol>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
-
-<h3>Ejemplo 1: Corrección de error en API</h3>
-<p><strong>Prompt original:</strong> "Crea un endpoint POST /usuarios"</p>
-<p><strong>Respuesta incorrecta:</strong> Código que no valida el email duplicado.</p>
+<h3>Ejemplo 1: Corrección en la To-Do (crear tarea)</h3>
+<p><strong>Prompt original:</strong> "Crea un endpoint POST /tareas"</p>
+<p><strong>Respuesta incorrecta:</strong> Código que no valida el título vacío ni la prioridad inválida.</p>
 <p><strong>Corrección efectiva:</strong></p>
-<div class="highlight">"El endpoint POST /usuarios que generaste no maneja el caso de email duplicado. Cuando intento registrar un email existente, devuelve 500 en lugar de 409. Añade una verificación antes de insertar: si el email existe, devuelve {'error': 'Email ya registrado'} con código 409."</div>
-
+<div class="highlight">"El endpoint POST /tareas que generaste no maneja el título vacío ni la prioridad inválida. Cuando creo una tarea sin título, devuelve 500 en lugar de 400. Añade validación antes de guardar: si el título está vacío, devuelve {'error': 'El título es requerido'} con código 400; si la prioridad no es Alta/Media/Baja, devuelve {'error': 'Prioridad inválida'} con código 400."</div>
 <h3>Ejemplo 2: Corrección de componente React</h3>
 <p><strong>Prompt original:</strong> "Crea un componente de contador en React"</p>
 <p><strong>Respuesta incorrecta:</strong> El botón de decremento permite valores negativos.</p>
 <p><strong>Corrección efectiva:</strong></p>
 <div class="highlight">"El contador no debe permitir valores negativos. Modifica la función decrement para que valide que count > 0 antes de restar. Si count es 0, el botón debe estar deshabilitado."</div>
-
 <h3>Ejemplo 3: Corrección de prompt engineering</h3>
 <p><strong>Prompt original:</strong> "Genera un resumen de este artículo"</p>
 <p><strong>Respuesta incorrecta:</strong> Resumen muy genérico de 3 líneas.</p>
 <p><strong>Corrección efectiva:</strong></p>
 <div class="highlight">"El resumen es demasiado corto y genérico. Necesito un resumen estructurado con: (1) idea principal en 2 líneas, (2) 3 puntos clave del desarrollo, (3) conclusión. Mínimo 150 palabras."</div>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Corrección vaga vs. Corrección específica</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Aspecto</th><th>Corrección vaga</th><th>Corrección específica</th></tr>
   </thead>
@@ -74,11 +80,10 @@
     <tr><td>Ejemplo</td><td>"Está mal, hazlo bien"</td><td>"En la línea 10, la validación permite strings vacíos. Debe rechazar strings vacíos con un error."</td></tr>
   </tbody>
 </table>
-
+</div>
 <div class="highlight">
   <strong>💡 Consejo del instructor:</strong> Cuando recibas una respuesta incorrecta de la IA, antes de pedir una corrección, pregúntate: "¿Qué información necesita la IA para entender exactamente qué está mal?" Proporciona esa información en tu primer mensaje de corrección.
 </div>
-
 <div class="highlight" style="border-left-color:#f59e0b;">
   <strong>⚠ Errores comunes:</strong>
   <ul>
@@ -87,9 +92,10 @@
     <li><strong>Corregir en el idioma equivocado:</strong> Si el código está en español pero pides la corrección en inglés, la IA puede mezclar estilos.</li>
   </ul>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>✔ Incluye el mensaje de error completo (stack trace) cuando sea posible.</li>
   <li>✔ Señala la línea o función específica donde ocurre el error.</li>
   <li>✔ Describe el comportamiento esperado, no solo el incorrecto.</li>
@@ -97,13 +103,20 @@
   <li>✔ Verifica cada corrección antes de continuar con el siguiente paso.</li>
   <li>✔ Si la IA insiste en el mismo error, reformula el problema desde cero.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Escribe 3 prompts incorrectos a propósito y pide a una IA que genere código para cada uno. Luego, aplica las estrategias de corrección aprendidas para obtener la versión correcta. Documenta el proceso completo: prompt original, respuesta incorrecta, corrección aplicada y resultado final.</p>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Diseña una plantilla reutilizable de "corrección estructurada" que puedas copiar y pegar cada vez que necesites pedir una corrección a la IA. La plantilla debe incluir campos para: contexto, problema, ubicación, comportamiento esperado y ejemplo. Comparte tu plantilla.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>Ser específico sobre qué está mal acelera la corrección por parte de la IA.</li>
@@ -112,8 +125,8 @@
   <li>Cada corrección debe ser revisada antes de integrarse.</li>
   <li>Alimentar el contexto con lo aprendido evita errores recurrentes.</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -136,5 +149,4 @@
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

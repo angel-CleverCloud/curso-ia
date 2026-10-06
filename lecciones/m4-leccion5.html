@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 4 · Lección 5 de 7</p>
 <h1>4.5 Cómo revisar una respuesta de código</h1>
 <p class="subtitle">Módulo 4 · Documento</p>
-<div class="highlight"><strong>Objetivo:</strong> Proporcionar una guía sistemática para revisar código generado por IA.</div>
-<h2>Checklist de revisión</h2>
-<ol><li><strong>¿Cumple el requerimiento?</strong> ¿La función hace exactamente lo que se pidió?</li><li><strong>¿Respeta el alcance?</strong> ¿Hace algo que no se le pidió?</li><li><strong>¿Maneja errores?</strong> ¿Qué pasa si la entrada es inválida?</li><li><strong>¿Es legible?</strong> ¿Nombres claros? ¿Estructura lógica?</li><li><strong>¿Introduce dependencias innecesarias?</strong></li><li><strong>¿Es seguro?</strong> ¿SQL injection, XSS, exposición de datos?</li><li><strong>¿Tiene pruebas?</strong></li><li><strong>¿Se entiende por qué se hizo así?</strong></li></ol>
-
-<h2>Introducción</h2>
-<p>Revisar código generado por IA es una habilidad diferente a revisar código escrito por humanos. La IA puede producir código sintácticamente perfecto pero lógicamente incorrecto, inseguro o ineficiente. En esta lección desarrollarás un proceso sistemático de revisión que te permitirá detectar problemas antes de que lleguen a producción.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Proporcionar una guía sistemática para revisar código generado por IA.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -17,12 +15,20 @@
   <li>Determinar cuándo el código generado es aceptable y cuándo debe rechazarse.</li>
   <li>Documentar hallazgos de la revisión para retroalimentar a la IA.</li>
 </ul>
-
+</section>
+<section class="l11-card">
+<h2>Checklist de revisión (oficial del curso)</h2>
+<ol class="l11-todo"><li><strong>¿Cumple el requerimiento?</strong> ¿La función hace exactamente lo que se pidió?</li><li><strong>¿Respeta el alcance?</strong> ¿Hace algo que no se le pidió?</li><li><strong>¿Maneja errores?</strong> ¿Qué pasa si la entrada es inválida?</li><li><strong>¿Es legible?</strong> ¿Nombres claros? ¿Estructura lógica?</li><li><strong>¿Introduce dependencias innecesarias?</strong></li><li><strong>¿Es seguro?</strong> ¿SQL injection, XSS, exposición de datos?</li><li><strong>¿Tiene pruebas?</strong></li><li><strong>¿Se entiende por qué se hizo así?</strong></li></ol>
+<div class="highlight"><strong>Checklist oficial:</strong> estos 8 puntos son la referencia de todo el curso (se reutilizan en el Módulo 5 y en el proyecto del Módulo 6). Ningún código generado por IA se acepta sin pasar por esta revisión: si un punto falla, se corrige o se rechaza. En el flujo con Git, esta revisión ocurre en el Pull Request, antes de la integración.</div>
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Revisar código generado por IA es una habilidad diferente a revisar código escrito por humanos. La IA puede producir código sintácticamente perfecto pero lógicamente incorrecto, inseguro o ineficiente. En esta lección desarrollarás un proceso sistemático de revisión que te permitirá detectar problemas antes de que lleguen a producción.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>¿Por qué la revisión de código IA es diferente?</h3>
 <p>El código generado por IA suele ser correcto en forma pero puede fallar en fondo. La IA no tiene contexto del negocio, no conoce la arquitectura completa del proyecto y puede alucinar APIs o funciones que no existen. Por eso, una revisión superficial no es suficiente.</p>
-
 <h3>Los 8 puntos de la checklist explicados</h3>
 <ul>
   <li><strong>1. Cumplimiento del requerimiento:</strong> Verifica que la función haga exactamente lo que pediste. Ni más, ni menos. La IA a veces interpreta incorrectamente o añade funcionalidades no solicitadas.</li>
@@ -34,33 +40,40 @@
   <li><strong>7. Pruebas:</strong> El código generado debe incluir o al menos permitir pruebas. Si la IA no las generó, evalúa qué pruebas necesitarías escribir.</li>
   <li><strong>8. Trazabilidad:</strong> ¿Entiendes por qué se tomó cada decisión? Si el código es un "bloque mágico" que no comprendes completamente, es una señal de alerta.</li>
 </ul>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
-
-<h3>Ejemplo 1: Endpoint sin manejo de errores</h3>
+<h3>Ejemplo 1: Endpoint de tareas sin manejo de errores</h3>
 <p><strong>Código generado:</strong></p>
-<pre><code>app.get('/usuario/:id', (req, res) => {
-  const usuario = db.query(`SELECT * FROM usuarios WHERE id = ${req.params.id}`);
-  res.json(usuario);
+<div class="prompt-block">
+<pre><code>app.get('/tareas/:id', (req, res) => {
+  const tarea = db.query(`SELECT * FROM tareas WHERE id = ${req.params.id}`);
+  res.json(tarea);
 });</code></pre>
+</div>
 <p><strong>Problemas detectados:</strong></p>
 <ul>
   <li>🚨 SQL injection: el parámetro se concatena directamente.</li>
   <li>⚠ Sin manejo de errores: si el query falla o el usuario no existe, la respuesta es impredecible.</li>
   <li>⚠ Sin validación: el id podría no ser un número.</li>
 </ul>
-
-<h3>Ejemplo 2: Función con dependencia innecesaria</h3>
+<h3>Ejemplo 2: Función de tareas con dependencia innecesaria</h3>
 <p><strong>Código generado:</strong></p>
+<div class="prompt-block">
 <pre><code>import _ from 'lodash';
-const sumArray = (arr) => _.sum(arr);</code></pre>
-<p><strong>Problema:</strong> Se importa lodash completo para una operación que JS nativo resuelve con <code>reduce</code>.</p>
+const contarPendientes = (tareas) => _.filter(tareas, (t) => !t.completada).length;</code></pre>
+</div>
+<p><strong>Problema:</strong> Se importa lodash completo para una operación que JS nativo resuelve con <code>filter</code>.</p>
 <p><strong>Versión mejorada:</strong></p>
-<pre><code>const sumArray = (arr) => arr.reduce((a, b) => a + b, 0);</code></pre>
+<div class="prompt-block">
+<pre><code>const contarPendientes = (tareas) => tareas.filter((t) => !t.completada).length;</code></pre>
+</div>
 <p>Esto elimina la dependencia externa y hace el código más ligero.</p>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Código aceptable vs. Rechazable</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Criterio</th><th>Aceptable</th><th>Rechazable</th></tr>
   </thead>
@@ -73,7 +86,9 @@ const sumArray = (arr) => _.sum(arr);</code></pre>
     <tr><td>Legibilidad</td><td>Nombres claros, lógica evidente</td><td>Código ofuscado o sobreingeniería</td></tr>
   </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Diagrama: Proceso de revisión sistemática</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:25px;margin:20px 0;">
   <div style="display:flex;flex-direction:column;gap:10px;max-width:500px;margin:auto;">
@@ -99,11 +114,9 @@ const sumArray = (arr) => _.sum(arr);</code></pre>
     </div>
   </div>
 </div>
-
 <div class="highlight">
   <strong>💡 Consejo del instructor:</strong> Crea una plantilla de revisión que puedas reutilizar. Un documento con los 8 puntos de la checklist y espacio para notas por cada punto. Revisar con una plantilla asegura que no olvides ningún aspecto crítico.
 </div>
-
 <div class="highlight" style="border-left-color:#f59e0b;">
   <strong>⚠ Errores comunes:</strong>
   <ul>
@@ -112,9 +125,10 @@ const sumArray = (arr) => _.sum(arr);</code></pre>
     <li><strong>Pasar por alto la seguridad:</strong> Es el aspecto más omitido en revisiones de código generado por IA.</li>
   </ul>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>✔ Usa la checklist de 8 puntos en cada revisión, sin excepción.</li>
   <li>✔ Clasifica los hallazgos en críticos, mejorables y aceptables.</li>
   <li>✔ No aceptes código que no entiendas completamente.</li>
@@ -122,23 +136,30 @@ const sumArray = (arr) => _.sum(arr);</code></pre>
   <li>✔ Documenta los hallazgos para compartir con el equipo.</li>
   <li>✔ Si encuentras el mismo tipo de error repetidamente, ajusta tus prompts.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma 3 fragmentos de código generados por IA (pueden ser de lecciones anteriores o generados ahora) y aplícales la checklist de 8 puntos. Documenta para cada uno: qué puntos cumple, qué puntos falla, y tu decisión final (aceptar, corregir o rechazar). Incluye capturas o el código revisado.</p>
-
+<p>Toma 3 fragmentos del código de la To-Do generado en este módulo (validación de crear tarea, endpoint POST /tareas, endpoint GET /tareas) y aplícales la checklist oficial de 8 puntos. Documenta para cada uno: qué puntos cumple, qué puntos falla, y tu decisión final (aceptar, corregir o rechazar). Incluye capturas o el código revisado.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Crea una herramienta web simple (HTML+JS) que implemente la checklist de revisión interactiva. El usuario debe poder seleccionar qué puntos cumple el código, agregar notas por punto, y recibir una recomendación automática (aceptar / corregir / rechazar) basada en sus respuestas.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>Revisar código de IA requiere un enfoque sistemático; la checklist de 8 puntos es tu mejor aliada.</li>
   <li>Los problemas más frecuentes son: falta de manejo de errores, dependencias innecesarias y vulnerabilidades de seguridad.</li>
   <li>Clasificar hallazgos en crítico/mejorable/ok ayuda a priorizar.</li>
   <li>Si no entiendes el código, no lo aceptes.</li>
-  <li>La revisión debe hacerse siempre antes de integrar, nunca después.</li>
+  <li>La revisión debe hacerse siempre antes de integrar, nunca después: en el flujo del curso, antes del merge del Pull Request.</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -161,5 +182,4 @@ const sumArray = (arr) => _.sum(arr);</code></pre>
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

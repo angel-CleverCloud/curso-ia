@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 6 · Lección 3 de 8</p>
 <h1>6.3 Crear el contexto para la IA</h1>
 <p class="subtitle">Módulo 6 · Ejercicio</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Construir el context packet que se usará con la IA.</div>
-
-<h2>Introducción</h2>
-<p>Una IA sin contexto es como un desarrollador que llega a un proyecto nuevo sin leer la documentación: puede escribir código, pero será genérico, incorrecto o irrelevante. El <em>context packet</em> es el documento que le entrega a la IA toda la información necesaria para generar código alineado con tu proyecto.</p>
-<p>En esta lección construirás el context packet para el proyecto final del curso, usando la plantilla de la Lección 3.4. Un buen contexto es la diferencia entre código que "funciona" y código que "resuelve el problema correcto".</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Construir el context packet que se usará con la IA.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -17,26 +15,28 @@
 <li>Definir criterios de aceptación que la IA pueda usar como guía</li>
 <li>Especificar límites explícitos sobre lo que la IA no debe hacer</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Una IA sin contexto es como un desarrollador que llega a un proyecto nuevo sin leer la documentación: puede escribir código, pero será genérico, incorrecto o irrelevante. El <em>context packet</em> es el documento que le entrega a la IA toda la información necesaria para generar código alineado con tu proyecto.</p>
+<p>En esta lección construirás el context packet para el proyecto final del curso, usando la plantilla oficial de la Lección 3.4 (no una nueva: reutiliza sus 8 secciones y mejora el packet que creaste en el Módulo 3). Un buen contexto es la diferencia entre código que "funciona" y código que "resuelve el problema correcto".</p>
+<div class="highlight"><strong>Evolución de la persistencia (marcador pedagógico):</strong> en este proyecto la v1 usa localStorage. Supabase se reserva como backend/persistencia (incluida autenticación, si el proyecto la requiere) para cuando el proyecto lo necesite; S3 como destino de archivos adjuntos; EC2 como destino de despliegue. Ninguna configuración se define aquí: se concretan en la Lección 6.5 cuando exista información del flujo real.</div>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>¿Qué es un context packet?</h3>
 <p>Un context packet es un documento estructurado que se entrega a la IA junto con cada prompt para garantizar que el código generado sea consistente con el proyecto. No es un prompt en sí mismo, sino el "manual de bienvenida" del proyecto. Cada prompt que escribas hará referencia a este contexto.</p>
-
 <h3>Componentes del context packet</h3>
-
 <h4>1. Objetivo y rol de la IA</h4>
 <p>Define qué esperas de la IA y cómo debe comportarse. Ejemplo para nuestro proyecto:</p>
 <div class="highlight"><strong>Rol:</strong> Asistente de desarrollo senior especializado en aplicaciones web con JavaScript, HTML/CSS y localStorage.<br>
 <strong>Objetivo:</strong> Generar código funcional y bien estructurado para una aplicación web de gestión de tareas personales, siguiendo las restricciones técnicas y criterios de aceptación definidos.</div>
-
 <h4>2. Contexto del proyecto</h4>
 <p>Describe el proyecto en detalle. Incluye el propósito, los usuarios, las funcionalidades principales y la arquitectura general.</p>
 <div class="highlight"><strong>Nombre:</strong> TaskFlow — Gestor de tareas personales<br>
 <strong>Propósito:</strong> Aplicación web que permite a usuarios organizar tareas en proyectos, asignar etiquetas, establecer prioridades y fechas de vencimiento, con recordatorios y dashboard de estadísticas.<br>
 <strong>Usuarios:</strong> Usuarios individuales (sin colaboración multi-usuario)<br>
 <strong>Stack técnico:</strong> HTML5, CSS3, JavaScript vanilla, localStorage para persistencia</div>
-
 <h4>3. Restricciones técnicas</h4>
 <p>Las restricciones le indican a la IA qué no puede usar, qué debe priorizar y cómo debe estructurar el código.</p>
 <ul>
@@ -47,7 +47,7 @@
 <li>Código en español (nombres de variables, funciones, comentarios)</li>
 <li>Accesibilidad básica (etiquetas semánticas, ARIA donde aplique)</li>
 </ul>
-
+<div class="highlight"><strong>Evolución del proyecto (Supabase):</strong> ¿qué es? Un backend con base de datos que puede guardar las tareas fuera del navegador. ¿Para qué lo usaríamos? Para persistir tareas, proyectos y etiquetas cuando localStorage ya no baste. ¿Cuándo aparece? Después de la v1, como decisión de arquitectura pendiente (sin configurar aquí). La autenticación solo entra si el alcance la requiere: en v1 está fuera de alcance.</div>
 <h4>4. Criterios de aceptación</h4>
 <p>Son la guía que la IA usará para saber si su código es correcto. Deben ser específicos y verificables.</p>
 <div class="highlight">✅ El usuario puede crear, editar y eliminar proyectos<br>
@@ -55,7 +55,6 @@
 ✅ Las tareas se ordenan por prioridad (alta primero) y luego por fecha de vencimiento<br>
 ✅ El dashboard muestra: total de tareas, tareas completadas, tareas por prioridad<br>
 ✅ Los recordatorios se muestran como notificaciones en el navegador</div>
-
 <h4>5. Qué no debe hacer la IA</h4>
 <p>Los límites son tan importantes como las instrucciones. Indican a la IA dónde detenerse.</p>
 <div class="highlight">🔴 La IA NO debe:<br>
@@ -64,9 +63,11 @@
 - Generar código de backend (es 100% frontend)<br>
 - Agregar funcionalidades no especificadas en los requerimientos<br>
 - Optimizar prematuramente (rendimiento antes que funcionalidad)</div>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Sin contexto vs. Con context packet</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead>
 <tr><th>Aspecto</th><th>Sin contexto</th><th>Con context packet</th></tr>
 </thead>
@@ -79,7 +80,9 @@
 <tr><td>Calidad del resultado</td><td>Impredecible</td><td>Predecible y controlada</td></tr>
 </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-plain">
 <h2>Diagrama: Estructura del context packet</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:15px 0;text-align:center;font-size:0.9rem;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:650px;margin:0 auto;">
@@ -92,7 +95,8 @@
   </div>
   <p style="margin-top:12px;color:#64748b;font-size:0.85rem;">Cada sección del context packet cumple una función específica. Juntas forman una guía completa para la IA.</p>
 </div>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplo de context packet en acción</h2>
 <p>Sin context packet, si pides "crea una función para guardar tareas", la IA podría generar:</p>
 <div class="highlight" style="border-left-color:#ef4444;"><pre><code>// Sin contexto — la IA asume MongoDB, async/await y npm
@@ -108,29 +112,33 @@ function guardarTarea(tarea) {
   tareas.push(tarea);
   localStorage.setItem('tareas', JSON.stringify(tareas));
 }</code></pre></div>
-
 <div class="highlight">
 <strong>💡 Consejo del instructor:</strong> El context packet es el documento más valioso de tu flujo de trabajo con IA. Invierte tiempo en hacerlo completo y preciso. Un context packet bien escrito puede reducir las iteraciones de 10 a 2 o 3. Cuando veas que la IA se desvía, no arregles el prompt — arregla el context packet.
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Contexto demasiado corto:</strong> "Haz una app de tareas" no es un context packet</li>
 <li><strong>Olvidar restricciones técnicas:</strong> La IA usará React si no le dices que no</li>
 <li><strong>No definir el "qué no hacer":</strong> La IA agregará funcionalidades que no pediste</li>
 <li><strong>Contexto contradictorio:</strong> Decir "sin frameworks" y luego "usar componentes reutilizables" sin aclarar</li>
 <li><strong>No actualizar el contexto:</strong> El context packet debe evolucionar con el proyecto</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Escribir el contexto en un archivo separado:</strong> Para reutilizarlo en múltiples prompts</li>
 <li><strong>Ser específico en las restricciones:</strong> "localStorage" no "persistencia"</li>
 <li><strong>Incluir ejemplos de código esperado:</strong> La IA entiende mejor con ejemplos</li>
 <li><strong>Revisar el contexto periódicamente:</strong> Lo que no funciona se ajusta</li>
 <li><strong>Compartir el contexto con el equipo:</strong> Todos usan la misma guía para prompts consistentes</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <ol>
 <li>Define el objetivo y rol esperado de la IA</li>
@@ -139,10 +147,14 @@ function guardarTarea(tarea) {
 <li>Define criterios de aceptación</li>
 <li>Especifica qué no debe hacer la IA</li>
 </ol>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Pide a una IA que genere un context packet para el proyecto de la idea que trabajaste en lecciones anteriores. Luego evalúa el resultado: ¿qué secciones incluyó? ¿Qué información crucial omitió? Compara el context packet generado por la IA con el que tú escribiste y documenta las diferencias. ¿Cuál es más completo y por qué?</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>El context packet es el documento que guía a la IA durante todo el proyecto</li>
@@ -152,12 +164,9 @@ function guardarTarea(tarea) {
 <li>Los límites ("qué no hacer") son tan importantes como las instrucciones positivas</li>
 <li>El context packet debe actualizarse a medida que el proyecto evoluciona</li>
 </ul>
-
-
-
 <p><strong>Entrega:</strong> Context packet completo usando la plantilla de la Lección 3.4.</p>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -180,5 +189,4 @@ function guardarTarea(tarea) {
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

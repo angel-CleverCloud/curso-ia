@@ -1,11 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 2 · Lección 7 de 7</p>
 <h1>2.7 Detectar requerimientos incompletos</h1>
 <p class="subtitle">Módulo 2 · Quiz</p>
-<div class="highlight"><strong>Objetivo:</strong> Evaluar la capacidad de identificar fallas en un requerimiento.</div>
-
-<h2>Introducción</h2>
-<p>Detectar requerimientos incompletos es una habilidad que separa a los analistas experimentados de los principiantes. Un requerimiento con fallas es como un mapa con calles faltantes: el equipo de desarrollo avanzará en direcciones equivocadas, y el resultado final no cumplirá con las expectativas del cliente. En esta lección pondrás a prueba tu capacidad para identificar ambigüedades, omisiones y contradicciones en especificaciones realistas, una destreza esencial tanto para el desarrollo tradicional como para la generación de código con inteligencia artificial.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Evaluar la capacidad de identificar fallas en un requerimiento.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -15,7 +15,12 @@
 <li>Detectar casos borde que una especificación incompleta omitió</li>
 <li>Aplicar pensamiento crítico para evaluar la calidad de un requerimiento</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Detectar requerimientos incompletos es una habilidad que separa a los analistas experimentados de los principiantes. Un requerimiento con fallas es como un mapa con calles faltantes: el equipo de desarrollo avanzará en direcciones equivocadas, y el resultado final no cumplirá con las expectativas del cliente. En esta lección pondrás a prueba tu capacidad para identificar ambigüedades, omisiones y contradicciones en especificaciones realistas, una destreza esencial tanto para el desarrollo tradicional como para la generación de código con inteligencia artificial.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
 <h3>¿Qué hace que un requerimiento esté incompleto?</h3>
 <p>Un requerimiento está incompleto cuando omite información necesaria para que un desarrollador —o una IA— pueda implementarlo sin tomar decisiones arbitrarias. Las omisiones más comunes incluyen: límites y restricciones (tamaño máximo, formatos permitidos), condiciones de error (qué pasa si algo falla), perfiles de usuario involucrados, y criterios de éxito medibles. Un requerimiento incompleto no es necesariamente corto; puede ser un párrafo extenso que carece de precisión en puntos clave.</p>
@@ -25,10 +30,10 @@
 <p>Un error recurrente es agrupar múltiples funcionalidades no relacionadas en un solo requerimiento. Esto dificulta la estimación, la implementación y las pruebas. Cada requerimiento debe describir una única funcionalidad atómica. Si ves "y también", "además", "por otro lado" dentro de un mismo requerimiento, es señal de que debes dividirlo.</p>
 <h3>Casos borde como indicador de completitud</h3>
 <p>La presencia o ausencia de casos borde es un indicador confiable de la calidad de un requerimiento. Un requerimiento que solo describe el "camino feliz" —el escenario donde todo sale bien— está incompleto. Los requerimientos profesionales siempre consideran: valores vacíos, valores extremos, condiciones de error, concurrencia, y permisos insuficientes.</p>
-
+</section>
+<section class="l11-quizbox">
 <h2>Instrucciones del Quiz</h2>
 <p>Selecciona la respuesta correcta para cada pregunta. Al finalizar, presiona "Verificar respuestas". Debes responder todas las preguntas para recibir tu calificación. Necesitas al menos un 80% para aprobar.</p>
-
 <div class="quiz-wrap" id="quizContainer">
   <div class="quiz-question" data-correct="4" data-explanation="Un requerimiento completo debe especificar tamaño máximo, formatos permitidos, límite de almacenamiento y qué ocurre si el archivo no cumple las condiciones. La opción 'Todas las anteriores' cubre todas las omisiones.">
     <h3>Pregunta 1 de 10</h3>
@@ -133,30 +138,34 @@
   <button class="btn-quiz-submit" onclick="verificarQuiz()">Verificar respuestas</button>
   <div id="quizResult" class="quiz-result" style="display:none;"></div>
 </div>
-
+</section>
 <div class="conclusion"><p><strong>Entregable:</strong> Requerimiento refinado del ejercicio 2.6 usando la plantilla completa.</p></div>
-
+<section class="l11-tip">
+<p class="l11-tag l11-tag--important">Importante</p>
 <h2>💡 Consejo del instructor</h2>
 <div class="highlight"><strong>💡 Consejo profesional:</strong> Cuando revises un requerimiento, hazte tres preguntas: 1) ¿Puedo escribir un test para esto? 2) ¿Qué pasa si el usuario hace lo contrario de lo esperado? 3) ¿Qué información necesitaría un desarrollador nuevo —o una IA— que no está escrita aquí? Si alguna respuesta es "no lo sé", el requerimiento está incompleto. Entrena tu ojo crítico: con la práctica, detectarás ambigüedades en segundos.</div>
-
+</section>
+<section class="l11-card">
 <h2>⚠ Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes">
 <li><strong>Aceptar requerimientos con superlativos no medibles:</strong> "rápido", "óptimo", "eficiente" sin una línea base numérica.</li>
 <li><strong>Confundir "detallado" con "completo":</strong> Un requerimiento puede tener muchas líneas y aún así omitir información crítica como los casos borde.</li>
 <li><strong>Asumir que el cliente y el equipo comparten el mismo vocabulario:</strong> "Dashboard", "reporte" o "notificación" pueden significar cosas distintas para cada persona.</li>
 <li><strong>No preguntar "¿y qué pasa si...?":</strong> El pensamiento de casos borde debe aplicarse de manera sistemática, no improvisada.</li>
 <li><strong>Saltar directamente a la implementación:</strong> Cuando el requerimiento es vago, implementar es perder tiempo; hay que volver a la especificación primero.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>✔ Buenas prácticas</h2>
-<ul>
+<ul class="l11-good">
 <li><strong>Aplica la prueba del "y si no":</strong> Para cada afirmación en un requerimiento, pregúntate qué pasa si la condición no se cumple.</li>
 <li><strong>Separa funcionalidades independientes:</strong> Si ves "y" o "también" en un requerimiento, divídelo en dos documentos.</li>
 <li><strong>Exige ejemplos concretos:</strong> Pídele al cliente que muestre un caso real de uso antes de redactar el requerimiento final.</li>
 <li><strong>Usa listas de verificación:</strong> Crea una checklist de completitud (límites, errores, permisos, formatos, concurrencia) y aplícala a cada requerimiento.</li>
 <li><strong>Involucra a QA en la revisión temprana:</strong> Los testers son expertos en encontrar fallas; que revisen los requerimientos antes de comenzar la implementación.</li>
 </ul>
-
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>Un requerimiento incompleto omite información crítica como límites, condiciones de error o perfiles de usuario.</li>
@@ -165,9 +174,8 @@
 <li>Los casos borde son el mejor indicador de completitud; si no están definidos, el requerimiento está incompleto.</li>
 <li>La capacidad de detectar fallas en requerimientos es entrenable y se fortalece con la práctica sistemática.</li>
 </ul>
-
+</section>
 <div class="conclusion"><p><strong>Conclusión:</strong> Detectar requerimientos incompletos es una habilidad que se fortalece con la práctica. Cada ambigüedad identificada a tiempo es un error de implementación evitado. Al dominar esta competencia, te conviertes en un puente confiable entre la visión del cliente y la ejecución del equipo de desarrollo —o de la IA.</p></div>
-
 </div>
 
 <script>
@@ -179,7 +187,10 @@ function verificarQuiz() {
     if (!seleccionada) sinResponder.push(i + 1);
   });
   if (sinResponder.length > 0) {
-    alert('Debes responder todas las preguntas. Faltan: ' + sinResponder.join(', '));
+    var aviso = document.getElementById('quizResult');
+    aviso.style.display = 'block';
+    aviso.className = 'quiz-result reprobado';
+    aviso.innerHTML = '⚠️ Debes responder todas las preguntas. Faltan: ' + sinResponder.join(', ');
     return;
   }
   var aciertos = 0;

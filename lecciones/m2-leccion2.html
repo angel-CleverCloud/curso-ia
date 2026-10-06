@@ -1,18 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 2 · Lección 2 de 7</p>
 <h1>2.2 Preguntas de descubrimiento</h1>
 <p class="subtitle">Módulo 2 · Documento</p>
-<div class="highlight"><strong>Objetivo:</strong> Aprender a hacer las preguntas correctas para refinar una idea.</div>
-<h2>Preguntas esenciales para refinar cualquier idea</h2>
-<ol><li><strong>¿Quién usará esto?</strong> — Usuarios finales, administradores, sistemas externos? ¿Nivel técnico?</li>
-<li><strong>¿Qué problema específico resuelve?</strong> — No "mejorar la experiencia", sino "reducir el tiempo de carga de X a Y"</li>
-<li><strong>¿Cómo se usa hoy (si existe)?</strong> — Proceso manual actual, herramienta existente, hoja de cálculo?</li>
-<li><strong>¿Qué debe pasar exactamente?</strong> — Flujo paso a paso desde que el usuario inicia hasta que termina</li>
-<li><strong>¿Qué no debe pasar?</strong> — Casos de error, comportamientos prohibidos, restricciones</li>
-<li><strong>¿Cuándo se necesita?</strong> — Fechas, versiones, prioridad</li>
-<li><strong>¿Cómo sabremos que está bien hecho?</strong> — Criterios de éxito medibles</li></ol>
-<div class="highlight"><strong>Tip:</strong> Guarda estas preguntas como plantilla. Úsalas cada vez que recibas una idea vaga.</div>
-<h2>Introducción</h2>
-<p>En la lección anterior aprendiste por qué las ideas vagas producen malos resultados. Ahora daremos el siguiente paso: ¿cómo convertir una idea vaga en una especificación sólida? La respuesta está en hacer las preguntas correctas. Así como un periodista usa las 5W (Who, What, Where, When, Why) para obtener una noticia completa, tú usarás un conjunto de preguntas de descubrimiento para extraer los requisitos reales de cualquier solicitud. Dominar este proceso te permitirá obtener código de alta calidad en menos iteraciones.</p>
+<p class="l11-objective"><strong>Objetivo:</strong> Aprender a hacer las preguntas correctas para refinar una idea.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -22,6 +15,25 @@
 <li>Analizar una solicitud y detectar qué información crítica falta</li>
 <li>Evaluar la completitud de una especificación usando criterios estructurados</li>
 </ul>
+</section>
+<section class="l11-card">
+<h2>Preguntas esenciales para refinar cualquier idea</h2>
+<ol><li><strong>¿Quién usará esto?</strong> — Usuarios finales, administradores, sistemas externos? ¿Nivel técnico?</li>
+<li><strong>¿Qué problema específico resuelve?</strong> — No "mejorar la experiencia", sino "reducir el tiempo de carga de X a Y"</li>
+<li><strong>¿Cómo se usa hoy (si existe)?</strong> — Proceso manual actual, herramienta existente, hoja de cálculo?</li>
+<li><strong>¿Qué debe pasar exactamente?</strong> — Flujo paso a paso desde que el usuario inicia hasta que termina</li>
+<li><strong>¿Qué no debe pasar?</strong> — Casos de error, comportamientos prohibidos, restricciones</li>
+<li><strong>¿Cuándo se necesita?</strong> — Fechas, versiones, prioridad</li>
+<li><strong>¿Cómo sabremos que está bien hecho?</strong> — Criterios de éxito medibles</li>
+<li><strong>¿Qué restricciones de datos e infraestructura hay?</strong> — Dónde se guardan los datos, qué no debe exponerse, límites (esta pregunta se retoma al definir persistencia y despliegue en los Módulos 5 y 6).</li></ol>
+<div class="highlight"><strong>Tip:</strong> Guarda estas preguntas como plantilla. Úsalas cada vez que recibas una idea vaga.</div>
+<div class="highlight"><strong>Proyecto conductor (To-Do):</strong> aplica estas preguntas a la idea "app web de tareas con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y dashboard". Las respuestas alimentan el requerimiento oficial de la Lección 2.6 y se reutilizan hasta el Módulo 6.</div>
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>En la lección anterior aprendiste por qué las ideas vagas producen malos resultados. Ahora daremos el siguiente paso: ¿cómo convertir una idea vaga en una especificación sólida? La respuesta está en hacer las preguntas correctas. Así como un periodista usa las 5W (Who, What, Where, When, Why) para obtener una noticia completa, tú usarás un conjunto de preguntas de descubrimiento para extraer los requisitos reales de cualquier solicitud. Dominar este proceso te permitirá obtener código de alta calidad en menos iteraciones.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
 <h3>¿Por qué preguntar y no asumir?</h3>
 <p>Cuando recibes una idea vaga, tu instinto puede ser completar los vacíos con tus propias suposiciones. Eso es peligroso: lo que para ti es obvio, para quien solicita puede ser completamente diferente. Las preguntas de descubrimiento eliminan las suposiciones y alinean el entendimiento entre todas las partes. En el contexto de la IA, estas preguntas son el puente entre una idea difusa y un prompt efectivo.</p>
@@ -29,6 +41,8 @@
 <p>Cada una de las preguntas presentadas en la lección apunta a una dimensión diferente del problema. "¿Quién usará esto?" define la audiencia y el contexto de uso. "¿Qué problema específico resuelve?" separa la solución deseada del problema real. "¿Cómo se usa hoy?" revela el punto de partida. "¿Qué debe pasar exactamente?" construye el flujo de trabajo. "¿Qué no debe pasar?" establece los límites de seguridad. "¿Cuándo se necesita?" fija expectativas de tiempo. "¿Cómo sabremos que está bien hecho?" define los criterios de éxito medibles.</p>
 <h3>El orden importa</h3>
 <p>Aunque las preguntas pueden aplicarse en cualquier orden, hay una secuencia recomendada: empieza por el problema (qué y quién), sigue por el contexto actual (cómo se usa hoy), luego el detalle del flujo (qué debe pasar exactamente), las restricciones (qué no debe pasar), y finalmente los criterios de éxito y tiempo. Esta secuencia va de lo general a lo particular, construyendo especificidad progresivamente.</p>
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
 <h3>Ejemplo 1: Dashboard de ventas</h3>
 <p><strong>Idea original:</strong> "Necesito un dashboard de ventas."<br><strong>Aplicando preguntas de descubrimiento:</strong><br>¿Quién usará esto? → El equipo de ventas y gerencia (usuarios no técnicos)<br>¿Qué problema resuelve? → Ver en tiempo real el progreso de ventas del mes sin usar Excel<br>¿Cómo se usa hoy? → Reporte manual en Excel que se actualiza cada semana<br>¿Qué debe pasar exactamente? → Al abrir el dashboard, mostrar KPIs: ventas del día, del mes, productos más vendidos, metas vs real<br>¿Qué no debe pasar? → No debe mostrar datos de costos ni márgenes (solo ventas)<br>¿Cuándo se necesita? → Versión básica en 2 semanas<br>¿Cómo saber que está bien hecho? → Los datos coinciden con el reporte de Excel y carga en menos de 3 segundos</p>
@@ -36,8 +50,11 @@
 <p><strong>Idea original:</strong> "Quiero que el sistema envíe notificaciones."<br><strong>Aplicando preguntas:</strong><br>¿Quién recibe las notificaciones? → Usuarios registrados y administradores<br>¿Qué tipo de notificaciones? → Email para confirmaciones, notificaciones push para alertas, SMS para códigos 2FA<br>¿Qué las activa? → Eventos del sistema: registro, compra, cambio de contraseña, umbral de stock crítico<br>¿Qué NO debe pasar? → No enviar más de 3 notificaciones por hora al mismo usuario, no enviar datos sensibles por SMS<br>¿Cómo saber que funciona? → Tasa de entrega >99%, logs de cada envío, capacidad de reintentar en fallo</p>
 <h3>Ejemplo 3: Automatización de reportes</h3>
 <p><strong>Idea original:</strong> "Automatiza los reportes mensuales."<br><strong>Aplicando preguntas:</strong><br>¿Quién recibe los reportes? → El director financiero (formato PDF, listo para imprimir)<br>¿Qué datos incluyen? → Ingresos, gastos, margen bruto, comparativa vs mes anterior y vs presupuesto<br>¿Cómo se genera hoy? → La contadora extrae datos del ERP, los pasa a Excel, formatea manualmente y exporta a PDF (4 horas/mes)<br>¿Qué debe pasar exactamente? → El primer día de cada mes a las 8am, el sistema extrae datos del ERP, genera el PDF y lo envía por email<br>¿Qué no debe pasar? → No enviar si hay datos inconsistentes, no modificar datos fuente del ERP</p>
+</section>
+<section class="l11-card">
 <h2>Comparación: Sin preguntas vs Con preguntas de descubrimiento</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead><tr><th>Aspecto</th><th>Sin preguntas de descubrimiento</th><th>Con preguntas de descubrimiento</th></tr></thead>
 <tbody>
 <tr><td>Claridad de la especificación</td><td>Ambigua, abierta a interpretación</td><td>Precisa, sin ambigüedades</td></tr>
@@ -47,28 +64,46 @@
 <tr><td>Calidad del código generado</td><td>Genérico, requiere refactorización</td><td>Enfocado, listo para producción con ajustes menores</td></tr>
 <tr><td>Confianza del equipo</td><td>Baja ("esto no era lo que pedí")</td><td>Alta ("esto es exactamente lo que necesitaba")</td></tr>
 </tbody></table>
+</div>
+</section>
+<section class="l11-tip">
+<p class="l11-tag l11-tag--important">Importante</p>
 <h2>💡 Consejo del instructor</h2>
 <div class="highlight"><strong>💡 Consejo profesional:</strong> Crea una plantilla con estas 7 preguntas en un documento o nota rápida. Antes de escribir cualquier prompt para IA, responde cada pregunta en una línea. Si no puedes responder alguna, significa que necesitas más información antes de continuar. Esta plantilla se convertirá en tu herramienta más valiosa: con el tiempo, las preguntas se volverán automáticas y las responderás mentalmente en segundos. Los mejores ingenieros de IA no son los que escriben mejores prompts, sino los que hacen mejores preguntas antes de escribirlos.</div>
+</section>
+<section class="l11-card">
 <h2>⚠ Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Saltarse las preguntas por "urgencia":</strong> Creer que no tienes tiempo para preguntar y que es más rápido pedir código directamente. Esto siempre genera más iteraciones y más tiempo perdido.</li>
 <li><strong>Aceptar la primera respuesta del solicitante:</strong> Cuando alguien dice "haz una API", no te quedes con esa superficie. Pregunta: ¿qué datos maneja? ¿quién la consume? ¿qué protocolo? La primera respuesta casi nunca contiene todos los detalles.</li>
 <li><strong>Hacer preguntas sugestivas:</strong> "¿Quieres que use JWT, verdad?" en lugar de "¿Cómo necesitas manejar la autenticación?". Las preguntas abiertas revelan más información que las cerradas.</li>
 <li><strong>No documentar las respuestas:</strong> Hacer las preguntas pero no registrar las respuestas. Cada respuesta es un requisito que debe estar disponible para todo el equipo.</li>
 <li><strong>Confundir "muchos detalles" con "buena especificación":</strong> Una especificación puede ser detallada pero incorrecta si las preguntas no se hicieron en el orden correcto o si se asumieron respuestas.</li>
 </ul>
+</section>
+<section class="l11-card">
 <h2>✔ Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Siempre comienza con las preguntas antes del código:</strong> Sin importar qué tan simple parezca la solicitud, aplica las 7 preguntas como hábito.</li>
 <li><strong>Registra las respuestas en formato estructurado:</strong> Usa un documento, issue o ticket con secciones claras para cada pregunta y sus respuestas.</li>
 <li><strong>Comparte las preguntas con tu equipo:</strong> Establece un estándar de descubrimiento para que todas las solicitudes pasen por el mismo filtro de calidad.</li>
 <li><strong>Revisa las preguntas con quien las solicitó:</strong> Valida que tus interpretaciones de las respuestas sean correctas antes de empezar a desarrollar.</li>
 <li><strong>Refina la plantilla con experiencia:</strong> Agrega nuevas preguntas específicas de tu dominio (regulatorio, técnico, de negocio) a medida que identificas qué información suele faltar.</li>
 </ul>
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Elige un proyecto, característica o herramienta que necesites desarrollar (real o ficticio). Pídele a un compañero o a una IA que te dé una idea vaga de 1-2 líneas sobre lo que necesita. Luego, aplica las 7 preguntas de descubrimiento para refinar la solicitud. Escribe las preguntas y las respuestas obtenidas. Finalmente, construye un prompt completo para IA que incluya toda la información recolectada. Compara la calidad del resultado con el que obtendrías usando solo la idea original.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Toma una solicitud de tu trabajo o proyectos personales que haya fracasado o requerido muchas iteraciones. Aplica retrospectivamente las 7 preguntas de descubrimiento. Identifica qué información faltaba y cómo esa falta de claridad provocó el resultado insatisfactorio. Reescribe la solicitud original en una versión mejorada que incluya todas las respuestas. Este ejercicio te mostrará el costo real de no hacer preguntas.</p>
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>Las preguntas de descubrimiento son el puente entre una idea vaga y un prompt efectivo para IA.</li>
@@ -78,8 +113,9 @@
 <li>Documentar las respuestas es tan importante como hacer las preguntas.</li>
 <li>La plantilla de preguntas se vuelve automática con la práctica, acelerando el proceso de refinamiento.</li>
 </ul>
+</section>
 <div class="conclusion"><p><strong>Conclusión:</strong> Hacer las preguntas correctas antes de escribir código es la habilidad que separa a los ingenieros efectivos con IA de los que pierden tiempo iterando. Las 7 preguntas de descubrimiento son tu herramienta para eliminar ambigüedades y construir especificaciones sólidas en minutos, no en horas.</p></div>
-<div class="evidence-section">
+<div class="evidence-section l11-evidence">
   <h2>Entrega de Evidencia</h2>
   <p>Sube el archivo con el resultado de tu Actividad Práctica o Mini Reto y escribe una breve reflexión sobre lo que aprendiste.</p>
   <div class="evidence-form" id="evidenceForm-m2-l2">

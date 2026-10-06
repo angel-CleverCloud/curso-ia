@@ -1,19 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 4 · Lección 1 de 7</p>
 <h1>4.1 Qué es el desarrollo asistido por IA</h1>
 <p class="subtitle">Módulo 4 · Video</p>
-<div class="highlight"><strong>Objetivo:</strong> Definir el concepto de desarrollo asistido y en qué se diferencia de la generación automática de código.</div>
-<h2>Desarrollo asistido ≠ Código automático</h2>
-<p>La IA asiste, no reemplaza. El ingeniero mantiene el control en cada paso.</p>
-<h2>El flujo correcto</h2>
-<ol><li>El ingeniero define qué necesita</li><li>La IA propone una solución</li><li>El ingeniero revisa críticamente</li><li>El ingeniero prueba la solución</li><li>El ingeniero decide aceptar, modificar o rechazar</li></ol>
-<h2>Herramientas</h2>
-<p>Chat-based (ChatGPT, Claude), integradas en IDE (Copilot, Codeium), o APIs.</p>
-<h2>Lo que cambia</h2>
-<p>El tiempo se redistribuye: menos tiempo escribiendo código, más tiempo diseñando, revisando y probando.</p>
-
-<h2>Introducción</h2>
-<p>El desarrollo asistido por IA está transformando la manera en que los ingenieros de software construyen aplicaciones. En esta lección explorarás cómo integrar la IA como un compañero de desarrollo que acelera tu productividad sin reemplazar tu criterio técnico. Aprenderás a diferenciar entre una herramienta que asiste y una que automatiza ciegamente, un concepto clave para mantener la calidad en tus proyectos.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Definir el concepto de desarrollo asistido y en qué se diferencia de la generación automática de código.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -23,37 +15,53 @@
   <li>Analizar cómo se redistribuye el tiempo del desarrollador al incorporar IA en su flujo de trabajo.</li>
   <li>Aplicar el criterio humano como filtro indispensable antes de aceptar código generado.</li>
 </ul>
+</section>
+<section class="l11-card l11-group">
 
+<h2>Desarrollo asistido ≠ Código automático</h2>
+<p>La IA asiste, no reemplaza. El ingeniero mantiene el control en cada paso.</p>
+
+<h2>El flujo correcto</h2>
+<ol><li>El ingeniero define qué necesita</li><li>La IA propone una solución</li><li>El ingeniero revisa críticamente</li><li>El ingeniero prueba la solución</li><li>El ingeniero decide aceptar, modificar o rechazar</li></ol>
+<div class="highlight"><strong>Proyecto conductor (To-Do):</strong> en este módulo construirás la To-Do (crear y listar tareas con proyecto, etiquetas, prioridad y vencimiento) siguiendo este flujo paso a paso. Cada paso aceptado se trabaja en una rama separada y se registra con un commit, de modo que cada decisión quede trazada antes de integrarse. Los detalles operativos de ramas, commits y Pull Requests se practican en el Módulo 6.</div>
+
+<h2>Herramientas</h2>
+<p>Chat-based (ChatGPT, Claude), integradas en IDE (Copilot, Codeium), o APIs.</p>
+
+<h2>Lo que cambia</h2>
+<p>El tiempo se redistribuye: menos tiempo escribiendo código, más tiempo diseñando, revisando y probando.</p>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>El desarrollo asistido por IA está transformando la manera en que los ingenieros de software construyen aplicaciones. En esta lección explorarás cómo integrar la IA como un compañero de desarrollo que acelera tu productividad sin reemplazar tu criterio técnico. Aprenderás a diferenciar entre una herramienta que asiste y una que automatiza ciegamente, un concepto clave para mantener la calidad en tus proyectos.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>¿Qué es exactamente el desarrollo asistido por IA?</h3>
 <p>El desarrollo asistido por IA es un enfoque donde el programador utiliza modelos de lenguaje (LLMs) como herramientas de apoyo para escribir, revisar, optimizar y documentar código. A diferencia de la generación automática, donde se espera que la IA produzca un sistema completo sin supervisión, el desarrollo asistido mantiene al ingeniero en el centro de cada decisión.</p>
-
 <h3>El rol del ingeniero en el nuevo flujo</h3>
 <p>En un flujo tradicional, el desarrollador escribe cada línea desde cero. Con asistencia de IA, el rol evoluciona: el ingeniero se convierte en un arquitecto que define qué construir, revisa lo generado, y toma decisiones críticas sobre qué aceptar, modificar o rechazar. Este cambio exige fortalecer habilidades de revisión de código, pensamiento crítico y diseño de sistemas.</p>
-
 <h3>Herramientas según el contexto</h3>
 <p>No todas las herramientas de IA funcionan igual. Los asistentes chat-based como ChatGPT y Claude son ideales para explorar soluciones, depurar errores y obtener explicaciones. Los integrados en IDE como Copilot y Codeium destacan en autocompletado en tiempo real y sugerencias contextuales. Las APIs (OpenAI, Anthropic) permiten automatizar flujos completos. La clave es elegir la herramienta adecuada para cada tarea.</p>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
-
 <h3>Ejemplo 1: Desarrollo web con asistencia de IA</h3>
 <p><strong>Escenario:</strong> Necesitas crear un componente de tarjeta de producto para un e-commerce.</p>
 <p><strong>Sin IA:</strong> Escribes manualmente el HTML, CSS y JS, investigando en documentación cada propiedad.</p>
 <p><strong>Con IA:</strong> Le pides a ChatGPT que genere el componente con especificaciones concretas: "Crea una tarjeta de producto con imagen, título, precio y botón de compra, usando flexbox y diseño responsivo". Revisas el código, ajustas estilos y lo integras.</p>
-
 <h3>Ejemplo 2: Automatización de scripts</h3>
 <p><strong>Escenario:</strong> Debes procesar 10,000 archivos CSV para extraer datos específicos.</p>
 <p><strong>Sin IA:</strong> Escribes un script manualmente, probando cada función una por una.</p>
 <p><strong>Con IA:</strong> Pides: "Genera un script en Python que lea una carpeta de CSVs, extraiga las columnas 'nombre' y 'total', y las consolide en un solo archivo Excel". Revisas el código generado, ajustas rutas, y ejecutas.</p>
-
 <h3>Ejemplo 3: Prompt Engineering para refactorización</h3>
 <p><strong>Escenario:</strong> Tienes una función legacy de 200 líneas que necesita ser refactorizada.</p>
 <p><strong>Con IA:</strong> Proporcionas el código original y pides: "Refactoriza esta función dividiéndola en funciones más pequeñas con nombres descriptivos. Cada función debe tener una única responsabilidad. Mantén la misma funcionalidad".</p>
-
+</section>
+<section class="l11-card">
 <h2>Comparaciones</h2>
-
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr>
       <th>Dimensión</th>
@@ -69,9 +77,10 @@
     <tr><td>Riesgo principal</td><td>Errores humanos por fatiga</td><td>Aceptar código incorrecto sin revisar</td></tr>
   </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Diagrama del flujo de desarrollo asistido</h2>
-
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:25px;margin:20px 0;text-align:center;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;">
     <div style="background:#2563eb;color:white;padding:12px 18px;border-radius:8px;font-weight:bold;font-size:0.9rem;">1. Definir</div>
@@ -92,11 +101,9 @@
     <div style="background:#e2e8f0;border-radius:6px;padding:6px 12px;font-size:0.8rem;color:#475569;">Aceptar/Rechazar</div>
   </div>
 </div>
-
 <div class="highlight">
   <strong>💡 Consejo del instructor:</strong> La IA es excelente generando código, pero no entiende el contexto completo de tu proyecto. Siempre mantén un archivo de contexto compartido donde documentes las decisiones clave de arquitectura. Esto te ayudará a ti y a la IA a mantener coherencia.
 </div>
-
 <div class="highlight" style="border-left-color:#f59e0b;">
   <strong>⚠ Errores comunes:</strong>
   <ul>
@@ -105,30 +112,39 @@
     <li><strong>No versionar:</strong> No usar git porque "la IA lo puede regenerar". Siemén versiona tu código.</li>
   </ul>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>✔ Revisa siempre el código generado antes de integrarlo.</li>
   <li>✔ Divide problemas grandes en prompts pequeños y específicos.</li>
   <li>✔ Mantén un contexto compartido con la IA (archivo de especificaciones).</li>
   <li>✔ Prueba el código generado en un entorno aislado antes de producción.</li>
   <li>✔ Documenta las decisiones importantes para mantener coherencia.</li>
   <li>✔ Usa control de versiones en cada paso del desarrollo asistido.</li>
+  <li>✔ Trabaja en una rama, no directamente sobre main; integra cambios pequeños y revisados, un commit por paso aceptado, con mensajes claros (a nivel conceptual, una convención tipo Conventional Commits).</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p><strong>Escenario:</strong> Tienes que implementar un validador de formularios en JavaScript que verifique email, teléfono y contraseña.</p>
+<p><strong>Escenario (proyecto conductor To-Do):</strong> Tienes que implementar el validador de "crear tarea": título requerido (1 a 120 caracteres), prioridad solo Alta/Media/Baja, y fecha de vencimiento no pasada.</p>
 <ol>
-  <li>Escribe un prompt para solicitar a la IA la función validadora. Sé específico sobre: formato de email, longitud mínima de contraseña, y formato de teléfono.</li>
-  <li>Ejecuta el prompt en ChatGPT, Claude o similar.</li>
-  <li>Revisa críticamente el código generado usando la checklist de la lección 4.5.</li>
-  <li>Identifica al menos 2 mejoras o correcciones necesarias.</li>
-  <li>Documenta el proceso: prompt usado, código recibido, correcciones aplicadas.</li>
+<li>Escribe un prompt para solicitar a la IA la función validadora, con el Context Packet de la To-Do (Lección 3.4) como fondo.</li>
+<li>Ejecuta el prompt en ChatGPT, Claude o similar.</li>
+<li>Revisa críticamente el código generado usando la checklist oficial de la lección 4.5.</li>
+<li>Identifica al menos 2 mejoras o correcciones necesarias.</li>
+<li>Documenta el proceso: prompt usado, código recibido, correcciones aplicadas.</li>
 </ol>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Implementa un generador de prompts reutilizable. Crea una función que, dados: tecnología (React, Vue, Python), tipo de componente (formulario, tabla, API) y requerimientos específicos, genere automáticamente un prompt estructurado y listo para usar con la IA. El prompt debe incluir contexto, restricciones y formato de salida esperado.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>El desarrollo asistido por IA no reemplaza al ingeniero, lo potencia.</li>
@@ -136,9 +152,10 @@
   <li>Las herramientas se eligen según el contexto (chat, IDE, API).</li>
   <li>El tiempo del desarrollador se redistribuye hacia diseño, revisión y pruebas.</li>
   <li>La calidad del resultado depende del criterio humano, no de la IA.</li>
+  <li>El flujo con Git es: rama → cambios pequeños → commit por paso aceptado → Pull Request → revisión humana → integración. La IA genera, el desarrollador decide.</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -161,6 +178,4 @@
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
-
 </div>

@@ -1,12 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 3 · Lección 6 de 7</p>
 <h1>3.6 Crear una cadena de prompts</h1>
 <p class="subtitle">Módulo 3 · Ejercicio</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Practicar la creación de cadenas de prompts para un problema real.</div>
-
-<h2>Introducción</h2>
-<p>En la lección anterior aprendiste la teoría de la encadenación de prompts. Ahora es momento de aplicarlo. Este ejercicio te guiará paso a paso para que construyas tu propia cadena de prompts a partir de un requerimiento realista del mundo del desarrollo de software.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Practicar la creación de cadenas de prompts para un problema real.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -15,10 +14,17 @@
   <li>Construir un Context Packet coherente para el problema planteado.</li>
   <li>Evaluar críticamente la calidad de su propia cadena de prompts.</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>En la lección anterior aprendiste la teoría de la encadenación de prompts. Ahora es momento de aplicarlo. Este ejercicio te guiará paso a paso para que construyas tu propia cadena de prompts a partir de un requerimiento realista del mundo del desarrollo de software.</p>
+</section>
+<section>
+<div class="l11-brief">
+<p class="l11-tag">Actividad</p>
 <h2>Enunciado</h2>
-<p>Dado el requerimiento:</p>
-<div class="highlight">"Dashboard para usuarios que muestra sus últimas 10 transacciones, su saldo actual, y un gráfico de gastos por categoría del mes actual. Solo datos de los últimos 30 días. Debe actualizarse cada 5 minutos."</div>
+<p>Dado el requerimiento oficial del curso (proyecto conductor To-Do, el mismo de la Lección 2.6):</p>
+<div class="highlight">"App web de tareas con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y dashboard. En esta cadena nos centramos en 'crear y listar tareas': RF-TODO-001, sus criterios Given-When-Then (Lección 2.4) y sus casos borde (Lección 2.5)."</div>
 <p>Crea una cadena de 6 prompts:</p>
 <ol>
   <li><strong>Prompt 1:</strong> Analiza el requerimiento y detecta ambigüedades</li>
@@ -29,89 +35,76 @@
   <li><strong>Prompt 6:</strong> Revisa críticamente el resultado</li>
 </ol>
 <p>Incluye también el context packet necesario.</p>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Guía paso a paso</h2>
-
 <h3>Paso 1: Context Packet</h3>
 <p>Antes de empezar la cadena, define el Context Packet del proyecto. Esto asegura que la IA tenga toda la información de fondo necesaria.</p>
 <div class="prompt-block">
 <pre><code>## Objetivo:
-Dashboard financiero para usuarios de una app de banca personal
+App web de tareas (proyecto conductor): crear y listar tareas con proyecto, etiquetas, prioridad y vencimiento
 
 ## Rol:
-Desarrollador frontend senior especializado en dashboards
+Desarrollador full-stack senior
 
 ## Contexto:
-App web React 18 con TypeScript, datos simulados (mock API)
+Requerimiento oficial de la Lección 2.6 (mismo packet de la Lección 3.4)
 
 ## Estado actual:
-Proyecto Vite + React 18 + TypeScript + Tailwind CSS
-Estructura: /components, /hooks, /services, /types
-Mock API en /services/api.ts con datos de prueba
+Sin código todavía; se implementará por pasos
 
 ## Restricciones:
-- React 18, TypeScript strict mode
-- Recharts para gráficos
-- Tailwind CSS
-- Sin backend real (datos mock)
-- Actualización cada 5 minutos (setInterval)
+- Sin dependencias nuevas salvo aprobación
+- No exponer datos sensibles en prompts
+- Persistencia y despliegue: se definen en M5/M6
 
 ## Criterios de aceptación:
-- Muestra últimas 10 transacciones
-- Muestra saldo actual
-- Gráfico de gastos por categoría del mes actual
-- Datos filtrados a últimos 30 días
-- Actualización automática cada 5 minutos
-- Diseño responsive
+- Crea tarea válida con proyecto, etiquetas, prioridad y vencimiento
+- Rechaza título vacío y fecha pasada con mensajes claros
+- Lista tareas con filtros básicos
 
 ## Formato:
-Código completo de cada componente
+Código completo del paso solicitado + pruebas mínimas
 
 ## No hacer:
-- No modificar configuraciones existentes
+- No modificar persistencia sin aprobación
 - No agregar dependencias nuevas
-- No implementar backend real
 
 ## Revisión humana:
-- Verificar que los datos mostrados sean correctos
-- Validar que el gráfico se renderice adecuadamente</code></pre>
+- Verificar criterios de aceptación y casos borde de la Lección 2.5</code></pre>
 </div>
-
 <h3>Paso 2: Prompt 1 - Analizar ambigüedades</h3>
 <p>El primer prompt debe detectar qué información falta o es ambigua en el requerimiento.</p>
 <div class="prompt-block">
-<pre><code>Con el siguiente Context Packet, analiza el requerimiento del dashboard financiero y detecta TODAS las ambigüedades que encuentres.
+<pre><code>Con el siguiente Context Packet, analiza el requerimiento de la To-Do ("crear y listar tareas") y detecta TODAS las ambigüedades que encuentres.
 
-Requerimiento: "Dashboard para usuarios que muestra sus últimas 10 transacciones, su saldo actual, y un gráfico de gastos por categoría del mes actual. Solo datos de los últimos 30 días. Debe actualizarse cada 5 minutos."
+Requerimiento: "App web de tareas con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y dashboard. En esta cadena nos centramos en 'crear y listar tareas'."
 
 Para cada ambigüedad, explica por qué es relevante y qué información adicional necesitamos.</code></pre>
 </div>
-
 <h3>Paso 3: Prompt 2 - Especificación clara</h3>
 <div class="prompt-block">
-<pre><code>Basándote en el análisis anterior, escribe una especificación técnica clara y completa del dashboard financiero. La especificación debe incluir: componentes, datos, interacciones y reglas de negocio.</code></pre>
+<pre><code>Basándote en el análisis anterior, escribe una especificación técnica clara y completa de "crear y listar tareas". La especificación debe incluir: datos de la tarea, validaciones, interacciones y reglas de negocio.</code></pre>
 </div>
-
 <h3>Paso 4: Prompt 3 - Plan de implementación</h3>
 <div class="prompt-block">
 <pre><code>Propón un plan de implementación detallado paso a paso. Cada paso debe incluir: archivos a modificar/crear, componentes involucrados y criterios para considerar el paso completado.</code></pre>
 </div>
-
 <h3>Paso 5: Prompt 4 - Implementar paso 1</h3>
 <div class="prompt-block">
 <pre><code>Implementa solo el primer paso del plan de implementación. Debes generar el código completo siguiendo las restricciones del Context Packet.</code></pre>
 </div>
-
 <h3>Paso 6: Prompt 5 - Generar pruebas</h3>
 <div class="prompt-block">
 <pre><code>Genera pruebas unitarias con Jest para validar el código del paso 1. Las pruebas deben cubrir: casos normales, casos borde y errores esperados.</code></pre>
 </div>
-
 <h3>Paso 7: Prompt 6 - Revisión crítica</h3>
 <div class="prompt-block">
 <pre><code>Revisa críticamente el código generado en el paso 1. Identifica: problemas de rendimiento, violaciones de las restricciones del proyecto, oportunidades de mejora en legibilidad y mantenibilidad. Sé específico: menciona archivos y líneas.</code></pre>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Tabla comparativa: Sin cadena vs Con cadena de prompts</h2>
 <div style="overflow-x:auto;">
   <table style="width:100%;border-collapse:collapse;margin:15px 0;">
@@ -151,7 +144,8 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
     </tbody>
   </table>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Diagrama: Pipeline de la cadena de prompts</h2>
 <div style="background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:30px;margin:20px 0;">
   <div style="display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;">
@@ -171,25 +165,29 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
   </div>
   <div style="text-align:center;margin-top:15px;font-size:0.85rem;color:#64748b;">Cada prompt (P1-P6) recibe el resultado del anterior y construye sobre él</div>
 </div>
-
 <div class="highlight"><strong>Consejo del instructor:</strong> No copies y pegues estos prompts sin entenderlos. Personaliza cada prompt según el problema específico. La calidad de la cadena depende de la precisión de cada eslabón.</div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
   <li><strong>Prompts demasiado genéricos:</strong> "Analiza esto" sin indicar el formato de respuesta esperado. Sé específico: "Analiza y lista en formato de viñetas".</li>
   <li><strong>Saltar la revisión entre pasos:</strong> Si no revisas el resultado de cada paso, los errores se acumulan. Detente después de cada respuesta de la IA y evalúa.</li>
   <li><strong>No proporcionar el Context Packet:</strong> Sin contexto, la IA asumirá tecnologías y decisiones que pueden no coincidir con tu proyecto.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>Revisa el resultado de cada prompt antes de enviar el siguiente.</li>
   <li>Si un resultado no es satisfactorio, ajusta el prompt y vuelve a intentarlo.</li>
   <li>Documenta los 6 prompts y sus resultados como referencia futura.</li>
   <li>Comparte la cadena completa con tu equipo para estandarizar procesos.</li>
   <li>Mide el tiempo total vs la calidad obtenida para iterar y mejorar.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p><strong>Objetivo:</strong> Crear una cadena de 6 prompts para un dashboard financiero real.</p>
 <p><strong>Instrucciones:</strong></p>
@@ -215,7 +213,6 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
   </li>
   <li><strong>Opcional:</strong> Si lo deseas, ejecuta los prompts con una IA real y documenta los resultados.</li>
 </ol>
-
 <div class="highlight">
   <strong>Ejemplo de estructura esperada:</strong><br><br>
   <strong>## CONTEXT PACKET DEL PROYECTO</strong><br>
@@ -226,10 +223,14 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
   "Con base en supuestos razonables, escribe una especificación clara que responda las preguntas anteriores..."<br><br>
   [Continúa con prompts 3-6...]
 </div>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Sin usar el Context Packet proporcionado en esta lección, crea tu propio Context Packet para el dashboard financiero desde cero. Luego compara tu versión con la de la lección. ¿Qué agregaste? ¿Qué omitiste? ¿Cuál versión crees que produciría mejores resultados con la IA?</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>La cadena de 6 prompts transforma un requerimiento vago en un resultado de alta calidad.</li>
@@ -238,12 +239,12 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
   <li>La revisión entre pasos es obligatoria, no opcional.</li>
   <li>Documentar la cadena completa permite reutilizarla en proyectos similares.</li>
 </ul>
-
-<div class="prompt-evidence-section">
-  <h2>💬 Compartir Prompt Utilizado</h2>
-  <p>Registra el Context Packet y la cadena de 6 prompts que creaste para el dashboard financiero.</p>
-  
-  <div class="prompt-form" id="prompt-form-m3-l6">
+</section>
+<div class="prompt-evidence-section l11-evidence">
+<section class="l11-card">
+<h2>💬 Compartir Prompt Utilizado</h2>
+<p>Registra el Context Packet y la cadena de 6 prompts que creaste para el dashboard financiero.</p>
+<div class="prompt-form" id="prompt-form-m3-l6">
     <div class="prompt-field">
       <label for="prompt-input-m3-l6">📝 Context Packet + Cadena de 6 prompts</label>
       <textarea 
@@ -272,8 +273,7 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
     </button>
     <div id="prompt-msg-m3-l6" class="prompt-msg"></div>
   </div>
-
-  <div id="prompt-submitted-m3-l6" class="prompt-submitted" style="display:none;">
+<div id="prompt-submitted-m3-l6" class="prompt-submitted" style="display:none;">
     <h3>✅ Evidencia guardada correctamente</h3>
     
     <div class="prompt-submitted-item">
@@ -295,6 +295,8 @@ Para cada ambigüedad, explica por qué es relevante y qué información adicion
       <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l6')">🗑️ Eliminar</button>
     </div>
   </div>
+</section>
+
 </div>
 
 <script src="../js/prompt-manager.js"></script>

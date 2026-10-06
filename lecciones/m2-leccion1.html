@@ -1,18 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 2 · Lección 1 de 7</p>
 <h1>2.1 El problema de pedir código con ideas vagas</h1>
 <p class="subtitle">Módulo 2 · Video</p>
-<div class="highlight"><strong>Objetivo:</strong> Comprender por qué las ideas vagas producen malos resultados con IA.</div>
-<h2>El efecto GIGO (Garbage In, Garbage Out)</h2>
-<p>Los modelos de IA generan la respuesta más probable basada en tu entrada. Una entrada vaga produce una respuesta genérica e inservible.</p>
-<h2>Ejemplo concreto</h2>
-<p><strong>Idea vaga:</strong> "Necesito un sistema de usuarios"<br><strong>Resultado típico:</strong> La IA asume autenticación básica, roles, registro, login, etc. Pero no sabe si necesitas OAuth, 2FA, invitaciones, etc.</p>
-<h2>Cómo mejorar</h2>
-<p>Cuanto más específico seas, mejor será el resultado. Pero cuidado: especificidad no es lo mismo que longitud.</p>
-<h2>El costo de la vaguedad</h2>
-<p>Cada iteración de "no era eso" consume tiempo y tokens. Un buen requerimiento ahorra múltiples iteraciones.</p>
-<div class="conclusion"><p><strong>Conclusión:</strong> Invertir tiempo en refinar el requerimiento es la forma más efectiva de mejorar la calidad de la respuesta de la IA.</p></div>
-<h2>Introducción</h2>
-<p>Cuando trabajamos con asistentes de IA para generar código, la calidad del resultado depende casi por completo de la calidad de nuestra solicitud. Una petición vaga produce código genérico que rara vez resuelve el problema real. En esta lección aprenderás a identificar cuándo tu solicitud es demasiado ambigua y cómo transformarla en una especificación clara que la IA pueda ejecutar con precisión. Dominar esta habilidad te ahorrará horas de iteraciones y te convertirá en un ingeniero más efectivo con IA.</p>
+<p class="l11-objective"><strong>Objetivo:</strong> Comprender por qué las ideas vagas producen malos resultados con IA.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -22,6 +15,30 @@
 <li>Aplicar un proceso de refinamiento progresivo para mejorar solicitudes</li>
 <li>Analizar el costo en tiempo y tokens de las iteraciones por mala especificación</li>
 </ul>
+</section>
+<section class="l11-card">
+<h2>El efecto GIGO (Garbage In, Garbage Out)</h2>
+<p>Los modelos de IA generan la respuesta más probable basada en tu entrada. Una entrada vaga produce una respuesta genérica e inservible.</p>
+</section>
+<section class="l11-example">
+<h2>Ejemplo concreto</h2>
+<p><strong>Idea vaga:</strong> "Necesito un sistema de usuarios"<br><strong>Resultado típico:</strong> La IA asume autenticación básica, roles, registro, login, etc. Pero no sabe si necesitas OAuth, 2FA, invitaciones, etc.</p>
+<div class="highlight"><strong>Proyecto conductor del curso (To-Do):</strong> desde este módulo trabajaremos con una aplicación To-Do (tareas con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y dashboard). Ejemplo de idea vaga: "Necesito una app de tareas". Sin refinar, la IA no sabe si hay proyectos o solo listas, qué significa "prioridad", ni qué muestra el dashboard. En la Lección 2.6 convertirás esta idea en el requerimiento oficial que usarás hasta el Módulo 6.</div>
+</section>
+<section class="l11-card">
+<h2>Cómo mejorar</h2>
+<p>Cuanto más específico seas, mejor será el resultado. Pero cuidado: especificidad no es lo mismo que longitud.</p>
+</section>
+<section class="l11-card">
+<h2>El costo de la vaguedad</h2>
+<p>Cada iteración de "no era eso" consume tiempo y tokens. Un buen requerimiento ahorra múltiples iteraciones.</p>
+</section>
+<div class="conclusion"><p><strong>Conclusión:</strong> Invertir tiempo en refinar el requerimiento es la forma más efectiva de mejorar la calidad de la respuesta de la IA.</p></div>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>Cuando trabajamos con asistentes de IA para generar código, la calidad del resultado depende casi por completo de la calidad de nuestra solicitud. Una petición vaga produce código genérico que rara vez resuelve el problema real. En esta lección aprenderás a identificar cuándo tu solicitud es demasiado ambigua y cómo transformarla en una especificación clara que la IA pueda ejecutar con precisión. Dominar esta habilidad te ahorrará horas de iteraciones y te convertirá en un ingeniero más efectivo con IA.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
 <h3>¿Por qué la IA no "adivina" lo que necesitas?</h3>
 <p>Los modelos de lenguaje como GPT, Claude o Gemini funcionan prediciendo la siguiente palabra más probable según el contexto que les das. Si tu contexto es vago ("haz un sistema de usuarios"), la IA elige el camino más probable estadísticamente, que suele ser el genérico. No tiene forma de saber si necesitas autenticación biométrica, registro con redes sociales o un sistema de roles complejo. La IA no lee tu mente; lee tu prompt.</p>
@@ -29,6 +46,8 @@
 <p>No toda solicitud vaga es igual. Existe un espectro que va desde lo absolutamente genérico ("haz una web") hasta lo excesivamente detallado (especificar cada variable y tipo). El punto óptimo está en describir el comportamiento esperado, las restricciones y los casos de uso, sin caer en el micro-manejo de la implementación. Aprender a ubicarte en este espectro es clave para obtener buenos resultados.</p>
 <h3>Cómo refinar una idea vaga en 3 pasos</h3>
 <p><strong>Paso 1:</strong> Identifica qué información falta preguntándote: quién, qué, cómo, cuándo, por qué. <strong>Paso 2:</strong> Escribe la solicitud en una sola frase, luego agrégale contexto relevante (tecnología, restricciones, ejemplos). <strong>Paso 3:</strong> Revisa la solicitud preguntando: "Si yo recibiera esto, ¿podría empezar a trabajar sin preguntar nada más?"</p>
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
 <h3>Ejemplo 1: Formulario de contacto</h3>
 <p><strong>Solicitud vaga:</strong> "Haz un formulario de contacto."<br><strong>Resultado típico:</strong> La IA genera un formulario HTML genérico con nombre, email y mensaje, sin validaciones, sin diseño específico, sin indicar qué hacer con los datos.<br><strong>Solicitud mejorada:</strong> "Crea un formulario de contacto en HTML y CSS con los campos: nombre (requerido, máximo 50 caracteres), email (validación de formato), teléfono (opcional) y mensaje (textarea, mínimo 10 caracteres, máximo 500). El formulario debe enviar los datos mediante POST a /api/contacto y mostrar un mensaje de éxito o error sin recargar la página. Diseño responsive con colores corporativos azul (#2563eb) y fondo gris claro (#f8fafc)."</p>
@@ -36,8 +55,11 @@
 <p><strong>Solicitud vaga:</strong> "Necesito una API de productos."<br><strong>Resultado típico:</strong> La IA asume operaciones CRUD básicas sin considerar autenticación, paginación, filtros, ni formato de respuesta.<br><strong>Solicitud mejorada:</strong> "Crea una API REST con Express y MongoDB para gestionar productos. Cada producto debe tener: id, nombre, descripción, precio, categoría, stock y fechaCreación. Implementa endpoints: GET /productos (con paginación y filtro por categoría), GET /productos/:id, POST /productos (con validación de campos requeridos), PUT /productos/:id y DELETE /productos/:id. Protege los endpoints de escritura con autenticación mediante API Key en el header. Responde siempre en JSON con el formato { success: boolean, data: ..., error: string }."</p>
 <h3>Ejemplo 3: Script de automatización</h3>
 <p><strong>Solicitud vaga:</strong> "Haz un script que respalde archivos."<br><strong>Resultado típico:</strong> Un script simple que copia archivos sin considerar compresión, logging, manejo de errores ni programación de ejecuciones.<br><strong>Solicitud mejorada:</strong> "Crea un script en Python que respalde archivos de una carpeta origen a una carpeta destino. Debe comprimir los archivos en ZIP con fecha en el nombre, mantener un log de las operaciones realizadas en respaldo.log, manejar errores (archivos en uso, permisos, disco lleno) sin detener el proceso, y permitir configurar la carpeta origen y destino mediante variables de entorno o un archivo config.json."</p>
+</section>
+<section class="l11-card">
 <h2>Comparación: Solicitud vaga vs Solicitud específica</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead><tr><th>Aspecto</th><th>Solicitud vaga</th><th>Solicitud específica</th></tr></thead>
 <tbody>
 <tr><td>Claridad del objetivo</td><td>Ambiguo, múltiples interpretaciones</td><td>Claro, una sola interpretación</td></tr>
@@ -47,28 +69,46 @@
 <tr><td>Riesgo de errores</td><td>Alto (la IA asume incorrectamente)</td><td>Bajo (las restricciones están definidas)</td></tr>
 <tr><td>Tiempo total invertido</td><td>30-60 min de ida y vuelta</td><td>10-15 min bien invertidos</td></tr>
 </tbody></table>
+</div>
+</section>
+<section class="l11-tip">
+<p class="l11-tag l11-tag--important">Importante</p>
 <h2>💡 Consejo del instructor</h2>
 <div class="highlight"><strong>💡 Consejo profesional:</strong> Una técnica probada es escribir la solicitud como si se la estuvieras explicando a un desarrollador junior con mucha disposición pero cero contexto del proyecto. Incluye el "por qué" además del "qué": no es lo mismo decir "agrega validación" que "agrega validación para evitar que usuarios maliciosos inyecten código SQL a través del campo de búsqueda". El contexto de seguridad y negocio transforma una instrucción genérica en una específica con intención.</div>
+</section>
+<section class="l11-card">
 <h2>⚠ Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes">
 <li><strong>Creer que "más palabras = mejor":</strong> Agregar párrafos de contexto irrelevante confunde a la IA tanto como la vaguedad. Sé específico, no extenso.</li>
 <li><strong>Asumir que la IA conoce tu proyecto:</strong> No presupongas que la IA sabe qué tecnologías usas, qué estructura de carpetas tienes o qué convenciones de código sigue tu equipo.</li>
 <li><strong>No especificar el formato de salida:</strong> Si no dices "responder en JSON", "generar HTML", o "devolver como array", la IA elegirá el formato que considere más probable, no necesariamente el que necesitas.</li>
 <li><strong>Saltar directo a la implementación:</strong> Pedir código sin describir primero el comportamiento esperado lleva a soluciones que resuelven el problema equivocado.</li>
 <li><strong>Dar ejemplos contradictorios:</strong> Incluir múltiples ejemplos que se contradicen entre sí produce respuestas inconsistentes.</li>
 </ul>
+</section>
+<section class="l11-card">
 <h2>✔ Buenas prácticas</h2>
-<ul>
+<ul class="l11-good">
 <li><strong>Define el contexto primero:</strong> Antes de pedir código, establece el lenguaje, framework, entorno y restricciones del proyecto en una frase inicial.</li>
 <li><strong>Usa el patrón "Como... necesito... para...":</strong> Estructura tus solicitudes con actor, necesidad y objetivo para dar dirección a la IA.</li>
 <li><strong>Especifica lo que SÍ y lo que NO:</strong> Incluye tanto los requisitos como las restricciones ("quiero que se vea bien en móvil, NO uso librerías externas").</li>
 <li><strong>Itera sobre el prompt, no sobre el código:</strong> Si el resultado no es lo que esperabas, mejora la solicitud en lugar de editar manualmente el código generado.</li>
 <li><strong>Valida con un ejemplo mínimo:</strong> Antes de escalar, prueba tu solicitud con un caso pequeño para verificar que la IA interpretó correctamente tu intención.</li>
 </ul>
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Toma una solicitud que hayas hecho recientemente a una IA y que haya requerido 3 o más iteraciones para obtener un resultado aceptable. Analiza qué información faltaba en tu solicitud original. Reescribe esa solicitud aplicando los criterios de especificidad aprendidos. Compara el resultado de la nueva solicitud con el de las iteraciones originales. Documenta: (1) la solicitud original, (2) los problemas que tuvo, (3) la solicitud mejorada, (4) el resultado final obtenido.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Pídele a una IA que te haga 5 preguntas para refinar una idea vaga antes de escribir código. Luego, responde esas preguntas y proporciona la versión refinada de la solicitud. Finalmente, compara el resultado de la IA con la solicitud original vs la refinada. Este ejercicio te entrena en el proceso de descubrimiento de requisitos, una habilidad fundamental antes de cualquier interacción con IA generativa.</p>
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>Las ideas vagas producen código genérico porque la IA predice la respuesta más probable, no la que necesitas.</li>
@@ -78,7 +118,8 @@
 <li>Refinar el prompt es más eficiente que editar el código generado manualmente.</li>
 <li>Las restricciones ("lo que NO debe pasar") son tan importantes como los requisitos.</li>
 </ul>
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>Entrega de Evidencia</h2>
   <p>Sube el archivo con el resultado de tu Actividad Práctica o Mini Reto y escribe una breve reflexión sobre lo que aprendiste.</p>
   <div class="evidence-form" id="evidenceForm-m2-l1">

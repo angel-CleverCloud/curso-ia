@@ -1,27 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 2 · Lección 5 de 7</p>
 <h1>2.5 Casos borde</h1>
 <p class="subtitle">Módulo 2 · Documento</p>
-<div class="highlight"><strong>Objetivo:</strong> Identificar y documentar casos borde que pueden romper una implementación ingenua.</div>
-<h2>¿Qué son los casos borde?</h2>
-<p>Situaciones que ocurren en los límites del comportamiento esperado. No son errores, sino condiciones especiales que deben manejarse.</p>
-<h2>Categorías comunes de casos borde</h2>
-<table><thead><tr><th>Categoría</th><th>Ejemplo</th></tr></thead><tbody>
-<tr><td>Valores vacíos</td><td>Lista vacía, string vacío, archivo de 0 bytes</td></tr>
-<tr><td>Valores máximo/mínimo</td><td>Número máximo entero, fecha límite</td></tr>
-<tr><td>Valores nulos</td><td>Campo null, referencia undefined</td></tr>
-<tr><td>Concurrencia</td><td>Dos usuarios editando el mismo recurso</td></tr>
-<tr><td>Dependencias fallidas</td><td>API externa caída, BD desconectada</td></tr>
-<tr><td>Formatos inválidos</td><td>Email sin @, teléfono con letras</td></tr>
-<tr><td>Límites de sistema</td><td>Archivo demasiado grande, demasiadas conexiones</td></tr>
-<tr><td>Tiempos</td><td>Timeout, operación que nunca termina</td></tr>
-<tr><td>Permisos</td><td>Usuario sin acceso intentando acceder</td></tr>
-</tbody></table>
-<h2>Cómo encontrar casos borde</h2>
-<ol><li>Piensa en lo que el usuario normal haría → luego en lo que haría un usuario malicioso</li><li>Revisa cada "if" y considera el caso contrario</li><li>Prueba con entradas vacías, enormes, y mal formateadas</li><li>Pregunta: "¿Qué pasa si esto falla?"</li></ol>
-
-<h2>Introducción</h2>
-<p>Los casos borde son la principal fuente de bugs en producción. Una implementación que funciona perfectamente con datos "normales" puede fallar estrepitosamente cuando recibe una entrada inesperada. En esta lección aprenderás a identificar, categorizar y documentar casos borde de manera sistemática, para que tus aplicaciones sean robustas, predecibles y resistentes a condiciones extremas. Esta habilidad separa a los desarrolladores junior de los senior: los segundos no solo escriben código para el camino feliz, sino que anticipan lo que puede romperse.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Identificar y documentar casos borde que pueden romper una implementación ingenua.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -32,29 +16,57 @@
 <li>Analizar un requerimiento e identificar los casos borde que podrían afectarlo</li>
 <li>Evaluar la robustez de una implementación frente a condiciones extremas</li>
 </ul>
-
+</section>
+<section class="l11-card">
+<h2>¿Qué son los casos borde?</h2>
+<p>Situaciones que ocurren en los límites del comportamiento esperado. No son errores, sino condiciones especiales que deben manejarse.</p>
+</section>
+<section class="l11-card">
+<h2>Categorías comunes de casos borde</h2>
+<div class="l11-table-scroll">
+<table class="l11-table"><thead><tr><th>Categoría</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><td>Valores vacíos</td><td>Lista vacía, string vacío, archivo de 0 bytes</td></tr>
+<tr><td>Valores máximo/mínimo</td><td>Número máximo entero, fecha límite</td></tr>
+<tr><td>Valores nulos</td><td>Campo null, referencia undefined</td></tr>
+<tr><td>Concurrencia</td><td>Dos usuarios editando el mismo recurso</td></tr>
+<tr><td>Dependencias fallidas</td><td>API externa caída, BD desconectada</td></tr>
+<tr><td>Formatos inválidos</td><td>Email sin @, teléfono con letras</td></tr>
+<tr><td>Límites de sistema</td><td>Archivo demasiado grande, demasiadas conexiones</td></tr>
+<tr><td>Tiempos</td><td>Timeout, operación que nunca termina</td></tr>
+<tr><td>Permisos</td><td>Usuario sin acceso intentando acceder</td></tr>
+</tbody></table>
+</div>
+</section>
+<section class="l11-card">
+<h2>Cómo encontrar casos borde</h2>
+<ol><li>Piensa en lo que el usuario normal haría → luego en lo que haría un usuario malicioso</li><li>Revisa cada "if" y considera el caso contrario</li><li>Prueba con entradas vacías, enormes, y mal formateadas</li><li>Pregunta: "¿Qué pasa si esto falla?"</li></ol>
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Los casos borde son la principal fuente de bugs en producción. Una implementación que funciona perfectamente con datos "normales" puede fallar estrepitosamente cuando recibe una entrada inesperada. En esta lección aprenderás a identificar, categorizar y documentar casos borde de manera sistemática, para que tus aplicaciones sean robustas, predecibles y resistentes a condiciones extremas. Esta habilidad separa a los desarrolladores junior de los senior: los segundos no solo escriben código para el camino feliz, sino que anticipan lo que puede romperse.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo: Casos borde a fondo</h2>
-
 <h3>¿Por qué son críticos los casos borde?</h3>
 <p>El 90% de los bugs en producción ocurren en casos borde que nadie anticipó. El software se prueba con datos "típicos" y funciona, pero en el mundo real los datos no siempre son típicos. Un usuario puede tener un nombre de 200 caracteres, una conexión puede caerse en medio de una transacción, dos personas pueden comprar el último producto exactamente al mismo tiempo. Los casos borde no son "errores del usuario"; son condiciones reales que el software debe manejar.</p>
-
 <h3>Pensamiento de límites (Boundary Thinking)</h3>
 <p>La técnica más efectiva para encontrar casos borde es el pensamiento de límites. Consiste en tomar cada variable o condición del sistema y preguntar: ¿qué pasa en el valor mínimo? ¿en el máximo? ¿justo antes del límite? ¿justo después? ¿en cero? ¿en negativo? ¿cuando está vacío? ¿cuando está lleno? Este enfoque es especialmente poderoso porque los errores suelen concentrarse en los límites, no en el rango medio donde todo funciona bien.</p>
-
 <h3>Casos borde en el desarrollo con IA</h3>
 <p>Cuando trabajas con IA generativa, los casos borde adquieren una dimensión adicional. La IA puede generar código que funciona para casos típicos pero falla en límites que no consideró en su entrenamiento. Por eso, al revisar código generado por IA, debes aplicar el pensamiento de límites de forma explícita: probar con valores extremos, entradas vacías, formatos inesperados. La IA no "sabe" lo que no le preguntaste; si no mencionaste el caso borde, probablemente no lo manejará.</p>
-
 <h3>Documentación de casos borde</h3>
 <p>Los casos borde deben documentarse junto con los requerimientos funcionales. Una buena práctica es agregar una sección "Casos borde" a cada RF o criterio de aceptación. Por ejemplo, para "RF-001: Inicio de sesión", los casos borde incluyen: correo con caracteres Unicode, contraseña con exactamente 8 caracteres, 3 intentos fallidos en el segundo exacto del límite, sesión expirada durante la solicitud. Documentarlos asegura que el equipo los considere durante desarrollo y pruebas.</p>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos adicionales</h2>
-
+<div class="highlight"><strong>Proyecto conductor (To-Do) — casos borde de "crear tarea":</strong><br>Título vacío (rechazar con "El título es requerido"), título de 121 caracteres (rechazar, máximo 120), prioridad "Urgente" (inválida; solo Alta/Media/Baja), vencimiento ayer (rechazar), dos tareas con el mismo título (permitir, son distintas), adjunto de 15 MB (rechazar si el límite es 10 MB). Este catálogo es el único oficial del curso: se ejecuta como laboratorio en la Lección 5.3, sin volver a explicarse desde cero.</div>
+<div class="highlight"><strong>Problema de almacenamiento (S3):</strong> ¿qué es? Un servicio para guardar archivos (p. ej. adjuntos de tareas). ¿Para qué lo usaríamos? Para almacenar adjuntos fuera de la app. ¿Cuándo aparece? Cuando la To-Do acepte archivos: los bordes (tipo, tamaño, subida fallida) se validan igual siempre; el destino —S3 o Supabase Storage— depende de la arquitectura y queda como decisión pendiente.</div>
 <div class="highlight"><strong>Transferencia bancaria:</strong><br>Un sistema de transferencias debe manejar: monto exactamente 0 (rechazar), monto mínimo permitido de $1, monto máximo de $10,000, saldo exactamente igual al monto a transferir, transferencia a la misma cuenta del remitente, y dos transferencias simultáneas que agoten el saldo. Cada uno de estos es un caso borde con una respuesta específica.</div>
-
 <div class="highlight"><strong>Procesamiento de archivos con IA:</strong><br>Una herramienta que analiza CVs con IA debe manejar: archivo PDF vacío (0 páginas), PDF corrupto, PDF con 300 páginas, archivo que no es PDF aunque tenga extensión .pdf, nombre de archivo con caracteres especiales (ñ, ü, símbolos), y archivo protegido con contraseña. Cada caso borde requiere una respuesta distinta: error descriptivo, no solo "archivo inválido".</div>
-
+</section>
+<section class="l11-card">
 <h2>Comparación: Camino feliz vs Casos borde</h2>
-<table><thead><tr><th>Aspecto</th><th>Camino feliz</th><th>Caso borde</th></tr></thead><tbody>
+<div class="l11-table-scroll">
+<table class="l11-table"><thead><tr><th>Aspecto</th><th>Camino feliz</th><th>Caso borde</th></tr></thead><tbody>
 <tr><td>Definición</td><td>Flujo normal y esperado</td><td>Condición en los límites del sistema</td></tr>
 <tr><td>Frecuencia</td><td>Alta (mayoría de usuarios)</td><td>Baja pero inevitable</td></tr>
 <tr><td>Impacto si falla</td><td>Bloquea a muchos usuarios</td><td>Bug intermitente difícil de depurar</td></tr>
@@ -62,47 +74,59 @@
 <tr><td>Cobertura típica en pruebas</td><td>100% (siempre se prueba)</td><td>&lt;20% (se descubre en producción)</td></tr>
 <tr><td>Documentación</td><td>Requerimientos funcionales</td><td>Sección de casos borde en cada RF</td></tr>
 </tbody></table>
-
+</div>
+</section>
+<section class="l11-tip">
+<p class="l11-tag l11-tag--important">Importante</p>
 <h2>💡 Consejo del instructor</h2>
 <div class="highlight"><strong>💡 Consejo profesional:</strong> Crea una "lista de verificación de casos borde" genérica que puedas aplicar a cualquier funcionalidad. Incluye: valores vacíos, nulos, máximos, mínimos, formatos inválidos, concurrencia, dependencias externas, límites de tiempo, permisos extremos y datos maliciosos. Cada vez que inicies una nueva historia o requerimiento, repasa la lista. Con la práctica, identificar casos borde se volverá un reflejo automático, como revisar que las puertas estén cerradas antes de salir de casa.</div>
-
+</section>
+<section class="l11-card">
 <h2>⚠ Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
 <li><strong>Asumir que el usuario siempre hace lo correcto:</strong> Diseñar solo para el camino feliz ignorando que los usuarios cometen errores, ingresan datos inesperados y exploran comportamientos no previstos.</li>
 <li><strong>Manejar todos los casos borde igual:</strong> Usar un catch-all "error genérico" para todas las condiciones extremas. Cada caso borde merece un mensaje específico que ayude al usuario a entender qué pasó y cómo solucionarlo.</li>
 <li><strong>Ignorar la concurrencia:</strong> Probar solo con un usuario a la vez. En producción, dos usuarios pueden modificar el mismo recurso simultáneamente, causando condiciones de carrera, datos corruptos o bloqueos.</li>
 <li><strong>Confiar en que la IA cubre los casos borde:</strong> El código generado por IA suele optimizar para el caso promedio. Si no le especificas los casos borde, no los manejará adecuadamente.</li>
 <li><strong>No documentar los casos borde:</strong> Encontrar un caso borde durante desarrollo y corregirlo sin documentarlo significa que el siguiente desarrollador tendrá que descubrirlo de nuevo.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>✔ Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Aplica la técnica "What If":</strong> Para cada paso del flujo, pregúntate "¿qué pasa si...?" y responde con un caso borde. "¿Qué pasa si la BD está caída? ¿Si el archivo pesa 2GB? ¿Si el token expiró hace 1 segundo?"</li>
 <li><strong>Usa pruebas paramétricas:</strong> En lugar de escribir una prueba para cada caso borde por separado, usa tablas de datos o parametrización para cubrir múltiples límites con el mismo código de prueba.</li>
 <li><strong>Documenta junto al RF:</strong> Cada requerimiento funcional debe tener una sección de "Casos borde" asociada. Así el equipo completo los conoce antes de empezar a desarrollar.</li>
 <li><strong>Prioriza por impacto:</strong> No todos los casos borde tienen la misma gravedad. Prioriza los que pueden causar pérdida de datos, vulnerabilidades de seguridad o bloqueo total del sistema.</li>
 <li><strong>Prueba en producción con feature flags:</strong> Los casos borde difíciles de reproducir en desarrollo pueden descubrirse liberando funcionalidades gradualmente con feature flags y monitoreando el comportamiento en producción.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma la funcionalidad de "carrito de compras" de un e-commerce. Identifica al menos 10 casos borde que podrían ocurrir, cubriendo las categorías: valores vacíos, límites, concurrencia, dependencias fallidas, formatos inválidos y permisos. Para cada caso borde, describe: (1) la condición exacta, (2) el comportamiento esperado del sistema, (3) el mensaje que debería mostrar al usuario.</p>
-
+<p>Para el proyecto conductor To-Do, toma la funcionalidad de "crear y listar tareas". Identifica al menos 10 casos borde cubriendo: valores vacíos, límites, concurrencia (dos ediciones simultáneas), dependencias fallidas (persistencia no disponible), formatos inválidos y permisos. Para cada caso borde, describe: (1) la condición exacta, (2) el comportamiento esperado, (3) el mensaje para el usuario.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Implementa una función en pseudocódigo o JavaScript que procese el registro de usuarios. La función debe manejar explícitamente al menos 6 casos borde: correo vacío, correo sin @, contraseña menor a 8 caracteres, contraseña de exactamente 100 caracteres, correo duplicado y error de base de datos. Para cada caso, debe devolver un mensaje de error específico y legible. El objetivo no es que el código sea perfecto, sino que demuestres que identificaste y manejaste cada límite.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>Los casos borde son condiciones en los límites del comportamiento esperado, no errores del usuario.</li>
 <li>El 90% de los bugs en producción ocurren en casos borde no anticipados.</li>
 <li>El pensamiento de límites es la técnica más efectiva para descubrirlos: valores mínimo, máximo, vacío, nulo.</li>
 <li>Las categorías comunes incluyen: vacíos, límites, nulos, concurrencia, dependencias, formatos, permisos y tiempos.</li>
-<li>Cada caso borde merece un mensaje de error específico, no un catch-all genérico.</li>
-<li>Documenta los casos borde junto con los requerimientos funcionales para que el equipo completo los conozca.</li>
+  <li>Cada caso borde merece un mensaje de error específico, no un catch-all genérico.</li>
+  <li>Documenta los casos borde junto con los requerimientos funcionales para que el equipo completo los conozca.</li>
+  <li>Los adjuntos de la To-Do se validan por tipo, tamaño y fallo de subida; dónde se almacenan (S3 o Supabase Storage) es decisión de arquitectura pendiente.</li>
 </ul>
-
+</section>
 <div class="conclusion"><p><strong>Conclusión:</strong> Los casos borde son donde el software se rompe, y donde los desarrolladores senior demuestran su valor. No se trata de escribir código para el 80% de los casos, sino de anticipar el 20% restante que causa los bugs más difíciles. Cultivar el pensamiento de límites es una de las inversiones más rentables en tu carrera como desarrollador.</p></div>
-
-<div class="evidence-section">
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube el archivo con el resultado de tu Actividad Práctica o Mini Reto y escribe una breve reflexión sobre lo que aprendiste.</p>
   <div class="evidence-form" id="evidenceForm-m2-l5">

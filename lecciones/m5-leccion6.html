@@ -1,12 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 5 · Lección 6 de 7</p>
 <h1>5.6 Auditar una solución generada por IA</h1>
 <p class="subtitle">Módulo 5 · Ejercicio</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Practicar la auditoría completa de una solución generada por IA.</div>
-
-<h2>Introducción</h2>
-<p>Has aprendido los riesgos de confiar ciegamente en la IA, los tipos de pruebas mínimas, cómo identificar casos borde y cómo revisar código sistemáticamente. Ahora es momento de poner todo junto: este ejercicio te presenta una solución generada por IA que debes auditar como si fuera parte de un merge request real en tu trabajo. Identificarás problemas, propondrás correcciones y decidirás si el código está listo para producción.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Practicar la auditoría completa de una solución generada por IA.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -15,48 +14,56 @@
 <li>Escribir las pruebas mínimas que validen la corrección de una función generada por IA</li>
 <li>Tomar una decisión informada de aprobar, requerir cambios o rechazar código generado por IA</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Has aprendido los riesgos de confiar ciegamente en la IA, los tipos de pruebas mínimas, cómo identificar casos borde y cómo revisar código sistemáticamente. Ahora es momento de poner todo junto: este ejercicio te presenta una solución generada por IA que debes auditar como si fuera parte de un merge request real en tu trabajo. Identificarás problemas, propondrás correcciones y decidirás si el código está listo para producción.</p>
+</section>
+<section>
+<div class="l11-brief">
+<p class="l11-tag">Actividad</p>
 <h2>Enunciado</h2>
-<p><strong>Requerimiento:</strong> Función que recibe un archivo CSV y devuelve un JSON con el promedio de cada columna numérica.</p>
+<p><strong>Requerimiento (proyecto conductor To-Do):</strong> Función que importa tareas desde un archivo CSV y devuelve la lista de tareas válidas. Cada fila debe tener título requerido; prioridad solo Alta/Media/Baja; el vencimiento no puede ser pasado.</p>
 <p><strong>Solución generada:</strong></p>
-<pre><code>import csv, json
+<div class="prompt-block">
+<pre><code>import csv
 
-def csv_to_json_promedios(ruta_archivo):
-    datos = []
+def importar_tareas_csv(ruta_archivo):
+    tareas = []
     with open(ruta_archivo, 'r') as archivo:
         lector = csv.DictReader(archivo)
         for fila in lector:
-            datos.append(fila)
-    promedios = {}
-    for columna in datos[0].keys():
-        suma = 0; count = 0
-        for fila in datos:
             try:
-                suma += float(fila[columna])
-                count += 1
+                tareas.append({
+                    "titulo": fila["titulo"],
+                    "prioridad": fila.get("prioridad", "Media"),
+                    "vencimiento": fila.get("vencimiento"),
+                })
             except:
                 pass
-        if count > 0:
-            promedios[columna] = suma / count
-    return json.dumps(promedios)</code></pre>
-
+    return tareas</code></pre>
+</div>
 <h3>Análisis detallado de problemas</h3>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
 <thead>
 <tr><th>#</th><th>Problema</th><th>Severidad</th><th>Descripción</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>No maneja archivo inexistente</td><td>Crítico</td><td>FileNotFoundError si la ruta no existe</td></tr>
-<tr><td>2</td><td>Falla con CSV vacío</td><td>Crítico</td><td>datos[0] lanza IndexError si no hay filas</td></tr>
-<tr><td>3</td><td>Mezcla columnas no numéricas</td><td>Crítico</td><td>Incluye IDs, fechas como si fueran numéricas</td></tr>
-<tr><td>4</td><td>Except genérico sin distinción</td><td>Mayor</td><td>Oculta errores que deberían ser visibles</td></tr>
-<tr><td>5</td><td>Archivo no se cierra explícitamente</td><td>Menor</td><td>Context manager lo cierra, pero no hay finally</td></tr>
+<tr><td>2</td><td>Falla con CSV vacío</td><td>Crítico</td><td>Sin filas: devuelve lista vacía sin avisar ni validar cabeceras</td></tr>
+<tr><td>3</td><td>No valida título requerido</td><td>Crítico</td><td>Crea tareas sin título, violando RF-TODO-001</td></tr>
+<tr><td>4</td><td>No valida prioridad</td><td>Crítico</td><td>Acepta cualquier valor, no solo Alta/Media/Baja</td></tr>
+<tr><td>5</td><td>Except genérico sin distinción</td><td>Mayor</td><td>Oculta errores que deberían ser visibles</td></tr>
 <tr><td>6</td><td>No valida encoding del archivo</td><td>Menor</td><td>Asume UTF-8, falla con otros encodings</td></tr>
 <tr><td>7</td><td>Carga todo en memoria</td><td>Mayor</td><td>Con archivos grandes, consume RAM innecesaria</td></tr>
-<tr><td>8</td><td>No hay separación de responsabilidades</td><td>Menor</td><td>Lectura, cálculo y serialización en una función</td></tr>
+<tr><td>8</td><td>No hay separación de responsabilidades</td><td>Menor</td><td>Lectura, validación y construcción en una función</td></tr>
 </tbody>
 </table>
-
+</div>
+</div>
+</section>
+<section class="l11-plain">
 <h2>Diagrama: Proceso de decisión en auditoría</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:15px 0;text-align:center;font-size:0.9rem;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;max-width:650px;margin:0 auto;">
@@ -75,7 +82,10 @@ def csv_to_json_promedios(ruta_archivo):
     </div>
   </div>
 </div>
-
+</section>
+<section>
+<div class="l11-brief">
+<p class="l11-tag">Actividad</p>
 <h2>Tareas</h2>
 <ol>
 <li>Identifica al menos 3 problemas (crítico o menor)</li>
@@ -83,29 +93,34 @@ def csv_to_json_promedios(ruta_archivo):
 <li>Escribe las pruebas mínimas</li>
 <li>Decide: ¿Apruebas, requieres cambios o rechazas?</li>
 </ol>
-<p><strong>Problemas a identificar:</strong> Error si CSV vacío, no maneja archivos inexistentes, mezcla columnas no numéricas.</p>
-
+<p><strong>Problemas a identificar:</strong> Archivo inexistente, CSV vacío sin cabeceras, filas sin título, prioridad inválida, vencimiento pasado.</p>
 <div class="highlight">
 <strong>Consejo del instructor:</strong> En una auditoría real, prioriza los problemas críticos sobre los menores. Si el código tiene un solo problema crítico (como fallar con CSV vacío), ya merece "requiere cambios". No apruebes código con problemas bloqueantes, incluso si "funciona" en el caso feliz.
 </div>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes en este ejercicio</h2>
-<ul>
-<li><strong>Identificar solo los problemas obvios:</strong> El CSV vacío y el archivo inexistente son fáciles de ver; el problema de mezclar columnas requiere más análisis</li>
+<ul class="l11-mistakes l11-mistakes">
+<li><strong>Identificar solo los problemas obvios:</strong> El CSV vacío y el archivo inexistente son fáciles de ver; la falta de validación de título y prioridad requiere más análisis</li>
 <li><strong>Proponer soluciones sin considerar rendimiento:</strong> Cargar el CSV completo en memoria está bien para archivos pequeños, pero no escala</li>
 <li><strong>No escribir pruebas antes de corregir:</strong> Las pruebas deben documentar el comportamiento esperado antes de modificar el código</li>
 <li><strong>Aprobar el código porque "funciona en mi máquina":</strong> El caso feliz no es suficiente; el código debe manejar todos los casos borde</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas para auditar</h2>
-<ul>
+<ul class="l11-good l11-good">
 <li><strong>Seguir un proceso sistemático:</strong> Usa las 4 pasadas (estructural, lógica, seguridad, mantenibilidad) como guía</li>
 <li><strong>Documentar cada hallazgo con severidad:</strong> Etiqueta cada problema como crítico, mayor o menor para priorizar</li>
 <li><strong>Escribir pruebas antes de corregir:</strong> Las pruebas demuestran el bug y verifican la corrección</li>
 <li><strong>No corregir sin entender la causa raíz:</strong> Pregunta a la IA por qué generó ese código; a veces revela suposiciones incorrectas</li>
 <li><strong>Tomar una decisión clara:</strong> Aprueba solo si no hay problemas críticos o mayores; requiere cambios si hay problemas solucionables; rechaza si la solución es fundamentalmente incorrecta</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p>Completa las tareas del enunciado y presenta los resultados en el siguiente formato:</p>
 <ol>
@@ -114,21 +129,23 @@ def csv_to_json_promedios(ruta_archivo):
 <li><strong>Pruebas escritas:</strong> Código de pruebas (mínimo 4 pruebas)</li>
 <li><strong>Decisión:</strong> Apruebas / Requiere cambios / Rechazas con justificación</li>
 </ol>
-
 <div class="highlight" style="margin-top:15px;">
-<strong>Solución de referencia:</strong> La función corregida debe validar la existencia del archivo, manejar CSV vacío, detectar columnas numéricas automáticamente, usar processamiento por filas (no cargar todo en memoria), y separar la lógica en funciones más pequeñas. Las pruebas deben cubrir: archivo válido, archivo vacío, archivo inexistente, columnas mixtas, encoding no UTF-8.
+<strong>Solución de referencia:</strong> La función corregida debe validar la existencia del archivo, manejar CSV vacío y cabeceras faltantes, exigir título requerido, validar prioridad (Alta/Media/Baja) y vencimiento no pasado, usar procesamiento por filas (no cargar todo en memoria), y separar la lógica en funciones más pequeñas. Las pruebas deben cubrir: archivo válido, archivo vacío, archivo inexistente, fila sin título, prioridad inválida. Documenta la auditoría con la plantilla oficial de la Lección 5.5.
 </div>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
 <li>Una auditoría completa identifica problemas de severidad variada (crítico, mayor, menor)</li>
-<li>Los problemas críticos (CSV vacío, archivo inexistente) son bloqueantes y requieren cambios</li>
+<li>Los problemas críticos (título sin validar, prioridad inválida, archivo inexistente) son bloqueantes y requieren cambios</li>
 <li>Las pruebas mínimas deben cubrir cada caso borde identificado</li>
 <li>La decisión final debe basarse en la severidad de los problemas encontrados, no en el caso feliz</li>
 <li>Documentar la auditoría permite aprender y mejorar el proceso de revisión</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -151,5 +168,4 @@ def csv_to_json_promedios(ruta_archivo):
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>

@@ -1,13 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 3 · Lección 2 de 7</p>
 <h1>3.2 Qué información necesita la IA</h1>
 <p class="subtitle">Módulo 3 · Documento</p>
-
-<div class="highlight"><strong>Objetivo:</strong> Identificar la información mínima necesaria para que la IA genere respuestas útiles.</div>
-
-<h2>Introducción</h2>
-<p>Cuando trabajas con IA generativa, la calidad de la respuesta está directamente determinada por la calidad de la información que proporcionas. Dar información insuficiente produce respuestas genéricas. Dar información incorrecta produce respuestas peligrosas.</p>
-<p>En esta lección aprenderás a identificar y estructurar los siete elementos esenciales que toda IA necesita para producir respuestas útiles y aplicables a tu proyecto.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Identificar la información mínima necesaria para que la IA genere respuestas útiles.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -16,7 +14,13 @@
   <li>Construir un contexto bien armado para cualquier proyecto de desarrollo.</li>
   <li>Evaluar si un contexto proporcionado a la IA es suficiente para obtener una respuesta útil.</li>
 </ul>
-
+</section>
+<section class="l11-prose">
+<h2>Introducción</h2>
+<p>Cuando trabajas con IA generativa, la calidad de la respuesta está directamente determinada por la calidad de la información que proporcionas. Dar información insuficiente produce respuestas genéricas. Dar información incorrecta produce respuestas peligrosas.</p>
+<p>En esta lección aprenderás a identificar y estructurar los siete elementos esenciales que toda IA necesita para producir respuestas útiles y aplicables a tu proyecto.</p>
+</section>
+<section class="l11-card">
 <h2>Información esencial</h2>
 <ol>
   <li><strong>Objetivo del proyecto:</strong> ¿Qué estamos construyendo y por qué?</li>
@@ -27,7 +31,8 @@
   <li><strong>Formato de salida:</strong> ¿Cómo quieres recibir la respuesta?</li>
   <li><strong>Criterios de aceptación:</strong> ¿Cómo sabremos que la respuesta es correcta?</li>
 </ol>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplo de contexto bien armado</h2>
 <div class="prompt-block">
 <pre><code>Objetivo: Implementar autenticación con JWT
@@ -37,37 +42,32 @@ Stack: Node 20, Express 4, jsonwebtoken, bcrypt
 Restricciones: No modificar package.json, no agregar dependencias
 Formato: Código completo con comentarios mínimos</code></pre>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Desglose detallado de cada elemento</h2>
-
 <h3>1. Objetivo del proyecto</h3>
 <p>Define el propósito general. No basta con decir "haz un login". La IA necesita entender el contexto de negocio: ¿es para una app interna? ¿un SaaS público? ¿una app móvil? El objetivo guía las decisiones técnicas que la IA tomará.</p>
 <p><strong>Ejemplo:</strong> "Sistema de reservas para un restaurante pequeño. Los clientes reservan online y el dueño confirma desde un panel."</p>
-
 <h3>2. Rol esperado</h3>
 <p>El rol condiciona el nivel de profundidad, el vocabulario y el estilo de la respuesta. Un "desarrollador junior" dará respuestas didácticas. Un "arquitecto de software" propondrá soluciones optimizadas para escalabilidad.</p>
 <p><strong>Ejemplo:</strong> "Actúa como desarrollador full-stack con 5 años de experiencia en React y Node.js."</p>
-
 <h3>3. Estado actual</h3>
 <p>La IA necesita saber qué existe ya para no sugerir cambios que rompan lo que funciona. Incluye archivos, configuraciones, dependencias instaladas y cualquier decisión ya tomada.</p>
 <p><strong>Ejemplo:</strong> "Ya tengo Express configurado con rutas básicas y una conexión a PostgreSQL usando Prisma ORM."</p>
-
 <h3>4. Restricciones técnicas</h3>
 <p>Cada equipo tiene reglas: versiones específicas, linters, convenciones de nombres, frameworks obligatorios. Sin estas restricciones, la IA puede generar código incompatible.</p>
 <p><strong>Ejemplo:</strong> "Usamos Node 20 LTS, Express 4, Prisma 5, TypeScript en strict mode. No usar clases, solo funciones."</p>
-
 <h3>5. Lo que NO debe hacer</h3>
 <p>Los límites evitan que la IA tome decisiones que no le corresponden.</p>
 <p><strong>Ejemplo:</strong> "No modifiques el archivo .env. No agregues dependencias externas. No cambies la estructura de la base de datos."</p>
-
 <h3>6. Formato de salida</h3>
 <p>Define cómo quieres recibir la respuesta: ¿código completo? ¿pseudocódigo? ¿explicación paso a paso? ¿solo el diff?</p>
 <p><strong>Ejemplo:</strong> "Quiero el código completo del archivo, con comentarios JSDoc en las funciones públicas."</p>
-
 <h3>7. Criterios de aceptación</h3>
 <p>Especifica cómo validarás que la respuesta es correcta.</p>
 <p><strong>Ejemplo:</strong> "El código debe pasar npm run lint sin errores, incluir tests unitarios con Jest, y cubrir el caso de token expirado."</p>
-
+</section>
+<section class="l11-card">
 <h2>Tabla comparativa: Con contexto vs Sin contexto</h2>
 <div style="overflow-x:auto;">
   <table style="width:100%;border-collapse:collapse;margin:15px 0;">
@@ -102,7 +102,8 @@ Formato: Código completo con comentarios mínimos</code></pre>
     </tbody>
   </table>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Diagrama: Flujo de información</h2>
 <div style="background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:30px;margin:20px 0;text-align:center;">
   <div style="display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -117,25 +118,29 @@ Formato: Código completo con comentarios mínimos</code></pre>
     <div style="font-size:0.85rem;color:#475569;">menos información = mas iteraciones</div>
   </div>
 </div>
-
 <div class="highlight"><strong>Consejo del instructor:</strong> Si no estás seguro de qué información incluir, pregúntate: "Si un desarrollador nuevo se incorporara al proyecto, ¿qué necesitaría saber para hacer esta tarea?" Todo eso es contexto relevante.</div>
-
+</section>
+<section class="l11-card">
 <h2>Errores frecuentes</h2>
-<ul>
+<ul class="l11-mistakes l11-mistakes">
   <li><strong>Asumir que la IA "sabe" el proyecto:</strong> Cada sesión de chat es independiente. La IA no recuerda conversaciones anteriores a menos que se lo indiques explícitamente.</li>
   <li><strong>Dar solo restricciones técnicas sin objetivo:</strong> Decir "React 18, Node 20" sin explicar el propósito hace que la IA no pueda priorizar decisiones de diseño.</li>
   <li><strong>Olvidar los criterios de aceptación:</strong> Sin ellos, la IA no sabe cuándo su respuesta es suficiente y puede entregar trabajo a medias.</li>
 </ul>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>Usa siempre los siete elementos esenciales como checklist antes de enviar un contexto.</li>
   <li>Mantén un archivo "context-packet.md" en la raíz de cada proyecto.</li>
   <li>Actualiza el contexto cuando cambien las versiones o restricciones del proyecto.</li>
   <li>Incluye ejemplos concretos de lo que esperas como salida.</li>
   <li>Sé específico con las restricciones: "Node 20 LTS" es mejor que "Node reciente".</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
 <p><strong>Objetivo:</strong> Aplicar los siete elementos esenciales de información creando un contexto completo.</p>
 <p><strong>Instrucciones:</strong></p>
@@ -155,22 +160,25 @@ Formato: Código completo con comentarios mínimos</code></pre>
   <li>Documenta tu contexto de forma clara y concisa (5-10 líneas es suficiente).</li>
   <li>Verifica que cada elemento sea específico y medible.</li>
 </ol>
-
 <div class="highlight">
-  <strong>Ejemplo completo de un buen contexto con los 7 elementos:</strong><br><br>
-  <strong>Objetivo:</strong> API REST para un ecommerce de ropa<br>
-  <strong>Rol:</strong> Desarrollador backend senior en Node.js<br>
-  <strong>Estado actual:</strong> Proyecto Vite + Express, tabla de productos lista, PostgreSQL conectada<br>
-  <strong>Restricciones:</strong> Node 20 LTS, sin dependencias externas (solo Express y Prisma)<br>
-  <strong>Lo que NO debe hacer:</strong> No modificar el schema de la BD, no cambiar estructura de carpetas<br>
-  <strong>Formato:</strong> Código completo con comentarios JSDoc<br>
-  <strong>Criterios:</strong> Debe pasar npm run lint, incluir manejo de errores, retornar JSON válido<br><br>
-  <em>Nota: Los 7 elementos se pueden expresar en 7-10 líneas, no necesitas un documento extenso</em>
+  <strong>Ejemplo completo de un buen contexto con los 7 elementos (proyecto conductor To-Do):</strong><br><br>
+  <strong>Objetivo:</strong> App web de tareas con proyectos, etiquetas, prioridades, vencimientos, recordatorios y dashboard<br>
+  <strong>Rol:</strong> Desarrollador full-stack senior<br>
+  <strong>Estado actual:</strong> Requerimiento oficial de la Lección 2.6 (RF-TODO-001 y criterios Given-When-Then)<br>
+  <strong>Restricciones:</strong> Sin dependencias nuevas salvo aprobación; no exponer datos sensibles en prompts<br>
+  <strong>Lo que NO debe hacer:</strong> No modificar el schema de persistencia sin aprobación, no cambiar estructura de carpetas<br>
+  <strong>Formato:</strong> Código completo con comentarios mínimos<br>
+  <strong>Criterios:</strong> Crea tarea válida, rechaza título vacío y fecha pasada, incluye manejo de errores<br><br>
+  <em>Nota: Los 7 elementos se pueden expresar en 7-10 líneas, no necesitas un documento extenso. El detalle operativo de cada elemento está en la plantilla de la Lección 3.4.</em>
 </div>
-
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
-<p>Escribe el contexto para construir una API de clima. Debes incluir los siete elementos. Luego pídele a una IA que genere el código usando solo tu contexto. ¿Fue suficiente? Si la IA pidió más información, identifica qué elemento faltó o estuvo incompleto.</p>
-
+<p>Escribe el contexto de la To-Do (crear tarea con prioridad y vencimiento) con los siete elementos. Luego pídele a una IA que genere el código usando solo tu contexto. ¿Fue suficiente? Si la IA pidió más información, identifica qué elemento faltó o estuvo incompleto.</p>
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>La IA necesita siete elementos esenciales: objetivo, rol, estado actual, restricciones, límites, formato y criterios de aceptación.</li>
@@ -178,12 +186,12 @@ Formato: Código completo con comentarios mínimos</code></pre>
   <li>Un contexto completo reduce iteraciones, ahorra tokens y minimiza alucinaciones.</li>
   <li>Siete elementos pueden expresarse en 5-10 líneas; no necesitas documentos extensos.</li>
 </ul>
-
-<div class="prompt-evidence-section">
-  <h2>💬 Compartir Prompt Utilizado</h2>
-  <p>Registra el contexto que creaste en esta lección y el prompt que usaste para validarlo con una IA.</p>
-  
-  <div class="prompt-form" id="prompt-form-m3-l2">
+</section>
+<div class="prompt-evidence-section l11-evidence">
+<section class="l11-card">
+<h2>💬 Compartir Prompt Utilizado</h2>
+<p>Registra el contexto que creaste en esta lección y el prompt que usaste para validarlo con una IA.</p>
+<div class="prompt-form" id="prompt-form-m3-l2">
     <div class="prompt-field">
       <label for="prompt-input-m3-l2">📝 Contexto que creaste (los 7 elementos)</label>
       <textarea 
@@ -212,8 +220,7 @@ Formato: Código completo con comentarios mínimos</code></pre>
     </button>
     <div id="prompt-msg-m3-l2" class="prompt-msg"></div>
   </div>
-
-  <div id="prompt-submitted-m3-l2" class="prompt-submitted" style="display:none;">
+<div id="prompt-submitted-m3-l2" class="prompt-submitted" style="display:none;">
     <h3>✅ Evidencia guardada correctamente</h3>
     
     <div class="prompt-submitted-item">
@@ -235,6 +242,8 @@ Formato: Código completo con comentarios mínimos</code></pre>
       <button class="btn-eliminar-prompt" onclick="eliminarPrompt('m3-l2')">🗑️ Eliminar</button>
     </div>
   </div>
+</section>
+
 </div>
 
 <script src="../js/prompt-manager.js"></script>

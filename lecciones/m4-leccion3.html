@@ -1,24 +1,11 @@
-<div class="lesson-content">
+<div class="lesson-content l11">
+<header class="l11-hero">
+<p class="l11-breadcrumb">Módulo 4 · Lección 3 de 7</p>
 <h1>4.3 Implementar por pasos pequeños</h1>
 <p class="subtitle">Módulo 4 · Video</p>
-<div class="highlight"><strong>Objetivo:</strong> Aprender a dividir la implementación en fragmentos pequeños y manejables.</div>
-<h2>Estrategia</h2>
-<ol><li><strong>Divide por funcionalidad:</strong> Cada prompt implementa UNA funcionalidad atómica</li><li><strong>Divide por capas:</strong> Primero modelo de datos, luego lógica, luego API, luego interfaz</li><li><strong>Revisa cada paso antes de continuar:</strong> No acumules errores</li><li><strong>Usa el resultado anterior como contexto del siguiente</strong></li></ol>
-<h2>Ejemplo de secuenciación</h2>
-<table><thead><tr><th>Paso</th><th>Tarea</th><th>Tamaño</th></tr></thead><tbody>
-<tr><td>1</td><td>Definir modelo de datos</td><td>~5 líneas</td></tr>
-<tr><td>2</td><td>Crear endpoint GET</td><td>~15 líneas</td></tr>
-<tr><td>3</td><td>Crear endpoint POST</td><td>~15 líneas</td></tr>
-<tr><td>4</td><td>Añadir validación</td><td>~10 líneas</td></tr>
-<tr><td>5</td><td>Añadir pruebas</td><td>~20 líneas</td></tr>
-<tr><td>6</td><td>Añadir documentación</td><td>~10 líneas</td></tr>
-</tbody></table>
-<h2>Ventajas</h2>
-<ul><li>Cada paso es fácil de revisar</li><li>Si un paso falla, solo afecta a ese paso</li><li>Puedes corregir sobre la marcha</li><li>El código es más coherente</li></ul>
-
-<h2>Introducción</h2>
-<p>La clave del éxito en el desarrollo asistido por IA está en la granularidad. Cuanto más pequeños sean tus pasos, mejor podrá la IA entender el contexto y generar código preciso. En esta lección dominarás la estrategia de dividir la implementación en fragmentos atómicos, una habilidad esencial para obtener resultados profesionales.</p>
-
+<p class="l11-objective"><strong>Objetivo:</strong> Aprender a dividir la implementación en fragmentos pequeños y manejables.</p>
+</header>
+<section class="l11-learn" aria-label="Objetivos de aprendizaje">
 <h2>Objetivos de aprendizaje</h2>
 <p>Al finalizar esta lección el estudiante será capaz de:</p>
 <ul>
@@ -28,37 +15,63 @@
   <li>Utilizar el resultado de cada paso como contexto para el siguiente.</li>
   <li>Evaluar el tamaño adecuado de cada paso según la complejidad.</li>
 </ul>
-
+</section>
+<section class="l11-card">
+<h2>Estrategia</h2>
+<ol><li><strong>Divide por funcionalidad:</strong> Cada prompt implementa UNA funcionalidad atómica</li><li><strong>Divide por capas:</strong> Primero modelo de datos, luego lógica, luego API, luego interfaz</li><li><strong>Revisa cada paso antes de continuar:</strong> No acumules errores</li><li><strong>Usa el resultado anterior como contexto del siguiente</strong></li></ol>
+</section>
+<section class="l11-example">
+<h2>Ejemplo de secuenciación (proyecto conductor To-Do: "crear y listar tareas")</h2>
+<div class="l11-table-scroll">
+<table class="l11-table"><thead><tr><th>Paso</th><th>Tarea</th><th>Tamaño</th></tr></thead><tbody>
+<tr><td>1</td><td>Definir modelo de datos de tarea</td><td>~5 líneas</td></tr>
+<tr><td>2</td><td>Crear endpoint POST (crear tarea)</td><td>~15 líneas</td></tr>
+<tr><td>3</td><td>Crear endpoint GET (listar con filtros)</td><td>~15 líneas</td></tr>
+<tr><td>4</td><td>Añadir validación (título, prioridad, vencimiento)</td><td>~10 líneas</td></tr>
+<tr><td>5</td><td>Añadir pruebas (feliz + borde/error)</td><td>~20 líneas</td></tr>
+<tr><td>6</td><td>Añadir documentación del paso</td><td>~10 líneas</td></tr>
+</tbody></table>
+</div>
+<div class="highlight"><strong>Plan operativo del curso:</strong> esta tabla es el plan que se ejecuta en el Módulo 6. Cada paso aceptado se registra con un commit en su rama antes de continuar (ver Módulo 6, Lección 6.5). Al completar un incremento (p. ej. "crear tarea" validado y probado) se abre un Pull Request: ahí ocurre la revisión humana y, solo si se aprueba, la integración (merge).</div>
+</section>
+<section class="l11-card">
+<h2>Ventajas</h2>
+<ul><li>Cada paso es fácil de revisar</li><li>Si un paso falla, solo afecta a ese paso</li><li>Puedes corregir sobre la marcha</li><li>El código es más coherente</li></ul>
+</section>
+<section class="l11-prose l11-lead">
+<h2>Introducción</h2>
+<p>La clave del éxito en el desarrollo asistido por IA está en la granularidad. Cuanto más pequeños sean tus pasos, mejor podrá la IA entender el contexto y generar código preciso. En esta lección dominarás la estrategia de dividir la implementación en fragmentos atómicos, una habilidad esencial para obtener resultados profesionales.</p>
+</section>
+<section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
-
 <h3>¿Por qué funciona dividir en pasos pequeños?</h3>
 <p>Los modelos de lenguaje son excelentes para tareas específicas y acotadas. Cuando reciben un problema pequeño, pueden concentrar toda su capacidad en producir una solución precisa. Además, los pasos pequeños permiten al ingeniero mantener el control: cada fragmento es verificable, testeable y, si falla, el impacto es mínimo.</p>
-
 <h3>Estrategia de división por funcionalidad</h3>
 <p>Consiste en identificar las funcionalidades atómicas de tu sistema y pedir una por vez. Cada prompt debe producir UNA funcionalidad completa: un endpoint, un componente, una función de validación. No mezcles responsabilidades en un mismo prompt.</p>
-
 <h3>Estrategia de división por capas</h3>
 <p>Otra dimensión de división es la arquitectura. Primero defines la capa de datos (modelos, esquemas), luego la lógica de negocio, luego la API, y finalmente la interfaz. Este orden permite construir sobre bases sólidas y mantener la coherencia arquitectónica.</p>
-
+</section>
+<section class="l11-example">
 <h2>Ejemplos</h2>
-
-<h3>Ejemplo: Sistema de autenticación completo</h3>
-<table>
+<h3>Ejemplo: To-Do "crear y listar tareas" paso a paso</h3>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Paso</th><th>Tarea</th><th>Detalle</th></tr>
   </thead>
   <tbody>
-    <tr><td>1</td><td>Modelo de usuario</td><td>Schema con email, password_hash, rol, fechas</td></tr>
-    <tr><td>2</td><td>Función de hash</td><td>bcrypt con salt automático</td></tr>
-    <tr><td>3</td><td>Endpoint de registro</td><td>POST /register con validaciones</td></tr>
-    <tr><td>4</td><td>Endpoint de login</td><td>POST /login con JWT</td></tr>
-    <tr><td>5</td><td>Middleware JWT</td><td>Protección de rutas</td></tr>
-    <tr><td>6</td><td>Pruebas de autenticación</td><td>Tests de registro, login, expiración</td></tr>
+    <tr><td>1</td><td>Modelo de tarea</td><td>Campos: título, proyecto, etiquetas, prioridad, vencimiento</td></tr>
+    <tr><td>2</td><td>Validación de crear tarea</td><td>Título requerido, prioridad válida, vencimiento no pasado</td></tr>
+    <tr><td>3</td><td>Endpoint crear tarea</td><td>POST /tareas con validaciones y errores claros</td></tr>
+    <tr><td>4</td><td>Endpoint listar tareas</td><td>GET /tareas con filtro por proyecto y prioridad</td></tr>
+    <tr><td>5</td><td>Manejo de errores</td><td>Título vacío, prioridad inválida, persistencia no disponible</td></tr>
+    <tr><td>6</td><td>Pruebas de tareas</td><td>Tests de creación, validación y casos borde</td></tr>
   </tbody>
 </table>
-
-<h3>Ejemplo: Componente React de búsqueda</h3>
-<table>
+</div>
+<h3>Ejemplo: Componente ListaTareas con búsqueda</h3>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Paso</th><th>Tarea</th><th>Tamaño estimado</th></tr>
   </thead>
@@ -71,9 +84,12 @@
     <tr><td>6</td><td>Manejo de errores y loading</td><td>~15 líneas</td></tr>
   </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Comparación: Paso grande vs. Paso pequeño</h2>
-<table>
+<div class="l11-table-scroll">
+<table class="l11-table">
   <thead>
     <tr><th>Aspecto</th><th>Paso grande (+100 líneas)</th><th>Paso pequeño (~15 líneas)</th></tr>
   </thead>
@@ -85,7 +101,9 @@
     <tr><td>Contexto necesario</td><td>Mucho, desperdicia tokens</td><td>Poco, optimiza el uso</td></tr>
   </tbody>
 </table>
-
+</div>
+</section>
+<section class="l11-card">
 <h2>Diagrama: Secuenciación de implementación</h2>
 <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:25px;margin:20px 0;text-align:center;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:12px;">
@@ -111,11 +129,9 @@
   </div>
   <div style="margin-top:15px;font-size:0.85rem;color:#64748b;">Cada capa se implementa en múltiples pasos pequeños antes de avanzar a la siguiente</div>
 </div>
-
 <div class="highlight">
   <strong>💡 Consejo del instructor:</strong> Antes de escribir un prompt, pregúntate: "¿Puedo generar esto en menos de 30 líneas?" Si la respuesta es no, divídelo. Esta métrica simple te ahorrará horas de depuración.
 </div>
-
 <div class="highlight" style="border-left-color:#f59e0b;">
   <strong>⚠ Errores comunes:</strong>
   <ul>
@@ -124,9 +140,10 @@
     <li><strong>No probar cada paso:</strong> Acumular 10 pasos sin verificar ninguno y descubrir que el paso 1 tenía un error fundamental.</li>
   </ul>
 </div>
-
+</section>
+<section class="l11-card">
 <h2>Buenas prácticas</h2>
-<ul>
+<ul class="l11-good l11-good">
   <li>✔ Cada paso debe producir una funcionalidad atómica y comprobable.</li>
   <li>✔ Revisa y prueba cada paso antes de escribir el siguiente prompt.</li>
   <li>✔ Mantén un registro de los pasos completados para compartir contexto.</li>
@@ -134,13 +151,20 @@
   <li>✔ Usa nombres consistentes entre pasos para mantener coherencia.</li>
   <li>✔ Documenta la secuencia completa al terminar para futuras referencias.</li>
 </ul>
-
+</section>
+<section aria-label="Actividades">
+<div class="l11-grid-2">
+<div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma una funcionalidad que hayas implementado recientemente y descomponla en pasos pequeños siguiendo la estrategia por capas. Documenta la secuencia de prompts que usarías con la IA, indicando para cada paso: nombre, objetivo, tamaño estimado y resultado esperado. Mínimo 5 pasos.</p>
-
+<p>Toma la funcionalidad "crear y listar tareas" de la To-Do y descompónla en pasos pequeños siguiendo la estrategia por capas. Documenta la secuencia de prompts que usarías con la IA, indicando para cada paso: nombre, objetivo, tamaño estimado y resultado esperado. Mínimo 5 pasos. Usa la tabla de secuenciación de esta lección como base.</p>
+</div>
+<div class="l11-activity">
 <h2>Mini reto</h2>
 <p>Implementa un script que divida automáticamente un prompt grande en sub-prompts. El script debe recibir un texto largo con múltiples requerimientos y generar una lista de prompts pequeños, cada uno con un objetivo específico y el contexto necesario. Puedes usar Python o JavaScript.</p>
-
+</div>
+</div>
+</section>
+<section class="l11-summary">
 <h2>Resumen</h2>
 <ul>
   <li>Dividir la implementación en pasos pequeños mejora la precisión de la IA.</li>
@@ -148,9 +172,10 @@
   <li>La división por capas (datos → lógica → API → interfaz) mantiene la coherencia arquitectónica.</li>
   <li>Cada paso debe ser revisado y probado antes de continuar.</li>
   <li>Un paso ideal no supera las 30 líneas de código generado.</li>
+  <li>Cada paso revisado y probado se registra con un commit; la integración se decide en el Pull Request, nunca directo sobre main.</li>
 </ul>
-
-<div class="evidence-section">
+</section>
+<div class="evidence-section l11-evidence">
   <h2>📤 Entrega de Evidencia</h2>
   <p>Sube tu evidencia de la actividad práctica:</p>
   <div class="evidence-form" id="evidenceForm-m3-l2">
@@ -173,5 +198,4 @@
     <blockquote id="savedReflection-m3-l2"></blockquote>
   </div>
 </div>
-
 </div>
