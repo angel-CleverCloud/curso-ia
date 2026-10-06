@@ -22,10 +22,10 @@
 <ul><li>La IA pierde el contexto global y genera inconsistencias</li><li>Las partes del sistema se acoplan mal entre sí</li><li>Es imposible revisar todo el código generado de una vez</li><li>Los errores son difíciles de localizar</li><li>El resultado suele ser código genérico que no se adapta a tus necesidades</li></ul>
 
 <h2>Mal ejemplo</h2>
-<div class="highlight">"Genera un sistema completo de e-commerce con autenticación, carrito, pagos, y panel de administración"</div>
+<div class="highlight">"Genera la aplicación To-Do completa con autenticación, proyectos, etiquetas, prioridades, recordatorios, dashboard y despliegue"</div>
 
-<h2>Bien ejemplo (encadenado)</h2>
-<div class="highlight">Paso 1: "Genera solo el modelo de datos para usuarios y productos"<br>Paso 2: "Genera el endpoint de registro de usuarios"<br>Paso 3: "Genera el endpoint de listar productos"</div>
+<h2>Bien ejemplo (encadenado, proyecto conductor To-Do)</h2>
+<div class="highlight">Paso 1: "Genera solo el modelo de datos de tareas (título, proyecto, etiquetas, prioridad, vencimiento)"<br>Paso 2: "Genera la validación de crear tarea (título requerido, prioridad válida, vencimiento no pasado)"<br>Paso 3: "Genera el endpoint de crear tarea con manejo de errores"</div>
 <div class="highlight"><strong>Regla:</strong> Si el prompt tiene más de 3 requerimientos distintos, divídelo.</div>
 </section>
 <section class="l11-prose">
@@ -58,18 +58,18 @@ Paso 1: "Crea el modelo de datos SQL para un sistema de tareas. Tablas: usuarios
 Paso 2: "Basado en este modelo, genera el endpoint POST /api/register para registro de usuarios con validación de email y contraseña."<br>
 Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del usuario autenticado, ordenadas por fecha."
 </div>
-<h3>Ejemplo 2: API REST para e-commerce</h3>
-<p><strong>Enfoque por capas:</strong></p>
+<h3>Ejemplo 2: API de la To-Do por pasos</h3>
+<p><strong>Enfoque por capas (proyecto conductor):</strong></p>
 <div class="l11-table-scroll">
 <table class="l11-table">
   <thead>
     <tr><th>Paso</th><th>Prompt</th><th>Resultado esperado</th></tr>
   </thead>
   <tbody>
-    <tr><td>1</td><td>"Define el esquema de base de datos para productos, carrito y órdenes"</td><td>Modelo de datos</td></tr>
-    <tr><td>2</td><td>"Genera el endpoint GET /api/productos con paginación y filtros"</td><td>Endpoint funcional</td></tr>
-    <tr><td>3</td><td>"Añade autenticación JWT al endpoint anterior"</td><td>Seguridad integrada</td></tr>
-    <tr><td>4</td><td>"Crea pruebas unitarias para el endpoint de productos"</td><td>Tests automatizados</td></tr>
+    <tr><td>1</td><td>"Define el modelo de datos de tareas: título, proyecto, etiquetas, prioridad, vencimiento"</td><td>Modelo de datos</td></tr>
+    <tr><td>2</td><td>"Genera el endpoint GET /api/tareas con filtro por proyecto y prioridad"</td><td>Endpoint funcional</td></tr>
+    <tr><td>3</td><td>"Añade validación a crear tarea: título requerido, prioridad válida, vencimiento no pasado"</td><td>Validación integrada</td></tr>
+    <tr><td>4</td><td>"Crea pruebas para el endpoint de tareas (caso feliz, título vacío, fecha pasada)"</td><td>Tests automatizados</td></tr>
   </tbody>
 </table>
 </div>
@@ -134,7 +134,7 @@ Paso 3: "Ahora genera el endpoint GET /api/tareas que devuelva las tareas del us
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma un sistema simple (ej: un blog con posts, comentarios y usuarios) y diseña una secuencia de mínimo 5 prompts encadenados que construyan el sistema paso a paso. Para cada prompt, especifica: objetivo, qué contexto necesita del paso anterior, y qué resultado esperas.</p>
+<p>Toma la To-Do (crear y listar tareas con proyecto, etiquetas, prioridad y vencimiento) y diseña una secuencia de mínimo 5 prompts encadenados que la construyan paso a paso. Para cada prompt, especifica: objetivo, qué contexto necesita del paso anterior, y qué resultado esperas. Esta secuencia debe coincidir con la cadena de la Lección 3.6.</p>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>

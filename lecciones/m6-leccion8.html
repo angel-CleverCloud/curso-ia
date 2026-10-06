@@ -125,17 +125,25 @@
   <li>☐ Cada respuesta de IA fue revisada antes de aceptarse</li>
   <li>☐ Se identificaron y corrigieron errores</li>
   <li>☐ No se aceptó código sin comprenderlo</li>
+  <li>☐ Cada incremento se trabajó en una rama y se registró con commits</li>
+  <li>☐ Los commits son pequeños y con mensajes claros (convención conceptual tipo Conventional Commits)</li>
+  <li>☐ La integración se hizo vía Pull Request con revisión humana (checklist oficial + pruebas)</li>
+  <li>☐ Solo lo aprobado en revisión se integró (merge); nada directo sobre main sin revisar</li>
 </ul>
 <h3>Validación</h3>
 <ul>
   <li>☐ Se ejecutaron pruebas de caso feliz</li>
   <li>☐ Se ejecutaron pruebas de casos borde</li>
   <li>☐ Se verificó la seguridad básica</li>
+  <li>☐ Se validaron los adjuntos por tipo, tamaño y fallo de subida; el destino (S3 o Supabase Storage) quedó registrado como decisión pendiente</li>
+  <li>☐ Sin pruebas que pasen, no se integró (regla del módulo)</li>  <li>☐ Se registró el destino de despliegue y el smoke test posterior (marcador EC2, pendiente de definir si aplica)</li>
+  <li>☐ Se entiende la cadena final: desarrollo → integración → despliegue → smoke test → validación final</li>
 </ul>
 <h3>Documentación</h3>
 <ul>
-  <li>☐ Se documentó cada prompt y respuesta</li>
+  <li>☐ Se documentó cada prompt y respuesta con la plantilla oficial (Lección 5.5)</li>
   <li>☐ Se documentaron cambios aceptados y rechazados</li>
+  <li>☐ Se registraron las decisiones de flujo (persistencia, archivos, despliegue) aunque estén pendientes de definir</li>
 </ul>
 </section>
 <section class="l11-quizbox">

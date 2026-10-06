@@ -23,6 +23,7 @@
 
 <h2>El flujo correcto</h2>
 <ol><li>El ingeniero define qué necesita</li><li>La IA propone una solución</li><li>El ingeniero revisa críticamente</li><li>El ingeniero prueba la solución</li><li>El ingeniero decide aceptar, modificar o rechazar</li></ol>
+<div class="highlight"><strong>Proyecto conductor (To-Do):</strong> en este módulo construirás la To-Do (crear y listar tareas con proyecto, etiquetas, prioridad y vencimiento) siguiendo este flujo paso a paso. Cada paso aceptado se trabaja en una rama separada y se registra con un commit, de modo que cada decisión quede trazada antes de integrarse. Los detalles operativos de ramas, commits y Pull Requests se practican en el Módulo 6.</div>
 
 <h2>Herramientas</h2>
 <p>Chat-based (ChatGPT, Claude), integradas en IDE (Copilot, Codeium), o APIs.</p>
@@ -121,19 +122,20 @@
   <li>✔ Prueba el código generado en un entorno aislado antes de producción.</li>
   <li>✔ Documenta las decisiones importantes para mantener coherencia.</li>
   <li>✔ Usa control de versiones en cada paso del desarrollo asistido.</li>
+  <li>✔ Trabaja en una rama, no directamente sobre main; integra cambios pequeños y revisados, un commit por paso aceptado, con mensajes claros (a nivel conceptual, una convención tipo Conventional Commits).</li>
 </ul>
 </section>
 <section aria-label="Actividades">
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p><strong>Escenario:</strong> Tienes que implementar un validador de formularios en JavaScript que verifique email, teléfono y contraseña.</p>
+<p><strong>Escenario (proyecto conductor To-Do):</strong> Tienes que implementar el validador de "crear tarea": título requerido (1 a 120 caracteres), prioridad solo Alta/Media/Baja, y fecha de vencimiento no pasada.</p>
 <ol>
-  <li>Escribe un prompt para solicitar a la IA la función validadora. Sé específico sobre: formato de email, longitud mínima de contraseña, y formato de teléfono.</li>
-  <li>Ejecuta el prompt en ChatGPT, Claude o similar.</li>
-  <li>Revisa críticamente el código generado usando la checklist de la lección 4.5.</li>
-  <li>Identifica al menos 2 mejoras o correcciones necesarias.</li>
-  <li>Documenta el proceso: prompt usado, código recibido, correcciones aplicadas.</li>
+<li>Escribe un prompt para solicitar a la IA la función validadora, con el Context Packet de la To-Do (Lección 3.4) como fondo.</li>
+<li>Ejecuta el prompt en ChatGPT, Claude o similar.</li>
+<li>Revisa críticamente el código generado usando la checklist oficial de la lección 4.5.</li>
+<li>Identifica al menos 2 mejoras o correcciones necesarias.</li>
+<li>Documenta el proceso: prompt usado, código recibido, correcciones aplicadas.</li>
 </ol>
 </div>
 <div class="l11-activity">
@@ -150,6 +152,7 @@
   <li>Las herramientas se eligen según el contexto (chat, IDE, API).</li>
   <li>El tiempo del desarrollador se redistribuye hacia diseño, revisión y pruebas.</li>
   <li>La calidad del resultado depende del criterio humano, no de la IA.</li>
+  <li>El flujo con Git es: rama → cambios pequeños → commit por paso aceptado → Pull Request → revisión humana → integración. La IA genera, el desarrollador decide.</li>
 </ul>
 </section>
 <div class="evidence-section l11-evidence">

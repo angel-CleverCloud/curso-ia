@@ -43,8 +43,14 @@
 </ul>
 <h4>Paso 4: Integrar</h4>
 <p>A medida que aceptas partes del código, intégralas en un archivo o proyecto unificado. Mantén un registro de qué vino de la IA y qué fue modificado por ti.</p>
+<div class="highlight"><strong>Flujo de integración (laboratorio):</strong> cada paso aceptado se trabaja en una rama separada y se registra con un commit; al completar un incremento (p. ej. "crear tarea" validado y probado) se abre un Pull Request donde ocurre la revisión humana con la checklist oficial (Lección 4.5) y las pruebas mínimas (Lección 5.2). Solo lo aprobado se integra. Sin comandos ni convenciones inventadas: usa las de tu equipo; lo que importa es el orden ramas → commits → PR → revisión → integración.<br><br>
+<strong>Marcadores de flujo real (pendientes de definir, no configurar aquí):</strong> persistencia/backend en Supabase (incluida autenticación si aplica), archivos adjuntos en S3, despliegue en EC2 con smoke test posterior. En este laboratorio se registran como decisiones pendientes en la documentación, no como pasos ejecutados.</div>
 <h4>Paso 5: Iterar</h4>
 <p>Si un paso no produce el resultado esperado, no dudes en reformular el prompt o pedir aclaraciones antes de continuar. Es mejor iterar en un paso que arrastrar un error a través de toda la cadena.</p>
+</section>
+<section class="l11-card">
+<h2>Cadena final: desarrollo → despliegue → validación</h2>
+<div class="highlight"><strong>EC2 y despliegue (conceptual):</strong> ¿qué es? EC2 es donde la aplicación vive una vez terminada. ¿Para qué aparece en el flujo? Para cerrar el ciclo: desarrollo → integración → despliegue → smoke test → validación final. El smoke test confirma que la To-Do arranca y sus funciones clave (crear, listar, completar tareas) responden en el entorno desplegado. Sin comandos ni configuración de servidor aquí: solo el concepto y su lugar en el flujo.</div>
 </section>
 <section class="l11-card">
 <h2>Comparación: Ejecución sin supervisión vs. Ejecución supervisada</h2>
@@ -90,9 +96,9 @@
 <section class="l11-example">
 <h2>Ejemplos de decisiones durante la ejecución</h2>
 <ul>
-<li><strong>Desarrollo web:</strong> La IA genera un modal de edición que funciona pero no es responsive. Decisión: ✅ Aceptar con cambios — se agregan media queries manualmente.</li>
-<li><strong>Automatización:</strong> La IA propone una estructura de carpetas que no coincide con la del proyecto. Decisión: ❌ Rechazar — se reformula el prompt especificando la estructura exacta.</li>
-<li><strong>Prompt engineering:</strong> La IA entrega un análisis de ambigüedades que omite un caso crítico. Decisión: ✅ Aceptar con cambios — se documenta la omisión y se agrega manualmente.</li>
+<li><strong>To-Do (lista de tareas):</strong> La IA genera la lista de tareas que funciona pero no es responsive. Decisión: ✅ Aceptar con cambios — se agregan media queries manualmente.</li>
+<li><strong>Estructura del proyecto:</strong> La IA propone una estructura de carpetas que no coincide con la del proyecto. Decisión: ❌ Rechazar — se reformula el prompt especificando la estructura exacta.</li>
+<li><strong>Análisis de ambigüedades:</strong> La IA entrega un análisis que omite un caso borde (vencimiento pasado). Decisión: ✅ Aceptar con cambios — se documenta la omisión y se agrega manualmente.</li>
 </ul>
 <div class="highlight">
 <strong>💡 Consejo del instructor:</strong> La tentación más grande durante la ejecución es acelerar. Cuando un paso sale bien, queremos correr al siguiente. Cuando un paso sale mal, queremos saltarlo. Resiste ambas tentaciones. La calidad del proyecto final depende de la calidad de cada paso individual. Un error detectado en el paso 3 se corrige con un prompt; el mismo error detectado en el paso 8 requiere refactorizar medio proyecto.
@@ -113,8 +119,11 @@
 <ul class="l11-good">
 <li><strong>Documentar cada respuesta antes de continuar:</strong> No confíes en la memoria</li>
 <li><strong>Mantener un archivo de registro:</strong> Prompt → Respuesta → Decisión → Cambios</li>
-<li><strong>Usar control de versiones:</strong> Cada paso aceptado es un commit</li>
+<li><strong>Usar control de versiones:</strong> Cada paso aceptado es un commit en su rama; cambios pequeños, un commit por paso revisado</li>
+<li><strong>Integrar vía Pull Request:</strong> Solo lo aprobado en revisión se integra (merge); mensajes de commit claros, a nivel conceptual tipo Conventional Commits</li>
 <li><strong>Probar el código antes de integrarlo:</strong> No esperes al final para ejecutar</li>
+<li><strong>Validar archivos adjuntos:</strong> Tipo, tamaño y subida fallida se prueban como cualquier caso borde de la To-Do, antes de integrar</li>
+<li><strong>Registrar las decisiones pendientes:</strong> Persistencia (Supabase u otra), archivos adjuntos (S3 o Supabase Storage) y despliegue (EC2) se documentan como decisiones, no se configuran aquí</li>
 <li><strong>Si un prompt falla 2 veces, revísalo:</strong> El problema no es la IA, es el prompt</li>
 </ul>
 </section>

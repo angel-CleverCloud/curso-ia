@@ -354,6 +354,25 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })
 
+// ============================================================
+// DEV ONLY — USUARIO DE PRUEBA/DESARROLLO (NO USAR EN PRODUCCIÓN)
+// Credencial local hardcodeada únicamente para revisar el curso
+// sin desbloquear lecciones una por una. No es una solución de
+// producción: no hay backend que valide roles, así que cualquier
+// persona con acceso al código podría verla. No cambia el
+// comportamiento de los usuarios normales.
+// ============================================================
+const DEV_TEST_USER = {
+  email: 'dev@cleverlabs.local',
+  password: 'dev1234',
+  name: 'Dev Tester (prueba/desarrollo)'
+}
+
+function isDevTestUser() {
+  const u = getUser()
+  return !!u && u.isDevTest === true && u.email === DEV_TEST_USER.email
+}
+
 function handleRegistro(e) {
   e.preventDefault()
   const name = document.getElementById('regName').value.trim()
@@ -374,6 +393,14 @@ function handleLogin(e) {
   e.preventDefault()
   const email = document.getElementById('loginEmail').value.trim()
   const pass = document.getElementById('loginPassword').value
+  // DEV ONLY: usuario de prueba hardcodeado (ver bloque DEV_TEST_USER arriba).
+  // No toca cursoUsers ni el flujo de usuarios normales.
+  if (email === DEV_TEST_USER.email && pass === DEV_TEST_USER.password) {
+    saveUser({ name: DEV_TEST_USER.name, email: DEV_TEST_USER.email, photo: '', isDevTest: true })
+    console.warn('[DEV] Sesión de prueba/desarrollo activa. No usar en producción.')
+    window.location.href = 'panel.html'
+    return
+  }
   const users = JSON.parse(localStorage.getItem('cursoUsers') || '[]')
   const found = users.find(u => u.email === email && u.password === pass)
   if (!found) { alert('Correo o contraseña incorrectos'); return }
@@ -795,7 +822,9 @@ function renderModuleLessons(modId) {
     const key = 'm' + mod.id + '-l' + les.id
     const done = completed.indexOf(key) !== -1
     // Unlocked if: already completed, first incomplete, or previous lesson is completed
-    const unlocked = done || idx === firstIncompleteIdx || (firstIncompleteIdx !== -1 && idx < firstIncompleteIdx)
+    // DEV ONLY: el usuario de prueba ve todo desbloqueado (usuarios normales sin cambios)
+    const devBypass = isDevTestUser()
+    const unlocked = devBypass || done || idx === firstIncompleteIdx || (firstIncompleteIdx !== -1 && idx < firstIncompleteIdx)
     const record = records.find(function(r) { return r.lessonKey === key })
     const gradeStr = record ? ' (' + record.grade + '%)' : ''
     html += '<li>'
@@ -853,6 +882,9 @@ async function loadLesson(modId, lesId) {
       html = edited
     } else {
       var res = await fetch('lecciones/' + les.file + '.html')
+      if (!res.ok) {
+        throw new Error('No se pudo cargar ' + les.file + '.html (HTTP ' + res.status + ')')
+      }
       html = await res.text()
     }
     const parser = new DOMParser()
@@ -915,7 +947,11 @@ async function loadLesson(modId, lesId) {
 
     window.scrollTo(0, 0)
   } catch(e) {
-    content.innerHTML = '<p>Error al cargar la lección: ' + e.message + '</p>'
+    var msg = 'Error al cargar la lección: ' + e.message
+    if (window.location && window.location.protocol === 'file:') {
+      msg += '. Estás abriendo el curso como archivo local (file://) y el navegador bloquea la carga de lecciones en ese modo. Sirve la carpeta con un servidor local (por ejemplo VS Code Live Server o "npx serve") y abre panel.html vía http://localhost.'
+    }
+    content.innerHTML = '<p>' + msg + '</p>'
   }
 }
 

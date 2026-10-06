@@ -23,8 +23,8 @@
 <div class="l11-brief">
 <p class="l11-tag">Actividad</p>
 <h2>Enunciado</h2>
-<p>Dado el requerimiento:</p>
-<div class="highlight">"Dashboard para usuarios que muestra sus últimas 10 transacciones, su saldo actual, y un gráfico de gastos por categoría del mes actual. Solo datos de los últimos 30 días. Debe actualizarse cada 5 minutos."</div>
+<p>Dado el requerimiento oficial del curso (proyecto conductor To-Do, el mismo de la Lección 2.6):</p>
+<div class="highlight">"App web de tareas con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y dashboard. En esta cadena nos centramos en 'crear y listar tareas': RF-TODO-001, sus criterios Given-When-Then (Lección 2.4) y sus casos borde (Lección 2.5)."</div>
 <p>Crea una cadena de 6 prompts:</p>
 <ol>
   <li><strong>Prompt 1:</strong> Analiza el requerimiento y detecta ambigüedades</li>
@@ -43,58 +43,49 @@
 <p>Antes de empezar la cadena, define el Context Packet del proyecto. Esto asegura que la IA tenga toda la información de fondo necesaria.</p>
 <div class="prompt-block">
 <pre><code>## Objetivo:
-Dashboard financiero para usuarios de una app de banca personal
+App web de tareas (proyecto conductor): crear y listar tareas con proyecto, etiquetas, prioridad y vencimiento
 
 ## Rol:
-Desarrollador frontend senior especializado en dashboards
+Desarrollador full-stack senior
 
 ## Contexto:
-App web React 18 con TypeScript, datos simulados (mock API)
+Requerimiento oficial de la Lección 2.6 (mismo packet de la Lección 3.4)
 
 ## Estado actual:
-Proyecto Vite + React 18 + TypeScript + Tailwind CSS
-Estructura: /components, /hooks, /services, /types
-Mock API en /services/api.ts con datos de prueba
+Sin código todavía; se implementará por pasos
 
 ## Restricciones:
-- React 18, TypeScript strict mode
-- Recharts para gráficos
-- Tailwind CSS
-- Sin backend real (datos mock)
-- Actualización cada 5 minutos (setInterval)
+- Sin dependencias nuevas salvo aprobación
+- No exponer datos sensibles en prompts
+- Persistencia y despliegue: se definen en M5/M6
 
 ## Criterios de aceptación:
-- Muestra últimas 10 transacciones
-- Muestra saldo actual
-- Gráfico de gastos por categoría del mes actual
-- Datos filtrados a últimos 30 días
-- Actualización automática cada 5 minutos
-- Diseño responsive
+- Crea tarea válida con proyecto, etiquetas, prioridad y vencimiento
+- Rechaza título vacío y fecha pasada con mensajes claros
+- Lista tareas con filtros básicos
 
 ## Formato:
-Código completo de cada componente
+Código completo del paso solicitado + pruebas mínimas
 
 ## No hacer:
-- No modificar configuraciones existentes
+- No modificar persistencia sin aprobación
 - No agregar dependencias nuevas
-- No implementar backend real
 
 ## Revisión humana:
-- Verificar que los datos mostrados sean correctos
-- Validar que el gráfico se renderice adecuadamente</code></pre>
+- Verificar criterios de aceptación y casos borde de la Lección 2.5</code></pre>
 </div>
 <h3>Paso 2: Prompt 1 - Analizar ambigüedades</h3>
 <p>El primer prompt debe detectar qué información falta o es ambigua en el requerimiento.</p>
 <div class="prompt-block">
-<pre><code>Con el siguiente Context Packet, analiza el requerimiento del dashboard financiero y detecta TODAS las ambigüedades que encuentres.
+<pre><code>Con el siguiente Context Packet, analiza el requerimiento de la To-Do ("crear y listar tareas") y detecta TODAS las ambigüedades que encuentres.
 
-Requerimiento: "Dashboard para usuarios que muestra sus últimas 10 transacciones, su saldo actual, y un gráfico de gastos por categoría del mes actual. Solo datos de los últimos 30 días. Debe actualizarse cada 5 minutos."
+Requerimiento: "App web de tareas con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y dashboard. En esta cadena nos centramos en 'crear y listar tareas'."
 
 Para cada ambigüedad, explica por qué es relevante y qué información adicional necesitamos.</code></pre>
 </div>
 <h3>Paso 3: Prompt 2 - Especificación clara</h3>
 <div class="prompt-block">
-<pre><code>Basándote en el análisis anterior, escribe una especificación técnica clara y completa del dashboard financiero. La especificación debe incluir: componentes, datos, interacciones y reglas de negocio.</code></pre>
+<pre><code>Basándote en el análisis anterior, escribe una especificación técnica clara y completa de "crear y listar tareas". La especificación debe incluir: datos de la tarea, validaciones, interacciones y reglas de negocio.</code></pre>
 </div>
 <h3>Paso 4: Prompt 3 - Plan de implementación</h3>
 <div class="prompt-block">

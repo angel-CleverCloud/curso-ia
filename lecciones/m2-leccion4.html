@@ -26,7 +26,8 @@
 <div class="highlight"><strong>Inicio de sesión exitoso:</strong><br>Given: Un usuario registrado con correo "a@b.com" y contraseña "12345678"<br>When: El usuario ingresa credenciales correctas<br>Then: El sistema le muestra el dashboard principal</div>
 <div class="highlight"><strong>Contraseña incorrecta:</strong><br>Given: Un usuario registrado con correo "a@b.com"<br>When: El usuario ingresa una contraseña incorrecta<br>Then: El sistema muestra "Contraseña incorrecta" y no inicia sesión</div>
 <div class="highlight"><strong>Cuenta bloqueada:</strong><br>Given: Un usuario ha fallado 3 intentos de inicio de sesión<br>When: El usuario intenta iniciar sesión nuevamente<br>Then: El sistema muestra "Cuenta bloqueada por 30 minutos"</div>
-<p>Los criterios de aceptación son directamente convertibles en pruebas automatizadas.</p>
+<p>Los criterios de aceptación son directamente convertibles en pruebas automatizadas. Cada criterio de esta lección se convierte en una prueba en la Lección 5.2.</p>
+<div class="highlight"><strong>Proyecto conductor (To-Do) — crear tarea:</strong><br>Given: Un usuario en la vista de tareas con el proyecto "Personal" seleccionado<br>When: Crea una tarea con título "Comprar leche", prioridad Alta y vencimiento mañana<br>Then: La tarea aparece en la lista con prioridad Alta y fecha de vencimiento visible<br>Given: Una tarea con título vacío<br>When: El usuario intenta guardarla<br>Then: El sistema muestra "El título es requerido" y no crea la tarea</div>
 </section>
 <section class="l11-prose l11-lead">
 <h2>Introducción</h2>
@@ -89,7 +90,7 @@
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma el siguiente requerimiento funcional: "RF-004: El sistema debe permitir a los usuarios recuperar su contraseña mediante correo electrónico". Redacta al menos 5 criterios de aceptación en formato Given-When-Then que cubran: solicitud exitosa, correo no registrado, enlace expirado, token inválido y límite de intentos diarios. Cada criterio debe ser atómico y verificable.</p>
+<p>Para el proyecto conductor To-Do, toma el requerimiento "RF-TODO-001: crear tarea" y redacta al menos 5 criterios de aceptación en formato Given-When-Then que cubran: creación exitosa, título vacío, prioridad inválida, fecha pasada y proyecto inexistente. Cada criterio debe ser atómico y verificable. Estos criterios se usarán como pruebas en el Módulo 5.</p>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>

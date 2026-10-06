@@ -21,10 +21,11 @@
 <div class="l11-brief">
 <p class="l11-tag">Actividad</p>
 <h2>Enunciado</h2>
-<p>Dada la siguiente idea vaga:</p>
-<div class="highlight">"Necesitamos un dashboard para usuarios."</div>
-<p>Conviértela en:</p>
+<p>Dada la siguiente idea vaga (proyecto conductor del curso, la misma del Módulo 6, Lección 6.1):</p>
+<div class="highlight">"Necesitamos una aplicación web para gestionar tareas personales (to-do list) con proyectos, etiquetas, prioridades, fechas de vencimiento, recordatorios y un dashboard con estadísticas básicas."</div>
+<p>Conviértela en el <strong>requerimiento oficial del curso</strong> (se reutiliza en M3 y M6):</p>
 <ol><li>Un requerimiento claro usando la plantilla</li><li>Al menos 3 criterios de aceptación (Given-When-Then)</li><li>Al menos 3 casos borde</li><li>Preguntas faltantes para el cliente</li><li>Sección "Fuera de alcance"</li></ol>
+<div class="highlight"><strong>Rúbrica mínima:</strong> plantilla completa, 3 criterios verificables, 3 bordes con comportamiento esperado, fuera de alcance explícito. Este documento alimenta el Context Packet (M3) y el proyecto final (M6).</div>
 </div>
 </div>
 </section>
@@ -56,7 +57,7 @@ Preguntas abiertas:</code></pre>
 <h3>Las dimensiones de un buen requerimiento</h3>
 <p>Un requerimiento sólido cubre cinco dimensiones fundamentales. La primera es <strong>qué</strong> debe hacer el sistema: la funcionalidad concreta. La segunda es <strong>quién</strong> lo usa: el perfil del usuario. La tercera es <strong>bajo qué condiciones</strong>: las reglas de negocio y restricciones técnicas. La cuarta es <strong>cómo se verifica</strong>: los criterios de aceptación que permiten probar que funciona. La quinta es <strong>qué queda fuera</strong>: el límite explícito del alcance para evitar malentendidos.</p>
 <h3>De la idea vaga al requerimiento estructurado</h3>
-<p>Tomemos la idea "Necesitamos un dashboard para usuarios". Para estructurarla, debemos responder preguntas como: ¿qué tipo de usuario? ¿Administrador, cliente, ambos? ¿Qué métricas debe mostrar el dashboard? ¿Cada cuánto se actualizan los datos? ¿El usuario puede personalizar las visualizaciones? ¿Debe ser responsivo para dispositivos móviles? La plantilla de esta lección está diseñada para guiarte a través de estas preguntas de manera sistemática, asegurando que ningún aspecto crítico quede sin responder.</p>
+<p>Tomemos la idea To-Do ("app de tareas con proyectos, etiquetas, prioridades, vencimientos, recordatorios y dashboard"). Para estructurarla, debemos responder: ¿qué es una tarea (título, proyecto, etiquetas)? ¿qué prioridades existen? ¿qué muestra el dashboard? ¿cada cuánto se actualizan los datos? ¿qué queda fuera de la primera versión? La plantilla de esta lección está diseñada para guiarte de manera sistemática, asegurando que ningún aspecto crítico quede sin responder.</p>
 <h3>Criterios de aceptación con Given-When-Then</h3>
 <p>El formato Given-When-Then, proveniente de BDD (Behavior-Driven Development), convierte cada criterio de aceptación en un escenario comprobable. <strong>Given</strong> establece el contexto inicial. <strong>When</strong> describe la acción que desencadena el comportamiento. <strong>Then</strong> especifica el resultado esperado. Este formato tiene la ventaja de que puede traducirse directamente a pruebas automatizadas, cerrando el ciclo entre especificación y validación.</p>
 <h3>La sección "Fuera de alcance"</h3>
@@ -65,7 +66,7 @@ Preguntas abiertas:</code></pre>
 <section class="l11-example">
 <h2>Ejemplos</h2>
 <p>A continuación se muestra un ejemplo resuelto de la misma idea vaga usando la plantilla. Este es un modelo de referencia para tu ejercicio.</p>
-<div class="highlight"><strong>Nombre del requerimiento:</strong> Dashboard de métricas de usuario<br><strong>Problema que resuelve:</strong> Los administradores no tienen visibilidad centralizada del comportamiento de los usuarios en la plataforma<br><strong>Usuario objetivo:</strong> Administradores del sistema con rol "supervisor"<br><strong>Objetivo:</strong> Proporcionar una vista consolidada con métricas clave de actividad de usuarios<br><strong>Flujo principal:</strong> El administrador inicia sesión → navega a "Dashboard" → visualiza tarjetas con métricas → puede filtrar por rango de fechas<br><strong>Criterio de aceptación:</strong> Given un administrador con 3 usuarios registrados, When accede al dashboard, Then ve 3 tarjetas con nombre, fecha de registro y última actividad<br><strong>Casos borde:</strong> 0 usuarios registrados, 10,000+ usuarios (rendimiento), usuario sin sesión iniciada intentando acceder directamente por URL<br><strong>Fuera de alcance:</strong> Personalización de widgets, exportación a PDF, dashboard para usuarios regulares</div>
+<div class="highlight"><strong>Nombre del requerimiento:</strong> Gestión de tareas personales (To-Do, requerimiento oficial del curso)<br><strong>Problema que resuelve:</strong> Los usuarios no tienen una vista centralizada de sus tareas por proyecto, prioridad y vencimiento<br><strong>Usuario objetivo:</strong> Usuarios individuales que gestionan múltiples proyectos<br><strong>Objetivo:</strong> Permitir crear, organizar y priorizar tareas con recordatorios y dashboard básico<br><strong>Flujo principal:</strong> El usuario crea una tarea → asigna proyecto, etiquetas, prioridad y vencimiento → la consulta en su lista → la completa → revisa estadísticas en el dashboard<br><strong>Criterio de aceptación:</strong> Given un proyecto "Personal" seleccionado, When crea la tarea "Comprar leche" con prioridad Alta, Then la tarea aparece con prioridad Alta visible<br><strong>Casos borde:</strong> título vacío, vencimiento pasado, 0 tareas (lista vacía), prioridad inválida<br><strong>Fuera de alcance (v1):</strong> Colaboración multiusuario, exportación a PDF, personalización avanzada del dashboard</div>
 </section>
 <section class="l11-card">
 <h2>Comparaciones</h2>

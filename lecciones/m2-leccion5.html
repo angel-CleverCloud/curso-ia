@@ -58,6 +58,8 @@
 </section>
 <section class="l11-example">
 <h2>Ejemplos adicionales</h2>
+<div class="highlight"><strong>Proyecto conductor (To-Do) — casos borde de "crear tarea":</strong><br>Título vacío (rechazar con "El título es requerido"), título de 121 caracteres (rechazar, máximo 120), prioridad "Urgente" (inválida; solo Alta/Media/Baja), vencimiento ayer (rechazar), dos tareas con el mismo título (permitir, son distintas), adjunto de 15 MB (rechazar si el límite es 10 MB). Este catálogo es el único oficial del curso: se ejecuta como laboratorio en la Lección 5.3, sin volver a explicarse desde cero.</div>
+<div class="highlight"><strong>Problema de almacenamiento (S3):</strong> ¿qué es? Un servicio para guardar archivos (p. ej. adjuntos de tareas). ¿Para qué lo usaríamos? Para almacenar adjuntos fuera de la app. ¿Cuándo aparece? Cuando la To-Do acepte archivos: los bordes (tipo, tamaño, subida fallida) se validan igual siempre; el destino —S3 o Supabase Storage— depende de la arquitectura y queda como decisión pendiente.</div>
 <div class="highlight"><strong>Transferencia bancaria:</strong><br>Un sistema de transferencias debe manejar: monto exactamente 0 (rechazar), monto mínimo permitido de $1, monto máximo de $10,000, saldo exactamente igual al monto a transferir, transferencia a la misma cuenta del remitente, y dos transferencias simultáneas que agoten el saldo. Cada uno de estos es un caso borde con una respuesta específica.</div>
 <div class="highlight"><strong>Procesamiento de archivos con IA:</strong><br>Una herramienta que analiza CVs con IA debe manejar: archivo PDF vacío (0 páginas), PDF corrupto, PDF con 300 páginas, archivo que no es PDF aunque tenga extensión .pdf, nombre de archivo con caracteres especiales (ñ, ü, símbolos), y archivo protegido con contraseña. Cada caso borde requiere una respuesta distinta: error descriptivo, no solo "archivo inválido".</div>
 </section>
@@ -103,7 +105,7 @@
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma la funcionalidad de "carrito de compras" de un e-commerce. Identifica al menos 10 casos borde que podrían ocurrir, cubriendo las categorías: valores vacíos, límites, concurrencia, dependencias fallidas, formatos inválidos y permisos. Para cada caso borde, describe: (1) la condición exacta, (2) el comportamiento esperado del sistema, (3) el mensaje que debería mostrar al usuario.</p>
+<p>Para el proyecto conductor To-Do, toma la funcionalidad de "crear y listar tareas". Identifica al menos 10 casos borde cubriendo: valores vacíos, límites, concurrencia (dos ediciones simultáneas), dependencias fallidas (persistencia no disponible), formatos inválidos y permisos. Para cada caso borde, describe: (1) la condición exacta, (2) el comportamiento esperado, (3) el mensaje para el usuario.</p>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
@@ -118,8 +120,9 @@
 <li>El 90% de los bugs en producción ocurren en casos borde no anticipados.</li>
 <li>El pensamiento de límites es la técnica más efectiva para descubrirlos: valores mínimo, máximo, vacío, nulo.</li>
 <li>Las categorías comunes incluyen: vacíos, límites, nulos, concurrencia, dependencias, formatos, permisos y tiempos.</li>
-<li>Cada caso borde merece un mensaje de error específico, no un catch-all genérico.</li>
-<li>Documenta los casos borde junto con los requerimientos funcionales para que el equipo completo los conozca.</li>
+  <li>Cada caso borde merece un mensaje de error específico, no un catch-all genérico.</li>
+  <li>Documenta los casos borde junto con los requerimientos funcionales para que el equipo completo los conozca.</li>
+  <li>Los adjuntos de la To-Do se validan por tipo, tamaño y fallo de subida; dónde se almacenan (S3 o Supabase Storage) es decisión de arquitectura pendiente.</li>
 </ul>
 </section>
 <div class="conclusion"><p><strong>Conclusión:</strong> Los casos borde son donde el software se rompe, y donde los desarrolladores senior demuestran su valor. No se trata de escribir código para el 80% de los casos, sino de anticipar el 20% restante que causa los bugs más difíciles. Cultivar el pensamiento de límites es una de las inversiones más rentables en tu carrera como desarrollador.</p></div>

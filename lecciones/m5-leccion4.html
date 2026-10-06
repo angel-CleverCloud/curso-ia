@@ -21,6 +21,7 @@
 </section>
 <section class="l11-card">
 <h2>Proceso de revisión</h2>
+<div class="highlight"><strong>Cómo usar esta lección:</strong> las 4 pasadas son la técnica de revisión; los criterios de aceptación o rechazo son la checklist oficial de 8 puntos (Lección 4.5). En la práctica, ambas viven en el mismo Pull Request: pasas las 4 pasadas y decides con los 8 puntos.</div>
 <ol>
 <li><strong>Primera pasada — Estructural:</strong> ¿Sigue los patrones del proyecto? ¿Respeta convenciones?</li>
 <li><strong>Segunda pasada — Lógica:</strong> ¿La lógica es correcta? ¿Faltan condiciones? ¿Los bucles terminan?</li>
@@ -123,24 +124,24 @@
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Revisa el siguiente código generado por IA usando las 4 pasadas:</p>
+<p>Revisa el siguiente código de la To-Do generado por IA usando las 4 pasadas:</p>
 <div class="prompt-block">
-<pre><code>def process_data(data):
+<pre><code>def procesar_tareas(tareas):
     result = []
     for i in data:
         # TODO: implement
         pass
     return result
 
-def get_user(id):
+def get_tarea(id):
     import sqlite3
-    conn = sqlite3.connect('users.db')
+    conn = sqlite3.connect('tareas.db')
     cursor = conn.cursor()
-    cursor.execute(f"SELECT * FROM users WHERE id = {id}")
+    cursor.execute(f"SELECT * FROM tareas WHERE id = {id}")
     return cursor.fetchone()
 
-def calculate(x, y):
-    z = x + y
+def calcular_progreso(completadas, total):
+    z = completadas + total
     return z</code></pre>
 </div>
 <ol>
@@ -150,12 +151,12 @@ def calculate(x, y):
 <li>Pasada mantenibilidad: ¿qué dificultaría el mantenimiento?</li>
 </ol>
 <div class="highlight">
-<strong>Solución:</strong> <code>process_data</code> está incompleta (pass). <code>get_user</code> tiene SQL injection (f-string). <code>calculate</code> mezcla suma con nombre "calculate". La conexión SQL no se cierra. No hay manejo de errores en ninguna función.
+<strong>Solución:</strong> <code>procesar_tareas</code> está incompleta (pass). <code>get_tarea</code> tiene SQL injection (f-string). <code>calcular_progreso</code> suma en lugar de calcular un porcentaje y su nombre no describe parámetros. La conexión SQL no se cierra. No hay manejo de errores en ninguna función.
 </div>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
-<p>Pide a una IA que genere una función para autenticar usuarios con email y contraseña. Aplica las 4 pasadas de revisión. Documenta al menos 3 problemas que encuentres en cada pasada. Luego compara: ¿cuántos problemas encontró la revisión humana vs. los que encontraría un scanner automático?</p>
+<p>Pide a una IA que genere la función crear tarea de la To-Do (título, prioridad, vencimiento). Aplica las 4 pasadas de revisión. Documenta al menos 3 problemas que encuentres en cada pasada. Luego compara: ¿cuántos problemas encontró la revisión humana vs. los que encontraría un scanner automático?</p>
 </div>
 </div>
 </section>

@@ -59,6 +59,7 @@ con su correo electrónico y contraseña.
 </section>
 <section class="l11-example">
 <h2>Ejemplos adicionales</h2>
+<div class="highlight"><strong>RF-TODO-001 — Crear tarea (proyecto conductor):</strong><br>El sistema debe permitir crear una tarea con título, proyecto, etiquetas, prioridad y fecha de vencimiento.<br>- El título es requerido (1 a 120 caracteres); si está vacío, mostrar "El título es requerido"<br>- La prioridad solo admite Alta, Media o Baja (por defecto Media)<br>- Si el vencimiento es pasado, mostrar "La fecha no puede ser pasada"<br>- La persistencia de datos (dónde se guarda) se definirá en los Módulos 5 y 6; este RF no fija tecnología.</div>
 <div class="highlight"><strong>RF-002 — Registro de usuario:</strong><br>El sistema debe permitir que un visitante se registre proporcionando: nombre completo, correo electrónico válido y una contraseña de al menos 8 caracteres.<br>- El sistema debe enviar un correo de verificación al registro exitoso<br>- El sistema no debe permitir registros con correos duplicados<br>- El sistema debe mostrar "Correo ya registrado" si el correo existe</div>
 <div class="highlight"><strong>RF-003 — Búsqueda de productos:</strong><br>El sistema debe permitir buscar productos por nombre, categoría y rango de precio.<br>- Los resultados deben mostrar nombre, precio, imagen y calificación<br>- La búsqueda debe devolver resultados en menos de 2 segundos<br>- Si no hay resultados, mostrar "No se encontraron productos"</div>
 </section>
@@ -102,7 +103,7 @@ con su correo electrónico y contraseña.
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Imagina que trabajas en un equipo que desarrolla una aplicación de delivery de comida. Redacta 5 requerimientos funcionales para la funcionalidad de "seguimiento de pedido en tiempo real". Cada RF debe incluir: identificador, título, descripción detallada y condiciones de error. Aplica las características de claridad, verificabilidad, completitud, consistencia y necesidad que viste en esta lección.</p>
+<p>Para el proyecto conductor To-Do, redacta 5 requerimientos funcionales de "crear y organizar tareas" (crear tarea, asignar proyecto, asignar etiquetas, fijar prioridad y vencimiento, ver dashboard básico). Cada RF debe incluir: identificador (RF-TODO-XXX), título, descripción detallada y condiciones de error. Aplica claridad, verificabilidad, completitud, consistencia y necesidad.</p>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
@@ -117,8 +118,9 @@ con su correo electrónico y contraseña.
 <li>Deben ser claros, verificables, completos, consistentes y necesarios.</li>
 <li>Usa identificadores RF-XXX para trazabilidad entre requerimientos, pruebas y código.</li>
 <li>Incluye siempre condiciones de error y caminos alternativos.</li>
-<li>Separa requerimientos funcionales de no funcionales: comportamientos vs cualidades.</li>
-<li>Un RF bien escrito reduce iteraciones, evita malentendidos y acelera el desarrollo.</li>
+  <li>Separa requerimientos funcionales de no funcionales: comportamientos vs cualidades.</li>
+  <li>Un RF bien escrito reduce iteraciones, evita malentendidos y acelera el desarrollo.</li>
+  <li>La persistencia de la To-Do evoluciona: en v1 no se fija tecnología; Supabase se reserva como posible backend/base de datos (y autenticación, solo si el alcance la requiere). Decisión pendiente, ver Módulos 5 y 6.</li>
 </ul>
 </section>
 <div class="conclusion"><p><strong>Conclusión:</strong> La calidad de tus requerimientos funcionales determina la calidad del software que recibirás. Invertir tiempo en escribirlos bien es la forma más efectiva de ahorrar tiempo en desarrollo, pruebas y correcciones. Un requerimiento claro es el mejor regalo que puedes darle a tu equipo.</p></div>

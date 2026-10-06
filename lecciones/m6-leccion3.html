@@ -19,7 +19,8 @@
 <section class="l11-prose">
 <h2>Introducción</h2>
 <p>Una IA sin contexto es como un desarrollador que llega a un proyecto nuevo sin leer la documentación: puede escribir código, pero será genérico, incorrecto o irrelevante. El <em>context packet</em> es el documento que le entrega a la IA toda la información necesaria para generar código alineado con tu proyecto.</p>
-<p>En esta lección construirás el context packet para el proyecto final del curso, usando la plantilla de la Lección 3.4. Un buen contexto es la diferencia entre código que "funciona" y código que "resuelve el problema correcto".</p>
+<p>En esta lección construirás el context packet para el proyecto final del curso, usando la plantilla oficial de la Lección 3.4 (no una nueva: reutiliza sus 8 secciones y mejora el packet que creaste en el Módulo 3). Un buen contexto es la diferencia entre código que "funciona" y código que "resuelve el problema correcto".</p>
+<div class="highlight"><strong>Evolución de la persistencia (marcador pedagógico):</strong> en este proyecto la v1 usa localStorage. Supabase se reserva como backend/persistencia (incluida autenticación, si el proyecto la requiere) para cuando el proyecto lo necesite; S3 como destino de archivos adjuntos; EC2 como destino de despliegue. Ninguna configuración se define aquí: se concretan en la Lección 6.5 cuando exista información del flujo real.</div>
 </section>
 <section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
@@ -46,6 +47,7 @@
 <li>Código en español (nombres de variables, funciones, comentarios)</li>
 <li>Accesibilidad básica (etiquetas semánticas, ARIA donde aplique)</li>
 </ul>
+<div class="highlight"><strong>Evolución del proyecto (Supabase):</strong> ¿qué es? Un backend con base de datos que puede guardar las tareas fuera del navegador. ¿Para qué lo usaríamos? Para persistir tareas, proyectos y etiquetas cuando localStorage ya no baste. ¿Cuándo aparece? Después de la v1, como decisión de arquitectura pendiente (sin configurar aquí). La autenticación solo entra si el alcance la requiere: en v1 está fuera de alcance.</div>
 <h4>4. Criterios de aceptación</h4>
 <p>Son la guía que la IA usará para saber si su código es correcto. Deben ser específicos y verificables.</p>
 <div class="highlight">✅ El usuario puede crear, editar y eliminar proyectos<br>

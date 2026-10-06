@@ -23,29 +23,25 @@
 <div class="l11-brief">
 <p class="l11-tag">Actividad</p>
 <h2>Enunciado</h2>
-<p><strong>Requerimiento:</strong> Función que recibe un archivo CSV y devuelve un JSON con el promedio de cada columna numérica.</p>
+<p><strong>Requerimiento (proyecto conductor To-Do):</strong> Función que importa tareas desde un archivo CSV y devuelve la lista de tareas válidas. Cada fila debe tener título requerido; prioridad solo Alta/Media/Baja; el vencimiento no puede ser pasado.</p>
 <p><strong>Solución generada:</strong></p>
 <div class="prompt-block">
-<pre><code>import csv, json
+<pre><code>import csv
 
-def csv_to_json_promedios(ruta_archivo):
-    datos = []
+def importar_tareas_csv(ruta_archivo):
+    tareas = []
     with open(ruta_archivo, 'r') as archivo:
         lector = csv.DictReader(archivo)
         for fila in lector:
-            datos.append(fila)
-    promedios = {}
-    for columna in datos[0].keys():
-        suma = 0; count = 0
-        for fila in datos:
             try:
-                suma += float(fila[columna])
-                count += 1
+                tareas.append({
+                    "titulo": fila["titulo"],
+                    "prioridad": fila.get("prioridad", "Media"),
+                    "vencimiento": fila.get("vencimiento"),
+                })
             except:
                 pass
-        if count > 0:
-            promedios[columna] = suma / count
-    return json.dumps(promedios)</code></pre>
+    return tareas</code></pre>
 </div>
 <h3>Análisis detallado de problemas</h3>
 <div class="l11-table-scroll">
@@ -55,13 +51,13 @@ def csv_to_json_promedios(ruta_archivo):
 </thead>
 <tbody>
 <tr><td>1</td><td>No maneja archivo inexistente</td><td>Crítico</td><td>FileNotFoundError si la ruta no existe</td></tr>
-<tr><td>2</td><td>Falla con CSV vacío</td><td>Crítico</td><td>datos[0] lanza IndexError si no hay filas</td></tr>
-<tr><td>3</td><td>Mezcla columnas no numéricas</td><td>Crítico</td><td>Incluye IDs, fechas como si fueran numéricas</td></tr>
-<tr><td>4</td><td>Except genérico sin distinción</td><td>Mayor</td><td>Oculta errores que deberían ser visibles</td></tr>
-<tr><td>5</td><td>Archivo no se cierra explícitamente</td><td>Menor</td><td>Context manager lo cierra, pero no hay finally</td></tr>
+<tr><td>2</td><td>Falla con CSV vacío</td><td>Crítico</td><td>Sin filas: devuelve lista vacía sin avisar ni validar cabeceras</td></tr>
+<tr><td>3</td><td>No valida título requerido</td><td>Crítico</td><td>Crea tareas sin título, violando RF-TODO-001</td></tr>
+<tr><td>4</td><td>No valida prioridad</td><td>Crítico</td><td>Acepta cualquier valor, no solo Alta/Media/Baja</td></tr>
+<tr><td>5</td><td>Except genérico sin distinción</td><td>Mayor</td><td>Oculta errores que deberían ser visibles</td></tr>
 <tr><td>6</td><td>No valida encoding del archivo</td><td>Menor</td><td>Asume UTF-8, falla con otros encodings</td></tr>
 <tr><td>7</td><td>Carga todo en memoria</td><td>Mayor</td><td>Con archivos grandes, consume RAM innecesaria</td></tr>
-<tr><td>8</td><td>No hay separación de responsabilidades</td><td>Menor</td><td>Lectura, cálculo y serialización en una función</td></tr>
+<tr><td>8</td><td>No hay separación de responsabilidades</td><td>Menor</td><td>Lectura, validación y construcción en una función</td></tr>
 </tbody>
 </table>
 </div>
@@ -97,7 +93,7 @@ def csv_to_json_promedios(ruta_archivo):
 <li>Escribe las pruebas mínimas</li>
 <li>Decide: ¿Apruebas, requieres cambios o rechazas?</li>
 </ol>
-<p><strong>Problemas a identificar:</strong> Error si CSV vacío, no maneja archivos inexistentes, mezcla columnas no numéricas.</p>
+<p><strong>Problemas a identificar:</strong> Archivo inexistente, CSV vacío sin cabeceras, filas sin título, prioridad inválida, vencimiento pasado.</p>
 <div class="highlight">
 <strong>Consejo del instructor:</strong> En una auditoría real, prioriza los problemas críticos sobre los menores. Si el código tiene un solo problema crítico (como fallar con CSV vacío), ya merece "requiere cambios". No apruebes código con problemas bloqueantes, incluso si "funciona" en el caso feliz.
 </div>
@@ -106,7 +102,7 @@ def csv_to_json_promedios(ruta_archivo):
 <section class="l11-card">
 <h2>Errores frecuentes en este ejercicio</h2>
 <ul class="l11-mistakes l11-mistakes">
-<li><strong>Identificar solo los problemas obvios:</strong> El CSV vacío y el archivo inexistente son fáciles de ver; el problema de mezclar columnas requiere más análisis</li>
+<li><strong>Identificar solo los problemas obvios:</strong> El CSV vacío y el archivo inexistente son fáciles de ver; la falta de validación de título y prioridad requiere más análisis</li>
 <li><strong>Proponer soluciones sin considerar rendimiento:</strong> Cargar el CSV completo en memoria está bien para archivos pequeños, pero no escala</li>
 <li><strong>No escribir pruebas antes de corregir:</strong> Las pruebas deben documentar el comportamiento esperado antes de modificar el código</li>
 <li><strong>Aprobar el código porque "funciona en mi máquina":</strong> El caso feliz no es suficiente; el código debe manejar todos los casos borde</li>
@@ -134,7 +130,7 @@ def csv_to_json_promedios(ruta_archivo):
 <li><strong>Decisión:</strong> Apruebas / Requiere cambios / Rechazas con justificación</li>
 </ol>
 <div class="highlight" style="margin-top:15px;">
-<strong>Solución de referencia:</strong> La función corregida debe validar la existencia del archivo, manejar CSV vacío, detectar columnas numéricas automáticamente, usar processamiento por filas (no cargar todo en memoria), y separar la lógica en funciones más pequeñas. Las pruebas deben cubrir: archivo válido, archivo vacío, archivo inexistente, columnas mixtas, encoding no UTF-8.
+<strong>Solución de referencia:</strong> La función corregida debe validar la existencia del archivo, manejar CSV vacío y cabeceras faltantes, exigir título requerido, validar prioridad (Alta/Media/Baja) y vencimiento no pasado, usar procesamiento por filas (no cargar todo en memoria), y separar la lógica en funciones más pequeñas. Las pruebas deben cubrir: archivo válido, archivo vacío, archivo inexistente, fila sin título, prioridad inválida. Documenta la auditoría con la plantilla oficial de la Lección 5.5.
 </div>
 </div>
 </div>
@@ -143,7 +139,7 @@ def csv_to_json_promedios(ruta_archivo):
 <h2>Resumen</h2>
 <ul>
 <li>Una auditoría completa identifica problemas de severidad variada (crítico, mayor, menor)</li>
-<li>Los problemas críticos (CSV vacío, archivo inexistente) son bloqueantes y requieren cambios</li>
+<li>Los problemas críticos (título sin validar, prioridad inválida, archivo inexistente) son bloqueantes y requieren cambios</li>
 <li>Las pruebas mínimas deben cubrir cada caso borde identificado</li>
 <li>La decisión final debe basarse en la severidad de los problemas encontrados, no en el caso feliz</li>
 <li>Documentar la auditoría permite aprender y mejorar el proceso de revisión</li>

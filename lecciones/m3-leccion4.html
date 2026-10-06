@@ -38,9 +38,10 @@
 
 ## Restricciones técnicas:
 - Lenguaje/framework:
-- BD:
+- Persistencia: (se define en M5/M6; candidata: Supabase como backend/BD, decisión pendiente)
 - Dependencias permitidas:
 - Convenciones:
+- Despliegue: (se define en M6; reservar campo)
 
 ## Criterios de aceptación:
 - [Criterio 1]
@@ -141,6 +142,42 @@ Script Python autocontenido
 ## Revisión:
 - Probar con datos reales
 - Validar edge cases</code></pre>
+</div>
+</section>
+<section class="l11-example">
+<h2>Ejemplo completo: To-Do (packet oficial del curso)</h2>
+<div class="prompt-block">
+<pre><code>## Objetivo:
+App web de tareas con proyectos, etiquetas, prioridades, vencimientos, recordatorios y dashboard
+
+## Rol:
+Desarrollador full-stack senior
+
+## Contexto del proyecto:
+Requerimiento oficial de la Lección 2.6 (RF-TODO-001 y criterios Given-When-Then)
+
+## Estado actual:
+Sin código todavía; se implementará por pasos (ver Lección 3.5)
+
+## Restricciones técnicas:
+- Sin dependencias nuevas salvo aprobación
+- No exponer datos sensibles en prompts (ver M1, Regla 2)
+- Persistencia: se define en M5/M6
+- Despliegue: se define en M6
+
+## Criterios de aceptación:
+- Crea tarea válida con proyecto, etiquetas, prioridad y vencimiento
+- Rechaza título vacío y fecha pasada con mensajes claros
+
+## Formato de salida:
+Código completo del paso solicitado + pruebas mínimas
+
+## Qué no debe hacer:
+- No modificar persistencia sin aprobación
+- No agregar dependencias
+
+## Punto de revisión humana:
+- Validar criterios de aceptación y casos borde de la Lección 2.5</code></pre>
 </div>
 </section>
 <section class="l11-example">
@@ -274,6 +311,7 @@ Código completo de cada componente nuevo o modificado
 <ol>
   <li>Elige uno de estos proyectos (real o ficticio):
     <ul>
+      <li><strong>Proyecto conductor To-Do</strong> (recomendado: alimenta M6): tareas con proyectos, etiquetas, prioridades, vencimientos, recordatorios y dashboard</li>
       <li>Una API REST para gestión de inventario de una tienda</li>
       <li>Un script de automatización que descargue, procese y envíe reportes diarios</li>
       <li>Un componente React de calendario con eventos arrastrables</li>
@@ -322,6 +360,7 @@ Código completo de cada componente nuevo o modificado
   <li>Se versiona junto con el código y se actualiza periódicamente.</li>
   <li>Incluye siempre la sección de revisión humana para tareas críticas.</li>
   <li>Usar el mismo packet en todas las sesiones garantiza consistencia.</li>
+  <li>La persistencia queda como campo reservado (p. ej. Supabase como backend/base de datos, decisión pendiente): el packet no inventa la configuración, solo reserva el lugar.</li>
 </ul>
 </section>
 <div class="prompt-evidence-section l11-evidence">

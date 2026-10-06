@@ -21,17 +21,18 @@
 <ol><li><strong>Divide por funcionalidad:</strong> Cada prompt implementa UNA funcionalidad atómica</li><li><strong>Divide por capas:</strong> Primero modelo de datos, luego lógica, luego API, luego interfaz</li><li><strong>Revisa cada paso antes de continuar:</strong> No acumules errores</li><li><strong>Usa el resultado anterior como contexto del siguiente</strong></li></ol>
 </section>
 <section class="l11-example">
-<h2>Ejemplo de secuenciación</h2>
+<h2>Ejemplo de secuenciación (proyecto conductor To-Do: "crear y listar tareas")</h2>
 <div class="l11-table-scroll">
 <table class="l11-table"><thead><tr><th>Paso</th><th>Tarea</th><th>Tamaño</th></tr></thead><tbody>
-<tr><td>1</td><td>Definir modelo de datos</td><td>~5 líneas</td></tr>
-<tr><td>2</td><td>Crear endpoint GET</td><td>~15 líneas</td></tr>
-<tr><td>3</td><td>Crear endpoint POST</td><td>~15 líneas</td></tr>
-<tr><td>4</td><td>Añadir validación</td><td>~10 líneas</td></tr>
-<tr><td>5</td><td>Añadir pruebas</td><td>~20 líneas</td></tr>
-<tr><td>6</td><td>Añadir documentación</td><td>~10 líneas</td></tr>
+<tr><td>1</td><td>Definir modelo de datos de tarea</td><td>~5 líneas</td></tr>
+<tr><td>2</td><td>Crear endpoint POST (crear tarea)</td><td>~15 líneas</td></tr>
+<tr><td>3</td><td>Crear endpoint GET (listar con filtros)</td><td>~15 líneas</td></tr>
+<tr><td>4</td><td>Añadir validación (título, prioridad, vencimiento)</td><td>~10 líneas</td></tr>
+<tr><td>5</td><td>Añadir pruebas (feliz + borde/error)</td><td>~20 líneas</td></tr>
+<tr><td>6</td><td>Añadir documentación del paso</td><td>~10 líneas</td></tr>
 </tbody></table>
 </div>
+<div class="highlight"><strong>Plan operativo del curso:</strong> esta tabla es el plan que se ejecuta en el Módulo 6. Cada paso aceptado se registra con un commit en su rama antes de continuar (ver Módulo 6, Lección 6.5). Al completar un incremento (p. ej. "crear tarea" validado y probado) se abre un Pull Request: ahí ocurre la revisión humana y, solo si se aprueba, la integración (merge).</div>
 </section>
 <section class="l11-card">
 <h2>Ventajas</h2>
@@ -52,23 +53,23 @@
 </section>
 <section class="l11-example">
 <h2>Ejemplos</h2>
-<h3>Ejemplo: Sistema de autenticación completo</h3>
+<h3>Ejemplo: To-Do "crear y listar tareas" paso a paso</h3>
 <div class="l11-table-scroll">
 <table class="l11-table">
   <thead>
     <tr><th>Paso</th><th>Tarea</th><th>Detalle</th></tr>
   </thead>
   <tbody>
-    <tr><td>1</td><td>Modelo de usuario</td><td>Schema con email, password_hash, rol, fechas</td></tr>
-    <tr><td>2</td><td>Función de hash</td><td>bcrypt con salt automático</td></tr>
-    <tr><td>3</td><td>Endpoint de registro</td><td>POST /register con validaciones</td></tr>
-    <tr><td>4</td><td>Endpoint de login</td><td>POST /login con JWT</td></tr>
-    <tr><td>5</td><td>Middleware JWT</td><td>Protección de rutas</td></tr>
-    <tr><td>6</td><td>Pruebas de autenticación</td><td>Tests de registro, login, expiración</td></tr>
+    <tr><td>1</td><td>Modelo de tarea</td><td>Campos: título, proyecto, etiquetas, prioridad, vencimiento</td></tr>
+    <tr><td>2</td><td>Validación de crear tarea</td><td>Título requerido, prioridad válida, vencimiento no pasado</td></tr>
+    <tr><td>3</td><td>Endpoint crear tarea</td><td>POST /tareas con validaciones y errores claros</td></tr>
+    <tr><td>4</td><td>Endpoint listar tareas</td><td>GET /tareas con filtro por proyecto y prioridad</td></tr>
+    <tr><td>5</td><td>Manejo de errores</td><td>Título vacío, prioridad inválida, persistencia no disponible</td></tr>
+    <tr><td>6</td><td>Pruebas de tareas</td><td>Tests de creación, validación y casos borde</td></tr>
   </tbody>
 </table>
 </div>
-<h3>Ejemplo: Componente React de búsqueda</h3>
+<h3>Ejemplo: Componente ListaTareas con búsqueda</h3>
 <div class="l11-table-scroll">
 <table class="l11-table">
   <thead>
@@ -155,7 +156,7 @@
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma una funcionalidad que hayas implementado recientemente y descomponla en pasos pequeños siguiendo la estrategia por capas. Documenta la secuencia de prompts que usarías con la IA, indicando para cada paso: nombre, objetivo, tamaño estimado y resultado esperado. Mínimo 5 pasos.</p>
+<p>Toma la funcionalidad "crear y listar tareas" de la To-Do y descompónla en pasos pequeños siguiendo la estrategia por capas. Documenta la secuencia de prompts que usarías con la IA, indicando para cada paso: nombre, objetivo, tamaño estimado y resultado esperado. Mínimo 5 pasos. Usa la tabla de secuenciación de esta lección como base.</p>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
@@ -171,6 +172,7 @@
   <li>La división por capas (datos → lógica → API → interfaz) mantiene la coherencia arquitectónica.</li>
   <li>Cada paso debe ser revisado y probado antes de continuar.</li>
   <li>Un paso ideal no supera las 30 líneas de código generado.</li>
+  <li>Cada paso revisado y probado se registra con un commit; la integración se decide en el Pull Request, nunca directo sobre main.</li>
 </ul>
 </section>
 <div class="evidence-section l11-evidence">

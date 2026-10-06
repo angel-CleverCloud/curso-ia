@@ -44,19 +44,20 @@
 <li>Errores encontrados</li>
 <li>Conclusión</li>
 </ol>
-<h3>Plantilla de registro</h3>
+<h3>Plantilla de registro (oficial del curso)</h3>
 <div class="prompt-block">
 <pre><code>## Registro de uso de IA
 **Fecha:** 2026-07-01
-**Requerimiento:** Función que valida formato de email
-**Prompt:** "Escribe una función en Python que valide..."
+**Requerimiento:** RF-TODO-001 Crear tarea (título, prioridad, vencimiento)
+**Prompt:** "Con el Context Packet de la To-Do, implementa crear tarea con validación..."
 **Respuesta IA:** [pegar código generado]
-**Cambios aceptados:** Se usó la validación de dominio
-**Cambios rechazados:** No se usó la expresion regular (demasiado permisiva)
-**Pruebas:** Caso feliz, email inválido, string vacío
-**Errores:** La función original no detectaba emails sin TLD
-**Conclusión:** Prompt válido, pero requiere revisión de seguridad</code></pre>
+**Cambios aceptados:** Se usó la validación de título requerido
+**Cambios rechazados:** No se usó el manejo de prioridad (aceptaba cualquier valor)
+**Pruebas:** Caso feliz, título vacío, prioridad inválida
+**Errores:** La función original no rechazaba vencimiento pasado
+**Conclusión:** Prompt válido, pero requiere revisión de casos borde</code></pre>
 </div>
+<div class="highlight"><strong>Plantilla única:</strong> este registro es el formato oficial del curso. Se usa en la bitácora del Módulo 4, en las auditorías de este módulo y en la documentación final del Módulo 6. No se crea otro formato: se reutiliza este.</div>
 </section>
 <section class="l11-card">
 <h2>Comparación: Con documentación vs. Sin documentación</h2>
@@ -123,7 +124,7 @@
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Genera con IA una función que lea un archivo CSV y calcule el promedio de una columna. Luego completa el siguiente registro de documentación:</p>
+<p>Genera con IA la función importar tareas de la To-Do desde un archivo CSV. Luego completa el registro de documentación con la plantilla oficial de esta lección:</p>
 <ol>
 <li>¿Qué prompt usaste exactamente?</li>
 <li>¿Qué cambios hiciste al código generado?</li>

@@ -20,36 +20,50 @@
 <div class="l11-brief">
 <p class="l11-tag">Actividad</p>
 <h2>Enunciado</h2>
-<p><strong>Requerimiento:</strong> Función que recibe una lista de números y devuelve la suma de los pares.</p>
-<p><strong>Prompt usado:</strong> "Haz una función que sume números pares de una lista"</p>
+<p><strong>Requerimiento (proyecto conductor To-Do, RF-TODO-001):</strong> Función que crea una tarea con título, proyecto, prioridad y fecha de vencimiento. El título es requerido (1 a 120 caracteres), la prioridad solo admite Alta/Media/Baja, y el vencimiento no puede ser pasado.</p>
+<p><strong>Prompt usado:</strong> "Haz una función que cree una tarea con título, prioridad y vencimiento"</p>
 <p><strong>Respuesta de IA:</strong></p>
 <div class="prompt-block">
-<pre><code>def suma_pares(lista):
-    suma = 0
-    for num in lista:
-        if num % 2 == 0:
-            suma += num
-    return suma</code></pre>
+<pre><code>def crear_tarea(titulo, prioridad, vencimiento):
+    tarea = {
+        "titulo": titulo,
+        "prioridad": prioridad,
+        "vencimiento": vencimiento,
+        "completada": False,
+    }
+    return tarea</code></pre>
 </div>
 </div>
 <div class="l11-brief">
 <p class="l11-tag">Actividad</p>
 <h2>Tareas</h2>
-<ol><li>¿El código cumple el requerimiento? Identifica problemas</li><li>¿Qué casos borde no maneja?</li><li>¿Qué corregirías o mejorarías?</li><li>¿Qué pruebas escribirías?</li></ol>
+<ol><li>¿El código cumple el requerimiento? Identifica problemas</li><li>¿Qué casos borde de la Lección 2.5 no maneja?</li><li>¿Qué corregirías o mejorarías?</li><li>¿Qué pruebas escribirías (caso feliz + borde/error)?</li></ol>
 </div>
 </section>
 <section class="l11-card">
 <h2>Problemas a identificar</h2>
-<ul><li>No maneja lista vacía</li><li>No maneja tipos no numéricos</li><li>No maneja números negativos</li></ul>
+<ul><li>No valida título vacío ni longitud máxima</li><li>No valida prioridad (acepta cualquier valor)</li><li>No valida vencimiento pasado ni formato de fecha</li></ul>
 </section>
 <section class="l11-card">
 <h2>Solución mejorada</h2>
 <div class="prompt-block">
-<pre><code>def suma_pares(numeros):
-    if not isinstance(numeros, list):
-        raise TypeError("Se esperaba una lista")
-    return sum(num for num in numeros
-               if isinstance(num, (int, float)) and num % 2 == 0)</code></pre>
+<pre><code>def crear_tarea(titulo, proyecto=None, etiquetas=None, prioridad="Media", vencimiento=None):
+    if not isinstance(titulo, str) or not titulo.strip():
+        raise ValueError("El título es requerido")
+    if len(titulo.strip()) > 120:
+        raise ValueError("El título supera 120 caracteres")
+    if prioridad not in ("Alta", "Media", "Baja"):
+        raise ValueError("Prioridad inválida")
+    if vencimiento is not None and vencimiento < hoy():
+        raise ValueError("La fecha no puede ser pasada")
+    return {
+        "titulo": titulo.strip(),
+        "proyecto": proyecto,
+        "etiquetas": etiquetas or [],
+        "prioridad": prioridad,
+        "vencimiento": vencimiento,
+        "completada": False,
+    }</code></pre>
 </div>
 </section>
 <section class="l11-prose">
@@ -59,14 +73,14 @@
 <section class="l11-card l11-defs">
 <h2>Desarrollo del contenido</h2>
 <h3>Análisis del código generado</h3>
-<p>El código que la IA generó funciona para el caso básico: una lista de números positivos. Sin embargo, un ingeniero profesional debe considerar todos los casos posibles. El error no está en lo que el código hace, sino en lo que no hace.</p>
-<h3>Casos borde a considerar</h3>
+<p>El código que la IA generó funciona para el caso básico: una tarea con datos válidos. Sin embargo, un ingeniero profesional debe considerar todos los casos posibles. El error no está en lo que el código hace, sino en lo que no hace.</p>
+<h3>Casos borde a considerar (ver catálogo oficial en Lección 2.5)</h3>
 <ul>
-  <li><strong>Lista vacía:</strong> Debe devolver 0, no lanzar un error.</li>
-  <li><strong>Tipos no numéricos:</strong> Strings, None, booleanos deben manejarse o rechazarse explícitamente.</li>
-  <li><strong>Números negativos pares:</strong> -4 es par y debe sumarse.</li>
-  <li><strong>Lista con un solo elemento:</strong> Debe funcionar correctamente.</li>
-  <li><strong>Entrada que no es lista:</strong> Debe lanzar un error claro.</li>
+<li><strong>Título vacío:</strong> Debe rechazar con "El título es requerido", no crear la tarea.</li>
+<li><strong>Prioridad inválida:</strong> Solo Alta/Media/Baja; cualquier otro valor debe rechazarse.</li>
+<li><strong>Vencimiento pasado:</strong> Debe rechazar con "La fecha no puede ser pasada".</li>
+<li><strong>Título de 121 caracteres:</strong> Debe rechazar (máximo 120).</li>
+<li><strong>Tipos incorrectos:</strong> Título no string o vencimiento con formato inválido deben lanzar un error claro.</li>
 </ul>
 <h3>El proceso de corrección</h3>
 <ol>
@@ -79,40 +93,40 @@
 </section>
 <section class="l11-example">
 <h2>Ejemplos adicionales de correcciones</h2>
-<h3>Ejemplo: Función de búsqueda</h3>
-<p><strong>Prompt:</strong> "Función que busque un usuario por email en una lista"</p>
+<h3>Ejemplo: Buscar tarea por título</h3>
+<p><strong>Prompt:</strong> "Función que busque una tarea por título en una lista"</p>
 <p><strong>Código generado (con errores):</strong></p>
 <div class="prompt-block">
-<pre><code>def buscar_usuario(email, usuarios):
-    for usuario in usuarios:
-        if usuario['email'] == email:
-            return usuario
+<pre><code>def buscar_tarea(titulo, tareas):
+    for tarea in tareas:
+        if tarea['titulo'] == titulo:
+            return tarea
     return None</code></pre>
 </div>
-<p><strong>Problemas:</strong> No valida tipos, asume que todos los usuarios tienen campo 'email', no maneja email en mayúsculas.</p>
+<p><strong>Problemas:</strong> No valida tipos, asume que todas las tareas tienen campo 'titulo', no maneja mayúsculas ni espacios.</p>
 <p><strong>Versión mejorada:</strong></p>
 <div class="prompt-block">
-<pre><code>def buscar_usuario(email, usuarios):
-    if not isinstance(email, str):
-        raise TypeError("El email debe ser un string")
-    if not isinstance(usuarios, list):
-        raise TypeError("usuarios debe ser una lista")
-    email = email.lower().strip()
-    for usuario in usuarios:
-        if isinstance(usuario, dict) and usuario.get('email', '').lower().strip() == email:
-            return usuario
+<pre><code>def buscar_tarea(titulo, tareas):
+    if not isinstance(titulo, str):
+        raise TypeError("El título debe ser un string")
+    if not isinstance(tareas, list):
+        raise TypeError("tareas debe ser una lista")
+    titulo = titulo.lower().strip()
+    for tarea in tareas:
+        if isinstance(tarea, dict) and tarea.get('titulo', '').lower().strip() == titulo:
+            return tarea
     return None</code></pre>
 </div>
-<h3>Ejemplo: Procesamiento de archivos</h3>
-<p><strong>Prompt:</strong> "Función que lea un archivo CSV y devuelva los datos como lista de diccionarios"</p>
+<h3>Ejemplo: Importar tareas desde CSV</h3>
+<p><strong>Prompt:</strong> "Función que lea un archivo CSV de tareas y devuelva la lista de tareas"</p>
 <p><strong>Código generado (con errores):</strong></p>
 <div class="prompt-block">
 <pre><code>import csv
-def leer_csv(archivo):
+def importar_tareas_csv(archivo):
     with open(archivo) as f:
         return list(csv.DictReader(f))</code></pre>
 </div>
-<p><strong>Problemas:</strong> No maneja archivos inexistentes, no especifica encoding, no maneja archivos vacíos.</p>
+<p><strong>Problemas:</strong> No maneja archivos inexistentes, no especifica encoding, no maneja archivos vacíos, no valida que cada fila tenga título.</p>
 </section>
 <section class="l11-card">
 <h2>Comparación: Código original vs. Mejorado</h2>
@@ -122,10 +136,10 @@ def leer_csv(archivo):
     <tr><th>Aspecto</th><th>Código original</th><th>Código mejorado</th></tr>
   </thead>
   <tbody>
-    <tr><td>Manejo de lista vacía</td><td>Funciona por casualidad (sum=0)</td><td>Garantizado (retorna 0)</td></tr>
-    <tr><td>Validación de tipos</td><td>Ninguna</td><td>TypeError explícito</td></tr>
-    <tr><td>Números negativos pares</td><td>Sí funciona</td><td>Sí funciona</td></tr>
-    <tr><td>Valores no numéricos</td><td>Lanza TypeError genérico</td><td>Los ignora (comportamiento definido)</td></tr>
+    <tr><td>Validación de título</td><td>Ninguna (acepta vacío)</td><td>Rechaza vacío y +120 caracteres</td></tr>
+    <tr><td>Validación de prioridad</td><td>Ninguna</td><td>Solo Alta/Media/Baja</td></tr>
+    <tr><td>Validación de vencimiento</td><td>Ninguna</td><td>Rechaza fecha pasada</td></tr>
+    <tr><td>Tipos incorrectos</td><td>Error genérico o dato corrupto</td><td>Error explícito y claro</td></tr>
     <tr><td>Claridad del código</td><td>Mediana</td><td>Alta (explícito, legible)</td></tr>
   </tbody>
 </table>
@@ -156,11 +170,11 @@ def leer_csv(archivo):
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Completa el ejercicio propuesto en la sección de Tareas. Luego, aplica el mismo proceso de corrección a los 2 ejemplos adicionales (buscar_usuario y leer_csv). Para cada uno, documenta: errores identificados, correcciones aplicadas, y pruebas escritas.</p>
+<p>Completa el ejercicio propuesto en la sección de Tareas. Luego, aplica el mismo proceso de corrección a los 2 ejemplos adicionales (buscar_tarea e importar_tareas_csv). Para cada uno, documenta: errores identificados, correcciones aplicadas, y pruebas escritas.</p>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
-<p>Crea un script que automatice la prueba de la función suma_pares con los siguientes casos de prueba: lista vacía, lista con números negativos, lista con tipos mixtos, lista grande (10,000 elementos). El script debe mostrar qué casos pasan y cuáles fallan. Si todos pasan, mostrar "Pruebas superadas: código listo para producción".</p>
+<p>Crea un script que pruebe la función crear_tarea con los siguientes casos: tarea válida, título vacío, título de 121 caracteres, prioridad inválida, vencimiento pasado y tipos incorrectos. El script debe mostrar qué casos pasan y cuáles fallan. Si todos pasan, mostrar "Pruebas superadas: código listo para revisión".</p>
 </div>
 </div>
 </section>

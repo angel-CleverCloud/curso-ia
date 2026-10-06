@@ -50,11 +50,11 @@
 </section>
 <section class="l11-example">
 <h2>Ejemplos</h2>
-<h3>Ejemplo 1: Corrección de error en API</h3>
-<p><strong>Prompt original:</strong> "Crea un endpoint POST /usuarios"</p>
-<p><strong>Respuesta incorrecta:</strong> Código que no valida el email duplicado.</p>
+<h3>Ejemplo 1: Corrección en la To-Do (crear tarea)</h3>
+<p><strong>Prompt original:</strong> "Crea un endpoint POST /tareas"</p>
+<p><strong>Respuesta incorrecta:</strong> Código que no valida el título vacío ni la prioridad inválida.</p>
 <p><strong>Corrección efectiva:</strong></p>
-<div class="highlight">"El endpoint POST /usuarios que generaste no maneja el caso de email duplicado. Cuando intento registrar un email existente, devuelve 500 en lugar de 409. Añade una verificación antes de insertar: si el email existe, devuelve {'error': 'Email ya registrado'} con código 409."</div>
+<div class="highlight">"El endpoint POST /tareas que generaste no maneja el título vacío ni la prioridad inválida. Cuando creo una tarea sin título, devuelve 500 en lugar de 400. Añade validación antes de guardar: si el título está vacío, devuelve {'error': 'El título es requerido'} con código 400; si la prioridad no es Alta/Media/Baja, devuelve {'error': 'Prioridad inválida'} con código 400."</div>
 <h3>Ejemplo 2: Corrección de componente React</h3>
 <p><strong>Prompt original:</strong> "Crea un componente de contador en React"</p>
 <p><strong>Respuesta incorrecta:</strong> El botón de decremento permite valores negativos.</p>

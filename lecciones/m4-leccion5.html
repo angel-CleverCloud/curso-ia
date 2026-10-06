@@ -17,8 +17,9 @@
 </ul>
 </section>
 <section class="l11-card">
-<h2>Checklist de revisión</h2>
+<h2>Checklist de revisión (oficial del curso)</h2>
 <ol class="l11-todo"><li><strong>¿Cumple el requerimiento?</strong> ¿La función hace exactamente lo que se pidió?</li><li><strong>¿Respeta el alcance?</strong> ¿Hace algo que no se le pidió?</li><li><strong>¿Maneja errores?</strong> ¿Qué pasa si la entrada es inválida?</li><li><strong>¿Es legible?</strong> ¿Nombres claros? ¿Estructura lógica?</li><li><strong>¿Introduce dependencias innecesarias?</strong></li><li><strong>¿Es seguro?</strong> ¿SQL injection, XSS, exposición de datos?</li><li><strong>¿Tiene pruebas?</strong></li><li><strong>¿Se entiende por qué se hizo así?</strong></li></ol>
+<div class="highlight"><strong>Checklist oficial:</strong> estos 8 puntos son la referencia de todo el curso (se reutilizan en el Módulo 5 y en el proyecto del Módulo 6). Ningún código generado por IA se acepta sin pasar por esta revisión: si un punto falla, se corrige o se rechaza. En el flujo con Git, esta revisión ocurre en el Pull Request, antes de la integración.</div>
 </section>
 <section class="l11-prose">
 <h2>Introducción</h2>
@@ -42,12 +43,12 @@
 </section>
 <section class="l11-example">
 <h2>Ejemplos</h2>
-<h3>Ejemplo 1: Endpoint sin manejo de errores</h3>
+<h3>Ejemplo 1: Endpoint de tareas sin manejo de errores</h3>
 <p><strong>Código generado:</strong></p>
 <div class="prompt-block">
-<pre><code>app.get('/usuario/:id', (req, res) => {
-  const usuario = db.query(`SELECT * FROM usuarios WHERE id = ${req.params.id}`);
-  res.json(usuario);
+<pre><code>app.get('/tareas/:id', (req, res) => {
+  const tarea = db.query(`SELECT * FROM tareas WHERE id = ${req.params.id}`);
+  res.json(tarea);
 });</code></pre>
 </div>
 <p><strong>Problemas detectados:</strong></p>
@@ -56,16 +57,16 @@
   <li>⚠ Sin manejo de errores: si el query falla o el usuario no existe, la respuesta es impredecible.</li>
   <li>⚠ Sin validación: el id podría no ser un número.</li>
 </ul>
-<h3>Ejemplo 2: Función con dependencia innecesaria</h3>
+<h3>Ejemplo 2: Función de tareas con dependencia innecesaria</h3>
 <p><strong>Código generado:</strong></p>
 <div class="prompt-block">
 <pre><code>import _ from 'lodash';
-const sumArray = (arr) => _.sum(arr);</code></pre>
+const contarPendientes = (tareas) => _.filter(tareas, (t) => !t.completada).length;</code></pre>
 </div>
-<p><strong>Problema:</strong> Se importa lodash completo para una operación que JS nativo resuelve con <code>reduce</code>.</p>
+<p><strong>Problema:</strong> Se importa lodash completo para una operación que JS nativo resuelve con <code>filter</code>.</p>
 <p><strong>Versión mejorada:</strong></p>
 <div class="prompt-block">
-<pre><code>const sumArray = (arr) => arr.reduce((a, b) => a + b, 0);</code></pre>
+<pre><code>const contarPendientes = (tareas) => tareas.filter((t) => !t.completada).length;</code></pre>
 </div>
 <p>Esto elimina la dependencia externa y hace el código más ligero.</p>
 </section>
@@ -140,7 +141,7 @@ const sumArray = (arr) => _.sum(arr);</code></pre>
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>Toma 3 fragmentos de código generados por IA (pueden ser de lecciones anteriores o generados ahora) y aplícales la checklist de 8 puntos. Documenta para cada uno: qué puntos cumple, qué puntos falla, y tu decisión final (aceptar, corregir o rechazar). Incluye capturas o el código revisado.</p>
+<p>Toma 3 fragmentos del código de la To-Do generado en este módulo (validación de crear tarea, endpoint POST /tareas, endpoint GET /tareas) y aplícales la checklist oficial de 8 puntos. Documenta para cada uno: qué puntos cumple, qué puntos falla, y tu decisión final (aceptar, corregir o rechazar). Incluye capturas o el código revisado.</p>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
@@ -155,7 +156,7 @@ const sumArray = (arr) => _.sum(arr);</code></pre>
   <li>Los problemas más frecuentes son: falta de manejo de errores, dependencias innecesarias y vulnerabilidades de seguridad.</li>
   <li>Clasificar hallazgos en crítico/mejorable/ok ayuda a priorizar.</li>
   <li>Si no entiendes el código, no lo aceptes.</li>
-  <li>La revisión debe hacerse siempre antes de integrar, nunca después.</li>
+  <li>La revisión debe hacerse siempre antes de integrar, nunca después: en el flujo del curso, antes del merge del Pull Request.</li>
 </ul>
 </section>
 <div class="evidence-section l11-evidence">

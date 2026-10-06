@@ -17,7 +17,7 @@
 </section>
 <section class="l11-prose">
 <h2>Introducción</h2>
-<p>La IA suele generar código que funciona perfectamente con la entrada "típica" pero falla estrepitosamente cuando recibe datos inesperados. Un usuario que ingresa un número negativo, un archivo vacío, o una conexión de red que se cae — la IA rara vez anticipa estos escenarios. Esta lección te enseñará una estrategia sistemática para encontrar casos borde antes de que tus usuarios los encuentren por ti.</p>
+<p>La IA suele generar código que funciona perfectamente con la entrada "típica" pero falla estrepitosamente cuando recibe datos inesperados. Esta lección es un <strong>laboratorio práctico</strong>: no vuelve a explicar el catálogo de casos borde (ver catálogo oficial en Lección 2.5), sino que lo ejecuta sobre el código de la To-Do construido en el Módulo 4. Por cada borde del catálogo, escribirás la prueba que lo verifica.</p>
 </section>
 <section class="l11-card">
 <h2>Estrategia para encontrar casos borde</h2>
@@ -34,26 +34,28 @@
 <p>Cada vez que generes código con IA, recorre mentalmente estos 7 puntos y pregúntate: "¿Qué pasaría aquí?". Si la IA no manejó un escenario, agrega la validación manualmente. Con la práctica, este chequeo toma menos de 2 minutos.</p>
 </section>
 <section class="l11-example">
-<h2>Ejemplo completo</h2>
+<h2>Ejemplo completo (laboratorio To-Do)</h2>
 <div class="prompt-block">
-<pre><code>def get_usuario_por_id(db, usuario_id):
+<pre><code>def get_tarea_por_id(db, tarea_id):
     if not db:
         raise ConnectionError("BD no disponible")
-    if not isinstance(usuario_id, int):
+    if not isinstance(tarea_id, int):
         raise TypeError("ID debe ser entero")
-    if usuario_id <= 0:
+    if tarea_id <= 0:
         raise ValueError("ID debe ser positivo")
-    resultado = db.query("SELECT * FROM usuarios WHERE id = ?", usuario_id)
+    resultado = db.query("SELECT * FROM tareas WHERE id = ?", tarea_id)
     return resultado[0] if resultado else None</code></pre>
 </div>
-<h3>Análisis de casos borde en el ejemplo</h3>
+<h3>Análisis de casos borde en el ejemplo (aplica el catálogo de la Lección 2.5)</h3>
 <ul>
-<li><strong>Entrada vacía/nula:</strong> <code>db=None</code> → raise ConnectionError ✓; <code>usuario_id=None</code> → raise TypeError ✓</li>
-<li><strong>Entrada mínima/máxima:</strong> <code>usuario_id=0</code> → raise ValueError ✓; <code>usuario_id=-5</code> → raise ValueError ✓</li>
-<li><strong>Entrada inválida:</strong> <code>usuario_id="abc"</code> → raise TypeError ✓</li>
+<li><strong>Entrada vacía/nula:</strong> <code>db=None</code> → raise ConnectionError ✓; <code>tarea_id=None</code> → raise TypeError ✓</li>
+<li><strong>Entrada mínima/máxima:</strong> <code>tarea_id=0</code> → raise ValueError ✓; <code>tarea_id=-5</code> → raise ValueError ✓</li>
+<li><strong>Entrada inválida:</strong> <code>tarea_id="abc"</code> → raise TypeError ✓</li>
 <li><strong>Dependencias:</strong> <code>db.query()</code> falla → no hay try/except ⚠️ posible mejora</li>
 <li><strong>Resultado vacío:</strong> <code>resultado=[]</code> → retorna None ✓ (manejado correctamente)</li>
 </ul>
+<div class="highlight"><strong>Laboratorio:</strong> por cada punto con ✓ escribe la prueba correspondiente (ver Lección 5.2, regla feliz + borde/error). El punto con ⚠️ es tu ejercicio: agrega el manejo y su prueba.</div>
+<div class="highlight"><strong>Archivos adjuntos (S3):</strong> valida tipo permitido, tamaño máximo y subida fallida con mensajes claros, igual que cualquier borde. El destino del archivo —S3 o Supabase Storage— no se configura aquí: queda como decisión de arquitectura pendiente.</div>
 </section>
 <section class="l11-card">
 <h2>Comparación: Código sin manejo de bordes vs. Código robusto</h2>
@@ -115,22 +117,23 @@
 <section aria-label="Actividades">
 <div class="l11-grid-2">
 <div class="l11-activity">
-<h2>Actividad práctica</h2>
-<p>La IA ha generado esta función que divide dos números:</p>
+<h2>Actividad práctica (laboratorio To-Do)</h2>
+<p>La IA ha generado esta función del dashboard de la To-Do que calcula el porcentaje de tareas completadas:</p>
 <div class="prompt-block">
-<pre><code>def dividir(a, b):
-    return a / b</code></pre>
+<pre><code>def calcular_progreso(tareas):
+    completadas = sum(1 for t in tareas if t["completada"])
+    return completadas / len(tareas) * 100</code></pre>
 </div>
-<p>Aplica la estrategia de 7 pasos para identificar los casos borde. Luego:</p>
+<p>Aplica el catálogo de la Lección 2.5 para identificar los casos borde. Luego:</p>
 <ol>
 <li>Escribe una versión mejorada que maneje todos los casos borde</li>
-<li>Escribe pruebas para cada caso borde identificado</li>
-<li>¿Qué pasa con <code>b = 0</code>? ¿Y si <code>a</code> o <code>b</code> son <code>None</code>? ¿Y si son strings numéricos?</li>
+<li>Escribe pruebas para cada caso borde identificado (regla feliz + borde/error)</li>
+<li>¿Qué pasa con lista vacía (<code>[]</code>)? ¿Y si una tarea no tiene clave <code>"completada"</code>? ¿Y si <code>tareas</code> es <code>None</code>?</li>
 </ol>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
-<p>Genera con IA una función que lea un archivo JSON y devuelva la suma de los valores numéricos. Sin modificar el código generado, aplica la estrategia de 7 pasos para encontrar todos los casos borde. Documenta cada caso borde y escribe las pruebas correspondientes. ¿Cuántos casos encontraste? Comparte tu lista con un compañero y comparen resultados.</p>
+<p>Genera con IA una función que lea un archivo JSON con las tareas de la To-Do y devuelva cuántas están pendientes. Sin modificar el código generado, aplica el catálogo de la Lección 2.5 para encontrar todos los casos borde (archivo inexistente, JSON vacío, tarea sin título, encoding). Documenta cada caso borde y escribe las pruebas correspondientes.</p>
 </div>
 </div>
 </section>
@@ -139,9 +142,10 @@
 <ul>
 <li>La estrategia de 7 pasos cubre: entrada vacía, valores límite, tipos inválidos, estado del sistema, concurrencia, dependencias y tiempo</li>
 <li>El código generado por IA típicamente no maneja casos borde; es responsabilidad del desarrollador agregarlos</li>
-<li>Validar al inicio (fail fast) evita errores complejos más adelante</li>
-<li>Usar excepciones específicas mejora la legibilidad y el debugging</li>
-<li>Cada caso borde identificado debe tener una prueba automatizada</li>
+  <li>Validar al inicio (fail fast) evita errores complejos más adelante</li>
+  <li>Usar excepciones específicas mejora la legibilidad y el debugging</li>
+  <li>Cada caso borde identificado debe tener una prueba automatizada</li>
+  <li>Cuando la persistencia sea un backend (p. ej. Supabase, decisión pendiente), los mismos bordes aplican: backend no disponible, acceso denegado por permisos, dato inexistente</li>
 </ul>
 </section>
 <div class="evidence-section l11-evidence">

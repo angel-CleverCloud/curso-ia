@@ -23,30 +23,32 @@
 <section class="l11-card">
 <h2>Tipos de pruebas mínimas</h2>
 <div class="l11-table-scroll">
-<table class="l11-table"><thead><tr><th>Tipo</th><th>Descripción</th><th>Ejemplo</th></tr></thead><tbody>
-<tr><td>Prueba de humo</td><td>Verifica que se ejecuta sin errores</td><td>Llamar con datos válidos</td></tr>
-<tr><td>Prueba de caso feliz</td><td>Verifica el resultado esperado</td><td>suma_pares([2,4,6]) == 12</td></tr>
-<tr><td>Prueba de caso borde</td><td>Verifica límites</td><td>suma_pares([]) == 0</td></tr>
-<tr><td>Prueba de error</td><td>Verifica fallo correcto</td><td>suma_pares("texto") → TypeError</td></tr>
+<table class="l11-table"><thead><tr><th>Tipo</th><th>Descripción</th><th>Ejemplo (To-Do)</th></tr></thead><tbody>
+<tr><td>Prueba de humo</td><td>Verifica que se ejecuta sin errores</td><td>Crear tarea válida no lanza error</td></tr>
+<tr><td>Prueba de caso feliz</td><td>Verifica el resultado esperado</td><td>crear_tarea("Comprar leche", "Alta", mañana) crea la tarea</td></tr>
+<tr><td>Prueba de caso borde</td><td>Verifica límites</td><td>crear_tarea("", ...) rechaza con "El título es requerido"</td></tr>
+<tr><td>Prueba de error</td><td>Verifica fallo correcto</td><td>crear_tarea(..., "Urgente", ...) → ValueError</td></tr>
 <tr><td>Prueba de regresión</td><td>No rompe nada existente</td><td>Ejecutar tests existentes</td></tr>
 </tbody></table>
 </div>
 </section>
 <section class="l11-example">
-<h2>Ejemplo mínimo</h2>
+<h2>Ejemplo mínimo (proyecto conductor To-Do)</h2>
 <div class="prompt-block">
-<pre><code>def test_suma_pares_caso_feliz():
-    assert suma_pares([1, 2, 3, 4]) == 6
+<pre><code>def test_crear_tarea_caso_feliz():
+    tarea = crear_tarea("Comprar leche", prioridad="Alta", vencimiento=manana())
+    assert tarea["titulo"] == "Comprar leche"
 
-def test_suma_pares_lista_vacia():
-    assert suma_pares([]) == 0
+def test_crear_tarea_titulo_vacio():
+    with pytest.raises(ValueError):
+        crear_tarea("", prioridad="Alta", vencimiento=manana())
 
-def test_suma_pares_error_tipo():
-    with pytest.raises(TypeError):
-        suma_pares("no es lista")</code></pre>
+def test_crear_tarea_prioridad_invalida():
+    with pytest.raises(ValueError):
+        crear_tarea("Comprar leche", prioridad="Urgente", vencimiento=manana())</code></pre>
 </div>
 <h3>Explicación del ejemplo</h3>
-<p>La prueba de humo está implícita en la de caso feliz (si se ejecuta sin error, pasa humo). El caso borde (lista vacía) verifica que la función no falle con entrada límite. La prueba de error asegura que la función rechace entradas inválidas. Con estas 3 pruebas cubrimos los 5 tipos mínimos.</p>
+<p>La prueba de humo está implícita en la de caso feliz (si se ejecuta sin error, pasa humo). El caso borde (título vacío, del catálogo de la Lección 2.5) verifica el límite. La prueba de error (prioridad inválida) asegura un fallo claro. Estos tests derivan directamente de los criterios Given-When-Then de la Lección 2.4. Con estas 3 pruebas cubrimos los 5 tipos mínimos.</p>
 </section>
 <section class="l11-card">
 <h2>Comparación: Sin pruebas vs. Con pruebas mínimas</h2>
@@ -96,7 +98,7 @@ def test_suma_pares_error_tipo():
 <li><strong>Escribir pruebas antes de integrar:</strong> Genera el código con IA, escribe las pruebas, verifica que pasen</li>
 <li><strong>Una prueba por tipo de fallo posible:</strong> Cada tipo de entrada incorrecta merece su propia prueba</li>
 <li><strong>Automatizar las pruebas:</strong> Integra las pruebas en un pipeline CI/CD para que se ejecuten en cada cambio</li>
-<li><strong>Documentar qué prueba cada caso:</strong> Usa nombres descriptivos como <code>test_suma_pares_lista_vacia</code></li>
+<li><strong>Documentar qué prueba cada caso:</strong> Usa nombres descriptivos como <code>test_crear_tarea_titulo_vacio</code></li>
 <li><strong>Re-ejecutar pruebas al regenerar:</strong> Si pides a la IA que modifique el código, ejecuta todas las pruebas de nuevo</li>
 </ul>
 </section>
@@ -104,25 +106,27 @@ def test_suma_pares_error_tipo():
 <div class="l11-grid-2">
 <div class="l11-activity">
 <h2>Actividad práctica</h2>
-<p>La IA ha generado esta función que debe contar cuántas vocales tiene una cadena:</p>
+<p>La IA ha generado esta función de la To-Do que normaliza la prioridad de una tarea:</p>
 <div class="prompt-block">
-<pre><code>def contar_vocales(texto):
-    return sum(1 for c in texto if c in "aeiou")</code></pre>
+<pre><code>def normalizar_prioridad(p):
+    if p in ("Alta", "Media", "Baja"):
+        return p
+    raise ValueError("Prioridad inválida")</code></pre>
 </div>
 <p>Escribe las pruebas mínimas (humo, caso feliz, caso borde y error) para esta función. Considera:</p>
 <ol>
-<li>¿Qué pasa si el texto está vacío?</li>
-<li>¿Qué pasa si no hay vocales?</li>
-<li>¿Qué pasa si hay mayúsculas?</li>
+<li>¿Qué pasa si la prioridad es "Alta"?</li>
+<li>¿Qué pasa si es "alta" en minúsculas o " ALTA " con espacios?</li>
+<li>¿Qué pasa si es "Urgente"?</li>
 <li>¿Qué pasa si el argumento no es string?</li>
 </ol>
 <div class="highlight">
-<strong>Solución:</strong> La función falla con mayúsculas (<code>"AEIOU"</code> no contiene <code>"aeiou"</code>). Debería usarse <code>c.lower() in "aeiou"</code>. Además, la prueba de error debe verificar que entrada numérica lance <code>TypeError</code> o se maneje adecuadamente.
+<strong>Solución:</strong> La función falla con "alta" en minúsculas o con espacios (casos borde de formato, ver Lección 2.5). Debería normalizar con <code>p.strip().capitalize()</code> antes de comparar. Además, la prueba de error debe verificar que una prioridad inválida lance <code>ValueError</code>.
 </div>
 </div>
 <div class="l11-activity">
 <h2>Mini reto</h2>
-<p>Genera con IA una función que encuentre el número más frecuente en una lista. Sin revisar el código, escribe las 5 pruebas mínimas (humo, caso feliz, caso borde, error, regresión). Luego ejecuta el código generado contra tus pruebas. ¿Cuántas pruebas fallaron? Ese es el número de bugs que la IA introdujo.</p>
+<p>Genera con IA una función que ordene las tareas de la To-Do por fecha de vencimiento. Sin revisar el código, escribe las 5 pruebas mínimas (humo, caso feliz, caso borde, error, regresión) derivadas de los criterios de la Lección 2.4. Luego ejecuta el código generado contra tus pruebas. ¿Cuántas pruebas fallaron? Ese es el número de bugs que la IA introdujo.</p>
 </div>
 </div>
 </section>

@@ -18,7 +18,7 @@
 </section>
 <section class="l11-prose">
 <h2>Introducción</h2>
-<p>El código generado por IA no es el producto final — es un borrador que debe pasar por un proceso de validación riguroso. En esta lección aplicarás las técnicas de validación del Módulo 4 (checklist de revisión, pruebas mínimas, seguridad) al código generado en la lección anterior.</p>
+<p>El código generado por IA no es el producto final — es un borrador que debe pasar por un proceso de validación riguroso. En esta lección aplicarás al código de la lección anterior la checklist oficial de 8 puntos (Lección 4.5) y las pruebas mínimas feliz + borde/error (Lección 5.2). Esta lección no vuelve a enseñarlas: las ejecuta. Regla de este módulo: sin pruebas que pasen, no hay integración.</p>
 <p>En proyectos reales, saltarse la validación de código generado por IA es la principal causa de bugs en producción. Un código que "se ve bien" puede contener vulnerabilidades graves, errores lógicos sutiles o simplemente no cumplir con los requerimientos.</p>
 </section>
 <section class="l11-card l11-defs">
@@ -108,9 +108,9 @@
 <section class="l11-example">
 <h2>Ejemplos de problemas detectados en validación</h2>
 <ul>
-<li><strong>Desarrollo web:</strong> Una función de búsqueda que filtra en cliente pero debería filtrar también en datos añadidos dinámicamente — caso borde no contemplado</li>
-<li><strong>Seguridad:</strong> Un campo de texto que renderiza HTML directamente (<code>innerHTML</code>) sin sanitizar — riesgo de XSS</li>
-<li><strong>Automatización:</strong> Un script que elimina archivos sin confirmación previa — riesgo de pérdida de datos</li>
+<li><strong>To-Do (lista de tareas):</strong> Una función de búsqueda que filtra tareas en cliente pero no contempla tareas añadidas dinámicamente — caso borde no contemplado</li>
+<li><strong>Seguridad:</strong> El título de la tarea se renderiza con <code>innerHTML</code> sin sanitizar — riesgo de XSS</li>
+<li><strong>To-Do (eliminar tareas):</strong> Una función que elimina tareas completadas sin confirmación previa — riesgo de pérdida de datos</li>
 <li><strong>IA generativa:</strong> Una función que usa un API key hardcodeado en el código — vulnerabilidad crítica</li>
 </ul>
 <div class="highlight">

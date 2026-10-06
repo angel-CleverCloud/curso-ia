@@ -22,6 +22,7 @@
 <p>En proyectos reales, una respuesta de IA no verificada puede traducirse en bugs en producción, vulnerabilidades de seguridad o pérdida de tiempo depurando código que nunca debió implementarse. Saber <em>cuándo</em> desconfiar es tan importante como saber <em>cómo</em> pedir.</p>
 </section>
 <section class="l11-card l11-group">
+<div class="highlight"><strong>Conexión con el Módulo 1:</strong> esta lección aplica la Regla 1 ("Nunca confíes ciegamente", Lección 1.4) al código ya construido en el Módulo 4. No repite la teoría: la convierte en verificación práctica sobre la To-Do antes de integrar.</div>
 
 <h2>Alucinaciones</h2>
 <p>La IA genera información falsa pero con apariencia de verdad: funciones de librerías que no existen, APIs inventadas.</p>
@@ -29,6 +30,7 @@
 <p>Los modelos de lenguaje no tienen una base de datos de hechos; predicen la siguiente palabra más probable según su entrenamiento. Cuando no tienen información suficiente, "inventan" respuestas plausibles. Esto es especialmente peligroso con bibliotecas recientes o frameworks menos conocidos.</p>
 <h3>Ejemplo real</h3>
 <p>Un desarrollador pide a ChatGPT una función usando <code>pandas.DataFrame.merge_advanced()</code> — un método que no existe. La IA genera código que "se ve bien" pero falla al ejecutarse porque la función es inventada. El desarrollador pierde 30 minutos depurando antes de darse cuenta de que el método nunca existió.</p>
+<div class="highlight"><strong>Caso To-Do:</strong> la IA genera <code>tarea.guardar_en_nube()</code>, un método que no existe en el modelo de la To-Do. El código compila pero falla al ejecutarse. La revisión con la checklist oficial (Lección 4.5) y una prueba de humo lo detectan en segundos.</div>
 
 <h2>Sesgo de confirmación</h2>
 <p>Tendemos a aceptar lo que confirma nuestras expectativas. Si la IA da una respuesta que "se ve bien", tendemos a no revisarla a fondo.</p>

@@ -18,7 +18,7 @@
 </section>
 <section class="l11-prose">
 <h2>Introducción</h2>
-<p>Una idea inicial es como un boceto en servilleta: captura la esencia pero carece del detalle necesario para construir. En esta lección tomarás la idea del proyecto final y la transformarás en un requerimiento formal utilizando las técnicas de descubrimiento, refinamiento y especificación que aprendiste en el Módulo 2.</p>
+<p>Una idea inicial es como un boceto en servilleta: captura la esencia pero carece del detalle necesario para construir. <strong>Cómo trabajar esta lección:</strong> no se vuelve a enseñar el Módulo 2; se aplica. Toma el requerimiento oficial de la Lección 2.6 y mejóralo aquí. El resultado alimenta el Context Packet (6.3), la cadena (6.4) y la validación (6.6).</p>
 <p>En proyectos reales, esta traducción de "idea" a "requerimiento" es donde fracasan la mayoría de los proyectos. Un requerimiento ambiguo o incompleto genera código incorrecto, retrabajo y frustración. Con IA, el problema se magnifica: la IA no puede preguntar "¿qué quisiste decir aquí?" — simplemente generará algo que parece correcto pero no lo es.</p>
 </section>
 <section class="l11-card l11-defs">
@@ -38,12 +38,12 @@
 </ul>
 <h3>Paso 2: Requerimientos funcionales (Lección 2.3)</h3>
 <p>Un requerimiento funcional describe qué debe hacer el sistema. Debe ser específico, medible y verificable. Ejemplo:</p>
-<div class="highlight">RF-01: El sistema permitirá a los usuarios registrados crear proyectos con nombre, descripción y color identificativo.<br>
-RF-02: El sistema permitirá crear tareas dentro de un proyecto con título, descripción, prioridad (alta/media/baja), fecha de vencimiento y etiquetas.<br>
-RF-03: El sistema enviará un recordatorio por notificación del navegador 24 horas antes de la fecha de vencimiento de una tarea.</div>
+<div class="highlight">RF-TODO-001: El sistema permitirá a los usuarios registrados crear proyectos con nombre, descripción y color identificativo.<br>
+RF-TODO-002: El sistema permitirá crear tareas dentro de un proyecto con título, descripción, prioridad (alta/media/baja), fecha de vencimiento y etiquetas.<br>
+RF-TODO-003: El sistema enviará un recordatorio por notificación del navegador 24 horas antes de la fecha de vencimiento de una tarea.</div>
 <h3>Paso 3: Criterios de aceptación Given-When-Then (Lección 2.4)</h3>
 <p>Los criterios de aceptación definen cuándo un requerimiento se considera cumplido. Usando el formato Given-When-Then:</p>
-<div class="highlight"><strong>RF-02:</strong> Crear tarea con prioridad<br>
+<div class="highlight"><strong>RF-TODO-002:</strong> Crear tarea con prioridad<br>
 <strong>Given</strong> un usuario autenticado en un proyecto existente<br>
 <strong>When</strong> el usuario crea una tarea con prioridad "alta", título "Revisar diseño" y fecha de vencimiento "2026-08-15"<br>
 <strong>Then</strong> la tarea se guarda con esos datos<br>
@@ -73,7 +73,7 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 <tr><th>Aspecto</th><th>Idea inicial</th><th>Requerimiento refinado</th></tr>
 </thead>
 <tbody>
-<tr><td>Formato</td><td>Lenguaje natural</td><td>Estructurado (RF-01, RF-02...)</td></tr>
+<tr><td>Formato</td><td>Lenguaje natural</td><td>Estructurado (RF-TODO-XXX...)</td></tr>
 <tr><td>Ambigüedad</td><td>Alta</td><td>Baja o nula</td></tr>
 <tr><td>Verificabilidad</td><td>No verificable</td><td>Criterios Given-When-Then</td></tr>
 <tr><td>Casos borde</td><td>No contemplados</td><td>Identificados y especificados</td></tr>
@@ -127,7 +127,7 @@ RF-03: El sistema enviará un recordatorio por notificación del navegador 24 ho
 <section class="l11-card">
 <h2>Buenas prácticas</h2>
 <ul class="l11-good l11-good">
-<li><strong>Usar numeración única:</strong> RF-01, RF-02... para trazabilidad</li>
+<li><strong>Usar numeración única:</strong> RF-TODO-XXX para trazabilidad</li>
 <li><strong>Escribir un criterio de aceptación por requerimiento:</strong> Si tiene múltiples, divídelo</li>
 <li><strong>Revisar requerimientos con otra persona:</strong> El sesgo del autor oculta ambigüedades</li>
 <li><strong>Mantener un glosario de términos:</strong> "Usuario", "Administrador", "Tarea" deben tener definiciones únicas</li>
